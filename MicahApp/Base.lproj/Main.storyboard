@@ -1,13 +1,77 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Ogg-yL-6JJ">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Navigation Controller-->
+        <scene sceneID="dyS-Da-oZC">
+            <objects>
+                <navigationController id="Ogg-yL-6JJ" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="wqD-lq-Pdr">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="xbX-ct-wS2"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2uN-CG-c80" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-504" y="208"/>
+        </scene>
+        <!--Produtos-->
+        <scene sceneID="lkB-18-yFw">
+            <objects>
+                <tableViewController id="WCq-yO-Ifi" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="zh1-nf-erc">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="y59-Nh-hat">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="y59-Nh-hat" id="4Wp-gI-Ju9">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="WCq-yO-Ifi" id="zWB-Lr-Ur1"/>
+                            <outlet property="delegate" destination="WCq-yO-Ifi" id="CUX-hF-w4o"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Produtos" id="rjV-vD-ak7"/>
+                    <connections>
+                        <segue destination="1JD-WD-PoK" kind="show" id="7on-A1-E4c"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9AI-t5-mWP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="258" y="-616"/>
+        </scene>
+        <!--Novo Produto-->
+        <scene sceneID="3TU-GB-MXb">
+            <objects>
+                <viewController id="1JD-WD-PoK" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6Uu-2V-rcw"/>
+                        <viewControllerLayoutGuide type="bottom" id="evN-nh-rjE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="YSp-nZ-qJV">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Novo Produto" id="6IC-M3-YyW"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5Y2-iB-3G3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1011" y="-616"/>
+        </scene>
+        <!--Orca-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +79,283 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N60-lp-kAc">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Perfil">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="177" y="331" width="46" height="30"/>
+                                </variation>
+                                <connections>
+                                    <segue destination="jJJ-sf-bMd" kind="show" id="ZdW-IB-6ll"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r1g-hB-wUJ">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Histórico">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="161" y="395" width="78" height="30"/>
+                                </variation>
+                                <connections>
+                                    <segue destination="uY1-ta-yzf" kind="show" id="OGA-yu-2Z7"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mJq-Kb-EVQ">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Produtos">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="163" y="459" width="74" height="30"/>
+                                </variation>
+                                <connections>
+                                    <segue destination="WCq-yO-Ifi" kind="show" id="8sv-4O-Bmh"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="asQ-51-tU1">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Gerar Orçamentos">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="130" y="174" width="140" height="30"/>
+                                </variation>
+                                <connections>
+                                    <segue destination="2gx-dI-lFE" kind="show" id="oUM-qJ-cdN"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="N60-lp-kAc"/>
+                                <exclude reference="r1g-hB-wUJ"/>
+                                <exclude reference="mJq-Kb-EVQ"/>
+                                <exclude reference="asQ-51-tU1"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="N60-lp-kAc"/>
+                                <include reference="r1g-hB-wUJ"/>
+                                <include reference="mJq-Kb-EVQ"/>
+                                <include reference="asQ-51-tU1"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <navigationItem key="navigationItem" title="Orca" id="Wfb-Z9-hGD"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="258" y="208"/>
+        </scene>
+        <!--Gerar Orçamento-->
+        <scene sceneID="F4G-PW-m9E">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="2gx-dI-lFE" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" title="Gerar Orçamento" id="O2T-cd-Aao"/>
+                    <connections>
+                        <segue destination="Es6-Ra-au5" kind="show" id="mr4-8v-v7p"/>
+                    </connections>
+                </pageViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fjZ-VO-uu3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1054.5" y="208"/>
+        </scene>
+        <!--arquivo.pdf-->
+        <scene sceneID="gry-ig-aXB">
+            <objects>
+                <viewController id="Es6-Ra-au5" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="4Iy-hT-FOB"/>
+                        <viewControllerLayoutGuide type="bottom" id="hWT-CR-lLN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="68O-ls-Joo">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="heF-0v-HXQ">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Wpe-zq-5QV">
+                                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                        <variation key="widthClass=compact" fixedFrame="YES">
+                                            <rect key="frame" x="0.0" y="0.0" width="400" height="600"/>
+                                        </variation>
+                                    </imageView>
+                                </subviews>
+                                <variation key="default">
+                                    <mask key="subviews">
+                                        <exclude reference="Wpe-zq-5QV"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="0.0" y="0.0" width="400" height="600"/>
+                                    <mask key="subviews">
+                                        <include reference="Wpe-zq-5QV"/>
+                                    </mask>
+                                </variation>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="heF-0v-HXQ"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="heF-0v-HXQ"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" title="arquivo.pdf" id="2fD-dl-nPD"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Evz-uo-bx3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1795.5" y="208"/>
+        </scene>
+        <!--Perfil-->
+        <scene sceneID="OBm-nk-Esw">
+            <objects>
+                <viewController id="jJJ-sf-bMd" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="d7i-ME-u7i"/>
+                        <viewControllerLayoutGuide type="bottom" id="Hex-cm-evP"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="zUu-wL-itN">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Perfil" id="VHZ-zX-VhP"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ojE-Tz-RW1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-184.5" y="1088"/>
+        </scene>
+        <!--Histórico-->
+        <scene sceneID="Eh2-3B-3Fu">
+            <objects>
+                <tableViewController id="uY1-ta-yzf" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="ODE-C9-gK3">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="kfj-zd-n7O">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kfj-zd-n7O" id="0st-pa-5pU">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="uY1-ta-yzf" id="eKj-te-gzt"/>
+                            <outlet property="delegate" destination="uY1-ta-yzf" id="9r6-jf-Cuy"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Histórico" id="Eoc-Dc-lZM"/>
+                    <connections>
+                        <segue destination="Mjk-0f-mK0" kind="show" id="7TD-ok-HPf"/>
+                        <segue destination="EYe-iE-2WE" kind="show" id="haJ-bX-azG"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zEu-mw-Dsw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="658.5" y="1088"/>
+        </scene>
+        <!--Nova Categoria-->
+        <scene sceneID="hXK-zx-F25">
+            <objects>
+                <viewController id="EYe-iE-2WE" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="vEI-QR-OJC"/>
+                        <viewControllerLayoutGuide type="bottom" id="zqF-3B-1Uo"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="G6m-yv-wNs">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Nova Categoria" id="LEC-k3-8qE"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hJH-Zq-rVq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="658.5" y="1850"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="hVa-gl-Mpf">
+            <objects>
+                <viewController id="iXB-vo-JJq" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="W6n-Cg-xRv"/>
+                        <viewControllerLayoutGuide type="bottom" id="1pg-Vy-yWM"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2XL-RZ-98S">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NeA-aF-jvF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1464" y="1088"/>
+        </scene>
+        <!--Revisão de histórico-->
+        <scene sceneID="NTg-CH-l8m">
+            <objects>
+                <viewController id="Mjk-0f-mK0" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="e2i-VH-qcy"/>
+                        <viewControllerLayoutGuide type="bottom" id="Dj2-S0-8Lm"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Zww-fj-UTi">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VLe-WP-u28">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="30A-ep-Qpj">
+                                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                        <variation key="widthClass=compact" fixedFrame="YES">
+                                            <rect key="frame" x="0.0" y="0.0" width="400" height="600"/>
+                                        </variation>
+                                    </imageView>
+                                </subviews>
+                                <variation key="default">
+                                    <mask key="subviews">
+                                        <exclude reference="30A-ep-Qpj"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="0.0" y="0.0" width="400" height="600"/>
+                                    <mask key="subviews">
+                                        <include reference="30A-ep-Qpj"/>
+                                    </mask>
+                                </variation>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="VLe-WP-u28"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="VLe-WP-u28"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" title="Revisão de histórico" id="kBA-RO-ovD"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="f9S-JZ-PLD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1464" y="1088"/>
         </scene>
     </scenes>
 </document>
