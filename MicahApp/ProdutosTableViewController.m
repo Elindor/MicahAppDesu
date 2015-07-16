@@ -121,7 +121,8 @@
         cellIdentifier = @"produtoCelula";
         
     //utiliza esse formato de cell se não estiver usando a busca
-    }else{
+    }
+    else{
         switch(indexPath.row)
         {
             case 0:
@@ -136,20 +137,20 @@
                 labelNome.text = @"Salvar novo produto";
                     cellIdentifier = @"salvarProdIdentifier";
                 break;
-        }
+            }
     
-        default:
-        {
+            default:
+            {
         
-            // Create a new Candy Object
-            Produto *produto = nil;
-            produto = [self.produtoArray objectAtIndex:indexPath.row - 2];
+                // Create a new Candy Object
+                Produto *produto = nil;
+                produto = [self.produtoArray objectAtIndex:indexPath.row - 2];
     
-            // Configure the cell
-            labelNome.text = produto.nomeProduto;
-            cellIdentifier = @"produtoCelula";
-            break;
-            
+                // Configure the cell
+                labelNome.text = produto.nomeProduto;
+                cellIdentifier = @"produtoCelula";
+                break;
+            }
             
         }
     }
@@ -162,19 +163,130 @@
 
     return cell;
 }
-    
+
     
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    APLProduct *selectedProduct = (tableView == self.tableView) ?
-    self.products[indexPath.row] : self.resultsTableController.filteredProducts[indexPath.row];
-    
-    APLDetailViewController *detailViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"APLDetailViewController"];
-        detailViewController.product = selectedProduct; // hand off the current product to the detail view controller
-    [self.navigationController pushViewController:detailViewController animated:YES];
+    Produto *produtoSelecionado = (tableView == self.tableView) ?
+    self.produtoArray[indexPath.row] : self.resultadosTableViewController.produtosFiltradosArray[indexPath.row];
+    if (self.searchControllerAtivado){
         
+        
+    }
+    else{
+        
+        
+    }
+    
+//    APLDetailViewController *detailViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"APLDetailViewController"];
+//        detailViewController.product = selectedProduct; // hand off the current product to the detail view controller
+//    [self.navigationController pushViewController:detailViewController animated:YES];
+    
         // note: should not be necessary but current iOS 8.0 bug (seed 4) requires it
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
 }
+
+
+- (void)updateSearchResultsForSearchController:(UISearchController *)searchController {
+    // update the filtered array based on the search text
+    NSString *textoBuscado = searchController.searchBar.text;
+    NSMutableArray *resultadosBuscaMArray = [self.produtoArray mutableCopy];
+    
+    // strip out all the leading and trailing spaces
+    NSString *stringFormatada = [textoBuscado stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    
+    // break up the search terms (separated by spaces)
+    NSArray *itensBuscadosArray = nil;
+    if (stringFormatada.length > 0) {
+        itensBuscadosArray = [stringFormatada componentsSeparatedByString:@" "];
+    }
+    
+    // build all the "AND" expressions for each value in the searchString
+    //
+    NSMutableArray *andMatchPredicatesMArray = [NSMutableArray array];
+    
+    for (NSString *stringBuscada in itensBuscadosArray) {
+        // each searchString creates an OR predicate for: name, yearIntroduced, introPrice
+        //
+        // example if searchItems contains "iphone 599 2007":
+        //      name CONTAINS[c] "iphone"
+        //      name CONTAINS[c] "599", yearIntroduced ==[c] 599, introPrice ==[c] 599
+        //      name CONTAINS[c] "2007", yearIntroduced ==[c] 2007, introPrice ==[c] 2007
+        //
+        NSMutableArray *itensBuscadosPredicateMArray = [NSMutableArray array];
+        
+        // Below we use NSExpression represent expressions in our predicates.
+        // NSPredicate is made up of smaller, atomic parts: two NSExpressions (a left-hand value and a right-hand value)
+        
+        // nome field matching
+        NSExpression *lhs = [NSExpression expressionForKeyPath:@"nomeProduto"];
+        NSExpression *rhs = [NSExpression expressionForConstantValue:stringBuscada];
+        NSPredicate *finalPredicate = [NSComparisonPredicate
+                                       predicateWithLeftExpression:lhs
+                                       rightExpression:rhs
+                                       modifier:NSDirectPredicateModifier
+                                       type:NSContainsPredicateOperatorType
+                                       options:NSCaseInsensitivePredicateOption];
+        [itensBuscadosPredicateMArray addObject:finalPredicate];
+        
+        // descricao field matching
+        lhs = [NSExpression expressionForKeyPath:@"descricaoProduto"];
+        rhs = [NSExpression expressionForConstantValue:stringBuscada];
+        finalPredicate = [NSComparisonPredicate
+                          predicateWithLeftExpression:lhs
+                          rightExpression:rhs
+                          modifier:NSDirectPredicateModifier
+                          type:NSEqualToPredicateOperatorType
+                          options:NSCaseInsensitivePredicateOption];
+        [itensBuscadosPredicateMArray addObject:finalPredicate];
+
+        
+        //categoria
+        lhs = [NSExpression expressionForKeyPath:@"categoriaProduto"];
+        rhs = [NSExpression expressionForConstantValue:stringBuscada];
+        finalPredicate = [NSComparisonPredicate
+                          predicateWithLeftExpression:lhs
+                          rightExpression:rhs
+                          modifier:NSDirectPredicateModifier
+                          type:NSEqualToPredicateOperatorType
+                          options:NSCaseInsensitivePredicateOption];
+        [itensBuscadosPredicateMArray addObject:finalPredicate];
+
+
+        NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
+        [numberFormatter setNumberStyle:NSNumberFormatterNoStyle];
+        NSNumber *targetNumber = [numberFormatter numberFromString:stringBuscada];
+        
+        if(targetNumber != nil){
+            lhs = [NSExpression expressionForKeyPath:@"precoPadraoProduto"];
+            rhs = [NSExpression expressionForConstantValue:targetNumber];
+            finalPredicate = [NSComparisonPredicate
+                              predicateWithLeftExpression:lhs
+                              rightExpression:rhs
+                              modifier:NSDirectPredicateModifier
+                              type:NSEqualToPredicateOperatorType
+                              options:NSCaseInsensitivePredicateOption];
+            [itensBuscadosPredicateMArray addObject:finalPredicate];
+        }
+    
+        // at this OR predicate to our master AND predicate
+        NSCompoundPredicate *orMatchPredicates = [NSCompoundPredicate orPredicateWithSubpredicates:itensBuscadosPredicateMArray];
+        [andMatchPredicatesMArray addObject:orMatchPredicates];
+    }
+    
+    // match up the fields of the Product object
+    NSCompoundPredicate *finalCompoundPredicate =
+    [NSCompoundPredicate andPredicateWithSubpredicates:andMatchPredicatesMArray];
+    resultadosBuscaMArray = [[resultadosBuscaMArray filteredArrayUsingPredicate:finalCompoundPredicate] mutableCopy];
+    
+    // hand over the filtered results to our search results table
+    ResultadosBuscaTableViewController *resultadosBuscatableController = (ResultadosBuscaTableViewController *)self.produtosSearchController.searchResultsController;
+    resultadosBuscatableController.produtosFiltradosArray = resultadosBuscaMArray;
+    [resultadosBuscatableController.tableView reloadData];
+}
+
+
+
+
 
     
 /*

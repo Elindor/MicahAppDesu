@@ -77,9 +77,9 @@
 			children = (
 				1BEB0B7D1B55A7520039F444 /* ProdutosTableViewController.h */,
 				1BEB0B7E1B55A7520039F444 /* ProdutosTableViewController.m */,
-				1BEB0B801B55BEA00039F444 /* Produto.h */,
 				1BE89C941B57EB790062D241 /* ResultadosBuscaTableViewController.h */,
 				1BE89C951B57EB790062D241 /* ResultadosBuscaTableViewController.m */,
+				1BEB0B801B55BEA00039F444 /* Produto.h */,
 				1BEB0B811B55BEA00039F444 /* Produto.m */,
 			);
 			name = Produtos;
