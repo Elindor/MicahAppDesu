@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Ogg-yL-6JJ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Ogg-yL-6JJ">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -23,15 +23,29 @@
         <!--Produtos-->
         <scene sceneID="lkB-18-yFw">
             <objects>
-                <tableViewController id="WCq-yO-Ifi" sceneMemberID="viewController">
+                <tableViewController id="WCq-yO-Ifi" customClass="ProdutosTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="zh1-nf-erc">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="y59-Nh-hat">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="novoProdIdentifier" id="y59-Nh-hat">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="y59-Nh-hat" id="4Wp-gI-Ju9">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                            <tableViewCell tag="1" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="salvarProdIdentifier" id="6PY-Eh-c43">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6PY-Eh-c43" id="WA2-Dn-chF">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                            <tableViewCell tag="2" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="produtoCelula" id="esr-JS-431">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="esr-JS-431" id="tYc-jV-KQS">
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -43,10 +57,19 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Produtos" id="rjV-vD-ak7"/>
                     <connections>
+                        <outlet property="searchDisplayController" destination="tGT-ZI-DtH" id="rOh-nI-jm5"/>
                         <segue destination="1JD-WD-PoK" kind="show" id="7on-A1-E4c"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9AI-t5-mWP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="tGT-ZI-DtH">
+                    <connections>
+                        <outlet property="delegate" destination="WCq-yO-Ifi" id="pmk-gz-dpw"/>
+                        <outlet property="searchContentsController" destination="WCq-yO-Ifi" id="Clb-R2-h4a"/>
+                        <outlet property="searchResultsDataSource" destination="WCq-yO-Ifi" id="Dmj-Pf-mGt"/>
+                        <outlet property="searchResultsDelegate" destination="WCq-yO-Ifi" id="BAw-pP-9uU"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="258" y="-616"/>
         </scene>
@@ -59,6 +82,7 @@
                         <viewControllerLayoutGuide type="bottom" id="evN-nh-rjE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="YSp-nZ-qJV">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -175,6 +199,7 @@
                         <viewControllerLayoutGuide type="bottom" id="hWT-CR-lLN"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="68O-ls-Joo">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="heF-0v-HXQ">
@@ -240,13 +265,13 @@
         <!--Histórico-->
         <scene sceneID="Eh2-3B-3Fu">
             <objects>
-                <tableViewController id="uY1-ta-yzf" sceneMemberID="viewController">
+                <tableViewController id="uY1-ta-yzf" customClass="HistoricoTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="ODE-C9-gK3">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="kfj-zd-n7O">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="historicoIdentifier" id="kfj-zd-n7O">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kfj-zd-n7O" id="0st-pa-5pU">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -277,6 +302,7 @@
                         <viewControllerLayoutGuide type="bottom" id="zqF-3B-1Uo"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="G6m-yv-wNs">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
