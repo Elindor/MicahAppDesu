@@ -10,6 +10,8 @@
 
 @implementation Produto
 
+
+//esse método provavelmente será apagado, ele foi utilizado para saber se a busca estava correta
 + (Produto *) criaProduto:(NSString *)nome descricao:(NSString *)descricao categoria:(NSString *)categoria precoPadrao: (NSNumber *) precoPadrao{
     
     Produto *produtoNovo = [[Produto alloc]init];

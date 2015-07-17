@@ -11,6 +11,7 @@
 		1BE89C961B57EB790062D241 /* ResultadosBuscaTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BE89C951B57EB790062D241 /* ResultadosBuscaTableViewController.m */; };
 		1BEB0B7F1B55A7520039F444 /* ProdutosTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BEB0B7E1B55A7520039F444 /* ProdutosTableViewController.m */; };
 		1BEB0B821B55BEA00039F444 /* Produto.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BEB0B811B55BEA00039F444 /* Produto.m */; };
+		1BF836FF1B5946F900F51048 /* NovoProdutoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BF836FE1B5946F900F51048 /* NovoProdutoViewController.m */; };
 		C04E88501B559E3D00EB26BE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C04E884F1B559E3D00EB26BE /* main.m */; };
 		C04E88531B559E3D00EB26BE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C04E88521B559E3D00EB26BE /* AppDelegate.m */; };
 		C04E88561B559E3D00EB26BE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C04E88551B559E3D00EB26BE /* ViewController.m */; };
@@ -39,6 +40,8 @@
 		1BEB0B7E1B55A7520039F444 /* ProdutosTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProdutosTableViewController.m; sourceTree = "<group>"; };
 		1BEB0B801B55BEA00039F444 /* Produto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Produto.h; sourceTree = "<group>"; };
 		1BEB0B811B55BEA00039F444 /* Produto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Produto.m; sourceTree = "<group>"; };
+		1BF836FD1B5946F900F51048 /* NovoProdutoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NovoProdutoViewController.h; sourceTree = "<group>"; };
+		1BF836FE1B5946F900F51048 /* NovoProdutoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NovoProdutoViewController.m; sourceTree = "<group>"; };
 		C04E884A1B559E3D00EB26BE /* MicahApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MicahApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C04E884E1B559E3D00EB26BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C04E884F1B559E3D00EB26BE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -76,6 +79,8 @@
 			isa = PBXGroup;
 			children = (
 				1BEB0B7D1B55A7520039F444 /* ProdutosTableViewController.h */,
+				1BF836FD1B5946F900F51048 /* NovoProdutoViewController.h */,
+				1BF836FE1B5946F900F51048 /* NovoProdutoViewController.m */,
 				1BEB0B7E1B55A7520039F444 /* ProdutosTableViewController.m */,
 				1BE89C941B57EB790062D241 /* ResultadosBuscaTableViewController.h */,
 				1BE89C951B57EB790062D241 /* ResultadosBuscaTableViewController.m */,
@@ -251,6 +256,7 @@
 				C04E88531B559E3D00EB26BE /* AppDelegate.m in Sources */,
 				1BE89C961B57EB790062D241 /* ResultadosBuscaTableViewController.m in Sources */,
 				C04E88501B559E3D00EB26BE /* main.m in Sources */,
+				1BF836FF1B5946F900F51048 /* NovoProdutoViewController.m in Sources */,
 				1BEB0B7F1B55A7520039F444 /* ProdutosTableViewController.m in Sources */,
 				1BE89C931B57E6D70062D241 /* HistoricoTableViewController.m in Sources */,
 				1BEB0B821B55BEA00039F444 /* Produto.m in Sources */,

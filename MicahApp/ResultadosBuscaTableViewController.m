@@ -6,6 +6,9 @@
 //  Copyright (c) 2015 Gabriel Nopper. All rights reserved.
 //
 
+//Essa classe serve para filtrar os resultados da busca e mostrá-los em outra tableView
+
+
 #import "ResultadosBuscaTableViewController.h"
 #import "Produto.h"
 

@@ -27,6 +27,20 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+ 
+    //teste do array, precisa juntar com o "BD"
+    self.produtoArray = @[[Produto criaProduto:@"caneta1" descricao:@"bic1" categoria:@"papelaria" precoPadrao: @12.32],
+                          [Produto criaProduto:@"borracha" descricao:@"faber" categoria:@"papelaria" precoPadrao: @5.50],
+                          [Produto criaProduto:@"caneta3" descricao:@"bic3" categoria:@"papelaria" precoPadrao: @10.00],
+                          [Produto criaProduto:@"caneta4" descricao:@"bic4" categoria:@"papelaria" precoPadrao: @14.78],
+                          [Produto criaProduto:@"caneta5" descricao:@"bic5" categoria:@"papelaria" precoPadrao: @7.90],
+                          [Produto criaProduto:@"caneta6" descricao:@"bic6" categoria:@"papelaria" precoPadrao: @9.90],
+                          [Produto criaProduto:@"caneta7" descricao:@"bic7" categoria:@"papelaria" precoPadrao: @8.89],
+                          [Produto criaProduto:@"caneta8" descricao:@"bic8" categoria:@"papelaria" precoPadrao: @7.90],
+                          [Produto criaProduto:@"caneta9" descricao:@"bic9" categoria:@"papelaria" precoPadrao: @15.00]
+                          ];
+
+    
     
     _resultadosTableViewController = [[ResultadosBuscaTableViewController alloc] init];
     _produtosSearchController = [[UISearchController alloc] initWithSearchResultsController:self.resultadosTableViewController];
@@ -46,7 +60,7 @@
     //
     self.definesPresentationContext = YES;  // know where you want UISearchController to be displayed
     
-    
+    [self.tableView reloadData];
 }
 
 
@@ -108,7 +122,7 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
-    UILabel *labelNome = [[UILabel alloc] initWithFrame:CGRectMake(20, 20, 150, 20)];
+    UILabel *labelNome = [[UILabel alloc] initWithFrame:CGRectMake(20, 20, self.tableView.frame.size.width - 40, 20)];
     
     UIFont *font = labelNome.font;
     labelNome.font = [font fontWithSize:14];
@@ -160,11 +174,10 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
 
-
     return cell;
 }
 
-    
+// Para terminar esse método é necessário saber qual destino ao se clicar em cada cell
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     Produto *produtoSelecionado = (tableView == self.tableView) ?
     self.produtoArray[indexPath.row] : self.resultadosTableViewController.produtosFiltradosArray[indexPath.row];
@@ -284,7 +297,62 @@
     [resultadosBuscatableController.tableView reloadData];
 }
 
+#pragma mark - UIStateRestoration
 
+// we restore several items for state restoration:
+//  1) Search controller's active state,
+//  2) search text,
+//  3) first responder
+
+NSString *const ViewControllerTitleKey = @"ViewControllerTitleKey";
+NSString *const SearchControllerIsActiveKey = @"SearchControllerIsActiveKey";
+NSString *const SearchBarTextKey = @"SearchBarTextKey";
+NSString *const SearchBarIsFirstResponderKey = @"SearchBarIsFirstResponderKey";
+
+- (void)encodeRestorableStateWithCoder:(NSCoder *)coder {
+    [super encodeRestorableStateWithCoder:coder];
+    
+    // encode the view state so it can be restored later
+    
+    // encode the title
+    [coder encodeObject:self.title forKey:ViewControllerTitleKey];
+    
+    UISearchController *searchController = self.produtosSearchController;
+    
+    // encode the search controller's active state
+    BOOL searchDisplayControllerIsActive = searchController.isActive;
+    [coder encodeBool:searchDisplayControllerIsActive forKey:SearchControllerIsActiveKey];
+    
+    // encode the first responser status
+    if (searchDisplayControllerIsActive) {
+        [coder encodeBool:[searchController.searchBar isFirstResponder] forKey:SearchBarIsFirstResponderKey];
+    }
+    
+    // encode the search bar text
+    [coder encodeObject:searchController.searchBar.text forKey:SearchBarTextKey];
+}
+
+- (void)decodeRestorableStateWithCoder:(NSCoder *)coder {
+    [super decodeRestorableStateWithCoder:coder];
+    
+    // restore the title
+    self.title = [coder decodeObjectForKey:ViewControllerTitleKey];
+    
+    // restore the active state:
+    // we can't make the searchController active here since it's not part of the view
+    // hierarchy yet, instead we do it in viewWillAppear
+    //
+    _searchControllerAtivado = [coder decodeBoolForKey:SearchControllerIsActiveKey];
+    
+    // restore the first responder status:
+    // we can't make the searchController first responder here since it's not part of the view
+    // hierarchy yet, instead we do it in viewWillAppear
+    //
+    _searchControllerFieldWasFirstResponder = [coder decodeBoolForKey:SearchBarIsFirstResponderKey];
+    
+    // restore the text in the search field
+    self.produtosSearchController.searchBar.text = [coder decodeObjectForKey:SearchBarTextKey];
+}
 
 
 

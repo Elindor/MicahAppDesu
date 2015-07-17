@@ -58,7 +58,7 @@
                     <navigationItem key="navigationItem" title="Produtos" id="rjV-vD-ak7"/>
                     <connections>
                         <outlet property="searchDisplayController" destination="tGT-ZI-DtH" id="rOh-nI-jm5"/>
-                        <segue destination="1JD-WD-PoK" kind="show" id="7on-A1-E4c"/>
+                        <segue destination="1JD-WD-PoK" kind="show" identifier="telaNovoProduto" id="7on-A1-E4c"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9AI-t5-mWP" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -76,7 +76,7 @@
         <!--Novo Produto-->
         <scene sceneID="3TU-GB-MXb">
             <objects>
-                <viewController id="1JD-WD-PoK" sceneMemberID="viewController">
+                <viewController id="1JD-WD-PoK" customClass="NovoProdutoViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6Uu-2V-rcw"/>
                         <viewControllerLayoutGuide type="bottom" id="evN-nh-rjE"/>
@@ -84,9 +84,52 @@
                     <view key="view" contentMode="scaleToFill" id="YSp-nZ-qJV">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nome" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="27v-OR-I1b">
+                                <rect key="frame" x="16" y="102" width="326" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Pdf-zs-O7K">
+                                <rect key="frame" x="-79" y="215" width="600" height="162"/>
+                            </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Categoria:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ler-QH-s5c">
+                                <rect key="frame" x="16" y="236" width="80" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i8b-ch-Pvb">
+                                <rect key="frame" x="386" y="236" width="22" height="22"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Preço padrão  R$" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hfP-0D-Fap">
+                                <rect key="frame" x="16" y="385" width="385" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Descrição" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1hp-xc-Leb">
+                                <rect key="frame" x="16" y="162" width="326" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Novo Produto" id="6IC-M3-YyW"/>
+                    <navigationItem key="navigationItem" title="Novo Produto" id="6IC-M3-YyW">
+                        <barButtonItem key="rightBarButtonItem" title="Salvar" id="KfC-gO-dIJ">
+                            <connections>
+                                <action selector="salvarButton:" destination="1JD-WD-PoK" id="TDK-0u-qQj"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="descricaoProdutoField" destination="1hp-xc-Leb" id="5FT-Uq-wiE"/>
+                        <outlet property="nomeProdutoField" destination="27v-OR-I1b" id="xR1-pk-mZ0"/>
+                        <outlet property="precoProdutoField" destination="hfP-0D-Fap" id="1RV-6k-NsU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Y2-iB-3G3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

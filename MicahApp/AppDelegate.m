@@ -7,8 +7,6 @@
 //
 
 #import "AppDelegate.h"
-#import "Produto.h"
-#import "ProdutosTableViewController.h"
 
 @interface AppDelegate ()
 
@@ -19,25 +17,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    
-    NSArray *produtoArray = @[
-                              [Produto criaProduto:@"caneta1" descricao:@"bic1" categoria:@"papelaria" precoPadrao: @12.32],
-                         [Produto criaProduto:@"borracha" descricao:@"faber" categoria:@"papelaria" precoPadrao: @5.50],
-                         [Produto criaProduto:@"caneta3" descricao:@"bic3" categoria:@"papelaria" precoPadrao: @10.00],
-                         [Produto criaProduto:@"caneta4" descricao:@"bic4" categoria:@"papelaria" precoPadrao: @14.78],
-                         [Produto criaProduto:@"caneta5" descricao:@"bic5" categoria:@"papelaria" precoPadrao: @7.90],
-                         [Produto criaProduto:@"caneta6" descricao:@"bic6" categoria:@"papelaria" precoPadrao: @9.90],
-                         [Produto criaProduto:@"caneta7" descricao:@"bic7" categoria:@"papelaria" precoPadrao: @8.89],
-                         [Produto criaProduto:@"caneta8" descricao:@"bic8" categoria:@"papelaria" precoPadrao: @7.90],
-                         [Produto criaProduto:@"caneta9" descricao:@"bic9" categoria:@"papelaria" precoPadrao: @15.00]
-                         ];
-    
-    UINavigationController *navigationController = (UINavigationController *)[self.window rootViewController];
-    
-    ProdutosTableViewController *viewController = (ProdutosTableViewController *)navigationController.viewControllers[0];
-    viewController.produtoArray = produtoArray;
-    
-    // Override point for customization after application launch.
+   
+        // Override point for customization after application launch.
     return YES;
 }
 

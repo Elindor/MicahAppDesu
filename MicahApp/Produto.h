@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Produto : NSObject
+@interface Produto : NSObject <NSCoding>
 
 @property (weak, nonatomic) NSString *nomeProduto;
 @property (weak, nonatomic) NSString *descricaoProduto;
