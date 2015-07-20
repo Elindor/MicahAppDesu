@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B7BB0EE1B5D980F000CD60E /* ProdutosOrcamentoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7BB0ED1B5D980F000CD60E /* ProdutosOrcamentoTableViewController.m */; };
 		1B9A166F1B5998BF00CA057B /* Cliente.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B9A166E1B5998BF00CA057B /* Cliente.m */; };
-		1B9A16721B599BAC00CA057B /* ProdutosOrcamentoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B9A16711B599BAC00CA057B /* ProdutosOrcamentoTableViewController.m */; };
 		1B9A16751B59A61F00CA057B /* DetalhesProdutoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B9A16741B59A61F00CA057B /* DetalhesProdutoViewController.m */; };
 		1BE89C931B57E6D70062D241 /* HistoricoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BE89C921B57E6D70062D241 /* HistoricoTableViewController.m */; };
 		1BE89C961B57EB790062D241 /* ResultadosBuscaTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BE89C951B57EB790062D241 /* ResultadosBuscaTableViewController.m */; };
@@ -35,10 +35,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1B7BB0EC1B5D980F000CD60E /* ProdutosOrcamentoTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProdutosOrcamentoTableViewController.h; sourceTree = "<group>"; };
+		1B7BB0ED1B5D980F000CD60E /* ProdutosOrcamentoTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProdutosOrcamentoTableViewController.m; sourceTree = "<group>"; };
 		1B9A166D1B5998BF00CA057B /* Cliente.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cliente.h; sourceTree = "<group>"; };
 		1B9A166E1B5998BF00CA057B /* Cliente.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cliente.m; sourceTree = "<group>"; };
-		1B9A16701B599BAC00CA057B /* ProdutosOrcamentoTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProdutosOrcamentoTableViewController.h; sourceTree = "<group>"; };
-		1B9A16711B599BAC00CA057B /* ProdutosOrcamentoTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProdutosOrcamentoTableViewController.m; sourceTree = "<group>"; };
 		1B9A16731B59A61F00CA057B /* DetalhesProdutoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetalhesProdutoViewController.h; sourceTree = "<group>"; };
 		1B9A16741B59A61F00CA057B /* DetalhesProdutoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetalhesProdutoViewController.m; sourceTree = "<group>"; };
 		1BE89C911B57E6D70062D241 /* HistoricoTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoricoTableViewController.h; sourceTree = "<group>"; };
@@ -87,10 +87,10 @@
 		1BE89C901B57E6610062D241 /* Produtos */ = {
 			isa = PBXGroup;
 			children = (
+				1B7BB0EC1B5D980F000CD60E /* ProdutosOrcamentoTableViewController.h */,
+				1B7BB0ED1B5D980F000CD60E /* ProdutosOrcamentoTableViewController.m */,
 				1B9A16731B59A61F00CA057B /* DetalhesProdutoViewController.h */,
 				1B9A16741B59A61F00CA057B /* DetalhesProdutoViewController.m */,
-				1B9A16701B599BAC00CA057B /* ProdutosOrcamentoTableViewController.h */,
-				1B9A16711B599BAC00CA057B /* ProdutosOrcamentoTableViewController.m */,
 				1BEB0B7D1B55A7520039F444 /* ProdutosTableViewController.h */,
 				1BEB0B7E1B55A7520039F444 /* ProdutosTableViewController.m */,
 				1BF836FD1B5946F900F51048 /* NovoProdutoViewController.h */,
@@ -269,9 +269,9 @@
 			files = (
 				C04E88561B559E3D00EB26BE /* ViewController.m in Sources */,
 				C04E88531B559E3D00EB26BE /* AppDelegate.m in Sources */,
-				1B9A16721B599BAC00CA057B /* ProdutosOrcamentoTableViewController.m in Sources */,
 				1BE89C961B57EB790062D241 /* ResultadosBuscaTableViewController.m in Sources */,
 				C04E88501B559E3D00EB26BE /* main.m in Sources */,
+				1B7BB0EE1B5D980F000CD60E /* ProdutosOrcamentoTableViewController.m in Sources */,
 				1BF836FF1B5946F900F51048 /* NovoProdutoViewController.m in Sources */,
 				1B9A16751B59A61F00CA057B /* DetalhesProdutoViewController.m in Sources */,
 				1BEB0B7F1B55A7520039F444 /* ProdutosTableViewController.m in Sources */,

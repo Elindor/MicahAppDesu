@@ -111,7 +111,7 @@
         retornaNumeroLinhas = [self.resultadosTableViewController.produtosFiltradosArray count];
     }
     else{
-        retornaNumeroLinhas =  [self.produtoArray count] + 2;
+        retornaNumeroLinhas =  [self.produtoArray count] + 1;
     }
     
     return retornaNumeroLinhas;

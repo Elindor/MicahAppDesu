@@ -2,7 +2,7 @@
 //  ProdutosOrcamentoTableViewController.m
 //  MicahApp
 //
-//  Created by Érika Tiemi Uehara Moriya on 7/17/15.
+//  Created by Érika Tiemi Uehara Moriya on 7/20/15.
 //  Copyright (c) 2015 Gabriel Nopper. All rights reserved.
 //
 
@@ -13,13 +13,14 @@
 
 @interface ProdutosOrcamentoTableViewController () <UISearchBarDelegate, UISearchControllerDelegate, UISearchResultsUpdating>
 
-@property (strong, nonatomic) UISearchController *produtosSearchController;
+@property (strong, nonatomic) UISearchController *produtosOrcamentoSearchController;
 
 //tableview do resultados da busca
-@property (strong, nonatomic) ResultadosBuscaTableViewController *resultadosTableViewController;
+@property (strong, nonatomic) ResultadosBuscaTableViewController *resultadosOrcamentoTableViewController;
 
-@property BOOL searchControllerAtivado;
-@property BOOL searchControllerFieldWasFirstResponder;
+@property BOOL orcamentoSearchControllerAtivado;
+@property BOOL orcamentoSearchControllerFieldWasFirstResponder;
+
 
 @end
 
@@ -30,29 +31,29 @@
     
     //teste do array, precisa juntar com o "BD"
     self.produtoOrcamentoArray = @[[Produto criaProduto:@"caneta1" descricao:@"bic1" categoria:@"papelaria" precoPadrao: @12.32],
-                          [Produto criaProduto:@"borracha" descricao:@"faber" categoria:@"papelaria" precoPadrao: @5.50],
-                          [Produto criaProduto:@"caneta3" descricao:@"bic3" categoria:@"papelaria" precoPadrao: @10.00],
-                          [Produto criaProduto:@"caneta4" descricao:@"bic4" categoria:@"papelaria" precoPadrao: @14.78],
-                          [Produto criaProduto:@"caneta5" descricao:@"bic5" categoria:@"papelaria" precoPadrao: @7.90],
-                          [Produto criaProduto:@"caneta6" descricao:@"bic6" categoria:@"papelaria" precoPadrao: @9.90],
-                          [Produto criaProduto:@"caneta7" descricao:@"bic7" categoria:@"papelaria" precoPadrao: @8.89],
-                          [Produto criaProduto:@"caneta8" descricao:@"bic8" categoria:@"papelaria" precoPadrao: @7.90],
-                          [Produto criaProduto:@"caneta9" descricao:@"bic9" categoria:@"papelaria" precoPadrao: @15.00]
-                          ];
+                                   [Produto criaProduto:@"borracha" descricao:@"faber" categoria:@"papelaria" precoPadrao: @5.50],
+                                   [Produto criaProduto:@"caneta3" descricao:@"bic3" categoria:@"papelaria" precoPadrao: @10.00],
+                                   [Produto criaProduto:@"caneta4" descricao:@"bic4" categoria:@"papelaria" precoPadrao: @14.78],
+                                   [Produto criaProduto:@"caneta5" descricao:@"bic5" categoria:@"papelaria" precoPadrao: @7.90],
+                                   [Produto criaProduto:@"caneta6" descricao:@"bic6" categoria:@"papelaria" precoPadrao: @9.90],
+                                   [Produto criaProduto:@"caneta7" descricao:@"bic7" categoria:@"papelaria" precoPadrao: @8.89],
+                                   [Produto criaProduto:@"caneta8" descricao:@"bic8" categoria:@"papelaria" precoPadrao: @7.90],
+                                   [Produto criaProduto:@"caneta9" descricao:@"bic9" categoria:@"papelaria" precoPadrao: @15.00]
+                                   ];
     
     
     
-    _resultadosTableViewController = [[ResultadosBuscaTableViewController alloc] init];
-    _produtosSearchController = [[UISearchController alloc] initWithSearchResultsController:self.resultadosTableViewController];
-    self.produtosSearchController.searchResultsUpdater = self;
-    [self.produtosSearchController.searchBar sizeToFit];
-    self.tableView.tableHeaderView = self.produtosSearchController.searchBar;
+    _resultadosOrcamentoTableViewController = [[ResultadosBuscaTableViewController alloc] init];
+    _produtosOrcamentoSearchController = [[UISearchController alloc] initWithSearchResultsController:self.resultadosOrcamentoTableViewController];
+    self.produtosOrcamentoSearchController.searchResultsUpdater = self;
+    [self.produtosOrcamentoSearchController.searchBar sizeToFit];
+    self.tableView.tableHeaderView = self.produtosOrcamentoSearchController.searchBar;
     
     // we want to be the delegate for our filtered table so didSelectRowAtIndexPath is called for both tables
-    self.resultadosTableViewController.tableView.delegate = self;
-    self.produtosSearchController.delegate = self;
-    self.produtosSearchController.dimsBackgroundDuringPresentation = NO; // default is YES
-    self.produtosSearchController.searchBar.delegate = self; // so we can monitor text changes + others
+    self.resultadosOrcamentoTableViewController.tableView.delegate = self;
+    self.produtosOrcamentoSearchController.delegate = self;
+    self.produtosOrcamentoSearchController.dimsBackgroundDuringPresentation = NO; // default is YES
+    self.produtosOrcamentoSearchController.searchBar.delegate = self; // so we can monitor text changes + others
     
     // Search is now just presenting a view controller. As such, normal view controller
     // presentation semantics apply. Namely that presentation will walk up the view controller
@@ -68,13 +69,13 @@
     [super viewDidAppear:animated];
     
     // restore the searchController's active state
-    if (self.searchControllerAtivado) {
-        self.produtosSearchController.active = self.searchControllerAtivado;
-        _searchControllerAtivado = NO;
+    if (self.orcamentoSearchControllerAtivado) {
+        self.produtosOrcamentoSearchController.active = self.orcamentoSearchControllerAtivado;
+        _orcamentoSearchControllerAtivado = NO;
         
-        if (self.searchControllerFieldWasFirstResponder) {
-            [self.produtosSearchController.searchBar becomeFirstResponder];
-            _searchControllerFieldWasFirstResponder = NO;
+        if (self.orcamentoSearchControllerFieldWasFirstResponder) {
+            [self.produtosOrcamentoSearchController.searchBar becomeFirstResponder];
+            _orcamentoSearchControllerFieldWasFirstResponder = NO;
         }
     }
 }
@@ -105,8 +106,8 @@
     
     NSInteger retornaNumeroLinhas = 0;
     
-    if (self.searchControllerAtivado){
-        retornaNumeroLinhas = [self.resultadosTableViewController.produtosFiltradosArray count];
+    if (self.orcamentoSearchControllerAtivado){
+        retornaNumeroLinhas = [self.resultadosOrcamentoTableViewController.produtosFiltradosArray count];
     }
     else{
         retornaNumeroLinhas =  [self.produtoOrcamentoArray count] + 2;
@@ -128,9 +129,9 @@
     labelNome.font = [font fontWithSize:14];
     
     //utiliza esse formato de cell se utilizar a busca
-    if(self.searchControllerAtivado){
+    if(self.orcamentoSearchControllerAtivado){
         Produto *produto = nil;
-        produto = [self.resultadosTableViewController.produtosFiltradosArray objectAtIndex:indexPath.row];
+        produto = [self.resultadosOrcamentoTableViewController.produtosFiltradosArray objectAtIndex:indexPath.row];
         labelNome.text = produto.nomeProduto;
         cellIdentifier = @"produtoCelula";
         
@@ -180,8 +181,8 @@
 // Para terminar esse método é necessário saber qual destino ao se clicar em cada cell
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     Produto *produtoSelecionado = (tableView == self.tableView) ?
-    self.produtoOrcamentoArray[indexPath.row] : self.resultadosTableViewController.produtosFiltradosArray[indexPath.row];
-    if (self.searchControllerAtivado){
+    self.produtoOrcamentoArray[indexPath.row] : self.resultadosOrcamentoTableViewController.produtosFiltradosArray[indexPath.row];
+    if (self.orcamentoSearchControllerAtivado){
         
         
     }
@@ -192,27 +193,27 @@
         switch(indexPath.row)
         {
             case 0:
-                {
-                    NovoProdutoViewController *telaNovoProduto = [self.storyboard instantiateViewControllerWithIdentifier:@"novoProduto"];
-                    [self.navigationController pushViewController:telaNovoProduto animated:YES];
-                    break;
-                }
-        
+            {
+                NovoProdutoViewController *telaNovoProduto = [self.storyboard instantiateViewControllerWithIdentifier:@"novoProduto"];
+                [self.navigationController pushViewController:telaNovoProduto animated:YES];
+                break;
+            }
+                
             default:
-                {
-//                  DetalhesProdutoViewController *telaDetalhesProduto = [self.storyboard instantiateViewControllerWithIdentifier:@"detalhesProduto"];
-//                telaDetalhesProduto.nomeProd = produtoSelecionado.nomeProduto;
-//                telaDetalhesProduto.categoriaProd = produtoSelecionado.categoriaProduto;
-//                telaDetalhesProduto.descricaoProd = produtoSelecionado.descricaoProduto;
-//            
-//                NSNumberFormatter *formatter = [[NSNumberFormatter alloc]init];
-//                NSString *precoStr = [formatter stringFromNumber:produtoSelecionado.precoPadraoProduto];
-//                telaDetalhesProduto.precoProd = precoStr;
-//            
-//                [self.navigationController pushViewController:telaDetalhesProduto animated:YES];
-                    break;
-                }
-
+            {
+                //                  DetalhesProdutoViewController *telaDetalhesProduto = [self.storyboard instantiateViewControllerWithIdentifier:@"detalhesProduto"];
+                //                telaDetalhesProduto.nomeProd = produtoSelecionado.nomeProduto;
+                //                telaDetalhesProduto.categoriaProd = produtoSelecionado.categoriaProduto;
+                //                telaDetalhesProduto.descricaoProd = produtoSelecionado.descricaoProduto;
+                //
+                //                NSNumberFormatter *formatter = [[NSNumberFormatter alloc]init];
+                //                NSString *precoStr = [formatter stringFromNumber:produtoSelecionado.precoPadraoProduto];
+                //                telaDetalhesProduto.precoProd = precoStr;
+                //
+                //                [self.navigationController pushViewController:telaDetalhesProduto animated:YES];
+                break;
+            }
+                
         }
         
     }
@@ -319,7 +320,7 @@
     resultadosBuscaMArray = [[resultadosBuscaMArray filteredArrayUsingPredicate:finalCompoundPredicate] mutableCopy];
     
     // hand over the filtered results to our search results table
-    ResultadosBuscaTableViewController *resultadosBuscatableController = (ResultadosBuscaTableViewController *)self.produtosSearchController.searchResultsController;
+    ResultadosBuscaTableViewController *resultadosBuscatableController = (ResultadosBuscaTableViewController *)self.produtosOrcamentoSearchController.searchResultsController;
     resultadosBuscatableController.produtosFiltradosArray = resultadosBuscaMArray;
     [resultadosBuscatableController.tableView reloadData];
 }
@@ -331,10 +332,10 @@
 //  2) search text,
 //  3) first responder
 
-NSString *const ViewControllerTitleKey = @"ViewControllerTitleKey";
-NSString *const SearchControllerIsActiveKey = @"SearchControllerIsActiveKey";
-NSString *const SearchBarTextKey = @"SearchBarTextKey";
-NSString *const SearchBarIsFirstResponderKey = @"SearchBarIsFirstResponderKey";
+NSString *const OrcamentoViewControllerTitleKey = @"ViewControllerTitleKey";
+NSString *const OrcamentoSearchControllerIsActiveKey = @"SearchControllerIsActiveKey";
+NSString *const OrcamentoSearchBarTextKey = @"SearchBarTextKey";
+NSString *const OrcamentoSearchBarIsFirstResponderKey = @"SearchBarIsFirstResponderKey";
 
 - (void)encodeRestorableStateWithCoder:(NSCoder *)coder {
     [super encodeRestorableStateWithCoder:coder];
@@ -342,43 +343,43 @@ NSString *const SearchBarIsFirstResponderKey = @"SearchBarIsFirstResponderKey";
     // encode the view state so it can be restored later
     
     // encode the title
-    [coder encodeObject:self.title forKey:ViewControllerTitleKey];
+    [coder encodeObject:self.title forKey:OrcamentoViewControllerTitleKey];
     
-    UISearchController *searchController = self.produtosSearchController;
+    UISearchController *searchController = self.produtosOrcamentoSearchController;
     
     // encode the search controller's active state
     BOOL searchDisplayControllerIsActive = searchController.isActive;
-    [coder encodeBool:searchDisplayControllerIsActive forKey:SearchControllerIsActiveKey];
+    [coder encodeBool:searchDisplayControllerIsActive forKey:OrcamentoSearchControllerIsActiveKey];
     
     // encode the first responser status
     if (searchDisplayControllerIsActive) {
-        [coder encodeBool:[searchController.searchBar isFirstResponder] forKey:SearchBarIsFirstResponderKey];
+        [coder encodeBool:[searchController.searchBar isFirstResponder] forKey:OrcamentoSearchBarIsFirstResponderKey];
     }
     
     // encode the search bar text
-    [coder encodeObject:searchController.searchBar.text forKey:SearchBarTextKey];
+    [coder encodeObject:searchController.searchBar.text forKey:OrcamentoSearchBarTextKey];
 }
 
 - (void)decodeRestorableStateWithCoder:(NSCoder *)coder {
     [super decodeRestorableStateWithCoder:coder];
     
     // restore the title
-    self.title = [coder decodeObjectForKey:ViewControllerTitleKey];
+    self.title = [coder decodeObjectForKey:OrcamentoViewControllerTitleKey];
     
     // restore the active state:
     // we can't make the searchController active here since it's not part of the view
     // hierarchy yet, instead we do it in viewWillAppear
     //
-    _searchControllerAtivado = [coder decodeBoolForKey:SearchControllerIsActiveKey];
+    _orcamentoSearchControllerAtivado = [coder decodeBoolForKey:OrcamentoSearchControllerIsActiveKey];
     
     // restore the first responder status:
     // we can't make the searchController first responder here since it's not part of the view
     // hierarchy yet, instead we do it in viewWillAppear
     //
-    _searchControllerFieldWasFirstResponder = [coder decodeBoolForKey:SearchBarIsFirstResponderKey];
+    _orcamentoSearchControllerFieldWasFirstResponder = [coder decodeBoolForKey:OrcamentoSearchBarIsFirstResponderKey];
     
     // restore the text in the search field
-    self.produtosSearchController.searchBar.text = [coder decodeObjectForKey:SearchBarTextKey];
+    self.produtosOrcamentoSearchController.searchBar.text = [coder decodeObjectForKey:OrcamentoSearchBarTextKey];
 }
 
 
@@ -419,6 +420,7 @@ NSString *const SearchBarIsFirstResponderKey = @"SearchBarIsFirstResponderKey";
  // Pass the selected object to the new view controller.
  }
  */
+
 
 
 @end
