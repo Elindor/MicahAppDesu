@@ -1,19 +1,17 @@
 //
-//  ProdutosTableViewController.m
+//  ProdutosOrcamentoTableViewController.m
 //  MicahApp
 //
-//  Created by Érika Tiemi Uehara Moriya on 7/14/15.
+//  Created by Érika Tiemi Uehara Moriya on 7/17/15.
 //  Copyright (c) 2015 Gabriel Nopper. All rights reserved.
 //
 
-#import "ProdutosTableViewController.h"
+#import "ProdutosOrcamentoTableViewController.h"
+#import "ResultadosBuscaTableViewController.h"
 #import "Produto.h"
 #import "NovoProdutoViewController.h"
-#import "ResultadosBuscaTableViewController.h"
-#import "DetalhesProdutoViewController.h"
 
-@interface ProdutosTableViewController () <UISearchBarDelegate, UISearchControllerDelegate, UISearchResultsUpdating>
-
+@interface ProdutosOrcamentoTableViewController () <UISearchBarDelegate, UISearchControllerDelegate, UISearchResultsUpdating>
 
 @property (strong, nonatomic) UISearchController *produtosSearchController;
 
@@ -25,13 +23,13 @@
 
 @end
 
-@implementation ProdutosTableViewController
+@implementation ProdutosOrcamentoTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
- 
-    //teste do array, precisa juntar com o "BD", essa parte será deletada
-    self.produtoArray = @[[Produto criaProduto:@"caneta1" descricao:@"bic1" categoria:@"papelaria" precoPadrao: @12.32],
+    
+    //teste do array, precisa juntar com o "BD"
+    self.produtoOrcamentoArray = @[[Produto criaProduto:@"caneta1" descricao:@"bic1" categoria:@"papelaria" precoPadrao: @12.32],
                           [Produto criaProduto:@"borracha" descricao:@"faber" categoria:@"papelaria" precoPadrao: @5.50],
                           [Produto criaProduto:@"caneta3" descricao:@"bic3" categoria:@"papelaria" precoPadrao: @10.00],
                           [Produto criaProduto:@"caneta4" descricao:@"bic4" categoria:@"papelaria" precoPadrao: @14.78],
@@ -41,7 +39,7 @@
                           [Produto criaProduto:@"caneta8" descricao:@"bic8" categoria:@"papelaria" precoPadrao: @7.90],
                           [Produto criaProduto:@"caneta9" descricao:@"bic9" categoria:@"papelaria" precoPadrao: @15.00]
                           ];
-
+    
     
     
     _resultadosTableViewController = [[ResultadosBuscaTableViewController alloc] init];
@@ -104,14 +102,14 @@
 //}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-
+    
     NSInteger retornaNumeroLinhas = 0;
     
     if (self.searchControllerAtivado){
         retornaNumeroLinhas = [self.resultadosTableViewController.produtosFiltradosArray count];
     }
     else{
-        retornaNumeroLinhas =  [self.produtoArray count] + 2;
+        retornaNumeroLinhas =  [self.produtoOrcamentoArray count] + 2;
     }
     
     return retornaNumeroLinhas;
@@ -136,7 +134,7 @@
         labelNome.text = produto.nomeProduto;
         cellIdentifier = @"produtoCelula";
         
-    //utiliza esse formato de cell se não estiver usando a busca
+        //utiliza esse formato de cell se não estiver usando a busca
     }
     else{
         switch(indexPath.row)
@@ -147,20 +145,27 @@
                 cellIdentifier = @"novoProdIdentifier";
                 break;
             }
-    
+                
+            case 1:
+            {
+                labelNome.text = @"Salvar novo produto";
+                cellIdentifier = @"salvarProdIdentifier";
+                break;
+            }
+                
             default:
             {
-        
+                
                 // Create a new Candy Object
                 Produto *produto = nil;
-                produto = [self.produtoArray objectAtIndex:indexPath.row - 1];
-    
+                produto = [self.produtoOrcamentoArray objectAtIndex:indexPath.row - 2];
+                
                 // Configure the cell
                 labelNome.text = produto.nomeProduto;
                 cellIdentifier = @"produtoCelula";
                 break;
             }
-            
+                
         }
     }
     
@@ -168,62 +173,55 @@
     if (cell == nil){
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
-
+    
     return cell;
 }
 
 // Para terminar esse método é necessário saber qual destino ao se clicar em cada cell
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     Produto *produtoSelecionado = (tableView == self.tableView) ?
-    self.produtoArray[indexPath.row] : self.resultadosTableViewController.produtosFiltradosArray[indexPath.row];
+    self.produtoOrcamentoArray[indexPath.row] : self.resultadosTableViewController.produtosFiltradosArray[indexPath.row];
     if (self.searchControllerAtivado){
-        DetalhesProdutoViewController *telaDetalhesProduto = [self.storyboard instantiateViewControllerWithIdentifier:@"detalhesProduto"];
-        telaDetalhesProduto.nomeProd = produtoSelecionado.nomeProduto;
-        telaDetalhesProduto.categoriaProd = produtoSelecionado.categoriaProduto;
-        telaDetalhesProduto.descricaoProd = produtoSelecionado.descricaoProduto;
         
-        NSNumberFormatter *formatter = [[NSNumberFormatter alloc]init];
-        NSString *precoStr = [formatter stringFromNumber:produtoSelecionado.precoPadraoProduto];
-        telaDetalhesProduto.precoProd = precoStr;
-        
-        [self.navigationController pushViewController:telaDetalhesProduto animated:YES];
         
     }
     else{
+        
+        //ver como vai faze para separar os que serão salvos dos que não serão
+        
         switch(indexPath.row)
         {
             case 0:
-            {
-                NovoProdutoViewController *telaNovoProduto = [self.storyboard instantiateViewControllerWithIdentifier:@"novoProduto"];
-                [self.navigationController pushViewController:telaNovoProduto animated:YES];
-                break;
-            }
-                
+                {
+                    NovoProdutoViewController *telaNovoProduto = [self.storyboard instantiateViewControllerWithIdentifier:@"novoProduto"];
+                    [self.navigationController pushViewController:telaNovoProduto animated:YES];
+                    break;
+                }
+        
             default:
-            {
-                DetalhesProdutoViewController *telaDetalhesProduto = [self.storyboard instantiateViewControllerWithIdentifier:@"detalhesProduto"];
-                telaDetalhesProduto.nomeProd = produtoSelecionado.nomeProduto;
-                telaDetalhesProduto.categoriaProd = produtoSelecionado.categoriaProduto;
-                telaDetalhesProduto.descricaoProd = produtoSelecionado.descricaoProduto;
-                
-                NSNumberFormatter *formatter = [[NSNumberFormatter alloc]init];
-                NSString *precoStr = [formatter stringFromNumber:produtoSelecionado.precoPadraoProduto];
-                telaDetalhesProduto.precoProd = precoStr;
-                
-                [self.navigationController pushViewController:telaDetalhesProduto animated:YES];
-                break;
-            }
-                
-        }
+                {
+//                  DetalhesProdutoViewController *telaDetalhesProduto = [self.storyboard instantiateViewControllerWithIdentifier:@"detalhesProduto"];
+//                telaDetalhesProduto.nomeProd = produtoSelecionado.nomeProduto;
+//                telaDetalhesProduto.categoriaProd = produtoSelecionado.categoriaProduto;
+//                telaDetalhesProduto.descricaoProd = produtoSelecionado.descricaoProduto;
+//            
+//                NSNumberFormatter *formatter = [[NSNumberFormatter alloc]init];
+//                NSString *precoStr = [formatter stringFromNumber:produtoSelecionado.precoPadraoProduto];
+//                telaDetalhesProduto.precoProd = precoStr;
+//            
+//                [self.navigationController pushViewController:telaDetalhesProduto animated:YES];
+                    break;
+                }
 
+        }
         
     }
     
-//    APLDetailViewController *detailViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"APLDetailViewController"];
-//        detailViewController.product = selectedProduct; // hand off the current product to the detail view controller
-//    [self.navigationController pushViewController:detailViewController animated:YES];
+    //    APLDetailViewController *detailViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"APLDetailViewController"];
+    //        detailViewController.product = selectedProduct; // hand off the current product to the detail view controller
+    //    [self.navigationController pushViewController:detailViewController animated:YES];
     
-        // note: should not be necessary but current iOS 8.0 bug (seed 4) requires it
+    // note: should not be necessary but current iOS 8.0 bug (seed 4) requires it
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
 }
 
@@ -231,7 +229,7 @@
 - (void)updateSearchResultsForSearchController:(UISearchController *)searchController {
     // update the filtered array based on the search text
     NSString *textoBuscado = searchController.searchBar.text;
-    NSMutableArray *resultadosBuscaMArray = [self.produtoArray mutableCopy];
+    NSMutableArray *resultadosBuscaMArray = [self.produtoOrcamentoArray mutableCopy];
     
     // strip out all the leading and trailing spaces
     NSString *stringFormatada = [textoBuscado stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
@@ -280,7 +278,7 @@
                           type:NSEqualToPredicateOperatorType
                           options:NSCaseInsensitivePredicateOption];
         [itensBuscadosPredicateMArray addObject:finalPredicate];
-
+        
         
         //categoria
         lhs = [NSExpression expressionForKeyPath:@"categoriaProduto"];
@@ -292,8 +290,8 @@
                           type:NSEqualToPredicateOperatorType
                           options:NSCaseInsensitivePredicateOption];
         [itensBuscadosPredicateMArray addObject:finalPredicate];
-
-
+        
+        
         NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
         [numberFormatter setNumberStyle:NSNumberFormatterNoStyle];
         NSNumber *targetNumber = [numberFormatter numberFromString:stringBuscada];
@@ -309,7 +307,7 @@
                               options:NSCaseInsensitivePredicateOption];
             [itensBuscadosPredicateMArray addObject:finalPredicate];
         }
-    
+        
         // at this OR predicate to our master AND predicate
         NSCompoundPredicate *orMatchPredicates = [NSCompoundPredicate orPredicateWithSubpredicates:itensBuscadosPredicateMArray];
         [andMatchPredicatesMArray addObject:orMatchPredicates];
@@ -385,42 +383,42 @@ NSString *const SearchBarIsFirstResponderKey = @"SearchBarIsFirstResponderKey";
 
 
 
-    
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
 
 /*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
+ // Override to support editing the table view.
+ - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+ if (editingStyle == UITableViewCellEditingStyleDelete) {
+ // Delete the row from the data source
+ [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+ } else if (editingStyle == UITableViewCellEditingStyleInsert) {
+ // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+ }
+ }
+ */
 
 /*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
+ // Override to support rearranging the table view.
+ - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
+ }
+ */
 
 /*
-#pragma mark - Navigation
+ // Override to support conditional rearranging of the table view.
+ - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
+ // Return NO if you do not want the item to be re-orderable.
+ return YES;
+ }
+ */
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+/*
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 
 @end

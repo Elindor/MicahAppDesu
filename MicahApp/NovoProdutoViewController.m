@@ -46,6 +46,8 @@
     
     novoProduto.nomeProduto = self.nomeProdutoField.text;
     novoProduto.descricaoProduto = self.descricaoProdutoField.text;
+    
+    //precisa definir como será feito a categoria
 //    novoProduto.categoriaProduto =
     
     NSNumberFormatter *formatter = [[NSNumberFormatter alloc]init];

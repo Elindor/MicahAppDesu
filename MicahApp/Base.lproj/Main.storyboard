@@ -35,19 +35,15 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
-                            <tableViewCell tag="1" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="salvarProdIdentifier" id="6PY-Eh-c43">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6PY-Eh-c43" id="WA2-Dn-chF">
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
                             <tableViewCell tag="2" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="produtoCelula" id="esr-JS-431">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="esr-JS-431" id="tYc-jV-KQS">
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="sdh-bA-whs" kind="show" identifier="telaDetalhesProduto" id="6Ii-CK-iLU"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -73,10 +69,110 @@
             </objects>
             <point key="canvasLocation" x="258" y="-616"/>
         </scene>
+        <!--Produto-->
+        <scene sceneID="DLu-d3-Ubi">
+            <objects>
+                <viewController storyboardIdentifier="detalhesProduto" title="Produto" id="sdh-bA-whs" customClass="DetalhesProdutoViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y2B-sf-QfJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="IcC-ET-Cmn"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="1zH-PU-NVH">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nome produto" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cXa-O0-lMk">
+                                <rect key="frame" x="16" y="133" width="415" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Categoria do produto" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V9z-6H-Uc8">
+                                <rect key="frame" x="16" y="279" width="415" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Descrição do produto" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vcv-gJ-bvQ">
+                                <rect key="frame" x="16" y="206" width="415" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Preço do produto" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uwH-RZ-bFQ">
+                                <rect key="frame" x="16" y="349" width="415" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Detalhes do Produto" id="bSx-Vy-4Vx">
+                        <barButtonItem key="rightBarButtonItem" title="Editar" id="eM8-a8-SjI">
+                            <connections>
+                                <segue destination="gS1-sC-zhE" kind="show" id="Ffx-33-9DA"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="categoriaProdutoLabel" destination="V9z-6H-Uc8" id="nkU-uz-A7Q"/>
+                        <outlet property="descricaoProdutoLabel" destination="Vcv-gJ-bvQ" id="cf9-Wm-7H6"/>
+                        <outlet property="nomeProdutoLabel" destination="cXa-O0-lMk" id="zIj-io-XNE"/>
+                        <outlet property="precoProdutoLabel" destination="uwH-RZ-bFQ" id="nqN-VS-wTX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6lK-jk-AU8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="582" y="-1330"/>
+        </scene>
+        <!--Editar Produto-->
+        <scene sceneID="icx-aa-7BQ">
+            <objects>
+                <viewController title="Editar Produto" id="gS1-sC-zhE" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gR4-gR-xCf"/>
+                        <viewControllerLayoutGuide type="bottom" id="hk7-pi-pQc"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Sov-dQ-08K">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nome do produto" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4vZ-aq-PXn">
+                                <rect key="frame" x="16" y="142" width="467" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Descrição do produto" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3Ht-Sh-hvI">
+                                <rect key="frame" x="16" y="208" width="467" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Categoria do produto" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SkD-I5-L0b">
+                                <rect key="frame" x="16" y="280" width="467" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Preço padrão do produto" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UeI-M3-uRd">
+                                <rect key="frame" x="16" y="351" width="467" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Editar Produto" id="8OZ-TI-Hnn">
+                        <barButtonItem key="rightBarButtonItem" title="Salvar" id="CPB-53-vUi"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="u0W-xT-hIg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1274" y="-1330"/>
+        </scene>
         <!--Novo Produto-->
         <scene sceneID="3TU-GB-MXb">
             <objects>
-                <viewController id="1JD-WD-PoK" customClass="NovoProdutoViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="novoProduto" id="1JD-WD-PoK" customClass="NovoProdutoViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6Uu-2V-rcw"/>
                         <viewControllerLayoutGuide type="bottom" id="evN-nh-rjE"/>
@@ -104,6 +200,9 @@
                                 <state key="normal">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="S6d-GA-Hi7" kind="show" id="Yy0-28-TcN"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Preço padrão  R$" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hfP-0D-Fap">
                                 <rect key="frame" x="16" y="385" width="385" height="30"/>
@@ -134,6 +233,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Y2-iB-3G3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1011" y="-616"/>
+        </scene>
+        <!--Nova Categoria-->
+        <scene sceneID="wX9-As-jcI">
+            <objects>
+                <viewController title="Nova Categoria" id="S6d-GA-Hi7" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="135-Bl-ZI5"/>
+                        <viewControllerLayoutGuide type="bottom" id="gJJ-w1-pSn"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="3Xh-um-LzV">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2lS-nx-XjH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1722" y="-616"/>
         </scene>
         <!--Orca-->
         <scene sceneID="tne-QT-ifu">
