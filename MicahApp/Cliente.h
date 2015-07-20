@@ -17,6 +17,7 @@
 @property (weak, nonatomic) NSNumber *cpfCliente;
 
 
++ (Cliente *) criaCliente:(NSString *)nome email:(NSString *)emailCliente telefoneCliente:(NSString *)telefone enderecoCliente:(NSString *)endereco cpf: (NSNumber *) cpfCliente;
 
 
 @end

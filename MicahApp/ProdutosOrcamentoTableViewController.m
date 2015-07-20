@@ -180,10 +180,11 @@
 
 // Para terminar esse método é necessário saber qual destino ao se clicar em cada cell
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    Produto *produtoSelecionado = (tableView == self.tableView) ?
-    self.produtoOrcamentoArray[indexPath.row] : self.resultadosOrcamentoTableViewController.produtosFiltradosArray[indexPath.row];
+    
+    Produto *produtoSelecionado;
+    
     if (self.orcamentoSearchControllerAtivado){
-        
+        produtoSelecionado = self.resultadosOrcamentoTableViewController.produtosFiltradosArray[indexPath.row];
         
     }
     else{
@@ -201,6 +202,7 @@
                 
             default:
             {
+                produtoSelecionado = self.produtoOrcamentoArray[indexPath.row - 2];
                 //                  DetalhesProdutoViewController *telaDetalhesProduto = [self.storyboard instantiateViewControllerWithIdentifier:@"detalhesProduto"];
                 //                telaDetalhesProduto.nomeProd = produtoSelecionado.nomeProduto;
                 //                telaDetalhesProduto.categoriaProd = produtoSelecionado.categoriaProduto;

@@ -143,7 +143,7 @@
         {
             case 0:
             {
-                labelNome.text = @"Novo produto temporário";
+                labelNome.text = @"Novo produto";
                 cellIdentifier = @"novoProdIdentifier";
                 break;
             }
@@ -174,9 +174,12 @@
 
 // Para terminar esse método é necessário saber qual destino ao se clicar em cada cell
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    Produto *produtoSelecionado = (tableView == self.tableView) ?
-    self.produtoArray[indexPath.row] : self.resultadosTableViewController.produtosFiltradosArray[indexPath.row];
+
+    Produto *produtoSelecionado;
+
     if (self.searchControllerAtivado){
+        
+        produtoSelecionado = self.resultadosTableViewController.produtosFiltradosArray[indexPath.row];
         DetalhesProdutoViewController *telaDetalhesProduto = [self.storyboard instantiateViewControllerWithIdentifier:@"detalhesProduto"];
         telaDetalhesProduto.nomeProd = produtoSelecionado.nomeProduto;
         telaDetalhesProduto.categoriaProd = produtoSelecionado.categoriaProduto;
@@ -201,6 +204,7 @@
                 
             default:
             {
+                produtoSelecionado = self.produtoArray[indexPath.row -1];
                 DetalhesProdutoViewController *telaDetalhesProduto = [self.storyboard instantiateViewControllerWithIdentifier:@"detalhesProduto"];
                 telaDetalhesProduto.nomeProd = produtoSelecionado.nomeProduto;
                 telaDetalhesProduto.categoriaProd = produtoSelecionado.categoriaProduto;

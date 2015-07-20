@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+
 @interface HistoricoTableViewController : UITableViewController
+
+@property (copy, nonatomic) NSArray *historicoClienteArray;
 
 @end
