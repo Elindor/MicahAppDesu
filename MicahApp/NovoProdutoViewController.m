@@ -17,6 +17,7 @@
 
 @property (weak, nonatomic) IBOutlet UITextField *precoProdutoField;
 
+@property (weak, nonatomic) IBOutlet UISwitch *SwitchOn;
 
 @end
 

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Ogg-yL-6JJ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Ogg-yL-6JJ">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -29,12 +29,6 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="novoProdIdentifier" id="y59-Nh-hat">
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="y59-Nh-hat" id="4Wp-gI-Ju9">
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
                             <tableViewCell tag="2" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="produtoCelula" id="esr-JS-431">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
@@ -84,12 +78,6 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Categoria do produto" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V9z-6H-Uc8">
-                                <rect key="frame" x="16" y="279" width="415" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Descrição do produto" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vcv-gJ-bvQ">
                                 <rect key="frame" x="16" y="206" width="415" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -97,7 +85,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Preço do produto" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uwH-RZ-bFQ">
-                                <rect key="frame" x="16" y="349" width="415" height="21"/>
+                                <rect key="frame" x="16" y="283" width="415" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -108,12 +96,11 @@
                     <navigationItem key="navigationItem" title="Detalhes do Produto" id="bSx-Vy-4Vx">
                         <barButtonItem key="rightBarButtonItem" title="Editar" id="eM8-a8-SjI">
                             <connections>
-                                <segue destination="gS1-sC-zhE" kind="show" id="Ffx-33-9DA"/>
+                                <segue destination="gS1-sC-zhE" kind="show" identifier="showEditarProduto" id="Ffx-33-9DA"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="categoriaProdutoLabel" destination="V9z-6H-Uc8" id="nkU-uz-A7Q"/>
                         <outlet property="descricaoProdutoLabel" destination="Vcv-gJ-bvQ" id="cf9-Wm-7H6"/>
                         <outlet property="nomeProdutoLabel" destination="cXa-O0-lMk" id="zIj-io-XNE"/>
                         <outlet property="precoProdutoLabel" destination="uwH-RZ-bFQ" id="nqN-VS-wTX"/>
@@ -126,7 +113,7 @@
         <!--Editar Produto-->
         <scene sceneID="icx-aa-7BQ">
             <objects>
-                <viewController title="Editar Produto" id="gS1-sC-zhE" sceneMemberID="viewController">
+                <viewController title="Editar Produto" id="gS1-sC-zhE" customClass="EditarProdutoViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gR4-gR-xCf"/>
                         <viewControllerLayoutGuide type="bottom" id="hk7-pi-pQc"/>
@@ -145,13 +132,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Categoria do produto" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SkD-I5-L0b">
-                                <rect key="frame" x="16" y="280" width="467" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Preço padrão do produto" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UeI-M3-uRd">
-                                <rect key="frame" x="16" y="351" width="467" height="30"/>
+                                <rect key="frame" x="16" y="285" width="467" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -161,6 +143,11 @@
                     <navigationItem key="navigationItem" title="Editar Produto" id="8OZ-TI-Hnn">
                         <barButtonItem key="rightBarButtonItem" title="Salvar" id="CPB-53-vUi"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="descricaoTextField" destination="3Ht-Sh-hvI" id="Sw6-Uy-6JI"/>
+                        <outlet property="nomeTextField" destination="4vZ-aq-PXn" id="pou-Ga-pqm"/>
+                        <outlet property="precoTextField" destination="UeI-M3-uRd" id="g6W-ao-QlT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u0W-xT-hIg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -183,33 +170,24 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Pdf-zs-O7K">
-                                <rect key="frame" x="-79" y="215" width="600" height="162"/>
-                            </pickerView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Categoria:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ler-QH-s5c">
-                                <rect key="frame" x="16" y="236" width="80" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i8b-ch-Pvb">
-                                <rect key="frame" x="386" y="236" width="22" height="22"/>
-                                <state key="normal">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="S6d-GA-Hi7" kind="show" id="Yy0-28-TcN"/>
-                                </connections>
-                            </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Preço padrão  R$" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hfP-0D-Fap">
-                                <rect key="frame" x="16" y="385" width="385" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
-                            </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Descrição" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1hp-xc-Leb">
                                 <rect key="frame" x="16" y="162" width="326" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ANb-CH-emw">
+                                <rect key="frame" x="293" y="312" width="51" height="31"/>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Salvar" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fC5-UN-1WX">
+                                <rect key="frame" x="16" y="317" width="48" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Preço padrão  R$" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hfP-0D-Fap">
+                                <rect key="frame" x="16" y="228" width="326" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -222,6 +200,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="SwitchOn" destination="ANb-CH-emw" id="TCE-7K-igm"/>
                         <outlet property="descricaoProdutoField" destination="1hp-xc-Leb" id="5FT-Uq-wiE"/>
                         <outlet property="nomeProdutoField" destination="27v-OR-I1b" id="xR1-pk-mZ0"/>
                         <outlet property="precoProdutoField" destination="hfP-0D-Fap" id="1RV-6k-NsU"/>
@@ -349,6 +328,7 @@
             <objects>
                 <tableViewController storyboardIdentifier="ContentProduct" id="eOr-0m-WBe" customClass="ContentProductTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="0aQ-lO-BdL">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -375,19 +355,13 @@
             <objects>
                 <tableViewController storyboardIdentifier="ContentObservation" id="aTu-Qb-FZG" customClass="ContentObservationTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="VoZ-mm-2gw">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" restorationIdentifier="novoObsIdentifier" selectionStyle="default" indentationWidth="10" id="HK3-oA-yZD">
+                            <tableViewCell contentMode="scaleToFill" restorationIdentifier="novoObsIdentifier" selectionStyle="default" indentationWidth="10" reuseIdentifier="observacaoIdentifier" id="HK3-oA-yZD">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HK3-oA-yZD" id="xhb-KF-Xtz">
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" restorationIdentifier="observacaoCelula" selectionStyle="default" indentationWidth="10" id="pRA-tz-uUN">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pRA-tz-uUN" id="FsP-ii-wTG">
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -403,6 +377,40 @@
             </objects>
             <point key="canvasLocation" x="3928.5" y="-448"/>
         </scene>
+        <!--Editar Observacao-->
+        <scene sceneID="Dr3-Q6-CFb">
+            <objects>
+                <viewController storyboardIdentifier="editarObservacao" title="Editar Observacao" id="488-MP-a4R" customClass="EditarObservacaoViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Xsv-yY-bNs"/>
+                        <viewControllerLayoutGuide type="bottom" id="65r-dR-E3h"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="CfN-ts-lAd">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Observação" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2JP-6T-J32">
+                                <rect key="frame" x="44" y="107" width="402" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PAL-4d-JcC">
+                                <rect key="frame" x="222" y="296" width="47" height="30"/>
+                                <state key="normal" title="Excluir">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="observacaoTextField" destination="2JP-6T-J32" id="Y5I-xl-waT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7LE-x1-Bnf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3928" y="-1124"/>
+        </scene>
         <!--Content Finilize View Controller-->
         <scene sceneID="bCH-Cr-NGH">
             <objects>
@@ -412,6 +420,7 @@
                         <viewControllerLayoutGuide type="bottom" id="rqe-jj-luL"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="GFy-3M-eZM">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -687,6 +696,45 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f9S-JZ-PLD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1519.5" y="1088"/>
+        </scene>
+        <!--Observações-->
+        <scene sceneID="O1T-vU-bfi">
+            <objects>
+                <tableViewController title="Observações" id="iBN-nV-0VB" customClass="ObservacoesTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="bKJ-dG-m2H">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell tag="2" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="observacoesTableIdentifier" id="gTb-4p-nPB">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gTb-4p-nPB" id="1tu-yk-XmL">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="iBN-nV-0VB" id="VaH-9b-7Zm"/>
+                            <outlet property="delegate" destination="iBN-nV-0VB" id="rsN-HW-ABw"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Produtos" id="2db-dH-j2c"/>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="tGT-ZI-DtH" id="sGp-WF-dh0"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="N9C-Ll-lvr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="RJP-Gp-gxB">
+                    <connections>
+                        <outlet property="delegate" destination="iBN-nV-0VB" id="Bxx-5T-M5D"/>
+                        <outlet property="searchContentsController" destination="iBN-nV-0VB" id="dkW-TW-hfI"/>
+                        <outlet property="searchResultsDataSource" destination="iBN-nV-0VB" id="HGI-Q2-1W8"/>
+                        <outlet property="searchResultsDelegate" destination="iBN-nV-0VB" id="u7u-k7-0er"/>
+                    </connections>
+                </searchDisplayController>
+            </objects>
+            <point key="canvasLocation" x="-586" y="-624"/>
         </scene>
     </scenes>
 </document>

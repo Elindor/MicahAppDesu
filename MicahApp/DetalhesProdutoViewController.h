@@ -12,7 +12,7 @@
 
 @property (weak, nonatomic) NSString *nomeProd;
 @property (weak, nonatomic) NSString *descricaoProd;
-@property (weak, nonatomic) NSString *categoriaProd;
+//@property (weak, nonatomic) NSString *categoriaProd;
 @property (weak, nonatomic) NSString *precoProd;
 
 @end

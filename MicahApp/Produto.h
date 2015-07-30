@@ -12,9 +12,9 @@
 
 @property (weak, nonatomic) NSString *nomeProduto;
 @property (weak, nonatomic) NSString *descricaoProduto;
-@property (weak, nonatomic) NSString *categoriaProduto;
+//@property (weak, nonatomic) NSString *categoriaProduto;
 @property (weak, nonatomic) NSNumber *precoPadraoProduto;
 
-+ (Produto *) criaProduto:(NSString *)nome descricao:(NSString *)descricao categoria:(NSString *)categoria precoPadrao: (NSNumber *) precoPadrao;
++ (Produto *) criaProduto:(NSString *)nome descricao:(NSString *)descricao precoPadrao: (NSNumber *) precoPadrao;
 
 @end

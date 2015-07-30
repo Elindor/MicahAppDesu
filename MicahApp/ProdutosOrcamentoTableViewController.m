@@ -30,15 +30,15 @@
     [super viewDidLoad];
     
     //teste do array, precisa juntar com o "BD"
-    self.produtoOrcamentoArray = @[[Produto criaProduto:@"caneta1" descricao:@"bic1" categoria:@"papelaria" precoPadrao: @12.32],
-                                   [Produto criaProduto:@"borracha" descricao:@"faber" categoria:@"papelaria" precoPadrao: @5.50],
-                                   [Produto criaProduto:@"caneta3" descricao:@"bic3" categoria:@"papelaria" precoPadrao: @10.00],
-                                   [Produto criaProduto:@"caneta4" descricao:@"bic4" categoria:@"papelaria" precoPadrao: @14.78],
-                                   [Produto criaProduto:@"caneta5" descricao:@"bic5" categoria:@"papelaria" precoPadrao: @7.90],
-                                   [Produto criaProduto:@"caneta6" descricao:@"bic6" categoria:@"papelaria" precoPadrao: @9.90],
-                                   [Produto criaProduto:@"caneta7" descricao:@"bic7" categoria:@"papelaria" precoPadrao: @8.89],
-                                   [Produto criaProduto:@"caneta8" descricao:@"bic8" categoria:@"papelaria" precoPadrao: @7.90],
-                                   [Produto criaProduto:@"caneta9" descricao:@"bic9" categoria:@"papelaria" precoPadrao: @15.00]
+    self.produtoOrcamentoArray = @[[Produto criaProduto:@"caneta1" descricao:@"bic1" precoPadrao: @12.32],
+                                   [Produto criaProduto:@"borracha" descricao:@"faber" precoPadrao: @5.50],
+                                   [Produto criaProduto:@"caneta3" descricao:@"bic3" precoPadrao: @10.00],
+                                   [Produto criaProduto:@"caneta4" descricao:@"bic4" precoPadrao: @14.78],
+                                   [Produto criaProduto:@"caneta5" descricao:@"bic5" precoPadrao: @7.90],
+                                   [Produto criaProduto:@"caneta6" descricao:@"bic6" precoPadrao: @9.90],
+                                   [Produto criaProduto:@"caneta7" descricao:@"bic7" precoPadrao: @8.89],
+                                   [Produto criaProduto:@"caneta8" descricao:@"bic8" precoPadrao: @7.90],
+                                   [Produto criaProduto:@"caneta9" descricao:@"bic9" precoPadrao: @15.00]
                                    ];
     
     
@@ -119,58 +119,42 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    static NSString *cellIdentifier;
+    static NSString *cellIdentifier = @"prodOrcIdentifier";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
-    UILabel *labelNome = [[UILabel alloc] initWithFrame:CGRectMake(20, 20, self.tableView.frame.size.width - 40, 20)];
-    
+    UILabel *labelNome = [[UILabel alloc] initWithFrame:CGRectMake(20, 20, self.tableView.frame.size.width - 50, 20)];
     UIFont *font = labelNome.font;
     labelNome.font = [font fontWithSize:14];
     
+    UILabel *labelPreco = [[UILabel alloc] initWithFrame:CGRectMake(self.tableView.frame.size.width - 60, 20, 40, 20)];
+    
+    UIFont *fontPreco = labelPreco.font;
+    labelPreco.font = [fontPreco fontWithSize:14];
+
+    
+    Produto *produto = nil;
+    
     //utiliza esse formato de cell se utilizar a busca
     if(self.orcamentoSearchControllerAtivado){
-        Produto *produto = nil;
+       
         produto = [self.resultadosOrcamentoTableViewController.produtosFiltradosArray objectAtIndex:indexPath.row];
-        labelNome.text = produto.nomeProduto;
-        cellIdentifier = @"produtoCelula";
         
-        //utiliza esse formato de cell se não estiver usando a busca
     }
+    //utiliza esse formato de cell se não estiver usando a busca
     else{
-        switch(indexPath.row)
-        {
-            case 0:
-            {
-                labelNome.text = @"Novo produto temporário";
-                cellIdentifier = @"novoProdIdentifier";
-                break;
-            }
-                
-            case 1:
-            {
-                labelNome.text = @"Salvar novo produto";
-                cellIdentifier = @"salvarProdIdentifier";
-                break;
-            }
-                
-            default:
-            {
-                
-                // Create a new Candy Object
-                Produto *produto = nil;
-                produto = [self.produtoOrcamentoArray objectAtIndex:indexPath.row - 2];
-                
-                // Configure the cell
-                labelNome.text = produto.nomeProduto;
-                cellIdentifier = @"produtoCelula";
-                break;
-            }
-                
-        }
+ 
+        produto = [self.produtoOrcamentoArray objectAtIndex:indexPath.row];
+        
     }
     
+    labelNome.text = produto.nomeProduto;
+    NSString *stringPreco = [produto.precoPadraoProduto stringValue]; // transforma o NSNumber em string
+    labelPreco.text = stringPreco;
+    
     [cell addSubview:labelNome];
+    [cell addSubview:labelPreco];
+
     if (cell == nil){
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
@@ -189,34 +173,17 @@
     }
     else{
         
-        //ver como vai faze para separar os que serão salvos dos que não serão
-        
-        switch(indexPath.row)
-        {
-            case 0:
-            {
-                NovoProdutoViewController *telaNovoProduto = [self.storyboard instantiateViewControllerWithIdentifier:@"novoProduto"];
-                [self.navigationController pushViewController:telaNovoProduto animated:YES];
-                break;
-            }
-                
-            default:
-            {
-                produtoSelecionado = self.produtoOrcamentoArray[indexPath.row - 2];
-                //                  DetalhesProdutoViewController *telaDetalhesProduto = [self.storyboard instantiateViewControllerWithIdentifier:@"detalhesProduto"];
-                //                telaDetalhesProduto.nomeProd = produtoSelecionado.nomeProduto;
-                //                telaDetalhesProduto.categoriaProd = produtoSelecionado.categoriaProduto;
-                //                telaDetalhesProduto.descricaoProd = produtoSelecionado.descricaoProduto;
-                //
-                //                NSNumberFormatter *formatter = [[NSNumberFormatter alloc]init];
-                //                NSString *precoStr = [formatter stringFromNumber:produtoSelecionado.precoPadraoProduto];
-                //                telaDetalhesProduto.precoProd = precoStr;
-                //
-                //                [self.navigationController pushViewController:telaDetalhesProduto animated:YES];
-                break;
-            }
-                
-        }
+        produtoSelecionado = self.produtoOrcamentoArray[indexPath.row];
+//        DetalhesProdutoViewController *telaDetalhesProduto = [self.storyboard instantiateViewControllerWithIdentifier:@"detalhesProduto"];
+//        telaDetalhesProduto.nomeProd = produtoSelecionado.nomeProduto;
+//        telaDetalhesProduto.categoriaProd = produtoSelecionado.categoriaProduto;
+//        telaDetalhesProduto.descricaoProd = produtoSelecionado.descricaoProduto;
+//        
+//        NSNumberFormatter *formatter = [[NSNumberFormatter alloc]init];
+//        NSString *precoStr = [formatter stringFromNumber:produtoSelecionado.precoPadraoProduto];
+//        telaDetalhesProduto.precoProd = precoStr;
+//        
+//        [self.navigationController pushViewController:telaDetalhesProduto animated:YES];
         
     }
     
@@ -284,15 +251,15 @@
         
         
         //categoria
-        lhs = [NSExpression expressionForKeyPath:@"categoriaProduto"];
-        rhs = [NSExpression expressionForConstantValue:stringBuscada];
-        finalPredicate = [NSComparisonPredicate
-                          predicateWithLeftExpression:lhs
-                          rightExpression:rhs
-                          modifier:NSDirectPredicateModifier
-                          type:NSEqualToPredicateOperatorType
-                          options:NSCaseInsensitivePredicateOption];
-        [itensBuscadosPredicateMArray addObject:finalPredicate];
+//        lhs = [NSExpression expressionForKeyPath:@"categoriaProduto"];
+//        rhs = [NSExpression expressionForConstantValue:stringBuscada];
+//        finalPredicate = [NSComparisonPredicate
+//                          predicateWithLeftExpression:lhs
+//                          rightExpression:rhs
+//                          modifier:NSDirectPredicateModifier
+//                          type:NSEqualToPredicateOperatorType
+//                          options:NSCaseInsensitivePredicateOption];
+//        [itensBuscadosPredicateMArray addObject:finalPredicate];
         
         
         NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];

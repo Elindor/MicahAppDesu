@@ -7,6 +7,7 @@
 //
 
 #import "ContentObservationTableViewController.h"
+#import "EditarObservacaoViewController.h"
 
 @interface ContentObservationTableViewController ()
 
@@ -32,9 +33,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    NSInteger retornaNumeroLinhas = 0;
-    
-    retornaNumeroLinhas =  [self.observacoesOrcamentoArray count] + 1;
+    NSInteger retornaNumeroLinhas =  [self.observacoesOrcamentoArray count] ;
     
     return retornaNumeroLinhas;
 }
@@ -42,7 +41,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    static NSString *cellIdentifier;
+    static NSString *cellIdentifier = @"observacaoIdentifier";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
@@ -52,31 +51,12 @@
     labelNome.font = [font fontWithSize:14];
     
     
-    switch(indexPath.row)
-    {
-        case 0:
-        {
-            labelNome.text = @"Adicionar Observação";
-            cellIdentifier = @"novoObsIdentifier";
-            break;
-        }
-            
-        default:
-        {
-            
-            // Create a new Candy Object
-            NSString *observacao = nil;
-            observacao = [self.observacoesOrcamentoArray objectAtIndex:indexPath.row - 1];
-            
-            // Configure the cell
-            labelNome.text = observacao;
-            cellIdentifier = @"observacaoCelula";
-            break;
-        }
-            
-    }
+    NSString *observacao = nil;
+    observacao = [self.observacoesOrcamentoArray objectAtIndex:indexPath.row];
+    labelNome.text = observacao;
     
     [cell addSubview:labelNome];
+    
     if (cell == nil){
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
@@ -89,32 +69,11 @@
     
     NSString *observacaoSelecionado;
     
-    switch(indexPath.row)
-    {
-        case 0:
-        {
-            //            NovoProdutoViewController *telaNovoProduto = [self.storyboard instantiateViewControllerWithIdentifier:@"novoProduto"];
-            //            [self.navigationController pushViewController:telaNovoProduto animated:YES];
-            break;
-        }
-            
-        default:
-        {
-            observacaoSelecionado = self.observacoesOrcamentoArray[indexPath.row - 1];
-            //                  DetalhesProdutoViewController *telaDetalhesProduto = [self.storyboard instantiateViewControllerWithIdentifier:@"detalhesProduto"];
-            //                telaDetalhesProduto.nomeProd = produtoSelecionado.nomeProduto;
-            //                telaDetalhesProduto.categoriaProd = produtoSelecionado.categoriaProduto;
-            //                telaDetalhesProduto.descricaoProd = produtoSelecionado.descricaoProduto;
-            //
-            //                NSNumberFormatter *formatter = [[NSNumberFormatter alloc]init];
-            //                NSString *precoStr = [formatter stringFromNumber:produtoSelecionado.precoPadraoProduto];
-            //                telaDetalhesProduto.precoProd = precoStr;
-            //
-            //                [self.navigationController pushViewController:telaDetalhesProduto animated:YES];
-            break;
-        }
-            
-    }
+    observacaoSelecionado = self.observacoesOrcamentoArray[indexPath.row];
+    EditarObservacaoViewController *telaEditarObservacao = [self.storyboard instantiateViewControllerWithIdentifier:@"editarObservacao"];
+    telaEditarObservacao.observacao = observacaoSelecionado;
+    
+    [self.navigationController pushViewController:telaEditarObservacao animated:YES];
     
     //    APLDetailViewController *detailViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"APLDetailViewController"];
     //        detailViewController.product = selectedProduct; // hand off the current product to the detail view controller

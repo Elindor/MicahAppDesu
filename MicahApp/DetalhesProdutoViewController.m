@@ -8,6 +8,7 @@
 
 #import "DetalhesProdutoViewController.h"
 #import "Produto.h"
+#import "EditarProdutoViewController.h"
 
 @interface DetalhesProdutoViewController ()
 
@@ -15,7 +16,7 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *descricaoProdutoLabel;
 
-@property (weak, nonatomic) IBOutlet UILabel *categoriaProdutoLabel;
+//@property (weak, nonatomic) IBOutlet UILabel *categoriaProdutoLabel;
 
 @property (weak, nonatomic) IBOutlet UILabel *precoProdutoLabel;
 
@@ -29,7 +30,7 @@
     [super viewDidLoad];
     self.nomeProdutoLabel.text = self.nomeProd;
     self.descricaoProdutoLabel.text = self.descricaoProd;
-    self.categoriaProdutoLabel.text = self.categoriaProd;
+    //self.categoriaProdutoLabel.text = self.categoriaProd;
     self.precoProdutoLabel.text = self.precoProd;
     
     // Do any additional setup after loading the view.
@@ -40,14 +41,20 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    
+    if ([segue.identifier  isEqual: @"showEditarProduto"]) {
+        EditarProdutoViewController * telaEditarProduto = [segue destinationViewController];
+        telaEditarProduto.nome = self.nomeProd;
+        telaEditarProduto.descricao = self.descricaoProd;
+        telaEditarProduto.preco = self.precoProd;
+    }
+    
 }
-*/
+
 
 @end

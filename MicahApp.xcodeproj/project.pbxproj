@@ -10,6 +10,10 @@
 		1B7BB0EE1B5D980F000CD60E /* ProdutosOrcamentoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7BB0ED1B5D980F000CD60E /* ProdutosOrcamentoTableViewController.m */; };
 		1B9A166F1B5998BF00CA057B /* Cliente.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B9A166E1B5998BF00CA057B /* Cliente.m */; };
 		1B9A16751B59A61F00CA057B /* DetalhesProdutoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B9A16741B59A61F00CA057B /* DetalhesProdutoViewController.m */; };
+		1BE403571B6AA4F000F14A64 /* ObservacoesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BE403561B6AA4F000F14A64 /* ObservacoesTableViewController.m */; };
+		1BE4035A1B6AA5C800F14A64 /* BuscaObservacoesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BE403591B6AA5C800F14A64 /* BuscaObservacoesTableViewController.m */; };
+		1BE7485B1B6A7B7300F42E50 /* EditarProdutoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BE7485A1B6A7B7300F42E50 /* EditarProdutoViewController.m */; };
+		1BE7485E1B6A857900F42E50 /* EditarObservacaoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BE7485D1B6A857900F42E50 /* EditarObservacaoViewController.m */; };
 		1BE89C931B57E6D70062D241 /* HistoricoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BE89C921B57E6D70062D241 /* HistoricoTableViewController.m */; };
 		1BE89C961B57EB790062D241 /* ResultadosBuscaTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BE89C951B57EB790062D241 /* ResultadosBuscaTableViewController.m */; };
 		1BEB0B7F1B55A7520039F444 /* ProdutosTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BEB0B7E1B55A7520039F444 /* ProdutosTableViewController.m */; };
@@ -47,6 +51,14 @@
 		1B9A166E1B5998BF00CA057B /* Cliente.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cliente.m; sourceTree = "<group>"; };
 		1B9A16731B59A61F00CA057B /* DetalhesProdutoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetalhesProdutoViewController.h; sourceTree = "<group>"; };
 		1B9A16741B59A61F00CA057B /* DetalhesProdutoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetalhesProdutoViewController.m; sourceTree = "<group>"; };
+		1BE403551B6AA4F000F14A64 /* ObservacoesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObservacoesTableViewController.h; sourceTree = "<group>"; };
+		1BE403561B6AA4F000F14A64 /* ObservacoesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObservacoesTableViewController.m; sourceTree = "<group>"; };
+		1BE403581B6AA5C800F14A64 /* BuscaObservacoesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuscaObservacoesTableViewController.h; sourceTree = "<group>"; };
+		1BE403591B6AA5C800F14A64 /* BuscaObservacoesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuscaObservacoesTableViewController.m; sourceTree = "<group>"; };
+		1BE748591B6A7B7300F42E50 /* EditarProdutoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditarProdutoViewController.h; sourceTree = "<group>"; };
+		1BE7485A1B6A7B7300F42E50 /* EditarProdutoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditarProdutoViewController.m; sourceTree = "<group>"; };
+		1BE7485C1B6A857900F42E50 /* EditarObservacaoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditarObservacaoViewController.h; sourceTree = "<group>"; };
+		1BE7485D1B6A857900F42E50 /* EditarObservacaoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditarObservacaoViewController.m; sourceTree = "<group>"; };
 		1BE89C911B57E6D70062D241 /* HistoricoTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoricoTableViewController.h; sourceTree = "<group>"; };
 		1BE89C921B57E6D70062D241 /* HistoricoTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoricoTableViewController.m; sourceTree = "<group>"; };
 		1BE89C941B57EB790062D241 /* ResultadosBuscaTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultadosBuscaTableViewController.h; sourceTree = "<group>"; };
@@ -107,6 +119,8 @@
 			children = (
 				1B7BB0EC1B5D980F000CD60E /* ProdutosOrcamentoTableViewController.h */,
 				1B7BB0ED1B5D980F000CD60E /* ProdutosOrcamentoTableViewController.m */,
+				1BE748591B6A7B7300F42E50 /* EditarProdutoViewController.h */,
+				1BE7485A1B6A7B7300F42E50 /* EditarProdutoViewController.m */,
 				1B9A16731B59A61F00CA057B /* DetalhesProdutoViewController.h */,
 				1B9A16741B59A61F00CA057B /* DetalhesProdutoViewController.m */,
 				1BEB0B7D1B55A7520039F444 /* ProdutosTableViewController.h */,
@@ -207,6 +221,12 @@
 				C04E88551B559E3D00EB26BE /* ViewController.m */,
 				1BE89C911B57E6D70062D241 /* HistoricoTableViewController.h */,
 				1BE89C921B57E6D70062D241 /* HistoricoTableViewController.m */,
+				1BE403551B6AA4F000F14A64 /* ObservacoesTableViewController.h */,
+				1BE403561B6AA4F000F14A64 /* ObservacoesTableViewController.m */,
+				1BE403581B6AA5C800F14A64 /* BuscaObservacoesTableViewController.h */,
+				1BE403591B6AA5C800F14A64 /* BuscaObservacoesTableViewController.m */,
+				1BE7485C1B6A857900F42E50 /* EditarObservacaoViewController.h */,
+				1BE7485D1B6A857900F42E50 /* EditarObservacaoViewController.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -324,18 +344,22 @@
 				C04E88561B559E3D00EB26BE /* ViewController.m in Sources */,
 				C04E88531B559E3D00EB26BE /* AppDelegate.m in Sources */,
 				C04E888A1B69A37200EB26BE /* ContentFinilizeViewController.m in Sources */,
+				1BE7485B1B6A7B7300F42E50 /* EditarProdutoViewController.m in Sources */,
 				1BE89C961B57EB790062D241 /* ResultadosBuscaTableViewController.m in Sources */,
 				C04E88501B559E3D00EB26BE /* main.m in Sources */,
 				1B7BB0EE1B5D980F000CD60E /* ProdutosOrcamentoTableViewController.m in Sources */,
+				1BE7485E1B6A857900F42E50 /* EditarObservacaoViewController.m in Sources */,
 				1BF836FF1B5946F900F51048 /* NovoProdutoViewController.m in Sources */,
 				1B9A16751B59A61F00CA057B /* DetalhesProdutoViewController.m in Sources */,
 				1BEB0B7F1B55A7520039F444 /* ProdutosTableViewController.m in Sources */,
 				C04E888D1B69A38200EB26BE /* ContentProductTableViewController.m in Sources */,
+				1BE403571B6AA4F000F14A64 /* ObservacoesTableViewController.m in Sources */,
 				C04E88781B66D77700EB26BE /* ContentClientViewController.m in Sources */,
 				C04E88901B69A3AF00EB26BE /* ContentObservationTableViewController.m in Sources */,
 				C04E887E1B66DE0800EB26BE /* PageHolderViewController.m in Sources */,
 				1BE89C931B57E6D70062D241 /* HistoricoTableViewController.m in Sources */,
 				C04E88751B66D4DD00EB26BE /* CreateOrcaViewController.m in Sources */,
+				1BE4035A1B6AA5C800F14A64 /* BuscaObservacoesTableViewController.m in Sources */,
 				1B9A166F1B5998BF00CA057B /* Cliente.m in Sources */,
 				1BEB0B821B55BEA00039F444 /* Produto.m in Sources */,
 			);
