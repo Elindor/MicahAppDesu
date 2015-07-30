@@ -332,7 +332,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="BBm-Eb-Abg">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="prodListaIdentifier" id="BBm-Eb-Abg">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="BBm-Eb-Abg" id="LBa-3G-gTh">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -735,6 +735,55 @@
                 </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="-586" y="-624"/>
+        </scene>
+        <!--Pedido De Produto-->
+        <scene sceneID="2ZT-qf-H7t">
+            <objects>
+                <viewController storyboardIdentifier="telaPedidoDeProduto" title="Pedido De Produto" id="ZRD-Fx-kL9" customClass="PedidoDeProdutoViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="7lk-0I-S9D"/>
+                        <viewControllerLayoutGuide type="bottom" id="EgN-VH-bNu"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Zmj-En-G0t">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nome do produto" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hmq-4k-MuW">
+                                <rect key="frame" x="16" y="142" width="467" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Descrição do produto" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AB2-7u-462">
+                                <rect key="frame" x="16" y="208" width="467" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Preço do produto" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fvu-v2-qMY">
+                                <rect key="frame" x="16" y="285" width="467" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Quantidade" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qrv-gL-l47">
+                                <rect key="frame" x="16" y="350" width="467" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Editar Produto" id="FwP-ew-SZZ">
+                        <barButtonItem key="rightBarButtonItem" title="Salvar" id="h2T-dN-Y9h"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="descricaoProdutoTextField" destination="AB2-7u-462" id="j0o-1r-dvA"/>
+                        <outlet property="nomeProdutoTextField" destination="Hmq-4k-MuW" id="biA-27-Ecn"/>
+                        <outlet property="precoProdutoTextField" destination="Fvu-v2-qMY" id="nSa-7H-VRS"/>
+                        <outlet property="quantidadeProdutoTextField" destination="Qrv-gL-l47" id="YKX-H8-9Wt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BHS-Tx-YVd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3928" y="1614"/>
         </scene>
     </scenes>
 </document>

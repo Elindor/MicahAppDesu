@@ -7,6 +7,8 @@
 //
 
 #import "ContentProductTableViewController.h"
+#import "Produto.h"
+#import "PedidoDeProdutoViewController.h"
 
 @interface ContentProductTableViewController ()
 
@@ -17,6 +19,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    
+    self.produtosListaNSMArray = [[NSMutableArray alloc] initWithArray: @[[Produto criaProduto:@"caneta1" descricao:@"bic1" precoPadrao: @12.32],
+                                   [Produto criaProduto:@"borracha" descricao:@"faber" precoPadrao: @5.50],
+                                   [Produto criaProduto:@"caneta3" descricao:@"bic3" precoPadrao: @10.00],
+                                   [Produto criaProduto:@"caneta4" descricao:@"bic4" precoPadrao: @14.78],
+                                   [Produto criaProduto:@"caneta5" descricao:@"bic5" precoPadrao: @7.90],
+                                   [Produto criaProduto:@"caneta6" descricao:@"bic6" precoPadrao: @9.90],
+                                   [Produto criaProduto:@"caneta7" descricao:@"bic7" precoPadrao: @8.89],
+                                   [Produto criaProduto:@"caneta8" descricao:@"bic8" precoPadrao: @7.90],
+                                   [Produto criaProduto:@"caneta9" descricao:@"bic9" precoPadrao: @15.00]
+                                   ]];
+
+
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -31,27 +46,61 @@
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
-}
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
+    return [self.produtosListaNSMArray count];
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    static NSString * cellIdentifier = @"prodListaIdentifier";
     
-    // Configure the cell...
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
+    
+    UILabel *labelNome = [[UILabel alloc] initWithFrame:CGRectMake(20, 20, self.tableView.frame.size.width - 50, 20)];
+    UIFont *font = labelNome.font;
+    labelNome.font = [font fontWithSize:14];
+    
+    UILabel *labelPreco = [[UILabel alloc] initWithFrame:CGRectMake(self.tableView.frame.size.width - 60, 20, 40, 20)];
+    
+    UIFont *fontPreco = labelPreco.font;
+    labelPreco.font = [fontPreco fontWithSize:14];
+    
+    
+    Produto *produto = nil;
+        
+    produto = [self.produtosListaNSMArray objectAtIndex:indexPath.row];
+    
+    labelNome.text = produto.nomeProduto;
+    NSString *stringPreco = [produto.precoPadraoProduto stringValue]; // transforma o NSNumber em string
+    labelPreco.text = stringPreco;
+    
+    [cell addSubview:labelNome];
+    [cell addSubview:labelPreco];
+    
+    if (cell == nil){
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+    }
     
     return cell;
 }
-*/
+
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    Produto *produtoSelecionado;
+    produtoSelecionado = self.produtosListaNSMArray[indexPath.row];
+    PedidoDeProdutoViewController *telaPedidoDeProduto = [self.storyboard instantiateViewControllerWithIdentifier:@"telaPedidoDeProduto"];
+    telaPedidoDeProduto.nomeProduto = produtoSelecionado.nomeProduto;
+    telaPedidoDeProduto.descricaoProduto = produtoSelecionado.descricaoProduto;
+    telaPedidoDeProduto.precoProduto = [produtoSelecionado.precoPadraoProduto stringValue];
+
+    [self.navigationController pushViewController:telaPedidoDeProduto animated:YES];
+    
+    // note: should not be necessary but current iOS 8.0 bug (seed 4) requires it
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+}
+
+
+
 
 /*
 // Override to support conditional editing of the table view.
