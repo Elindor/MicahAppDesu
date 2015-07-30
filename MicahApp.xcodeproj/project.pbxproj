@@ -22,6 +22,12 @@
 		C04E885B1B559E3D00EB26BE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C04E885A1B559E3D00EB26BE /* Images.xcassets */; };
 		C04E885E1B559E3D00EB26BE /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C04E885C1B559E3D00EB26BE /* LaunchScreen.xib */; };
 		C04E886A1B559E3D00EB26BE /* MicahAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C04E88691B559E3D00EB26BE /* MicahAppTests.m */; };
+		C04E88751B66D4DD00EB26BE /* CreateOrcaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C04E88741B66D4DD00EB26BE /* CreateOrcaViewController.m */; };
+		C04E88781B66D77700EB26BE /* ContentClientViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C04E88771B66D77700EB26BE /* ContentClientViewController.m */; };
+		C04E887E1B66DE0800EB26BE /* PageHolderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C04E887D1B66DE0800EB26BE /* PageHolderViewController.m */; };
+		C04E888A1B69A37200EB26BE /* ContentFinilizeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C04E88891B69A37200EB26BE /* ContentFinilizeViewController.m */; };
+		C04E888D1B69A38200EB26BE /* ContentProductTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C04E888C1B69A38200EB26BE /* ContentProductTableViewController.m */; };
+		C04E88901B69A3AF00EB26BE /* ContentObservationTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C04E888F1B69A3AF00EB26BE /* ContentObservationTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +70,18 @@
 		C04E88631B559E3D00EB26BE /* MicahAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MicahAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C04E88681B559E3D00EB26BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C04E88691B559E3D00EB26BE /* MicahAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MicahAppTests.m; sourceTree = "<group>"; };
+		C04E88731B66D4DD00EB26BE /* CreateOrcaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateOrcaViewController.h; sourceTree = "<group>"; };
+		C04E88741B66D4DD00EB26BE /* CreateOrcaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateOrcaViewController.m; sourceTree = "<group>"; };
+		C04E88761B66D77700EB26BE /* ContentClientViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContentClientViewController.h; sourceTree = "<group>"; };
+		C04E88771B66D77700EB26BE /* ContentClientViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContentClientViewController.m; sourceTree = "<group>"; };
+		C04E887C1B66DE0800EB26BE /* PageHolderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageHolderViewController.h; sourceTree = "<group>"; };
+		C04E887D1B66DE0800EB26BE /* PageHolderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageHolderViewController.m; sourceTree = "<group>"; };
+		C04E88881B69A37200EB26BE /* ContentFinilizeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContentFinilizeViewController.h; sourceTree = "<group>"; };
+		C04E88891B69A37200EB26BE /* ContentFinilizeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContentFinilizeViewController.m; sourceTree = "<group>"; };
+		C04E888B1B69A38200EB26BE /* ContentProductTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContentProductTableViewController.h; sourceTree = "<group>"; };
+		C04E888C1B69A38200EB26BE /* ContentProductTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContentProductTableViewController.m; sourceTree = "<group>"; };
+		C04E888E1B69A3AF00EB26BE /* ContentObservationTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContentObservationTableViewController.h; sourceTree = "<group>"; };
+		C04E888F1B69A3AF00EB26BE /* ContentObservationTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContentObservationTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,18 +142,13 @@
 		C04E884C1B559E3D00EB26BE /* MicahApp */ = {
 			isa = PBXGroup;
 			children = (
+				C04E887A1B66D79100EB26BE /* Views */,
+				C04E887B1B66D7B300EB26BE /* Objects */,
+				C04E88571B559E3D00EB26BE /* Main.storyboard */,
+				C04E885C1B559E3D00EB26BE /* LaunchScreen.xib */,
+				C04E885A1B559E3D00EB26BE /* Images.xcassets */,
 				C04E88511B559E3D00EB26BE /* AppDelegate.h */,
 				C04E88521B559E3D00EB26BE /* AppDelegate.m */,
-				C04E88541B559E3D00EB26BE /* ViewController.h */,
-				C04E88551B559E3D00EB26BE /* ViewController.m */,
-				1BE89C911B57E6D70062D241 /* HistoricoTableViewController.h */,
-				1BE89C921B57E6D70062D241 /* HistoricoTableViewController.m */,
-				1B9A166D1B5998BF00CA057B /* Cliente.h */,
-				1B9A166E1B5998BF00CA057B /* Cliente.m */,
-				1BE89C901B57E6610062D241 /* Produtos */,
-				C04E88571B559E3D00EB26BE /* Main.storyboard */,
-				C04E885A1B559E3D00EB26BE /* Images.xcassets */,
-				C04E885C1B559E3D00EB26BE /* LaunchScreen.xib */,
 				C04E884D1B559E3D00EB26BE /* Supporting Files */,
 			);
 			path = MicahApp;
@@ -165,6 +178,47 @@
 				C04E88681B559E3D00EB26BE /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C04E88791B66D77F00EB26BE /* PageView */ = {
+			isa = PBXGroup;
+			children = (
+				C04E887C1B66DE0800EB26BE /* PageHolderViewController.h */,
+				C04E887D1B66DE0800EB26BE /* PageHolderViewController.m */,
+				C04E88731B66D4DD00EB26BE /* CreateOrcaViewController.h */,
+				C04E88741B66D4DD00EB26BE /* CreateOrcaViewController.m */,
+				C04E88761B66D77700EB26BE /* ContentClientViewController.h */,
+				C04E88771B66D77700EB26BE /* ContentClientViewController.m */,
+				C04E88881B69A37200EB26BE /* ContentFinilizeViewController.h */,
+				C04E88891B69A37200EB26BE /* ContentFinilizeViewController.m */,
+				C04E888B1B69A38200EB26BE /* ContentProductTableViewController.h */,
+				C04E888C1B69A38200EB26BE /* ContentProductTableViewController.m */,
+				C04E888E1B69A3AF00EB26BE /* ContentObservationTableViewController.h */,
+				C04E888F1B69A3AF00EB26BE /* ContentObservationTableViewController.m */,
+			);
+			name = PageView;
+			sourceTree = "<group>";
+		};
+		C04E887A1B66D79100EB26BE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C04E88791B66D77F00EB26BE /* PageView */,
+				C04E88541B559E3D00EB26BE /* ViewController.h */,
+				C04E88551B559E3D00EB26BE /* ViewController.m */,
+				1BE89C911B57E6D70062D241 /* HistoricoTableViewController.h */,
+				1BE89C921B57E6D70062D241 /* HistoricoTableViewController.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		C04E887B1B66D7B300EB26BE /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				1BE89C901B57E6610062D241 /* Produtos */,
+				1B9A166D1B5998BF00CA057B /* Cliente.h */,
+				1B9A166E1B5998BF00CA057B /* Cliente.m */,
+			);
+			name = Objects;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -269,13 +323,19 @@
 			files = (
 				C04E88561B559E3D00EB26BE /* ViewController.m in Sources */,
 				C04E88531B559E3D00EB26BE /* AppDelegate.m in Sources */,
+				C04E888A1B69A37200EB26BE /* ContentFinilizeViewController.m in Sources */,
 				1BE89C961B57EB790062D241 /* ResultadosBuscaTableViewController.m in Sources */,
 				C04E88501B559E3D00EB26BE /* main.m in Sources */,
 				1B7BB0EE1B5D980F000CD60E /* ProdutosOrcamentoTableViewController.m in Sources */,
 				1BF836FF1B5946F900F51048 /* NovoProdutoViewController.m in Sources */,
 				1B9A16751B59A61F00CA057B /* DetalhesProdutoViewController.m in Sources */,
 				1BEB0B7F1B55A7520039F444 /* ProdutosTableViewController.m in Sources */,
+				C04E888D1B69A38200EB26BE /* ContentProductTableViewController.m in Sources */,
+				C04E88781B66D77700EB26BE /* ContentClientViewController.m in Sources */,
+				C04E88901B69A3AF00EB26BE /* ContentObservationTableViewController.m in Sources */,
+				C04E887E1B66DE0800EB26BE /* PageHolderViewController.m in Sources */,
 				1BE89C931B57E6D70062D241 /* HistoricoTableViewController.m in Sources */,
+				C04E88751B66D4DD00EB26BE /* CreateOrcaViewController.m in Sources */,
 				1B9A166F1B5998BF00CA057B /* Cliente.m in Sources */,
 				1BEB0B821B55BEA00039F444 /* Produto.m in Sources */,
 			);
