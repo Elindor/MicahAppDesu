@@ -33,6 +33,8 @@
 		C04E888A1B69A37200EB26BE /* ContentFinilizeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C04E88891B69A37200EB26BE /* ContentFinilizeViewController.m */; };
 		C04E888D1B69A38200EB26BE /* ContentProductTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C04E888C1B69A38200EB26BE /* ContentProductTableViewController.m */; };
 		C04E88901B69A3AF00EB26BE /* ContentObservationTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C04E888F1B69A3AF00EB26BE /* ContentObservationTableViewController.m */; };
+		C04E88961B6BF4D400EB26BE /* orcamentos.m in Sources */ = {isa = PBXBuildFile; fileRef = C04E88951B6BF4D400EB26BE /* orcamentos.m */; };
+		C04E88991B6C019900EB26BE /* SaveData.m in Sources */ = {isa = PBXBuildFile; fileRef = C04E88981B6C019900EB26BE /* SaveData.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +99,10 @@
 		C04E888C1B69A38200EB26BE /* ContentProductTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContentProductTableViewController.m; sourceTree = "<group>"; };
 		C04E888E1B69A3AF00EB26BE /* ContentObservationTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContentObservationTableViewController.h; sourceTree = "<group>"; };
 		C04E888F1B69A3AF00EB26BE /* ContentObservationTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContentObservationTableViewController.m; sourceTree = "<group>"; };
+		C04E88941B6BF4D400EB26BE /* orcamentos.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = orcamentos.h; sourceTree = "<group>"; };
+		C04E88951B6BF4D400EB26BE /* orcamentos.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = orcamentos.m; sourceTree = "<group>"; };
+		C04E88971B6C019900EB26BE /* SaveData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SaveData.h; sourceTree = "<group>"; };
+		C04E88981B6C019900EB26BE /* SaveData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SaveData.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -242,6 +248,10 @@
 				1BE89C901B57E6610062D241 /* Produtos */,
 				1B9A166D1B5998BF00CA057B /* Cliente.h */,
 				1B9A166E1B5998BF00CA057B /* Cliente.m */,
+				C04E88941B6BF4D400EB26BE /* orcamentos.h */,
+				C04E88951B6BF4D400EB26BE /* orcamentos.m */,
+				C04E88971B6C019900EB26BE /* SaveData.h */,
+				C04E88981B6C019900EB26BE /* SaveData.m */,
 			);
 			name = Objects;
 			sourceTree = "<group>";
@@ -360,6 +370,8 @@
 				1BEB0B7F1B55A7520039F444 /* ProdutosTableViewController.m in Sources */,
 				C04E888D1B69A38200EB26BE /* ContentProductTableViewController.m in Sources */,
 				1BE403571B6AA4F000F14A64 /* ObservacoesTableViewController.m in Sources */,
+				C04E88991B6C019900EB26BE /* SaveData.m in Sources */,
+				C04E88961B6BF4D400EB26BE /* orcamentos.m in Sources */,
 				C04E88781B66D77700EB26BE /* ContentClientViewController.m in Sources */,
 				C04E88901B69A3AF00EB26BE /* ContentObservationTableViewController.m in Sources */,
 				C04E887E1B66DE0800EB26BE /* PageHolderViewController.m in Sources */,

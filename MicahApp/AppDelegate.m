@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "SaveData.h"
 
 @interface AppDelegate ()
 
@@ -19,7 +20,8 @@
     
    
         // Override point for customization after application launch.
-    
+    [SaveData sharedGameData];
+
         //Page Balls Customizing! YAY!
     UIPageControl *pageControl = [UIPageControl appearance];
     pageControl.pageIndicatorTintColor = [UIColor lightGrayColor];
