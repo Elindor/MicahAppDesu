@@ -177,6 +177,12 @@
                             </textField>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ANb-CH-emw">
                                 <rect key="frame" x="293" y="312" width="51" height="31"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="293" y="312" width="51" height="31"/>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
+                                    <rect key="frame" x="293" y="312" width="51" height="31"/>
+                                </variation>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Salvar" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fC5-UN-1WX">
                                 <rect key="frame" x="16" y="317" width="48" height="21"/>
@@ -288,6 +294,18 @@
                                     <segue destination="wH1-ch-29f" kind="show" id="S6w-fO-qs4"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7et-7K-xwy">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Observações">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="137" y="273" width="126" height="30"/>
+                                </variation>
+                                <connections>
+                                    <segue destination="iBN-nV-0VB" kind="show" id="mL9-EG-8kN"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <variation key="default">
@@ -296,6 +314,7 @@
                                 <exclude reference="r1g-hB-wUJ"/>
                                 <exclude reference="mJq-Kb-EVQ"/>
                                 <exclude reference="asQ-51-tU1"/>
+                                <exclude reference="7et-7K-xwy"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -304,6 +323,7 @@
                                 <include reference="r1g-hB-wUJ"/>
                                 <include reference="mJq-Kb-EVQ"/>
                                 <include reference="asQ-51-tU1"/>
+                                <include reference="7et-7K-xwy"/>
                             </mask>
                         </variation>
                     </view>
@@ -560,7 +580,7 @@
         <!--Perfil-->
         <scene sceneID="OBm-nk-Esw">
             <objects>
-                <viewController id="jJJ-sf-bMd" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="telaPerfil" id="jJJ-sf-bMd" customClass="PerfilViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="d7i-ME-u7i"/>
                         <viewControllerLayoutGuide type="bottom" id="Hex-cm-evP"/>
@@ -568,9 +588,101 @@
                     <view key="view" contentMode="scaleToFill" id="zUu-wL-itN">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nome" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FPh-az-uLY">
+                                <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="30" y="122" width="162" height="30"/>
+                                </variation>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Telefone" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="THK-hd-LOM">
+                                <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="30" y="198" width="162" height="30"/>
+                                </variation>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Endereço" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zIb-ri-Gf2">
+                                <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="30" y="275" width="342" height="30"/>
+                                </variation>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E-mail" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pKu-D7-2th">
+                                <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="30" y="359" width="342" height="30"/>
+                                </variation>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SVk-y0-G0u">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Logotipo">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="218" y="94" width="154" height="133.5"/>
+                                </variation>
+                                <connections>
+                                    <action selector="logotipoButton:" destination="jJJ-sf-bMd" eventType="touchUpInside" id="g29-VP-2Dd"/>
+                                </connections>
+                            </button>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8za-Va-bDn">
+                                <rect key="frame" x="-25" y="-15" width="51" height="31"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="323" y="444" width="51" height="31"/>
+                                </variation>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sincronizar iCloud" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b1X-JI-dOk">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="30" y="449" width="140" height="21"/>
+                                </variation>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="FPh-az-uLY"/>
+                                <exclude reference="THK-hd-LOM"/>
+                                <exclude reference="zIb-ri-Gf2"/>
+                                <exclude reference="pKu-D7-2th"/>
+                                <exclude reference="SVk-y0-G0u"/>
+                                <exclude reference="8za-Va-bDn"/>
+                                <exclude reference="b1X-JI-dOk"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="FPh-az-uLY"/>
+                                <include reference="THK-hd-LOM"/>
+                                <include reference="zIb-ri-Gf2"/>
+                                <include reference="pKu-D7-2th"/>
+                                <include reference="SVk-y0-G0u"/>
+                                <include reference="8za-Va-bDn"/>
+                                <include reference="b1X-JI-dOk"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Perfil" id="VHZ-zX-VhP"/>
+                    <connections>
+                        <outlet property="emailTextField" destination="pKu-D7-2th" id="BRk-eN-g3I"/>
+                        <outlet property="enderecoTextField" destination="zIb-ri-Gf2" id="4EU-Yi-B9J"/>
+                        <outlet property="logotipoOutlet" destination="SVk-y0-G0u" id="O19-i9-KQk"/>
+                        <outlet property="nomeTextField" destination="FPh-az-uLY" id="jA1-Yn-hqO"/>
+                        <outlet property="switchON" destination="8za-Va-bDn" id="395-i3-a7n"/>
+                        <outlet property="telefoneTextField" destination="THK-hd-LOM" id="Co6-gh-S8r"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ojE-Tz-RW1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
