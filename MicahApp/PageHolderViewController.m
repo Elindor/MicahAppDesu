@@ -22,6 +22,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+#pragma Aqui fica a diferenciação da origem do app. Este viewDidLoad refere-se ao botão novo, onde ele cria o orca novo e coloca na lista de saves. Para continuar um não-terminado, deve-se apenas criar um init custom que receve o orcamento desejado, e proceder EXATAMENTE como depois da #pragma "Feijão"
+    
+    SaveData *save = [SaveData sharedAppData];
+    orcamentos *newOrca = [[orcamentos alloc] init];
+    
+    [save.unfinishedList addObject:newOrca];
+    [save save];
+    
+    save.currentOrca = newOrca;                         // O currentOrca onde ocorrem as alterações. É importante setar ele na continuação também, pois a referencia na edição e caixas de texto e etc. vem aqui.
+        //P.S.: Current orca não salva, é apenas um elemento singleton.
+    
+#pragma "Feijão"
+    
     _pageTitles = @[@"Dados do Cliente", @"Produtos", @"Ajustes", @"Observações", @"Finalização"];
     topButtonNames = @[@"Importar", @"Adicionar", @"", @"Adicionar", @"Finalizar"];
     

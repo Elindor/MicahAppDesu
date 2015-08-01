@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "orcamentos.h"
 
 @interface SaveData : NSObject
 
@@ -22,6 +23,7 @@
 @property NSString *userMail;
 @property UIImage *userIcon;
 @property BOOL iCloudIsOn;
+@property orcamentos *currentOrca;
 
 +(instancetype)sharedAppData;    //singleton fetch
 
