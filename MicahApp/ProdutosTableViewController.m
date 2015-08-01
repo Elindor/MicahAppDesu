@@ -62,6 +62,7 @@
     //
     self.definesPresentationContext = YES;  // know where you want UISearchController to be displayed
     
+    
     [self.tableView reloadData];
 }
 
@@ -79,6 +80,7 @@
             _searchControllerFieldWasFirstResponder = NO;
         }
     }
+    
 }
 
 
@@ -124,6 +126,10 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
+    if (cell == nil){
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+    }
+    
     UILabel *labelNome = [[UILabel alloc] initWithFrame:CGRectMake(20, 20, self.tableView.frame.size.width - 40, 20)];
     UIFont *font = labelNome.font;
     labelNome.font = [font fontWithSize:14];
@@ -152,9 +158,7 @@
     
     [cell addSubview:labelNome];
     [cell addSubview:labelPreco];
-    if (cell == nil){
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
-    }
+  
 
     return cell;
 }
@@ -209,6 +213,8 @@
 
 
 - (void)updateSearchResultsForSearchController:(UISearchController *)searchController {
+    
+    
     // update the filtered array based on the search text
     NSString *textoBuscado = searchController.searchBar.text;
     NSMutableArray *resultadosBuscaMArray = [self.produtoArray mutableCopy];
@@ -304,6 +310,8 @@
     ResultadosBuscaTableViewController *resultadosBuscatableController = (ResultadosBuscaTableViewController *)self.produtosSearchController.searchResultsController;
     resultadosBuscatableController.produtosFiltradosArray = resultadosBuscaMArray;
     [resultadosBuscatableController.tableView reloadData];
+    [self.tableView reloadData];
+    
 }
 
 #pragma mark - UIStateRestoration

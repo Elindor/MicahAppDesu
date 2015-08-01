@@ -10,6 +10,8 @@
 #import "ResultadosBuscaTableViewController.h"
 #import "Produto.h"
 #import "NovoProdutoViewController.h"
+#import "ContentProductTableViewController.h"
+#import "PedidoDeProduto.h"
 
 @interface ProdutosOrcamentoTableViewController () <UISearchBarDelegate, UISearchControllerDelegate, UISearchResultsUpdating>
 
@@ -166,32 +168,30 @@
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     Produto *produtoSelecionado;
+    PedidoDeProduto *novoPedido = [[PedidoDeProduto alloc]init];
     
     if (self.orcamentoSearchControllerAtivado){
         produtoSelecionado = self.resultadosOrcamentoTableViewController.produtosFiltradosArray[indexPath.row];
+        
         
     }
     else{
         
         produtoSelecionado = self.produtoOrcamentoArray[indexPath.row];
-//        DetalhesProdutoViewController *telaDetalhesProduto = [self.storyboard instantiateViewControllerWithIdentifier:@"detalhesProduto"];
-//        telaDetalhesProduto.nomeProd = produtoSelecionado.nomeProduto;
-//        telaDetalhesProduto.categoriaProd = produtoSelecionado.categoriaProduto;
-//        telaDetalhesProduto.descricaoProd = produtoSelecionado.descricaoProduto;
-//        
-//        NSNumberFormatter *formatter = [[NSNumberFormatter alloc]init];
-//        NSString *precoStr = [formatter stringFromNumber:produtoSelecionado.precoPadraoProduto];
-//        telaDetalhesProduto.precoProd = precoStr;
-//        
-//        [self.navigationController pushViewController:telaDetalhesProduto animated:YES];
-        
+
     }
     
-    //    APLDetailViewController *detailViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"APLDetailViewController"];
-    //        detailViewController.product = selectedProduct; // hand off the current product to the detail view controller
-    //    [self.navigationController pushViewController:detailViewController animated:YES];
+    novoPedido.nomeProduto = produtoSelecionado.nomeProduto;
+    novoPedido.descricaoProduto = produtoSelecionado.descricaoProduto;
+    novoPedido.precoProduto = produtoSelecionado.precoPadraoProduto;
+    novoPedido.quantidadeProduto = @ 1.0;
     
-    // note: should not be necessary but current iOS 8.0 bug (seed 4) requires it
+    ContentProductTableViewController *telaProdOrcamento = [self.storyboard instantiateViewControllerWithIdentifier:@"ContentProduct"];
+    telaProdOrcamento.pedidoNovo = novoPedido;
+    
+    [self.navigationController pushViewController:telaProdOrcamento animated:YES];
+
+    
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
 }
 

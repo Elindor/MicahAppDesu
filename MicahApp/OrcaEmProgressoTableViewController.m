@@ -1,29 +1,27 @@
 //
-//  ResultadosBuscaTableViewController.m
+//  OrcaEmProgressoTableViewController.m
 //  MicahApp
 //
-//  Created by Érika Tiemi Uehara Moriya on 7/16/15.
+//  Created by Érika Tiemi Uehara Moriya on 8/1/15.
 //  Copyright (c) 2015 Gabriel Nopper. All rights reserved.
 //
 
-//Essa classe serve para filtrar os resultados da busca e mostrá-los em outra tableView
+#import "OrcaEmProgressoTableViewController.h"
 
-
-#import "ResultadosBuscaTableViewController.h"
-#import "Produto.h"
-
-@interface ResultadosBuscaTableViewController ()
+@interface OrcaEmProgressoTableViewController ()
 
 @end
 
-@implementation ResultadosBuscaTableViewController
+@implementation OrcaEmProgressoTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-
-    [self.tableView reloadData];
-
+    // Uncomment the following line to preserve selection between presentations.
+    // self.clearsSelectionOnViewWillAppear = NO;
+    
+    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -33,37 +31,27 @@
 
 #pragma mark - Table view data source
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-
-    return self.produtosFiltradosArray.count;
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+#warning Potentially incomplete method implementation.
+    // Return the number of sections.
+    return 0;
 }
 
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+#warning Incomplete method implementation.
+    // Return the number of rows in the section.
+    return 0;
+}
 
+/*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *cellIdentifier = @"produtoCelula";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    
-    UILabel *labelNome = [[UILabel alloc] initWithFrame:CGRectMake(20, 20, 150, 20)];
-    UIFont *font = labelNome.font;
-    labelNome.font = [font fontWithSize:14];
-    
-    // Create a new Candy Object
-    Produto *produto = nil;
-    
-    produto = self.produtosFiltradosArray[indexPath.row];
-    // mostra o nome do produto na tabela
-    labelNome.text = produto.nomeProduto;
-    
-    [cell addSubview:labelNome];
-
-    if (cell == nil){
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
-    }
+    // Configure the cell...
     
     return cell;
 }
-
+*/
 
 /*
 // Override to support conditional editing of the table view.
