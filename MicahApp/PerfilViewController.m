@@ -7,6 +7,7 @@
 //
 
 #import "PerfilViewController.h"
+#import "SaveData.h"
 
 @interface PerfilViewController ()
 
@@ -29,6 +30,15 @@
 
 @implementation PerfilViewController
 
+-(void)viewWillAppear:(BOOL)animated{
+    SaveData* save = [SaveData sharedAppData];
+    _nameField.text = save.userName;
+    _addressField.text = save.userAddress;
+    _phoneField.text = save.userPhone;
+    _mailField.text = save.userMail;
+    self.imagePerfil = save.userIcon;
+    _iCloudSwitch.on = save.iCloudIsOn;
+}
 
 - (IBAction)logotipoButton:(id)sender {
  
@@ -42,6 +52,9 @@
 - (void) imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image editingInfo:(NSDictionary *)editingInfo
 {
     self.imagePerfil = image;
+    SaveData* save = [SaveData sharedAppData];
+    save.userIcon = image;
+    [save save];
     [self.logotipoOutlet setTitle:@"" forState:UIControlStateNormal];
     
     NSLog(@"logo: %@", self.logotipoOutlet.titleLabel.text);
@@ -75,4 +88,49 @@
 }
 */
 
+- (IBAction)nameExit:(id)sender {
+}
+
+- (IBAction)nameEdit:(id)sender {
+    SaveData* save = [SaveData sharedAppData];
+    save.userName = _nameField.text;
+    [save save];
+}
+
+- (IBAction)phoneExit:(id)sender {
+}
+
+- (IBAction)phoneEdit:(id)sender {
+    SaveData* save = [SaveData sharedAppData];
+    save.userPhone = _phoneField.text;
+    [save save];
+}
+
+- (IBAction)addressExit:(id)sender {
+}
+
+- (IBAction)addressEdit:(id)sender {
+    SaveData* save = [SaveData sharedAppData];
+    save.userAddress = _addressField.text;
+    [save save];
+}
+
+- (IBAction)emailExit:(id)sender {
+}
+
+- (IBAction)emailEdit:(id)sender {
+    SaveData* save = [SaveData sharedAppData];
+    save.userMail = _emailTextField.text;
+    [save save];
+}
+
+- (IBAction)iCloudEdit:(id)sender {
+    SaveData* save = [SaveData sharedAppData];
+    if(save.iCloudIsOn)
+        save.iCloudIsOn = false;
+    else
+        save.iCloudIsOn = true;
+    [save save];
+    
+}
 @end

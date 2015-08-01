@@ -20,7 +20,7 @@
     
    
         // Override point for customization after application launch.
-    [SaveData sharedGameData];
+    [SaveData sharedAppData];
 
         //Page Balls Customizing! YAY!
     UIPageControl *pageControl = [UIPageControl appearance];

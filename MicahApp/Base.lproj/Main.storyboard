@@ -596,6 +596,10 @@
                                 <variation key="widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="30" y="122" width="162" height="30"/>
                                 </variation>
+                                <connections>
+                                    <action selector="nameEdit:" destination="jJJ-sf-bMd" eventType="editingDidEnd" id="g66-jX-8KV"/>
+                                    <action selector="nameExit:" destination="jJJ-sf-bMd" eventType="editingDidEndOnExit" id="8ir-im-sBW"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Telefone" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="THK-hd-LOM">
                                 <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
@@ -604,6 +608,10 @@
                                 <variation key="widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="30" y="198" width="162" height="30"/>
                                 </variation>
+                                <connections>
+                                    <action selector="phoneEdit:" destination="jJJ-sf-bMd" eventType="editingDidEnd" id="Kxh-gE-lBd"/>
+                                    <action selector="phoneExit:" destination="jJJ-sf-bMd" eventType="editingDidEndOnExit" id="Z10-W0-3Jd"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Endereço" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zIb-ri-Gf2">
                                 <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
@@ -612,6 +620,10 @@
                                 <variation key="widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="30" y="275" width="342" height="30"/>
                                 </variation>
+                                <connections>
+                                    <action selector="addressEdit:" destination="jJJ-sf-bMd" eventType="editingDidEnd" id="umL-Wa-DOK"/>
+                                    <action selector="addressExit:" destination="jJJ-sf-bMd" eventType="editingDidEndOnExit" id="gkr-bi-QUw"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E-mail" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pKu-D7-2th">
                                 <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
@@ -620,6 +632,10 @@
                                 <variation key="widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="30" y="359" width="342" height="30"/>
                                 </variation>
+                                <connections>
+                                    <action selector="emailEdit:" destination="jJJ-sf-bMd" eventType="editingDidEnd" id="wd6-zv-Mye"/>
+                                    <action selector="emailExit:" destination="jJJ-sf-bMd" eventType="editingDidEndOnExit" id="x2z-SF-A9G"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SVk-y0-G0u">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
@@ -639,6 +655,9 @@
                                 <variation key="widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="323" y="444" width="51" height="31"/>
                                 </variation>
+                                <connections>
+                                    <action selector="iCloudEdit:" destination="jJJ-sf-bMd" eventType="editingDidEnd" id="gwe-BY-wxd"/>
+                                </connections>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sincronizar iCloud" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b1X-JI-dOk">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
@@ -676,10 +695,15 @@
                     </view>
                     <navigationItem key="navigationItem" title="Perfil" id="VHZ-zX-VhP"/>
                     <connections>
+                        <outlet property="addressField" destination="zIb-ri-Gf2" id="C6x-nF-YLF"/>
                         <outlet property="emailTextField" destination="pKu-D7-2th" id="BRk-eN-g3I"/>
                         <outlet property="enderecoTextField" destination="zIb-ri-Gf2" id="4EU-Yi-B9J"/>
+                        <outlet property="iCloudSwitch" destination="8za-Va-bDn" id="457-c0-w4Y"/>
                         <outlet property="logotipoOutlet" destination="SVk-y0-G0u" id="O19-i9-KQk"/>
+                        <outlet property="mailField" destination="pKu-D7-2th" id="lyy-6f-iFe"/>
+                        <outlet property="nameField" destination="FPh-az-uLY" id="s9w-L1-aHs"/>
                         <outlet property="nomeTextField" destination="FPh-az-uLY" id="jA1-Yn-hqO"/>
+                        <outlet property="phoneField" destination="THK-hd-LOM" id="66o-nF-lH4"/>
                         <outlet property="switchON" destination="8za-Va-bDn" id="395-i3-a7n"/>
                         <outlet property="telefoneTextField" destination="THK-hd-LOM" id="Co6-gh-S8r"/>
                     </connections>

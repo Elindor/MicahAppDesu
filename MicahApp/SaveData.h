@@ -23,7 +23,7 @@
 @property UIImage *userIcon;
 @property BOOL iCloudIsOn;
 
-+(instancetype)sharedGameData;    //singleton fetch
++(instancetype)sharedAppData;    //singleton fetch
 
 -(void)save;
 

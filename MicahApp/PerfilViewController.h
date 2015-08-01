@@ -16,4 +16,22 @@
 @property (weak, nonatomic) NSString *emailPerfil;
 @property (weak, nonatomic) UIImage *imagePerfil;
 
+@property (weak, nonatomic) IBOutlet UITextField *nameField;
+@property (weak, nonatomic) IBOutlet UITextField *phoneField;
+@property (weak, nonatomic) IBOutlet UITextField *addressField;
+@property (weak, nonatomic) IBOutlet UITextField *mailField;
+@property (weak, nonatomic) IBOutlet UISwitch *iCloudSwitch;
+
+
+
+- (IBAction)nameExit:(id)sender;
+- (IBAction)nameEdit:(id)sender;
+- (IBAction)phoneExit:(id)sender;
+- (IBAction)phoneEdit:(id)sender;
+- (IBAction)addressExit:(id)sender;
+- (IBAction)addressEdit:(id)sender;
+- (IBAction)emailExit:(id)sender;
+- (IBAction)emailEdit:(id)sender;
+- (IBAction)iCloudEdit:(id)sender;
+
 @end

@@ -21,7 +21,7 @@
     return self;
 }
 
-+(instancetype)sharedGameData{
++(instancetype)sharedAppData{
     static id sharedInstance = nil;
     
     static dispatch_once_t onceToken;
