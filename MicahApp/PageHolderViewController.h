@@ -12,6 +12,7 @@
 #import "ContentObservationTableViewController.h"
 #import "ContentProductTableViewController.h"
 #import "CreateOrcaViewController.h"
+#import "ContentAdjustmentViewController.h"
 #import "SaveData.h"
 
 

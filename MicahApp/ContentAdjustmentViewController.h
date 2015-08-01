@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface ContentAdjustmentViewController : UIViewController
+@property NSUInteger pageIndex;
+
 
 @end

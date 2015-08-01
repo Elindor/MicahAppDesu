@@ -143,14 +143,14 @@
             break;
         }
         case 2:{
-            ContentObservationTableViewController *pageContentViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"ContentFinilize"];
+            ContentAdjustmentViewController *pageContentViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"ContentAdjustment"];
             pageContentViewController.pageIndex = index;
 
             return pageContentViewController;
             break;
         }
         case 3:{
-            ContentFinilizeViewController *pageContentViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"ContentObservation"];
+            ContentObservationTableViewController *pageContentViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"ContentObservation"];
             pageContentViewController.pageIndex = index;
 
             return pageContentViewController;
