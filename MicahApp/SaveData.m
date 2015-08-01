@@ -67,7 +67,7 @@
         _userAddress = [aDecoder decodeObjectForKey:@"OrcamentsGeneric$UserAddress#32189kl4"];
         _userPhone = [aDecoder decodeObjectForKey:@"OrcamentsGeneric$UserPhone#32189kl4"];
         _userMail = [aDecoder decodeObjectForKey:@"OrcamentsGeneric$UserMail#32189kl4"];
-        _userIcon = [aDecoder decodeObjectForKey:@"OrcamentsGeneric$UserIcon#32189kl4"];
+        _userIcon = [UIImage imageWithData:[aDecoder decodeObjectForKey:@"OrcamentsGeneric$UserIcon#32189kl5"]];
         _iCloudIsOn = [aDecoder decodeBoolForKey:@"OrcamentsGeneric$iCloudIsOn#32189kl4"];
     }
     return self;
@@ -82,7 +82,7 @@
     [aCoder encodeObject:_userAddress forKey:@"OrcamentsGeneric$UserAddress#32189kl4"];
     [aCoder encodeObject:_userPhone forKey:@"OrcamentsGeneric$UserPhone#32189kl4"];
     [aCoder encodeObject:_userMail forKey:@"OrcamentsGeneric$UserMail#32189kl4"];
-    [aCoder encodeObject:_userIcon forKey:@"OrcamentsGeneric$UserIcon#32189kl4"];
+    [aCoder encodeObject:UIImagePNGRepresentation(_userIcon) forKey:@"OrcamentsGeneric$UserIcon#32189kl5"];
     [aCoder encodeBool:_iCloudIsOn forKey:@"OrcamentsGeneric$iCloudIsOn#32189kl4"];
 }
 

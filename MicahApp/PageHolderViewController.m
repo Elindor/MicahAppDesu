@@ -16,12 +16,14 @@
 
 @implementation PageHolderViewController{
     NSInteger currentPage;
+    NSArray *topButtonNames;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    _pageTitles = @[@"Dados do Cliente", @"Produtos", @"Observações", @"Finalização"];
+    _pageTitles = @[@"Dados do Cliente", @"Produtos", @"Ajustes", @"Observações", @"Finalização"];
+    topButtonNames = @[@"Importar", @"Adicionar", @"", @"Adicionar", @"Finalizar"];
     
     // Create page view controller
     self.pageViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"CreateOrca"];
@@ -34,6 +36,9 @@
     
     // Change the size of page view controller
     self.pageViewController.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - 30);
+    
+    self.TopBar.title = self.pageTitles[0];
+    self.topBarButton.title = topButtonNames[0];
     
     [self addChildViewController:_pageViewController];
     [self.view addSubview:_pageViewController.view];
@@ -64,6 +69,7 @@
 {
     NSUInteger index = ((ContentClientViewController*) viewController).pageIndex;
     self.TopBar.title = self.pageTitles[index];
+    self.topBarButton.title = topButtonNames[index];
     currentPage = index;
 
     
@@ -80,6 +86,7 @@
 {
     NSUInteger index = ((ContentClientViewController*) viewController).pageIndex;
     self.TopBar.title = self.pageTitles[index];
+    self.topBarButton.title = topButtonNames[index];
     currentPage = index;
 
     
@@ -109,7 +116,7 @@
             ContentClientViewController *pageContentViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"ContentClient"];
             pageContentViewController.titleText = self.pageTitles[index];
             pageContentViewController.pageIndex = index;
-            
+
             return pageContentViewController;
             break;
         }
@@ -122,16 +129,23 @@
             break;
         }
         case 2:{
-            ContentObservationTableViewController *pageContentViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"ContentObservation"];
+            ContentObservationTableViewController *pageContentViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"ContentFinilize"];
             pageContentViewController.pageIndex = index;
-            
+
             return pageContentViewController;
             break;
         }
         case 3:{
+            ContentFinilizeViewController *pageContentViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"ContentObservation"];
+            pageContentViewController.pageIndex = index;
+
+            return pageContentViewController;
+            break;
+        }
+        case 4:{
             ContentFinilizeViewController *pageContentViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"ContentFinilize"];
             pageContentViewController.pageIndex = index;
-            
+
             return pageContentViewController;
             break;
         }
@@ -139,7 +153,7 @@
             ContentClientViewController *pageContentViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"ContentClient"];
             pageContentViewController.titleText = self.pageTitles[index];
             pageContentViewController.pageIndex = index;
-            
+
             return pageContentViewController;
             break;
         }
@@ -170,6 +184,9 @@
             NSLog(@"2");
             break;
         case 3:
+            NSLog(@"3");
+            break;
+        case 4:
             NSLog(@"3");
             break;
         

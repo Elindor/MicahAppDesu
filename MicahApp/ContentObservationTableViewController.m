@@ -17,6 +17,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.tableView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0); // Altura correta
     
     //teste do array, precisa juntar com o "BD"
     self.observacoesOrcamentoArray = [[NSMutableArray alloc] initWithArray:@[@"teste1", @"teste2", @"teste3", @"teste4", @"teste5", @"teste6"]] ;

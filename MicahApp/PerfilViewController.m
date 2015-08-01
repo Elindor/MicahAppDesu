@@ -38,6 +38,12 @@
     _mailField.text = save.userMail;
     self.imagePerfil = save.userIcon;
     _iCloudSwitch.on = save.iCloudIsOn;
+    //[save save];
+    
+    [self.logotipoOutlet setTitle:@"" forState:UIControlStateNormal];
+    [self.logotipoOutlet setBackgroundImage:self.imagePerfil forState:UIControlStateSelected];
+    [self.logotipoOutlet setBackgroundImage:self.imagePerfil forState:UIControlStateNormal];
+    [self.logotipoOutlet setBackgroundImage:self.imagePerfil forState:UIControlStateHighlighted];
 }
 
 - (IBAction)logotipoButton:(id)sender {
@@ -53,8 +59,7 @@
 {
     self.imagePerfil = image;
     SaveData* save = [SaveData sharedAppData];
-    save.userIcon = image;
-    [save save];
+    
     [self.logotipoOutlet setTitle:@"" forState:UIControlStateNormal];
     
     NSLog(@"logo: %@", self.logotipoOutlet.titleLabel.text);
@@ -63,7 +68,8 @@
     [self.logotipoOutlet setBackgroundImage:self.imagePerfil forState:UIControlStateNormal];
     [self.logotipoOutlet setBackgroundImage:self.imagePerfil forState:UIControlStateHighlighted];
     
-    
+    save.userIcon = image;
+    [save save];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

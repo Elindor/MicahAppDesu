@@ -184,7 +184,7 @@
     novoPedido.nomeProduto = produtoSelecionado.nomeProduto;
     novoPedido.descricaoProduto = produtoSelecionado.descricaoProduto;
     novoPedido.precoProduto = produtoSelecionado.precoPadraoProduto;
-    novoPedido.quantidadeProduto = @ 1.0;
+    novoPedido.quantidadeProduto =[NSNumber numberWithFloat:1.0];
     
     ContentProductTableViewController *telaProdOrcamento = [self.storyboard instantiateViewControllerWithIdentifier:@"ContentProduct"];
     telaProdOrcamento.pedidoNovo = novoPedido;
