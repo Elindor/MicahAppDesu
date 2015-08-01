@@ -11,8 +11,9 @@
 		1B9A166F1B5998BF00CA057B /* Cliente.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B9A166E1B5998BF00CA057B /* Cliente.m */; };
 		1B9A16751B59A61F00CA057B /* DetalhesProdutoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B9A16741B59A61F00CA057B /* DetalhesProdutoViewController.m */; };
 		1BE403571B6AA4F000F14A64 /* ObservacoesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BE403561B6AA4F000F14A64 /* ObservacoesTableViewController.m */; };
-		1BE4035A1B6AA5C800F14A64 /* BuscaObservacoesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BE403591B6AA5C800F14A64 /* BuscaObservacoesTableViewController.m */; };
 		1BE538151B6ACA5200E312D7 /* PedidoDeProdutoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BE538141B6ACA5200E312D7 /* PedidoDeProdutoViewController.m */; };
+		1BE552E31B6D3C030047CFA8 /* PedidoDeProduto.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BE552E21B6D3C030047CFA8 /* PedidoDeProduto.m */; };
+		1BE552E91B6D52EF0047CFA8 /* OrcaEmProgressoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BE552E81B6D52EF0047CFA8 /* OrcaEmProgressoTableViewController.m */; };
 		1BE7485B1B6A7B7300F42E50 /* EditarProdutoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BE7485A1B6A7B7300F42E50 /* EditarProdutoViewController.m */; };
 		1BE7485E1B6A857900F42E50 /* EditarObservacaoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BE7485D1B6A857900F42E50 /* EditarObservacaoViewController.m */; };
 		1BE89C931B57E6D70062D241 /* HistoricoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BE89C921B57E6D70062D241 /* HistoricoTableViewController.m */; };
@@ -55,10 +56,12 @@
 		1B9A16741B59A61F00CA057B /* DetalhesProdutoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetalhesProdutoViewController.m; sourceTree = "<group>"; };
 		1BE403551B6AA4F000F14A64 /* ObservacoesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObservacoesTableViewController.h; sourceTree = "<group>"; };
 		1BE403561B6AA4F000F14A64 /* ObservacoesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObservacoesTableViewController.m; sourceTree = "<group>"; };
-		1BE403581B6AA5C800F14A64 /* BuscaObservacoesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuscaObservacoesTableViewController.h; sourceTree = "<group>"; };
-		1BE403591B6AA5C800F14A64 /* BuscaObservacoesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuscaObservacoesTableViewController.m; sourceTree = "<group>"; };
 		1BE538131B6ACA5200E312D7 /* PedidoDeProdutoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PedidoDeProdutoViewController.h; sourceTree = "<group>"; };
 		1BE538141B6ACA5200E312D7 /* PedidoDeProdutoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PedidoDeProdutoViewController.m; sourceTree = "<group>"; };
+		1BE552E11B6D3C030047CFA8 /* PedidoDeProduto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PedidoDeProduto.h; sourceTree = "<group>"; };
+		1BE552E21B6D3C030047CFA8 /* PedidoDeProduto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PedidoDeProduto.m; sourceTree = "<group>"; };
+		1BE552E71B6D52EF0047CFA8 /* OrcaEmProgressoTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrcaEmProgressoTableViewController.h; sourceTree = "<group>"; };
+		1BE552E81B6D52EF0047CFA8 /* OrcaEmProgressoTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrcaEmProgressoTableViewController.m; sourceTree = "<group>"; };
 		1BE748591B6A7B7300F42E50 /* EditarProdutoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditarProdutoViewController.h; sourceTree = "<group>"; };
 		1BE7485A1B6A7B7300F42E50 /* EditarProdutoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditarProdutoViewController.m; sourceTree = "<group>"; };
 		1BE7485C1B6A857900F42E50 /* EditarObservacaoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditarObservacaoViewController.h; sourceTree = "<group>"; };
@@ -229,14 +232,16 @@
 				1BE89C921B57E6D70062D241 /* HistoricoTableViewController.m */,
 				1BE403551B6AA4F000F14A64 /* ObservacoesTableViewController.h */,
 				1BE403561B6AA4F000F14A64 /* ObservacoesTableViewController.m */,
-				1BE403581B6AA5C800F14A64 /* BuscaObservacoesTableViewController.h */,
-				1BE403591B6AA5C800F14A64 /* BuscaObservacoesTableViewController.m */,
 				1BE7485C1B6A857900F42E50 /* EditarObservacaoViewController.h */,
 				1BE7485D1B6A857900F42E50 /* EditarObservacaoViewController.m */,
 				1BE538131B6ACA5200E312D7 /* PedidoDeProdutoViewController.h */,
 				1BE538141B6ACA5200E312D7 /* PedidoDeProdutoViewController.m */,
+				1BE552E11B6D3C030047CFA8 /* PedidoDeProduto.h */,
+				1BE552E21B6D3C030047CFA8 /* PedidoDeProduto.m */,
 				1BEC4A0E1B6BB81B000A0443 /* PerfilViewController.h */,
 				1BEC4A0F1B6BB81B000A0443 /* PerfilViewController.m */,
+				1BE552E71B6D52EF0047CFA8 /* OrcaEmProgressoTableViewController.h */,
+				1BE552E81B6D52EF0047CFA8 /* OrcaEmProgressoTableViewController.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -356,6 +361,7 @@
 				C04E888A1B69A37200EB26BE /* ContentFinilizeViewController.m in Sources */,
 				1BE7485B1B6A7B7300F42E50 /* EditarProdutoViewController.m in Sources */,
 				1BE89C961B57EB790062D241 /* ResultadosBuscaTableViewController.m in Sources */,
+				1BE552E31B6D3C030047CFA8 /* PedidoDeProduto.m in Sources */,
 				1BEC4A101B6BB81B000A0443 /* PerfilViewController.m in Sources */,
 				C04E88501B559E3D00EB26BE /* main.m in Sources */,
 				1B7BB0EE1B5D980F000CD60E /* ProdutosOrcamentoTableViewController.m in Sources */,
@@ -367,11 +373,11 @@
 				C04E888D1B69A38200EB26BE /* ContentProductTableViewController.m in Sources */,
 				1BE403571B6AA4F000F14A64 /* ObservacoesTableViewController.m in Sources */,
 				C04E88781B66D77700EB26BE /* ContentClientViewController.m in Sources */,
+				1BE552E91B6D52EF0047CFA8 /* OrcaEmProgressoTableViewController.m in Sources */,
 				C04E88901B69A3AF00EB26BE /* ContentObservationTableViewController.m in Sources */,
 				C04E887E1B66DE0800EB26BE /* PageHolderViewController.m in Sources */,
 				1BE89C931B57E6D70062D241 /* HistoricoTableViewController.m in Sources */,
 				C04E88751B66D4DD00EB26BE /* CreateOrcaViewController.m in Sources */,
-				1BE4035A1B6AA5C800F14A64 /* BuscaObservacoesTableViewController.m in Sources */,
 				1B9A166F1B5998BF00CA057B /* Cliente.m in Sources */,
 				1BEB0B821B55BEA00039F444 /* Produto.m in Sources */,
 			);

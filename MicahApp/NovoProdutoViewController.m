@@ -26,6 +26,9 @@
 //só chama o método para criar o novo produto e que depois será gravado
 - (IBAction)salvarButton:(id)sender{
     [self cadastrarProduto];
+    [self dismissViewControllerAnimated:YES completion:nil];
+
+    
 }
 
 

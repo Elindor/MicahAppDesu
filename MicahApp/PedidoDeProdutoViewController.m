@@ -21,12 +21,20 @@
 
 @implementation PedidoDeProdutoViewController
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     self.nomeProdutoTextField.text = self.nomeProduto;
     self.descricaoProdutoTextField.text = self.descricaoProduto;
-    self.precoProdutoTextField.text = self.precoProduto;
+    NSNumberFormatter *formatter = [[NSNumberFormatter alloc]init];
+    NSString *preco = [formatter stringFromNumber:self.precoProduto];
+    NSString *quantidade = [formatter stringFromNumber:self.quantidadeProduto];
+    self.precoProdutoTextField.text = preco;
+    self.quantidadeProdutoTextField.text = quantidade;
+    
+    
+    
     // Do any additional setup after loading the view.
 }
 

@@ -58,7 +58,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="258" y="-616"/>
+            <point key="canvasLocation" x="273" y="-624"/>
         </scene>
         <!--Produto-->
         <scene sceneID="DLu-d3-Ubi">
@@ -216,24 +216,6 @@
             </objects>
             <point key="canvasLocation" x="1011" y="-616"/>
         </scene>
-        <!--Nova Categoria-->
-        <scene sceneID="wX9-As-jcI">
-            <objects>
-                <viewController title="Nova Categoria" id="S6d-GA-Hi7" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="135-Bl-ZI5"/>
-                        <viewControllerLayoutGuide type="bottom" id="gJJ-w1-pSn"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="3Xh-um-LzV">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2lS-nx-XjH" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1722" y="-616"/>
-        </scene>
         <!--Orca-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -306,6 +288,18 @@
                                     <segue destination="iBN-nV-0VB" kind="show" id="mL9-EG-8kN"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Ry-7B-TKf">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Orçamentos em progresso">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="109" y="222" width="183" height="30"/>
+                                </variation>
+                                <connections>
+                                    <segue destination="97z-AZ-sCg" kind="show" id="nOP-ch-Xr2"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <variation key="default">
@@ -315,6 +309,7 @@
                                 <exclude reference="mJq-Kb-EVQ"/>
                                 <exclude reference="asQ-51-tU1"/>
                                 <exclude reference="7et-7K-xwy"/>
+                                <exclude reference="6Ry-7B-TKf"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -324,6 +319,7 @@
                                 <include reference="mJq-Kb-EVQ"/>
                                 <include reference="asQ-51-tU1"/>
                                 <include reference="7et-7K-xwy"/>
+                                <include reference="6Ry-7B-TKf"/>
                             </mask>
                         </variation>
                     </view>
@@ -442,9 +438,33 @@
                     <view key="view" contentMode="scaleToFill" id="GFy-3M-eZM">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="texto" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U0R-AH-YQ9">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="28" y="100" width="335" height="340"/>
+                                </variation>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="U0R-AH-YQ9"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="U0R-AH-YQ9"/>
+                            </mask>
+                        </variation>
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="textLabel" destination="U0R-AH-YQ9" id="wv7-ch-cnm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jyJ-17-mmG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -846,7 +866,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="-586" y="-624"/>
+            <point key="canvasLocation" x="-96" y="-1330"/>
         </scene>
         <!--Pedido De Produto-->
         <scene sceneID="2ZT-qf-H7t">
@@ -896,6 +916,84 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BHS-Tx-YVd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3928" y="1614"/>
+        </scene>
+        <!--Lista de Produtos Orcamento-->
+        <scene sceneID="gnx-3c-Rrn">
+            <objects>
+                <tableViewController storyboardIdentifier="telaProdOrcamento" title="Lista de Produtos Orcamento" id="Obz-mf-qRe" customClass="ProdutosOrcamentoTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="hHJ-qV-1kV">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell tag="2" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="produtoCelula" id="Epd-OW-XAs">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Epd-OW-XAs" id="3n4-nu-wQD">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Obz-mf-qRe" id="Tip-Zq-HcT"/>
+                            <outlet property="delegate" destination="Obz-mf-qRe" id="MbL-XC-FWW"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Produtos" id="o1K-TH-uXd"/>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="tGT-ZI-DtH" id="E6D-7x-VLv"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ho8-dV-3kf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="oHt-Da-lCp">
+                    <connections>
+                        <outlet property="delegate" destination="Obz-mf-qRe" id="Lw5-GM-E1P"/>
+                        <outlet property="searchContentsController" destination="Obz-mf-qRe" id="G7u-BZ-NkW"/>
+                        <outlet property="searchResultsDataSource" destination="Obz-mf-qRe" id="mdn-1r-uum"/>
+                        <outlet property="searchResultsDelegate" destination="Obz-mf-qRe" id="poh-EI-mu7"/>
+                    </connections>
+                </searchDisplayController>
+            </objects>
+            <point key="canvasLocation" x="4743" y="1614"/>
+        </scene>
+        <!--Produtos-->
+        <scene sceneID="49L-tE-6Tp">
+            <objects>
+                <tableViewController storyboardIdentifier="orcaEmprogressoIdentifier" id="97z-AZ-sCg" customClass="OrcaEmProgressoTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="32u-5m-MyQ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell tag="2" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="produtoCelula" id="hx6-ic-EtH">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hx6-ic-EtH" id="MfK-Rr-o8k">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="97z-AZ-sCg" id="khC-W3-jrD"/>
+                            <outlet property="delegate" destination="97z-AZ-sCg" id="9n0-bU-v5u"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Produtos" id="Y68-Op-4AN"/>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="tGT-ZI-DtH" id="K2s-h8-1eZ"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cqm-Sh-ufZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="gKy-pf-aVu">
+                    <connections>
+                        <outlet property="delegate" destination="97z-AZ-sCg" id="v5I-vX-lNW"/>
+                        <outlet property="searchContentsController" destination="97z-AZ-sCg" id="Nph-gk-Vis"/>
+                        <outlet property="searchResultsDataSource" destination="97z-AZ-sCg" id="kCC-A8-vkv"/>
+                        <outlet property="searchResultsDelegate" destination="97z-AZ-sCg" id="lJe-Bc-3Hx"/>
+                    </connections>
+                </searchDisplayController>
+            </objects>
+            <point key="canvasLocation" x="-613.5" y="-624"/>
         </scene>
     </scenes>
 </document>

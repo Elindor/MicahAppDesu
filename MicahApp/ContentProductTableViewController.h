@@ -7,10 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PedidoDeProduto.h"
 
 @interface ContentProductTableViewController : UITableViewController
 @property NSUInteger pageIndex;
 
 @property (copy, nonatomic) NSMutableArray *produtosListaNSMArray;
+@property PedidoDeProduto *pedidoNovo;
+
 
 @end
