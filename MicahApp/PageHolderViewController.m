@@ -7,6 +7,7 @@
 //
 
 #import "PageHolderViewController.h"
+#import "ProdutosOrcamentoTableViewController.h"
 
 
 @interface PageHolderViewController ()
@@ -177,9 +178,13 @@
         case 0:
             NSLog(@"0");
             break;
-        case 1:
+        case 1:{
+            ProdutosOrcamentoTableViewController *pageContentProdutosOrcamento = [self.storyboard instantiateViewControllerWithIdentifier:@"telaProdOrcamento"];
+            [self.navigationController pushViewController:pageContentProdutosOrcamento animated:YES];
+            
             NSLog(@"1");
             break;
+        }
         case 2:
             NSLog(@"2");
             break;
