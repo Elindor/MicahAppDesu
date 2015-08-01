@@ -62,6 +62,12 @@
     
 }
 
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    [self.view endEditing:YES];
+}
+
+
 //Aqui é onde fica o método que irá gravar os dados permanentemente
 - (void) gravaProduto: (Produto*) produto{
     

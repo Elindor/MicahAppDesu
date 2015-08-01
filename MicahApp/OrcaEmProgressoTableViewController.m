@@ -7,6 +7,7 @@
 //
 
 #import "OrcaEmProgressoTableViewController.h"
+#import "ContentClientViewController.h"
 
 @interface OrcaEmProgressoTableViewController ()
 
@@ -17,11 +18,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.orcasEmprogressoNSMArray = [[NSMutableArray alloc] initWithArray: @[@"orca1", @"orca2", @"orca3", @"orca4", @"orca5", @"orca6", @"orca7", @"orca8", @"orca9", @"orca10" ]];
+
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -32,26 +31,50 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
+    return [self.orcasEmprogressoNSMArray count];
 }
 
-/*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
     
-    // Configure the cell...
+    static NSString *cellIdentifier = @"orcaProgressoIdentifier";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    
+    UILabel *labelOrca = [[UILabel alloc] initWithFrame:CGRectMake(20, 20, self.tableView.frame.size.width - 50, 20)];
+    UIFont *font = labelOrca.font;
+    labelOrca.font = [font fontWithSize:14];
+    
+    labelOrca.text = [self.orcasEmprogressoNSMArray objectAtIndex:indexPath.row];
+    
+    [cell addSubview:labelOrca];
+    
+    
+    if (cell == nil){
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+    }
     
     return cell;
 }
-*/
+
+// Para terminar esse método é necessário saber qual destino ao se clicar em cada cell
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    NSString *orcaSelecionada = [[NSString alloc] init];
+    orcaSelecionada = self.orcasEmprogressoNSMArray[indexPath.row];
+    
+    
+    ContentClientViewController *telaCliente = [self.storyboard instantiateViewControllerWithIdentifier:@"ContentClient"];
+    //telaCreateOrca = orcaSelecionada;
+    [self.navigationController pushViewController:telaCliente animated:YES];
+    
+    // note: should not be necessary but current iOS 8.0 bug (seed 4) requires it
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+}
 
 /*
 // Override to support conditional editing of the table view.

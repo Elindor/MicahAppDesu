@@ -10,4 +10,7 @@
 
 @interface OrcaEmProgressoTableViewController : UITableViewController
 
+@property (copy, nonatomic) NSMutableArray *orcasEmprogressoNSMArray;
+
+
 @end
