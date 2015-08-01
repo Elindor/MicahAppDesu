@@ -112,7 +112,7 @@
         retornaNumeroLinhas = [self.resultadosOrcamentoTableViewController.produtosFiltradosArray count];
     }
     else{
-        retornaNumeroLinhas =  [self.produtoOrcamentoArray count] + 2;
+        retornaNumeroLinhas =  [self.produtoOrcamentoArray count];
     }
     
     return retornaNumeroLinhas;

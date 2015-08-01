@@ -126,10 +126,6 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
-    if (cell == nil){
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
-    }
-    
     UILabel *labelNome = [[UILabel alloc] initWithFrame:CGRectMake(20, 20, self.tableView.frame.size.width - 40, 20)];
     UIFont *font = labelNome.font;
     labelNome.font = [font fontWithSize:14];
@@ -158,7 +154,9 @@
     
     [cell addSubview:labelNome];
     [cell addSubview:labelPreco];
-  
+    if (cell == nil){
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+    }
 
     return cell;
 }
@@ -180,8 +178,6 @@
         NSString *precoStr = [formatter stringFromNumber:produtoSelecionado.precoPadraoProduto];
         telaDetalhesProduto.precoProd = precoStr;
         
-        NSLog(@"preço string search: %@", precoStr);
-        
         [self.navigationController pushViewController:telaDetalhesProduto animated:YES];
         
     }
@@ -192,21 +188,16 @@
         //telaDetalhesProduto.categoriaProd = produtoSelecionado.categoriaProduto;
         telaDetalhesProduto.descricaoProd = produtoSelecionado.descricaoProduto;
         
-          NSLog(@"preço string: %@", produtoSelecionado.precoPadraoProduto);
         NSNumberFormatter *formatter = [[NSNumberFormatter alloc]init];
         NSString *precoStr = [formatter stringFromNumber:produtoSelecionado.precoPadraoProduto];
         telaDetalhesProduto.precoProd = precoStr;
-        NSLog(@"preço string: %@", precoStr);
 
         
         [self.navigationController pushViewController:telaDetalhesProduto animated:YES];
         
     }
     
-//    APLDetailViewController *detailViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"APLDetailViewController"];
-//        detailViewController.product = selectedProduct; // hand off the current product to the detail view controller
-//    [self.navigationController pushViewController:detailViewController animated:YES];
-    
+ 
         // note: should not be necessary but current iOS 8.0 bug (seed 4) requires it
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
 }
