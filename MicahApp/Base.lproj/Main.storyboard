@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Ogg-yL-6JJ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Ogg-yL-6JJ">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -392,12 +393,12 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cp6-oE-pb5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3928.5" y="-448"/>
+            <point key="canvasLocation" x="3927" y="-448"/>
         </scene>
-        <!--Editar Observacao-->
+        <!--Editar Observacao Orçamento-->
         <scene sceneID="Dr3-Q6-CFb">
             <objects>
-                <viewController storyboardIdentifier="editarObservacao" title="Editar Observacao" id="488-MP-a4R" customClass="EditarObservacaoViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="editarObsOrca" title="Editar Observacao Orçamento" id="488-MP-a4R" customClass="EditarObsOrcaViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Xsv-yY-bNs"/>
                         <viewControllerLayoutGuide type="bottom" id="65r-dR-E3h"/>
@@ -410,23 +411,60 @@
                                 <rect key="frame" x="44" y="107" width="402" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="25" y="101" width="350" height="30"/>
+                                </variation>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PAL-4d-JcC">
                                 <rect key="frame" x="222" y="296" width="47" height="30"/>
                                 <state key="normal" title="Excluir">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="177" y="354" width="47" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="excluirObsButton:" destination="488-MP-a4R" eventType="touchUpInside" id="8Pc-BM-nzY"/>
+                                </connections>
                             </button>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="u9g-U1-HMC">
+                                <rect key="frame" x="-25" y="-15" width="51" height="31"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="326" y="207" width="51" height="31"/>
+                                </variation>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Salvar" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CqI-sL-bit">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="25" y="212" width="48" height="21"/>
+                                </variation>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="u9g-U1-HMC"/>
+                                <exclude reference="CqI-sL-bit"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="u9g-U1-HMC"/>
+                                <include reference="CqI-sL-bit"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
-                        <outlet property="observacaoTextField" destination="2JP-6T-J32" id="Y5I-xl-waT"/>
+                        <outlet property="observacaoOrcaTextField" destination="2JP-6T-J32" id="u5F-0M-ivw"/>
+                        <outlet property="salvarSwitchON" destination="u9g-U1-HMC" id="R9C-8D-Xlo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7LE-x1-Bnf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3928" y="-1124"/>
+            <point key="canvasLocation" x="3927" y="-1152"/>
         </scene>
         <!--Content Finilize View Controller-->
         <scene sceneID="bCH-Cr-NGH">
@@ -487,33 +525,21 @@
                                 <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="54" y="125" width="293" height="30"/>
-                                </variation>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Telefone do Cliente" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6n5-ho-dpj">
                                 <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="54" y="205" width="293" height="30"/>
-                                </variation>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="E-mail do Cliente" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OJu-c4-Zjd">
                                 <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="54" y="285" width="293" height="30"/>
-                                </variation>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Endereço do Cliente" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BJt-J0-daY">
                                 <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="54" y="365" width="293" height="30"/>
-                                </variation>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -539,18 +565,18 @@
                                 <exclude reference="BJt-J0-daY"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="3CP-C9-dbi"/>
-                                <exclude reference="g87-lG-HpS"/>
                                 <exclude reference="7Jz-dY-TKw"/>
                                 <exclude reference="UVg-1U-wKM"/>
                                 <exclude reference="sQU-c4-Vk4"/>
+                                <exclude reference="CVu-Ja-VTf"/>
+                                <exclude reference="Fnj-Id-qqw"/>
+                                <exclude reference="o3P-fT-PEL"/>
                                 <exclude reference="K0M-1t-DvT"/>
                                 <exclude reference="QQe-AJ-Rmb"/>
                                 <exclude reference="ReB-NK-afG"/>
                                 <exclude reference="qix-Ob-n2l"/>
-                                <exclude reference="CVu-Ja-VTf"/>
-                                <exclude reference="Fnj-Id-qqw"/>
-                                <exclude reference="o3P-fT-PEL"/>
+                                <exclude reference="3CP-C9-dbi"/>
+                                <exclude reference="g87-lG-HpS"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -561,18 +587,18 @@
                                 <include reference="BJt-J0-daY"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="3CP-C9-dbi"/>
-                                <include reference="g87-lG-HpS"/>
                                 <include reference="7Jz-dY-TKw"/>
                                 <include reference="UVg-1U-wKM"/>
                                 <include reference="sQU-c4-Vk4"/>
+                                <include reference="CVu-Ja-VTf"/>
+                                <include reference="Fnj-Id-qqw"/>
+                                <include reference="o3P-fT-PEL"/>
                                 <include reference="K0M-1t-DvT"/>
                                 <include reference="QQe-AJ-Rmb"/>
                                 <include reference="ReB-NK-afG"/>
                                 <include reference="qix-Ob-n2l"/>
-                                <include reference="CVu-Ja-VTf"/>
-                                <include reference="Fnj-Id-qqw"/>
-                                <include reference="o3P-fT-PEL"/>
+                                <include reference="3CP-C9-dbi"/>
+                                <include reference="g87-lG-HpS"/>
                             </mask>
                         </variation>
                     </view>
@@ -946,7 +972,13 @@
                             <outlet property="delegate" destination="iBN-nV-0VB" id="rsN-HW-ABw"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Observações" id="2db-dH-j2c"/>
+                    <navigationItem key="navigationItem" title="Observações" id="2db-dH-j2c">
+                        <barButtonItem key="rightBarButtonItem" title="Novo" id="FB6-r7-g2U">
+                            <connections>
+                                <segue destination="H0d-Dt-GNy" kind="show" id="3Ri-96-Ycp"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="searchDisplayController" destination="tGT-ZI-DtH" id="sGp-WF-dh0"/>
                     </connections>
@@ -961,7 +993,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="-96" y="-1330"/>
+            <point key="canvasLocation" x="-144" y="-1330"/>
         </scene>
         <!--Pedido De Produto-->
         <scene sceneID="2ZT-qf-H7t">
@@ -1242,47 +1274,47 @@
                                 <exclude reference="xcG-6a-C2m"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="03g-k9-yd9"/>
-                                <exclude reference="Ln5-HV-dQe"/>
-                                <exclude reference="hjb-dk-dvg"/>
-                                <exclude reference="ljC-2h-LQb"/>
-                                <exclude reference="M2e-1k-WHB"/>
+                                <exclude reference="TFy-82-7cE"/>
+                                <exclude reference="r7O-Zs-QwP"/>
                                 <exclude reference="UoV-Zi-0Oo"/>
                                 <exclude reference="WL9-9t-o8j"/>
                                 <exclude reference="bUl-Xg-RUB"/>
                                 <exclude reference="nao-sw-ZQ3"/>
-                                <exclude reference="Wuk-XK-Xdv"/>
-                                <exclude reference="XYn-hF-cA4"/>
-                                <exclude reference="YxD-f8-tsi"/>
-                                <exclude reference="qlI-DH-Vra"/>
-                                <exclude reference="B1s-te-mWj"/>
-                                <exclude reference="PKd-RT-WPi"/>
-                                <exclude reference="ax5-Kk-mLU"/>
-                                <exclude reference="7SW-mP-LD3"/>
-                                <exclude reference="NUf-2l-uuP"/>
-                                <exclude reference="YGp-Yx-6WA"/>
-                                <exclude reference="ktd-yu-80H"/>
-                                <exclude reference="t92-Vy-rLJ"/>
                                 <exclude reference="78L-PH-25n"/>
                                 <exclude reference="DdW-7U-uUV"/>
                                 <exclude reference="alJ-fB-pPd"/>
                                 <exclude reference="gtV-BZ-3K1"/>
                                 <exclude reference="hXN-Mq-Cya"/>
                                 <exclude reference="jnM-9Q-1bI"/>
-                                <exclude reference="XOF-pI-6VR"/>
-                                <exclude reference="ZwV-dL-aMa"/>
-                                <exclude reference="v6M-KU-o5n"/>
-                                <exclude reference="4bI-Di-N5D"/>
-                                <exclude reference="DIP-qg-buv"/>
+                                <exclude reference="7SW-mP-LD3"/>
+                                <exclude reference="NUf-2l-uuP"/>
+                                <exclude reference="YGp-Yx-6WA"/>
+                                <exclude reference="ktd-yu-80H"/>
+                                <exclude reference="t92-Vy-rLJ"/>
+                                <exclude reference="B1s-te-mWj"/>
+                                <exclude reference="PKd-RT-WPi"/>
+                                <exclude reference="ax5-Kk-mLU"/>
+                                <exclude reference="fA7-xF-dCy"/>
+                                <exclude reference="jUI-Nu-Imn"/>
                                 <exclude reference="9PZ-fK-qg9"/>
                                 <exclude reference="eCK-1T-KA2"/>
+                                <exclude reference="4bI-Di-N5D"/>
+                                <exclude reference="DIP-qg-buv"/>
                                 <exclude reference="TX9-ZS-15H"/>
                                 <exclude reference="aa7-tl-SS8"/>
                                 <exclude reference="d49-7e-T4i"/>
-                                <exclude reference="fA7-xF-dCy"/>
-                                <exclude reference="jUI-Nu-Imn"/>
-                                <exclude reference="TFy-82-7cE"/>
-                                <exclude reference="r7O-Zs-QwP"/>
+                                <exclude reference="M2e-1k-WHB"/>
+                                <exclude reference="Wuk-XK-Xdv"/>
+                                <exclude reference="XYn-hF-cA4"/>
+                                <exclude reference="YxD-f8-tsi"/>
+                                <exclude reference="qlI-DH-Vra"/>
+                                <exclude reference="03g-k9-yd9"/>
+                                <exclude reference="Ln5-HV-dQe"/>
+                                <exclude reference="hjb-dk-dvg"/>
+                                <exclude reference="ljC-2h-LQb"/>
+                                <exclude reference="XOF-pI-6VR"/>
+                                <exclude reference="ZwV-dL-aMa"/>
+                                <exclude reference="v6M-KU-o5n"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -1301,47 +1333,47 @@
                                 <include reference="xcG-6a-C2m"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="03g-k9-yd9"/>
-                                <include reference="Ln5-HV-dQe"/>
-                                <include reference="hjb-dk-dvg"/>
-                                <include reference="ljC-2h-LQb"/>
-                                <include reference="M2e-1k-WHB"/>
+                                <include reference="TFy-82-7cE"/>
+                                <include reference="r7O-Zs-QwP"/>
                                 <include reference="UoV-Zi-0Oo"/>
                                 <include reference="WL9-9t-o8j"/>
                                 <include reference="bUl-Xg-RUB"/>
                                 <include reference="nao-sw-ZQ3"/>
-                                <include reference="Wuk-XK-Xdv"/>
-                                <include reference="XYn-hF-cA4"/>
-                                <include reference="YxD-f8-tsi"/>
-                                <include reference="qlI-DH-Vra"/>
-                                <include reference="B1s-te-mWj"/>
-                                <include reference="PKd-RT-WPi"/>
-                                <include reference="ax5-Kk-mLU"/>
-                                <include reference="7SW-mP-LD3"/>
-                                <include reference="NUf-2l-uuP"/>
-                                <include reference="YGp-Yx-6WA"/>
-                                <include reference="ktd-yu-80H"/>
-                                <include reference="t92-Vy-rLJ"/>
                                 <include reference="78L-PH-25n"/>
                                 <include reference="DdW-7U-uUV"/>
                                 <include reference="alJ-fB-pPd"/>
                                 <include reference="gtV-BZ-3K1"/>
                                 <include reference="hXN-Mq-Cya"/>
                                 <include reference="jnM-9Q-1bI"/>
-                                <include reference="XOF-pI-6VR"/>
-                                <include reference="ZwV-dL-aMa"/>
-                                <include reference="v6M-KU-o5n"/>
-                                <include reference="4bI-Di-N5D"/>
-                                <include reference="DIP-qg-buv"/>
+                                <include reference="7SW-mP-LD3"/>
+                                <include reference="NUf-2l-uuP"/>
+                                <include reference="YGp-Yx-6WA"/>
+                                <include reference="ktd-yu-80H"/>
+                                <include reference="t92-Vy-rLJ"/>
+                                <include reference="B1s-te-mWj"/>
+                                <include reference="PKd-RT-WPi"/>
+                                <include reference="ax5-Kk-mLU"/>
+                                <include reference="fA7-xF-dCy"/>
+                                <include reference="jUI-Nu-Imn"/>
                                 <include reference="9PZ-fK-qg9"/>
                                 <include reference="eCK-1T-KA2"/>
+                                <include reference="4bI-Di-N5D"/>
+                                <include reference="DIP-qg-buv"/>
                                 <include reference="TX9-ZS-15H"/>
                                 <include reference="aa7-tl-SS8"/>
                                 <include reference="d49-7e-T4i"/>
-                                <include reference="fA7-xF-dCy"/>
-                                <include reference="jUI-Nu-Imn"/>
-                                <include reference="TFy-82-7cE"/>
-                                <include reference="r7O-Zs-QwP"/>
+                                <include reference="M2e-1k-WHB"/>
+                                <include reference="Wuk-XK-Xdv"/>
+                                <include reference="XYn-hF-cA4"/>
+                                <include reference="YxD-f8-tsi"/>
+                                <include reference="qlI-DH-Vra"/>
+                                <include reference="03g-k9-yd9"/>
+                                <include reference="Ln5-HV-dQe"/>
+                                <include reference="hjb-dk-dvg"/>
+                                <include reference="ljC-2h-LQb"/>
+                                <include reference="XOF-pI-6VR"/>
+                                <include reference="ZwV-dL-aMa"/>
+                                <include reference="v6M-KU-o5n"/>
                             </mask>
                         </variation>
                     </view>
@@ -1350,6 +1382,172 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dFK-t4-qWk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4614" y="904"/>
+        </scene>
+        <!--Nova Observacao-->
+        <scene sceneID="Ifp-0H-c2u">
+            <objects>
+                <viewController storyboardIdentifier="novaObservacao" title="Nova Observacao" id="H0d-Dt-GNy" customClass="NovaObservacaoViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="LaL-ER-qSF"/>
+                        <viewControllerLayoutGuide type="bottom" id="yRY-VG-dgv"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="KCx-L3-KUC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Observação" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OpO-zO-rPs">
+                                <rect key="frame" x="44" y="107" width="402" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="26" y="100" width="349" height="30"/>
+                                </variation>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Nova Observacao" id="Lye-0O-Ox0">
+                        <barButtonItem key="rightBarButtonItem" title="Incluir" id="wjD-YF-dDJ">
+                            <connections>
+                                <action selector="incluirObsButton:" destination="H0d-Dt-GNy" id="dgk-yq-7EH"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="observacaoTextField" destination="OpO-zO-rPs" id="EwS-75-bJb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Kvg-mJ-cdg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-871.5" y="-1330"/>
+        </scene>
+        <!--Nova Observacao Orcamento-->
+        <scene sceneID="RxA-go-oH0">
+            <objects>
+                <viewController storyboardIdentifier="novaObsOrcamento" title="Nova Observacao Orcamento" id="LfY-z5-2AV" customClass="NovaObsOrcamentoViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="pll-Ae-XqA"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ogu-eK-v9R"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="PGx-8G-GVk">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Observação" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aBd-Uk-g9j">
+                                <rect key="frame" x="44" y="107" width="402" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="26" y="100" width="349" height="30"/>
+                                </variation>
+                            </textField>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="efT-Ia-ONJ">
+                                <rect key="frame" x="-25" y="-15" width="51" height="31"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="326" y="186" width="51" height="31"/>
+                                </variation>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Salvar" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rgD-P6-SAp">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="39" y="191" width="48" height="21"/>
+                                </variation>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="efT-Ia-ONJ"/>
+                                <exclude reference="rgD-P6-SAp"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="efT-Ia-ONJ"/>
+                                <include reference="rgD-P6-SAp"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="obsOrcaTextField" destination="aBd-Uk-g9j" id="Lhi-LG-kRo"/>
+                        <outlet property="salvaSwitchON" destination="efT-Ia-ONJ" id="brd-lV-GBL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pwJ-tk-AQa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5208" y="-448"/>
+        </scene>
+        <!--Editar Observacao-->
+        <scene sceneID="49P-tY-OC1">
+            <objects>
+                <viewController storyboardIdentifier="editarObservacao" title="Editar Observacao" id="kUh-Oh-r75" customClass="EditarObservacaoViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Dg2-RZ-lEZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="RgS-1E-a3Q"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Cav-te-fFO">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Observação" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WWr-bV-CXJ">
+                                <rect key="frame" x="44" y="107" width="402" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="25" y="101" width="350" height="30"/>
+                                </variation>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7XC-6b-SE9">
+                                <rect key="frame" x="222" y="296" width="47" height="30"/>
+                                <state key="normal" title="Excluir">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="177" y="354" width="47" height="30"/>
+                                </variation>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="observacaoTextField" destination="WWr-bV-CXJ" id="6el-FB-waO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="p65-D5-xXm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-154.5" y="-2034"/>
+        </scene>
+        <!--Lista Obs Orca Table View Controller-->
+        <scene sceneID="zTg-gq-Ufx">
+            <objects>
+                <tableViewController storyboardIdentifier="listaObsOrca" id="f4B-8V-Ojr" customClass="ListaObsOrcaTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="460-eb-C3n">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" restorationIdentifier="listaObsIdentifier" selectionStyle="default" indentationWidth="10" reuseIdentifier="listaObsIdentifier" id="LfR-0l-thK">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LfR-0l-thK" id="Cq0-J9-3BP">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="f4B-8V-Ojr" id="wUd-eD-Krb"/>
+                            <outlet property="delegate" destination="f4B-8V-Ojr" id="o90-C9-d5g"/>
+                        </connections>
+                    </tableView>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VsV-eo-Boh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4566" y="-448"/>
         </scene>
     </scenes>
 </document>
