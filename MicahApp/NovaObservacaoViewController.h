@@ -10,6 +10,6 @@
 
 @interface NovaObservacaoViewController : UIViewController
 
-@property (weak, nonatomic) NSString *observacao;
+- (IBAction)exitText:(id)sender;
 
 @end

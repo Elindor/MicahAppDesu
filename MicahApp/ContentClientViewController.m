@@ -18,7 +18,15 @@
 {
     [super viewDidLoad];
     
-    self.label.text = self.titleText;
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    
+    SaveData* save = [SaveData sharedAppData];
+    _clientMailField.text = save.currentOrca.costumerTelephone;
+    _clientNameField.text = save.currentOrca.costumerName;
+    _clientAddressField.text = save.currentOrca.costumerAdress;
+    _clientPhoneField.text = save.currentOrca.costumerTelephone;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -36,4 +44,27 @@
 }
 */
 
+- (IBAction)clientNameExit:(id)sender {
+    SaveData *save = [SaveData sharedAppData];
+    save.currentOrca.costumerName = _clientNameField.text;
+    [save save];
+}
+
+- (IBAction)clientPhoneExit:(id)sender {
+    SaveData *save = [SaveData sharedAppData];
+    save.currentOrca.costumerTelephone = _clientPhoneField.text;
+    [save save];
+}
+
+- (IBAction)clientMailExit:(id)sender {
+    SaveData *save = [SaveData sharedAppData];
+    save.currentOrca.costumerEmail = _clientMailField.text;
+    [save save];
+}
+
+- (IBAction)clientAddressExit:(id)sender {
+    SaveData *save = [SaveData sharedAppData];
+    save.currentOrca.costumerAdress = _clientAddressField.text;
+    [save save];
+}
 @end

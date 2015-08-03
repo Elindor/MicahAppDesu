@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "SaveData.h"
 
 @interface ViewController ()
 
@@ -17,6 +18,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    [SaveData sharedAppData].currentOrca = nil;
 }
 
 - (void)didReceiveMemoryWarning {

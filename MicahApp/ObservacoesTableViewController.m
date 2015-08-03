@@ -8,6 +8,7 @@
 
 #import "ObservacoesTableViewController.h"
 #import "EditarObservacaoViewController.h"
+#import "SaveData.h"
 
 @interface ObservacoesTableViewController ()
 
@@ -17,9 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    //teste do array, precisa juntar com o "BD"
-    self.observacoesNSMArray = [[NSMutableArray alloc] initWithArray: @[@"obs11", @"obs12", @"obs13", @"obs14", @"obs15", @"obs16", @"obs17", @"obs18", @"obs19", @"obs10" ]];
-
+    [SaveData sharedAppData];
     [self.tableView reloadData];
 }
 
@@ -39,9 +38,8 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    NSInteger retornaNumeroLinhas = 0;
-    
-    retornaNumeroLinhas =  [self.observacoesNSMArray count];
+    SaveData* save = [SaveData sharedAppData];
+     NSInteger retornaNumeroLinhas =  [save.observationList count];
     
     return retornaNumeroLinhas;
 }
@@ -53,27 +51,30 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
+    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+    
+    for (UIView *subview in [cell.contentView subviews]) {
+        [subview removeFromSuperview];
+    }
+    
     UILabel *labelNome = [[UILabel alloc] initWithFrame:CGRectMake(20, 20, self.tableView.frame.size.width - 50, 20)];
     UIFont *font = labelNome.font;
     labelNome.font = [font fontWithSize:14];
+    SaveData* save = [SaveData sharedAppData];
 
-    labelNome.text = [self.observacoesNSMArray objectAtIndex:indexPath.row];
+    labelNome.text = [save.observationList objectAtIndex:indexPath.row];
     
     [cell addSubview:labelNome];
     
-    
-    if (cell == nil){
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
-    }
     
     return cell;
 }
 
 // Para terminar esse método é necessário saber qual destino ao se clicar em cada cell
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    NSString *observacaoSelecionada = [[NSString alloc] init];
-    observacaoSelecionada = self.observacoesNSMArray[indexPath.row];
+    SaveData* save = [SaveData sharedAppData];
+
+    NSString *observacaoSelecionada = save.observationList[indexPath.row];
     
     
     EditarObservacaoViewController *telaEditarObservacao = [self.storyboard instantiateViewControllerWithIdentifier:@"editarObservacao"];
@@ -86,17 +87,22 @@
 
 
 
-/*
+
  // Override to support editing the table view.
  - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
  if (editingStyle == UITableViewCellEditingStyleDelete) {
+     
  // Delete the row from the data source
+     SaveData* save = [SaveData sharedAppData];
+     [save.observationList removeObjectAtIndex:indexPath.row];
  [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+     [self.tableView reloadData];
+     
  } else if (editingStyle == UITableViewCellEditingStyleInsert) {
  // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
  }
  }
- */
+
 
 /*
  // Override to support rearranging the table view.
@@ -122,6 +128,10 @@
  }
  */
 
+- (IBAction)unwindToMenuObservationViewController:(UIStoryboardSegue *)unwindSegue
+{
+    [self.tableView reloadData];
 
+}
 
 @end

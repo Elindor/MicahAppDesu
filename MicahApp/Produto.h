@@ -10,8 +10,8 @@
 
 @interface Produto : NSObject <NSCoding>
 
-@property (weak, nonatomic) NSString *nomeProduto;
-@property (weak, nonatomic) NSString *descricaoProduto;
+@property (strong, retain) NSString *nomeProduto;
+@property (strong, retain) NSString *descricaoProduto;
 //@property (weak, nonatomic) NSString *categoriaProduto;
 @property (weak, nonatomic) NSNumber *precoPadraoProduto;
 

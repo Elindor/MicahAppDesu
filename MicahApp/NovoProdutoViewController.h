@@ -10,4 +10,9 @@
 
 @interface NovoProdutoViewController : UIViewController
 
+
+- (IBAction)productNameExit:(id)sender;
+- (IBAction)productDescriptionExit:(id)sender;
+- (IBAction)productPriceExit:(id)sender;
+
 @end

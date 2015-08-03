@@ -8,6 +8,9 @@
 
 #import "OrcaEmProgressoTableViewController.h"
 #import "ContentClientViewController.h"
+#import "SaveData.h"
+#import "orcamentos.h"
+#import "PageHolderViewController.h"
 
 @interface OrcaEmProgressoTableViewController ()
 
@@ -17,10 +20,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.orcasEmprogressoNSMArray = [[NSMutableArray alloc] initWithArray: @[@"orca1", @"orca2", @"orca3", @"orca4", @"orca5", @"orca6", @"orca7", @"orca8", @"orca9", @"orca10" ]];
+    [SaveData sharedAppData];
 
 
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    [SaveData sharedAppData].currentOrca = nil;
+    [self.tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -36,7 +43,8 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.orcasEmprogressoNSMArray count];
+
+    return [[SaveData sharedAppData].unfinishedList count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -49,7 +57,12 @@
     UIFont *font = labelOrca.font;
     labelOrca.font = [font fontWithSize:14];
     
-    labelOrca.text = [self.orcasEmprogressoNSMArray objectAtIndex:indexPath.row];
+    SaveData *save = [SaveData sharedAppData];
+    
+    labelOrca.text = [[save.unfinishedList objectAtIndex:indexPath.row] costumerName];
+    if(labelOrca.text.length == 0){
+        labelOrca.text = @"Orçamento sem nome";
+    }
     
     [cell addSubview:labelOrca];
     
@@ -63,13 +76,15 @@
 
 // Para terminar esse método é necessário saber qual destino ao se clicar em cada cell
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    SaveData *save = [SaveData sharedAppData];
+
+    orcamentos *orcaSelecionada = save.unfinishedList[indexPath.row];
+    //Espaço caso seja util limpar informação entre definições.
     
-    NSString *orcaSelecionada = [[NSString alloc] init];
-    orcaSelecionada = self.orcasEmprogressoNSMArray[indexPath.row];
+    save.currentOrca = orcaSelecionada;
     
     
-    ContentClientViewController *telaCliente = [self.storyboard instantiateViewControllerWithIdentifier:@"ContentClient"];
-    //telaCreateOrca = orcaSelecionada;
+    PageHolderViewController *telaCliente = [self.storyboard instantiateViewControllerWithIdentifier:@"PageHolder"];
     [self.navigationController pushViewController:telaCliente animated:YES];
     
     // note: should not be necessary but current iOS 8.0 bug (seed 4) requires it
@@ -84,17 +99,26 @@
 }
 */
 
-/*
+
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
+        
+#warning WARNING
+#warning FUCKING colocar um alert view aqui, conforme combinado em reunião. Só deletar em caso de confirmação.
+#warning WARNING
+        
+        SaveData *save = [SaveData sharedAppData];
+        [save.unfinishedList removeObjectAtIndex:indexPath.row];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        [save save];
+        [self.tableView reloadData];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   
 }
-*/
+
 
 /*
 // Override to support rearranging the table view.

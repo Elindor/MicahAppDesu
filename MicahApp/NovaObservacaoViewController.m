@@ -7,6 +7,7 @@
 //
 
 #import "NovaObservacaoViewController.h"
+#import "SaveData.h"
 
 @interface NovaObservacaoViewController ()
 
@@ -23,9 +24,15 @@
 
 - (IBAction)incluirObsButton:(id)sender {
     
-#pragma precisa completar
-    
-    
+    SaveData* save = [SaveData sharedAppData];
+    NSString* observacao = _observacaoTextField.text;
+    [save.observationList addObject:observacao];
+    [save save];
+
+#pragma Insert unwind
+
+    [self performSegueWithIdentifier:@"UnwindFromNewToObservationMenu" sender:self];
+
     
     
 }
@@ -33,8 +40,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.observacao = self.observacaoTextField.text;
-
+    //self.observacao = self.observacaoTextField.text;
+    // Porque exatamente? O texto é novo e vazio nesta tela.
+    
     // Do any additional setup after loading the view.
 }
 
@@ -53,4 +61,6 @@
 }
 */
 
+- (IBAction)exitText:(id)sender {
+}
 @end

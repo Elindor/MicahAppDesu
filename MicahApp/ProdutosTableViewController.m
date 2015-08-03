@@ -11,6 +11,7 @@
 #import "NovoProdutoViewController.h"
 #import "ResultadosBuscaTableViewController.h"
 #import "DetalhesProdutoViewController.h"
+#import "SaveData.h"
 
 @interface ProdutosTableViewController () <UISearchBarDelegate, UISearchControllerDelegate, UISearchResultsUpdating>
 
@@ -31,17 +32,8 @@
     [super viewDidLoad];
  
     //teste do array, precisa juntar com o "BD", essa parte será deletada
-    self.produtoArray = @[[Produto criaProduto:@"caneta1" descricao:@"bic1" precoPadrao: @12.32],
-                          [Produto criaProduto:@"borracha" descricao:@"faber" precoPadrao: @5.50],
-                          [Produto criaProduto:@"caneta3" descricao:@"bic3" precoPadrao: @10.00],
-                          [Produto criaProduto:@"caneta4" descricao:@"bic4" precoPadrao: @14.78],
-                          [Produto criaProduto:@"caneta5" descricao:@"bic5" precoPadrao: @7.90],
-                          [Produto criaProduto:@"caneta6" descricao:@"bic6" precoPadrao: @9.90],
-                          [Produto criaProduto:@"caneta7" descricao:@"bic7" precoPadrao: @8.89],
-                          [Produto criaProduto:@"caneta8" descricao:@"bic8" precoPadrao: @7.90],
-                          [Produto criaProduto:@"caneta9" descricao:@"bic9" precoPadrao: @15.00]
-                          ];
-
+    [SaveData sharedAppData];
+    
     
     
     _resultadosTableViewController = [[ResultadosBuscaTableViewController alloc] init];
@@ -67,7 +59,8 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    
+    [self.tableView reloadData];
+
     // restore the searchController's active state
     if (self.searchControllerAtivado) {
         self.produtosSearchController.active = self.searchControllerAtivado;
@@ -105,15 +98,9 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-    NSInteger retornaNumeroLinhas = 0;
-//    
-//    if (self.searchControllerAtivado){
-//        retornaNumeroLinhas = [self.resultadosTableViewController.produtosFiltradosArray count];
-//    }
-//    else{
-        retornaNumeroLinhas =  [self.produtoArray count];
-//    }
-//    
+    SaveData *save = [SaveData sharedAppData];
+     NSInteger retornaNumeroLinhas =  [save.productList count];
+
     return retornaNumeroLinhas;
 }
 
@@ -123,6 +110,12 @@
     static NSString *cellIdentifier = @"produtoCelula";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    
+    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+    
+    for (UIView *subview in [cell.contentView subviews]) {
+        [subview removeFromSuperview];
+    }
     
     UILabel *labelNome = [[UILabel alloc] initWithFrame:CGRectMake(20, 20, self.tableView.frame.size.width - 40, 20)];
     UIFont *font = labelNome.font;
@@ -142,7 +135,8 @@
 //    //utiliza esse formato de cell se não estiver usando a busca
 //    }
 //    else{
-        produto = [self.produtoArray objectAtIndex:indexPath.row];
+        SaveData *save = [SaveData sharedAppData];
+        produto = [save.productList objectAtIndex:indexPath.row];
 //    }
     
     labelNome.text = produto.nomeProduto;
@@ -152,9 +146,6 @@
     
     [cell addSubview:labelNome];
     [cell addSubview:labelPreco];
-    if (cell == nil){
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
-    }
 
     return cell;
 }
@@ -180,7 +171,8 @@
 //        
 //    }
 //    else{
-        produtoSelecionado = self.produtoArray[indexPath.row];
+        SaveData *save = [SaveData sharedAppData];
+        produtoSelecionado = save.productList[indexPath.row];
         DetalhesProdutoViewController *telaDetalhesProduto = [self.storyboard instantiateViewControllerWithIdentifier:@"detalhesProduto"];
         telaDetalhesProduto.nomeProd = produtoSelecionado.nomeProduto;
         //telaDetalhesProduto.categoriaProd = produtoSelecionado.categoriaProduto;
@@ -206,7 +198,8 @@
     
     // update the filtered array based on the search text
     NSString *textoBuscado = searchController.searchBar.text;
-    NSMutableArray *resultadosBuscaMArray = [self.produtoArray mutableCopy];
+    SaveData *save = [SaveData sharedAppData];
+    NSMutableArray *resultadosBuscaMArray = [save.productList mutableCopy];
     
     // strip out all the leading and trailing spaces
     NSString *stringFormatada = [textoBuscado stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
@@ -326,17 +319,21 @@ NSString *const SearchBarIsFirstResponderKey = @"SearchBarIsFirstResponderKey";
 
 
     
-/*
+#warning Comentar caso search faça bugar td.
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
+        
         // Delete the row from the data source
+        SaveData* save = [SaveData sharedAppData];
+        [save.productList removeObjectAtIndex:indexPath.row];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        [self.tableView reloadData];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   
 }
-*/
+
 
 /*
 // Override to support rearranging the table view.
@@ -362,5 +359,10 @@ NSString *const SearchBarIsFirstResponderKey = @"SearchBarIsFirstResponderKey";
 }
 */
 
+- (IBAction)unwindToMenuProductViewController:(UIStoryboardSegue *)unwindSegue
+{
+    [self.tableView reloadData];
+    
+}
 
 @end

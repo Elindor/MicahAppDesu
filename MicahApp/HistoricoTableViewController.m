@@ -8,6 +8,7 @@
 
 #import "HistoricoTableViewController.h"
 #import "Cliente.h"
+#import "SaveData.h"
 
 @interface HistoricoTableViewController ()
 
@@ -18,6 +19,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+
+#warning WTF, cliente class? é pra ser PDF fechado aqui!
     
     self.historicoClienteArray = @[[Cliente criaCliente:@"João" email:@"jj@jj.com" telefoneCliente:@"111111" enderecoCliente:@"j" cpf: @1111111111 ], [Cliente criaCliente:@"Ana" email:@"aa@aa.com" telefoneCliente:@"22222222" enderecoCliente:@"A" cpf: @2222222222 ] , [Cliente criaCliente:@"Bruno" email:@"bb@b.com" telefoneCliente:@"33333" enderecoCliente:@"B" cpf: @3333333333333 ] , [Cliente criaCliente:@"Karl" email:@"kk@k.com" telefoneCliente:@"4444444" enderecoCliente:@"K" cpf: @44444444444 ] , [Cliente criaCliente:@"Maria" email:@"mmm@m.com" telefoneCliente:@"555555" enderecoCliente:@"M" cpf: @5555555555555 ] , [Cliente criaCliente:@"Pedor" email:@"pp@p.com" telefoneCliente:@"" enderecoCliente:@"P" cpf: @ 66666666666666]];
 
