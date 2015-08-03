@@ -37,7 +37,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-    return [self.historicoClienteArray count];
+    return [[SaveData sharedAppData].historicList count];
 }
 
 

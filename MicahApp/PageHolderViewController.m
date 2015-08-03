@@ -43,7 +43,9 @@
 #pragma "Feijão"
     
     _pageTitles = @[@"Dados do Cliente", @"Produtos", @"Ajustes", @"Observações", @"Finalização"];
-    topButtonNames = @[@"Importar", @"Adicionar", @"", @"Adicionar", @"Finalizar"];
+    topButtonNames = @[@"", @"Adicionar", @"", @"Adicionar", @"Finalizar"];
+#warning Substituir pelo de baixo caso importe no final.
+    // topButtonNames = @[@"Importar", @"Adicionar", @"", @"Adicionar", @"Finalizar"];
     
     // Create page view controller
     self.pageViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"CreateOrca"];
@@ -123,7 +125,7 @@
     return [self viewControllerAtIndex:index];
 }
 
-- (ContentClientViewController *)viewControllerAtIndex:(NSUInteger)index
+- (id)viewControllerAtIndex:(NSUInteger)index
 {
     if (([self.pageTitles count] == 0) || (index >= [self.pageTitles count])) {
         return nil;

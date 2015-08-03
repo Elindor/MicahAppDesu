@@ -12,7 +12,7 @@
 
 
 
-NSString *const NomeKey = @"OrcamentsHistory$Name#32189kl4";
+NSString *const NameKey = @"OrcamentsHistory$Name#32189kl4";
 NSString *const DateKey = @"OrcamentsHistory$Date#32189kl4";
 //NSString *const CategoriaKey = @"CategoriaKey";
 NSString *const PDFKey = @"OrcamentsHistory$PDF#32189kl4";
@@ -20,7 +20,7 @@ NSString *const PDFKey = @"OrcamentsHistory$PDF#32189kl4";
 - (instancetype)initWithCoder:(NSCoder *)aDecoder {
     self = [super init];
     if (self) {
-        _nomeDoCliente = [aDecoder decodeObjectForKey:NomeKey];
+        _nomeDoCliente = [aDecoder decodeObjectForKey:NameKey];
         _dataEncerrada = [aDecoder decodeObjectForKey:DateKey];
         _PDF = [aDecoder decodeObjectForKey:PDFKey];
     }
@@ -28,7 +28,7 @@ NSString *const PDFKey = @"OrcamentsHistory$PDF#32189kl4";
 }
 
 - (void)encodeWithCoder:(NSCoder *)aCoder {
-    [aCoder encodeObject:self.nomeDoCliente forKey:NomeKey];
+    [aCoder encodeObject:self.nomeDoCliente forKey:NameKey];
     [aCoder encodeObject:self.dataEncerrada forKey:DateKey];
     [aCoder encodeObject:self.PDF forKey:PDFKey];
 }

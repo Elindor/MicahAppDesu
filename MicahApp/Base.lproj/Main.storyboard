@@ -45,7 +45,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Produtos" id="rjV-vD-ak7">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="4KY-wd-nwG">
+                        <barButtonItem key="rightBarButtonItem" id="4KY-wd-nwG">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="EYG-NS-d5W">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -693,7 +693,7 @@
                     <connections>
                         <outlet property="TopBar" destination="35g-f7-G74" id="GGK-ea-zkM"/>
                         <outlet property="topBarButton" destination="oHP-Rp-qlr" id="Gz2-ig-BNf"/>
-                        <segue destination="Es6-Ra-au5" kind="show" id="TeV-6q-bG7"/>
+                        <segue destination="Es6-Ra-au5" kind="show" identifier="FromMenuToPage" id="TeV-6q-bG7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZTL-B8-bcE" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -911,7 +911,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Histórico" id="Eoc-Dc-lZM"/>
                     <connections>
-                        <segue destination="Mjk-0f-mK0" kind="show" id="7TD-ok-HPf"/>
+                        <segue destination="Mjk-0f-mK0" kind="show" identifier="FromHistoricToPDF" id="7TD-ok-HPf"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zEu-mw-Dsw" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1014,7 +1014,7 @@
                     <navigationItem key="navigationItem" title="Observações" id="2db-dH-j2c">
                         <barButtonItem key="rightBarButtonItem" title="Novo" id="FB6-r7-g2U">
                             <connections>
-                                <segue destination="H0d-Dt-GNy" kind="show" id="3Ri-96-Ycp"/>
+                                <segue destination="H0d-Dt-GNy" kind="show" identifier="FromObservaçõesToNew" id="3Ri-96-Ycp"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -1177,22 +1177,22 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0%" borderStyle="line" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4FA-Jo-2RB">
                                 <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="decimalPad" returnKeyType="done"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" returnKeyType="done"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0,00" borderStyle="line" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SyF-dA-p2K">
                                 <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="decimalPad" returnKeyType="done"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" returnKeyType="done"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0%" borderStyle="line" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4c5-tr-MGB">
                                 <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="decimalPad" returnKeyType="done"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" returnKeyType="done"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0,00" borderStyle="line" placeholder="Endereço do Cliente" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gC1-61-zRC">
                                 <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="decimalPad" returnKeyType="done"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" returnKeyType="done"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0,00" borderStyle="line" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xMo-Rr-UWb">
                                 <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
@@ -1609,7 +1609,7 @@
                     <navigationItem key="navigationItem" title="Lista de Observações" id="XCc-cR-ZmH">
                         <barButtonItem key="rightBarButtonItem" title="Novo" id="LFc-2G-4nJ">
                             <connections>
-                                <segue destination="LfY-z5-2AV" kind="show" id="ofX-0w-43b"/>
+                                <segue destination="LfY-z5-2AV" kind="show" identifier="ContentObservaçãoToNew" id="ofX-0w-43b"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

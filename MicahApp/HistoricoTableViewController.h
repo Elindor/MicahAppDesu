@@ -11,7 +11,5 @@
 
 @interface HistoricoTableViewController : UITableViewController
 
-@property (copy, nonatomic) NSArray *historicoClienteArray;
-@property NSUInteger pageIndex;
 
 @end
