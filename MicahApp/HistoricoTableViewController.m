@@ -7,8 +7,8 @@
 //
 
 #import "HistoricoTableViewController.h"
-#import "Cliente.h"
 #import "SaveData.h"
+#import "OrcamentoFinalizado.h"
 
 @interface HistoricoTableViewController ()
 
@@ -20,10 +20,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-
-#warning WTF, cliente class? é pra ser PDF fechado aqui!
+    [SaveData sharedAppData];
     
-    self.historicoClienteArray = @[[Cliente criaCliente:@"João" email:@"jj@jj.com" telefoneCliente:@"111111" enderecoCliente:@"j" cpf: @1111111111 ], [Cliente criaCliente:@"Ana" email:@"aa@aa.com" telefoneCliente:@"22222222" enderecoCliente:@"A" cpf: @2222222222 ] , [Cliente criaCliente:@"Bruno" email:@"bb@b.com" telefoneCliente:@"33333" enderecoCliente:@"B" cpf: @3333333333333 ] , [Cliente criaCliente:@"Karl" email:@"kk@k.com" telefoneCliente:@"4444444" enderecoCliente:@"K" cpf: @44444444444 ] , [Cliente criaCliente:@"Maria" email:@"mmm@m.com" telefoneCliente:@"555555" enderecoCliente:@"M" cpf: @5555555555555 ] , [Cliente criaCliente:@"Pedor" email:@"pp@p.com" telefoneCliente:@"" enderecoCliente:@"P" cpf: @ 66666666666666]];
 
     [self.tableView reloadData];
 
@@ -46,7 +44,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"historicoIdentifier" forIndexPath:indexPath];
     
-    Cliente *clienteAux = [self.historicoClienteArray objectAtIndex:indexPath.row];
+    OrcamentoFinalizado *orca = [[SaveData sharedAppData].historicList objectAtIndex:indexPath.row];
     
     UILabel *labelData = [[UILabel alloc] initWithFrame:CGRectMake(20, 20, 60, 20)];
     UIFont *fontData = labelData.font;
@@ -56,7 +54,7 @@
     UIFont *fontCliente = labelCliente.font;
     labelCliente.font = [fontCliente fontWithSize:14];
     
-    labelCliente.text = clienteAux.nomeCliente;
+    labelCliente.text = orca.nomeDoCliente;
     
     
 //    labelData.text = self.historicoClienteArray[indexPath]; // VER DA ONDE VIRA A DATA
