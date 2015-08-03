@@ -147,6 +147,12 @@
 		1BE552EA1B6D95EC0047CFA8 /* Observacoes */ = {
 			isa = PBXGroup;
 			children = (
+				1BE552F71B6DA7D70047CFA8 /* EditarObsOrcaViewController.h */,
+				1BE552F81B6DA7D70047CFA8 /* EditarObsOrcaViewController.m */,
+				1BE552FA1B6DABEF0047CFA8 /* ListaObsOrcaTableViewController.h */,
+				1BE552FB1B6DABEF0047CFA8 /* ListaObsOrcaTableViewController.m */,
+				1BE552EE1B6D98F30047CFA8 /* NovaObsOrcamentoViewController.h */,
+				1BE552EF1B6D98F30047CFA8 /* NovaObsOrcamentoViewController.m */,
 				1BE403551B6AA4F000F14A64 /* ObservacoesTableViewController.h */,
 				1BE403561B6AA4F000F14A64 /* ObservacoesTableViewController.m */,
 				1BE7485C1B6A857900F42E50 /* EditarObservacaoViewController.h */,
@@ -172,8 +178,6 @@
 				1BF836FE1B5946F900F51048 /* NovoProdutoViewController.m */,
 				1BE89C941B57EB790062D241 /* ResultadosBuscaTableViewController.h */,
 				1BE89C951B57EB790062D241 /* ResultadosBuscaTableViewController.m */,
-				1BEB0B801B55BEA00039F444 /* Produto.h */,
-				1BEB0B811B55BEA00039F444 /* Produto.m */,
 			);
 			name = Produtos;
 			sourceTree = "<group>";
@@ -264,23 +268,15 @@
 				C04E88791B66D77F00EB26BE /* PageView */,
 				C04E88541B559E3D00EB26BE /* ViewController.h */,
 				C04E88551B559E3D00EB26BE /* ViewController.m */,
-				1BE89C911B57E6D70062D241 /* HistoricoTableViewController.h */,
-				1BE89C921B57E6D70062D241 /* HistoricoTableViewController.m */,
-				1BE552EA1B6D95EC0047CFA8 /* Observacoes */,
 				1BE538131B6ACA5200E312D7 /* PedidoDeProdutoViewController.h */,
 				1BE538141B6ACA5200E312D7 /* PedidoDeProdutoViewController.m */,
-				1BE552E11B6D3C030047CFA8 /* PedidoDeProduto.h */,
-				1BE552E21B6D3C030047CFA8 /* PedidoDeProduto.m */,
-				1BEC4A0E1B6BB81B000A0443 /* PerfilViewController.h */,
-				1BEC4A0F1B6BB81B000A0443 /* PerfilViewController.m */,
 				1BE552E71B6D52EF0047CFA8 /* OrcaEmProgressoTableViewController.h */,
 				1BE552E81B6D52EF0047CFA8 /* OrcaEmProgressoTableViewController.m */,
-				1BE552EE1B6D98F30047CFA8 /* NovaObsOrcamentoViewController.h */,
-				1BE552EF1B6D98F30047CFA8 /* NovaObsOrcamentoViewController.m */,
-				1BE552F71B6DA7D70047CFA8 /* EditarObsOrcaViewController.h */,
-				1BE552F81B6DA7D70047CFA8 /* EditarObsOrcaViewController.m */,
-				1BE552FA1B6DABEF0047CFA8 /* ListaObsOrcaTableViewController.h */,
-				1BE552FB1B6DABEF0047CFA8 /* ListaObsOrcaTableViewController.m */,
+				C058DD5D1B6F327300B2685A /* Historico */,
+				1BE89C901B57E6610062D241 /* Produtos */,
+				1BE552EA1B6D95EC0047CFA8 /* Observacoes */,
+				C058DD5E1B6F32A100B2685A /* Perfil */,
+				C058DD5F1B6F32A900B2685A /* EmProgresso */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -288,7 +284,10 @@
 		C04E887B1B66D7B300EB26BE /* Objects */ = {
 			isa = PBXGroup;
 			children = (
-				1BE89C901B57E6610062D241 /* Produtos */,
+				1BEB0B801B55BEA00039F444 /* Produto.h */,
+				1BEB0B811B55BEA00039F444 /* Produto.m */,
+				1BE552E11B6D3C030047CFA8 /* PedidoDeProduto.h */,
+				1BE552E21B6D3C030047CFA8 /* PedidoDeProduto.m */,
 				1B9A166D1B5998BF00CA057B /* Cliente.h */,
 				1B9A166E1B5998BF00CA057B /* Cliente.m */,
 				C04E88941B6BF4D400EB26BE /* orcamentos.h */,
@@ -297,6 +296,31 @@
 				C04E88981B6C019900EB26BE /* SaveData.m */,
 			);
 			name = Objects;
+			sourceTree = "<group>";
+		};
+		C058DD5D1B6F327300B2685A /* Historico */ = {
+			isa = PBXGroup;
+			children = (
+				1BE89C911B57E6D70062D241 /* HistoricoTableViewController.h */,
+				1BE89C921B57E6D70062D241 /* HistoricoTableViewController.m */,
+			);
+			name = Historico;
+			sourceTree = "<group>";
+		};
+		C058DD5E1B6F32A100B2685A /* Perfil */ = {
+			isa = PBXGroup;
+			children = (
+				1BEC4A0E1B6BB81B000A0443 /* PerfilViewController.h */,
+				1BEC4A0F1B6BB81B000A0443 /* PerfilViewController.m */,
+			);
+			name = Perfil;
+			sourceTree = "<group>";
+		};
+		C058DD5F1B6F32A900B2685A /* EmProgresso */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = EmProgresso;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
