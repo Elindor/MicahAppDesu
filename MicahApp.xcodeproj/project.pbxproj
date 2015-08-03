@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		1B7BB0EE1B5D980F000CD60E /* ProdutosOrcamentoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7BB0ED1B5D980F000CD60E /* ProdutosOrcamentoTableViewController.m */; };
-		1B9A166F1B5998BF00CA057B /* Cliente.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B9A166E1B5998BF00CA057B /* Cliente.m */; };
 		1B9A16751B59A61F00CA057B /* DetalhesProdutoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B9A16741B59A61F00CA057B /* DetalhesProdutoViewController.m */; };
 		1BE403571B6AA4F000F14A64 /* ObservacoesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BE403561B6AA4F000F14A64 /* ObservacoesTableViewController.m */; };
 		1BE538151B6ACA5200E312D7 /* PedidoDeProdutoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BE538141B6ACA5200E312D7 /* PedidoDeProdutoViewController.m */; };
@@ -42,6 +41,7 @@
 		C04E88961B6BF4D400EB26BE /* orcamentos.m in Sources */ = {isa = PBXBuildFile; fileRef = C04E88951B6BF4D400EB26BE /* orcamentos.m */; };
 		C04E88991B6C019900EB26BE /* SaveData.m in Sources */ = {isa = PBXBuildFile; fileRef = C04E88981B6C019900EB26BE /* SaveData.m */; };
 		C05536EB1B6D88F6000A9CFD /* ContentAdjustmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C05536EA1B6D88F6000A9CFD /* ContentAdjustmentViewController.m */; };
+		C058DD641B6F334D00B2685A /* OrcamentoFinalizado.m in Sources */ = {isa = PBXBuildFile; fileRef = C058DD631B6F334D00B2685A /* OrcamentoFinalizado.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,8 +57,6 @@
 /* Begin PBXFileReference section */
 		1B7BB0EC1B5D980F000CD60E /* ProdutosOrcamentoTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProdutosOrcamentoTableViewController.h; sourceTree = "<group>"; };
 		1B7BB0ED1B5D980F000CD60E /* ProdutosOrcamentoTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProdutosOrcamentoTableViewController.m; sourceTree = "<group>"; };
-		1B9A166D1B5998BF00CA057B /* Cliente.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cliente.h; sourceTree = "<group>"; };
-		1B9A166E1B5998BF00CA057B /* Cliente.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cliente.m; sourceTree = "<group>"; };
 		1B9A16731B59A61F00CA057B /* DetalhesProdutoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetalhesProdutoViewController.h; sourceTree = "<group>"; };
 		1B9A16741B59A61F00CA057B /* DetalhesProdutoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetalhesProdutoViewController.m; sourceTree = "<group>"; };
 		1BE403551B6AA4F000F14A64 /* ObservacoesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObservacoesTableViewController.h; sourceTree = "<group>"; };
@@ -124,6 +122,8 @@
 		C04E88981B6C019900EB26BE /* SaveData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SaveData.m; sourceTree = "<group>"; };
 		C05536E91B6D88F6000A9CFD /* ContentAdjustmentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContentAdjustmentViewController.h; sourceTree = "<group>"; };
 		C05536EA1B6D88F6000A9CFD /* ContentAdjustmentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContentAdjustmentViewController.m; sourceTree = "<group>"; };
+		C058DD621B6F334D00B2685A /* OrcamentoFinalizado.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrcamentoFinalizado.h; sourceTree = "<group>"; };
+		C058DD631B6F334D00B2685A /* OrcamentoFinalizado.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrcamentoFinalizado.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -266,17 +266,12 @@
 			isa = PBXGroup;
 			children = (
 				C04E88791B66D77F00EB26BE /* PageView */,
-				C04E88541B559E3D00EB26BE /* ViewController.h */,
-				C04E88551B559E3D00EB26BE /* ViewController.m */,
-				1BE538131B6ACA5200E312D7 /* PedidoDeProdutoViewController.h */,
-				1BE538141B6ACA5200E312D7 /* PedidoDeProdutoViewController.m */,
-				1BE552E71B6D52EF0047CFA8 /* OrcaEmProgressoTableViewController.h */,
-				1BE552E81B6D52EF0047CFA8 /* OrcaEmProgressoTableViewController.m */,
+				C058DD601B6F330200B2685A /* Menu */,
+				C058DD611B6F330E00B2685A /* Outros */,
 				C058DD5D1B6F327300B2685A /* Historico */,
 				1BE89C901B57E6610062D241 /* Produtos */,
 				1BE552EA1B6D95EC0047CFA8 /* Observacoes */,
 				C058DD5E1B6F32A100B2685A /* Perfil */,
-				C058DD5F1B6F32A900B2685A /* EmProgresso */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -288,10 +283,10 @@
 				1BEB0B811B55BEA00039F444 /* Produto.m */,
 				1BE552E11B6D3C030047CFA8 /* PedidoDeProduto.h */,
 				1BE552E21B6D3C030047CFA8 /* PedidoDeProduto.m */,
-				1B9A166D1B5998BF00CA057B /* Cliente.h */,
-				1B9A166E1B5998BF00CA057B /* Cliente.m */,
 				C04E88941B6BF4D400EB26BE /* orcamentos.h */,
 				C04E88951B6BF4D400EB26BE /* orcamentos.m */,
+				C058DD621B6F334D00B2685A /* OrcamentoFinalizado.h */,
+				C058DD631B6F334D00B2685A /* OrcamentoFinalizado.m */,
 				C04E88971B6C019900EB26BE /* SaveData.h */,
 				C04E88981B6C019900EB26BE /* SaveData.m */,
 			);
@@ -316,11 +311,24 @@
 			name = Perfil;
 			sourceTree = "<group>";
 		};
-		C058DD5F1B6F32A900B2685A /* EmProgresso */ = {
+		C058DD601B6F330200B2685A /* Menu */ = {
 			isa = PBXGroup;
 			children = (
+				C04E88541B559E3D00EB26BE /* ViewController.h */,
+				C04E88551B559E3D00EB26BE /* ViewController.m */,
 			);
-			name = EmProgresso;
+			name = Menu;
+			sourceTree = "<group>";
+		};
+		C058DD611B6F330E00B2685A /* Outros */ = {
+			isa = PBXGroup;
+			children = (
+				1BE538131B6ACA5200E312D7 /* PedidoDeProdutoViewController.h */,
+				1BE538141B6ACA5200E312D7 /* PedidoDeProdutoViewController.m */,
+				1BE552E71B6D52EF0047CFA8 /* OrcaEmProgressoTableViewController.h */,
+				1BE552E81B6D52EF0047CFA8 /* OrcaEmProgressoTableViewController.m */,
+			);
+			name = Outros;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -448,11 +456,11 @@
 				C04E887E1B66DE0800EB26BE /* PageHolderViewController.m in Sources */,
 				1BE552F91B6DA7D70047CFA8 /* EditarObsOrcaViewController.m in Sources */,
 				C05536EB1B6D88F6000A9CFD /* ContentAdjustmentViewController.m in Sources */,
+				C058DD641B6F334D00B2685A /* OrcamentoFinalizado.m in Sources */,
 				1BE552FC1B6DABEF0047CFA8 /* ListaObsOrcaTableViewController.m in Sources */,
 				1BE552F01B6D98F30047CFA8 /* NovaObsOrcamentoViewController.m in Sources */,
 				1BE89C931B57E6D70062D241 /* HistoricoTableViewController.m in Sources */,
 				C04E88751B66D4DD00EB26BE /* CreateOrcaViewController.m in Sources */,
-				1B9A166F1B5998BF00CA057B /* Cliente.m in Sources */,
 				1BEB0B821B55BEA00039F444 /* Produto.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

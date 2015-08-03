@@ -26,10 +26,10 @@
     
 }
 
-NSString *const NomeKey = @"NomeKey";
-NSString *const DescricaoKey = @"DescricaoKey";
+NSString *const NomeKey = @"OrcamentsProduct$Name#32189kl4";
+NSString *const DescricaoKey = @"OrcamentsProduct$Description#32189kl4";
 //NSString *const CategoriaKey = @"CategoriaKey";
-NSString *const PrecoKey = @"PrecoKey";
+NSString *const PrecoKey = @"OrcamentsProduct$Price#32189kl4";
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder {
     self = [super init];
