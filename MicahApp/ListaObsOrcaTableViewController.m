@@ -78,12 +78,13 @@
     observacaoSelecionada = self.observacoesOrcaNSMArray[indexPath.row];
     
     
-    ContentObservationTableViewController *telaObservacaoOrca = [self.storyboard instantiateViewControllerWithIdentifier:@"ContentObservation"];
+//    ContentObservationTableViewController *telaObservacaoOrca = [self.storyboard instantiateViewControllerWithIdentifier:@"ContentObservation"];
     
 //#Pragma nao sei como irá enviar os dados pra lista de observacoes do pedido
     
     //telaObservacaoOrca.observacao = observacaoSelecionada;
-    [self.navigationController pushViewController:telaObservacaoOrca animated:YES];
+//    [self.navigationController pushViewController:telaObservacaoOrca animated:YES];
+    [self dismissViewControllerAnimated:NO completion:nil];
     
     // note: should not be necessary but current iOS 8.0 bug (seed 4) requires it
     [tableView deselectRowAtIndexPath:indexPath animated:NO];

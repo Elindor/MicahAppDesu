@@ -18,24 +18,24 @@
 
 @implementation ResultadosBuscaTableViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    
-    
-    [self.tableView reloadData];
-
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+//- (void)viewDidLoad {
+//    [super viewDidLoad];
+//    
+//    
+//    [self.tableView reloadData];
+//
+//}
+//
+//- (void)didReceiveMemoryWarning {
+//    [super didReceiveMemoryWarning];
+//    // Dispose of any resources that can be recreated.
+//}
 
 #pragma mark - Table view data source
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-    return self.produtosFiltradosArray.count;
+    return self.produtosFiltradosMArray.count;
 }
 
 
@@ -51,7 +51,7 @@
     // Create a new Candy Object
     Produto *produto = nil;
     
-    produto = self.produtosFiltradosArray[indexPath.row];
+    produto = self.produtosFiltradosMArray[indexPath.row];
     // mostra o nome do produto na tabela
     labelNome.text = produto.nomeProduto;
     

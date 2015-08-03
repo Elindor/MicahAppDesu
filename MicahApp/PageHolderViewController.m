@@ -8,7 +8,7 @@
 
 #import "PageHolderViewController.h"
 #import "ProdutosOrcamentoTableViewController.h"
-#import "NovaObsOrcamentoViewController.h"
+#import "ListaObsOrcaTableViewController.h"
 
 
 @interface PageHolderViewController ()
@@ -203,8 +203,8 @@
             NSLog(@"2");
             break;
         case 3:{
-            NovaObsOrcamentoViewController *pageContentNovaObservacaoOrcamento = [self.storyboard instantiateViewControllerWithIdentifier:@"novaObsOrcamento"];
-            [self.navigationController pushViewController:pageContentNovaObservacaoOrcamento animated:YES];
+            ListaObsOrcaTableViewController *pageContentListaObservacaoOrcamento = [self.storyboard instantiateViewControllerWithIdentifier:@"listaObsOrca"];
+            [self.navigationController pushViewController:pageContentListaObservacaoOrcamento animated:YES];
         
             NSLog(@"3");
             break;

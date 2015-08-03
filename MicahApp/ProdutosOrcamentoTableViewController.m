@@ -63,7 +63,7 @@
     //
     self.definesPresentationContext = YES;  // know where you want UISearchController to be displayed
     
-    [self.tableView reloadData];
+    //[self.tableView reloadData];
 }
 
 
@@ -79,8 +79,11 @@
             [self.produtosOrcamentoSearchController.searchBar becomeFirstResponder];
             _orcamentoSearchControllerFieldWasFirstResponder = NO;
         }
+
     }
+    
 }
+
 
 
 #pragma mark - UISearchBarDelegate
@@ -108,12 +111,12 @@
     
     NSInteger retornaNumeroLinhas = 0;
     
-    if (self.orcamentoSearchControllerAtivado){
-        retornaNumeroLinhas = [self.resultadosOrcamentoTableViewController.produtosFiltradosArray count];
-    }
-    else{
+//    if (self.orcamentoSearchControllerAtivado){
+//        retornaNumeroLinhas = [self.resultadosOrcamentoTableViewController.produtosFiltradosArray count];
+//    }
+//    else{
         retornaNumeroLinhas =  [self.produtoOrcamentoArray count];
-    }
+//    }
     
     return retornaNumeroLinhas;
 }
@@ -138,17 +141,17 @@
     Produto *produto = nil;
     
     //utiliza esse formato de cell se utilizar a busca
-    if(self.orcamentoSearchControllerAtivado){
-       
-        produto = [self.resultadosOrcamentoTableViewController.produtosFiltradosArray objectAtIndex:indexPath.row];
-        
-    }
-    //utiliza esse formato de cell se não estiver usando a busca
-    else{
- 
+//    if(self.orcamentoSearchControllerAtivado){
+//       
+//        produto = [self.resultadosOrcamentoTableViewController.produtosFiltradosArray objectAtIndex:indexPath.row];
+//        
+//    }
+//    //utiliza esse formato de cell se não estiver usando a busca
+//    else{
+// 
         produto = [self.produtoOrcamentoArray objectAtIndex:indexPath.row];
         
-    }
+//    }
     
     labelNome.text = produto.nomeProduto;
     NSString *stringPreco = [produto.precoPadraoProduto stringValue]; // transforma o NSNumber em string
@@ -171,7 +174,7 @@
     PedidoDeProduto *novoPedido = [[PedidoDeProduto alloc]init];
     
     if (self.orcamentoSearchControllerAtivado){
-        produtoSelecionado = self.resultadosOrcamentoTableViewController.produtosFiltradosArray[indexPath.row];
+        produtoSelecionado = self.resultadosOrcamentoTableViewController.produtosFiltradosMArray[indexPath.row];
         
         
     }
@@ -189,7 +192,7 @@
     ContentProductTableViewController *telaProdOrcamento = [self.storyboard instantiateViewControllerWithIdentifier:@"ContentProduct"];
     telaProdOrcamento.pedidoNovo = novoPedido;
     
-    [self.navigationController pushViewController:telaProdOrcamento animated:YES];
+    [self dismissViewControllerAnimated:NO completion:nil];
 
     
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
@@ -197,6 +200,7 @@
 
 
 - (void)updateSearchResultsForSearchController:(UISearchController *)searchController {
+    
     // update the filtered array based on the search text
     NSString *textoBuscado = searchController.searchBar.text;
     NSMutableArray *resultadosBuscaMArray = [self.produtoOrcamentoArray mutableCopy];
@@ -237,18 +241,18 @@
                                        type:NSContainsPredicateOperatorType
                                        options:NSCaseInsensitivePredicateOption];
         [itensBuscadosPredicateMArray addObject:finalPredicate];
-        
-        // descricao field matching
-        lhs = [NSExpression expressionForKeyPath:@"descricaoProduto"];
-        rhs = [NSExpression expressionForConstantValue:stringBuscada];
-        finalPredicate = [NSComparisonPredicate
-                          predicateWithLeftExpression:lhs
-                          rightExpression:rhs
-                          modifier:NSDirectPredicateModifier
-                          type:NSEqualToPredicateOperatorType
-                          options:NSCaseInsensitivePredicateOption];
-        [itensBuscadosPredicateMArray addObject:finalPredicate];
-        
+//        
+//        // descricao field matching
+//        lhs = [NSExpression expressionForKeyPath:@"descricaoProduto"];
+//        rhs = [NSExpression expressionForConstantValue:stringBuscada];
+//        finalPredicate = [NSComparisonPredicate
+//                          predicateWithLeftExpression:lhs
+//                          rightExpression:rhs
+//                          modifier:NSDirectPredicateModifier
+//                          type:NSEqualToPredicateOperatorType
+//                          options:NSCaseInsensitivePredicateOption];
+//        [itensBuscadosPredicateMArray addObject:finalPredicate];
+//        
         
         //categoria
 //        lhs = [NSExpression expressionForKeyPath:@"categoriaProduto"];
@@ -290,7 +294,7 @@
     
     // hand over the filtered results to our search results table
     ResultadosBuscaTableViewController *resultadosBuscatableController = (ResultadosBuscaTableViewController *)self.produtosOrcamentoSearchController.searchResultsController;
-    resultadosBuscatableController.produtosFiltradosArray = resultadosBuscaMArray;
+    resultadosBuscatableController.produtosFiltradosMArray = resultadosBuscaMArray;
     [resultadosBuscatableController.tableView reloadData];
 }
 

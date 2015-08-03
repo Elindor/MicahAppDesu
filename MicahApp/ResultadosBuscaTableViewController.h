@@ -10,6 +10,6 @@
 
 @interface ResultadosBuscaTableViewController : UITableViewController
 
-@property (strong, nonatomic) NSArray *produtosFiltradosArray;
+@property (strong, nonatomic) NSMutableArray *produtosFiltradosMArray;
 
 @end
