@@ -7,21 +7,16 @@
 //
 
 #import "ContentAdjustmentViewController.h"
+#import "SaveData.h"
+#import "orcamentos.h"
 
 @interface ContentAdjustmentViewController ()
 
 @property (weak, nonatomic) IBOutlet UITextField *totalTextField;
-
 @property (weak, nonatomic) IBOutlet UITextField *descontoPorcentagemTextField;
-
-
 @property (weak, nonatomic) IBOutlet UITextField *descontoPrecoTextfield;
-
 @property (weak, nonatomic) IBOutlet UITextField *acrescimoPorcentagemTextField;
-
 @property (weak, nonatomic) IBOutlet UITextField *acrescimoPrecoTextField;
-
-
 @property (weak, nonatomic) IBOutlet UITextField *totalFinalTextField;
 
 @end
@@ -31,14 +26,42 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.totalTextField.text = [self.total stringValue];
+    [self refreshAppearanceContent];
+    
+    
+    //self.totalTextField.text = [self.total stringValue];
+    
 //    self.descontoPorcentagemTextField.text = [self.descontoPorcentagem stringValue];
 //    self.descontoPrecoTextfield.text = [self.descontoPreco stringValue];
 //    self.acrescimoPorcentagemTextField.text = [self.acrescimoPorcentagem stringValue];
 //    self.acrescimoPrecoTextField.text = [self.acrescimoPreco stringValue];
-    self.totalFinalTextField.text = [self.totalFinal stringValue];
+    //self.totalFinalTextField.text = [self.totalFinal stringValue];
     
     // Do any additional setup after loading the view.
+}
+
+-(void)refreshAppearanceContent{
+    [self adaptValuesForward];
+    SaveData *save = [SaveData sharedAppData];
+    orcamentos *current = save.currentOrca;
+    self.totalTextField.text = [current.finalValue stringValue];
+    self.descontoPrecoTextfield.text = [current.finalDiscount stringValue];
+    float disc2 = ([current.finalValue floatValue]/[current.finalDiscount floatValue]);
+    self.descontoPorcentagemTextField.text = [NSString stringWithFormat:@"%@%%",[[NSNumber numberWithFloat:disc2] stringValue]];
+    self.acrescimoPrecoTextField.text = [current.finalSum stringValue];
+    float acres2 = ([current.finalValue floatValue]/[current.finalSum floatValue]);
+    self.acrescimoPorcentagemTextField.text = [NSString stringWithFormat:@"%@%%",[[NSNumber numberWithFloat:acres2] stringValue]];
+    self.totalFinalTextField.text = [current.resultValue stringValue];
+    
+}
+
+-(void)adaptValuesForward{
+    SaveData *save = [SaveData sharedAppData];
+    orcamentos *current = save.currentOrca;
+    
+    current.resultValue = [NSNumber numberWithFloat:[current.finalValue floatValue] - [current.finalDiscount floatValue] + [current.finalSum floatValue]];
+    
+    
 }
 
 //- (float)calculaTotal{
@@ -52,6 +75,43 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+- (IBAction)discountPercExit:(id)sender {
+    
+    SaveData *save = [SaveData sharedAppData];
+    orcamentos *current = save.currentOrca;
+    float percDisc = [self.descontoPorcentagemTextField.text floatValue];
+    current.finalDiscount = [NSNumber numberWithFloat:([current.finalValue floatValue]/100) * percDisc];
+    [save save];
+    
+    [self refreshAppearanceContent];
+}
+- (IBAction)discountExit:(id)sender {
+    
+    SaveData *save = [SaveData sharedAppData];
+    orcamentos *current = save.currentOrca;
+    current.finalDiscount = [NSNumber numberWithFloat:[self.descontoPrecoTextfield.text floatValue]];
+    [save save];
+    [self refreshAppearanceContent];
+}
+- (IBAction)acrescPercExit:(id)sender {
+    
+    SaveData *save = [SaveData sharedAppData];
+    orcamentos *current = save.currentOrca;
+    float acresDisc = [self.acrescimoPorcentagemTextField.text floatValue];
+    current.finalSum = [NSNumber numberWithFloat:([current.finalValue floatValue]/100) * acresDisc];
+    [save save];
+    
+    [self refreshAppearanceContent];
+}
+- (IBAction)acrescExit:(id)sender {
+    
+    SaveData *save = [SaveData sharedAppData];
+    orcamentos *current = save.currentOrca;
+    current.finalSum = [NSNumber numberWithFloat:[self.acrescimoPrecoTextField.text floatValue]];
+    [save save];
+    
+    [self refreshAppearanceContent];
 }
 
 /*

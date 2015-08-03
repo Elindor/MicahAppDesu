@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Ogg-yL-6JJ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Ogg-yL-6JJ">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -87,19 +87,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nome produto" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cXa-O0-lMk">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Nome produto" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cXa-O0-lMk">
                                 <rect key="frame" x="16" y="133" width="415" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Preço do produto" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uwH-RZ-bFQ">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Preço do produto" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uwH-RZ-bFQ">
                                 <rect key="frame" x="16" y="283" width="415" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nome:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jQ5-Yc-kHm">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nome:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jQ5-Yc-kHm">
                                 <rect key="frame" x="16" y="133" width="415" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="116" id="KPv-ny-hbh"/>
@@ -121,7 +121,7 @@
                                     </mask>
                                 </variation>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Descrição:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j4R-Fr-0MM">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Descrição:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j4R-Fr-0MM">
                                 <rect key="frame" x="16" y="206" width="415" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="84" id="Rc7-Mq-Qvx"/>
@@ -143,7 +143,7 @@
                                     </mask>
                                 </variation>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Preço padrão:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jgn-SI-kex">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Preço padrão:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jgn-SI-kex">
                                 <rect key="frame" x="16" y="283" width="415" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="110" id="UVY-UM-cPf"/>
@@ -162,7 +162,7 @@
                                     </mask>
                                 </variation>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Descrição do produto" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vcv-gJ-bvQ">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Descrição do produto" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vcv-gJ-bvQ">
                                 <rect key="frame" x="16" y="206" width="415" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -208,20 +208,20 @@
                                 <exclude reference="jgn-SI-kex"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="4ip-IF-rZ9"/>
+                                <exclude reference="IKB-Xf-pjq"/>
+                                <exclude reference="2z0-DS-c0K"/>
+                                <exclude reference="e8i-yr-mER"/>
+                                <exclude reference="hpJ-TS-l3s"/>
+                                <exclude reference="VPL-XV-Gdf"/>
                                 <exclude reference="1C4-cy-du8"/>
                                 <exclude reference="Kar-sW-Goo"/>
                                 <exclude reference="TS7-Jf-gah"/>
-                                <exclude reference="4ip-IF-rZ9"/>
-                                <exclude reference="IKB-Xf-pjq"/>
                                 <exclude reference="4Fw-Sd-Kua"/>
                                 <exclude reference="8fe-dZ-qGK"/>
                                 <exclude reference="CnH-n4-P98"/>
                                 <exclude reference="Pho-iO-Z8t"/>
                                 <exclude reference="vS6-cl-b5t"/>
-                                <exclude reference="2z0-DS-c0K"/>
-                                <exclude reference="e8i-yr-mER"/>
-                                <exclude reference="hpJ-TS-l3s"/>
-                                <exclude reference="VPL-XV-Gdf"/>
                                 <exclude reference="16T-bh-VzV"/>
                                 <exclude reference="I2e-iV-ehh"/>
                                 <exclude reference="O7Z-x1-e6s"/>
@@ -236,20 +236,20 @@
                                 <include reference="jgn-SI-kex"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="4ip-IF-rZ9"/>
+                                <include reference="IKB-Xf-pjq"/>
+                                <include reference="2z0-DS-c0K"/>
+                                <include reference="e8i-yr-mER"/>
+                                <include reference="hpJ-TS-l3s"/>
+                                <include reference="VPL-XV-Gdf"/>
                                 <include reference="1C4-cy-du8"/>
                                 <include reference="Kar-sW-Goo"/>
                                 <include reference="TS7-Jf-gah"/>
-                                <include reference="4ip-IF-rZ9"/>
-                                <include reference="IKB-Xf-pjq"/>
                                 <include reference="4Fw-Sd-Kua"/>
                                 <include reference="8fe-dZ-qGK"/>
                                 <include reference="CnH-n4-P98"/>
                                 <include reference="Pho-iO-Z8t"/>
                                 <include reference="vS6-cl-b5t"/>
-                                <include reference="2z0-DS-c0K"/>
-                                <include reference="e8i-yr-mER"/>
-                                <include reference="hpJ-TS-l3s"/>
-                                <include reference="VPL-XV-Gdf"/>
                                 <include reference="16T-bh-VzV"/>
                                 <include reference="I2e-iV-ehh"/>
                                 <include reference="O7Z-x1-e6s"/>
@@ -1189,7 +1189,7 @@
                         <viewControllerLayoutGuide type="bottom" id="EgN-VH-bNu"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Zmj-En-G0t">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nome do produto" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hmq-4k-MuW">
@@ -1237,8 +1237,7 @@
                                         <exclude reference="AzK-hZ-tZP"/>
                                     </mask>
                                 </variation>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="169" y="416" width="63" height="30"/>
+                                <variation key="widthClass=compact">
                                     <mask key="constraints">
                                         <include reference="AzK-hZ-tZP"/>
                                     </mask>
@@ -1270,6 +1269,8 @@
                                 <exclude reference="293-py-0CT"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="b9J-08-hqe"/>
+                                <exclude reference="mdf-eN-zO7"/>
                                 <exclude reference="H7z-Ts-brL"/>
                                 <exclude reference="v8D-L7-6T5"/>
                                 <exclude reference="R2m-ia-S6c"/>
@@ -1282,8 +1283,6 @@
                                 <exclude reference="SVv-ra-A7w"/>
                                 <exclude reference="nh1-Av-Qgg"/>
                                 <exclude reference="ygM-3Y-Zy3"/>
-                                <exclude reference="b9J-08-hqe"/>
-                                <exclude reference="mdf-eN-zO7"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -1291,6 +1290,8 @@
                                 <include reference="293-py-0CT"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="b9J-08-hqe"/>
+                                <include reference="mdf-eN-zO7"/>
                                 <include reference="H7z-Ts-brL"/>
                                 <include reference="v8D-L7-6T5"/>
                                 <include reference="R2m-ia-S6c"/>
@@ -1303,8 +1304,6 @@
                                 <include reference="SVv-ra-A7w"/>
                                 <include reference="nh1-Av-Qgg"/>
                                 <include reference="ygM-3Y-Zy3"/>
-                                <include reference="b9J-08-hqe"/>
-                                <include reference="mdf-eN-zO7"/>
                             </mask>
                         </variation>
                     </view>
@@ -1421,24 +1420,34 @@
                                 <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" returnKeyType="done"/>
+                                <connections>
+                                    <action selector="discountPercExit:" destination="EmC-BY-gbQ" eventType="editingDidEndOnExit" id="6vs-8k-6IF"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0,00" borderStyle="line" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SyF-dA-p2K">
                                 <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" returnKeyType="done"/>
+                                <connections>
+                                    <action selector="discountExit:" destination="EmC-BY-gbQ" eventType="editingDidEndOnExit" id="QFH-YX-rOc"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0%" borderStyle="line" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4c5-tr-MGB">
                                 <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" returnKeyType="done"/>
+                                <connections>
+                                    <action selector="acrescPercExit:" destination="EmC-BY-gbQ" eventType="editingDidEndOnExit" id="biX-OP-Sbr"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0,00" borderStyle="line" placeholder="Endereço do Cliente" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gC1-61-zRC">
                                 <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" returnKeyType="done"/>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="54" y="445" width="292" height="32"/>
-                                </variation>
+                                <connections>
+                                    <action selector="acrescExit:" destination="EmC-BY-gbQ" eventType="editingDidEnd" id="Gok-8S-EzN"/>
+                                    <action selector="acrescPercExit:" destination="EmC-BY-gbQ" eventType="editingDidEndOnExit" id="PqX-Y7-evx"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0,00" borderStyle="line" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xMo-Rr-UWb">
                                 <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
@@ -1475,12 +1484,6 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Desconto" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q1k-bc-ohn">
-                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Final" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bC1-Cy-fbx">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -1494,6 +1497,12 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Acréscimo" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fJF-GI-cgJ">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Desconto" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q1k-bc-ohn">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -1554,10 +1563,10 @@
                                 <exclude reference="ltt-4D-ZqH"/>
                                 <exclude reference="rRZ-Yv-0xA"/>
                                 <exclude reference="w5o-Ja-gmX"/>
-                                <exclude reference="Q1k-bc-ohn"/>
                                 <exclude reference="bC1-Cy-fbx"/>
                                 <exclude reference="xcG-6a-C2m"/>
                                 <exclude reference="fJF-GI-cgJ"/>
+                                <exclude reference="Q1k-bc-ohn"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="TFy-82-7cE"/>
@@ -1613,10 +1622,10 @@
                                 <include reference="ltt-4D-ZqH"/>
                                 <include reference="rRZ-Yv-0xA"/>
                                 <include reference="w5o-Ja-gmX"/>
-                                <include reference="Q1k-bc-ohn"/>
                                 <include reference="bC1-Cy-fbx"/>
                                 <include reference="xcG-6a-C2m"/>
                                 <include reference="fJF-GI-cgJ"/>
+                                <include reference="Q1k-bc-ohn"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="TFy-82-7cE"/>

@@ -19,10 +19,10 @@
 @property NSString *costumerEmail;
 @property NSString *costumerAdress;
 
-@property NSNumber* finalValue;
-@property NSNumber* finalSum;
-@property NSNumber* finalDiscount;
-@property NSNumber* resultValue;
+@property (strong, retain) NSNumber* finalValue;
+@property (strong, retain) NSNumber* finalSum;
+@property (strong, retain) NSNumber* finalDiscount;
+@property (strong, retain) NSNumber* resultValue;
 
 @end
  

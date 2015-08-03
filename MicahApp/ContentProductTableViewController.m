@@ -97,6 +97,7 @@
         
         NSString *stringPreco = [NSString stringWithFormat:@"%.2f", self.totalPedido]; // transforma o NSNumber em string
         labelPreco.text = stringPreco;
+        [SaveData sharedAppData].currentOrca.finalValue = [NSNumber numberWithFloat: self.totalPedido];
 
     }
     else{
