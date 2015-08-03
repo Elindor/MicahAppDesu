@@ -13,7 +13,7 @@
 @property (strong, retain) NSString *nomeProduto;
 @property (strong, retain) NSString *descricaoProduto;
 //@property (weak, nonatomic) NSString *categoriaProduto;
-@property (weak, nonatomic) NSNumber *precoPadraoProduto;
+@property (strong, retain) NSNumber *precoPadraoProduto;
 
 + (Produto *) criaProduto:(NSString *)nome descricao:(NSString *)descricao precoPadrao: (NSNumber *) precoPadrao;
 

@@ -10,6 +10,11 @@
 
 @interface ContentAdjustmentViewController : UIViewController
 @property NSUInteger pageIndex;
-
+@property NSNumber *total;
+@property NSNumber *descontoPorcentagem;
+@property NSNumber *descontoPreco;
+@property NSNumber *acrescimoPorcentagem;
+@property NSNumber *acrescimoPreco;
+@property NSNumber *totalFinal;
 
 @end

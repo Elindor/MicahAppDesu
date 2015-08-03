@@ -20,6 +20,7 @@
     pedidoNovo.quantidadeProduto = quantidade;
     pedidoNovo.precoProduto = preco;
     
+    
     return pedidoNovo;
     
 }
@@ -32,6 +33,7 @@
         _descricaoProduto = [aDecoder decodeObjectForKey:@"OrcamentsReceipt$Desc#32189kl4"];
         _quantidadeProduto = [aDecoder decodeObjectForKey:@"OrcamentsReceipt$Quan#32189kl4"];
         _precoProduto = [aDecoder decodeObjectForKey:@"OrcamentsReceipt$Prec#32189kl4"];
+        _precoAlterado = [aDecoder decodeObjectForKey:@"OrcamentsReceipt$Prec2#32189kl4"];
     }
     return self;
 }
@@ -41,6 +43,7 @@
     [aCoder encodeObject:self.descricaoProduto forKey:@"OrcamentsReceipt$Desc#32189kl4"];
     [aCoder encodeObject:self.quantidadeProduto forKey:@"OrcamentsReceipt$Quan#32189kl4"];
     [aCoder encodeObject:self.precoProduto forKey:@"OrcamentsReceipt$Prec#32189kl4"];
+    [aCoder encodeObject:self.precoProduto forKey:@"OrcamentsReceipt$Prec2#32189kl4"];
 }
 
 

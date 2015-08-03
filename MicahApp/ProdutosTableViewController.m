@@ -23,7 +23,7 @@
 
 @property BOOL searchControllerAtivado;
 @property BOOL searchControllerFieldWasFirstResponder;
-
+@property NSArray *arrayFiltro;
 @end
 
 @implementation ProdutosTableViewController
@@ -56,10 +56,20 @@
         
 }
 
+-(void) viewWillAppear:(BOOL)animated{
+
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadData:) name:@"ReloadTableView" object:nil];
+
+}
+
+-(void) reloadData:(NSNotification *)notif{
+    [self.tableView reloadData];
+}
+
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    [self.tableView reloadData];
+    //[self.tableView reloadData];
 
     // restore the searchController's active state
     if (self.searchControllerAtivado) {
@@ -155,22 +165,22 @@
 
     Produto *produtoSelecionado;
 
-//    if (self.searchControllerAtivado){
-//        
-//        produtoSelecionado = self.resultadosTableViewController.produtosFiltradosArray[indexPath.row];
-//        DetalhesProdutoViewController *telaDetalhesProduto = [self.storyboard instantiateViewControllerWithIdentifier:@"detalhesProduto"];
-//        telaDetalhesProduto.nomeProd = produtoSelecionado.nomeProduto;
-//        //telaDetalhesProduto.categoriaProd = produtoSelecionado.categoriaProduto;
-//        telaDetalhesProduto.descricaoProd = produtoSelecionado.descricaoProduto;
-//        
-//        NSNumberFormatter *formatter = [[NSNumberFormatter alloc]init];
-//        NSString *precoStr = [formatter stringFromNumber:produtoSelecionado.precoPadraoProduto];
-//        telaDetalhesProduto.precoProd = precoStr;
-//        
-//        [self.navigationController pushViewController:telaDetalhesProduto animated:YES];
-//        
-//    }
-//    else{
+    if (self.searchControllerAtivado){
+        
+        produtoSelecionado = self.resultadosTableViewController.produtosFiltradosMArray[indexPath.row];
+        DetalhesProdutoViewController *telaDetalhesProduto = [self.storyboard instantiateViewControllerWithIdentifier:@"detalhesProduto"];
+        telaDetalhesProduto.nomeProd = produtoSelecionado.nomeProduto;
+        //telaDetalhesProduto.categoriaProd = produtoSelecionado.categoriaProduto;
+        telaDetalhesProduto.descricaoProd = produtoSelecionado.descricaoProduto;
+        
+        NSNumberFormatter *formatter = [[NSNumberFormatter alloc]init];
+        NSString *precoStr = [formatter stringFromNumber:produtoSelecionado.precoPadraoProduto];
+        telaDetalhesProduto.precoProd = precoStr;
+        
+        [self.navigationController pushViewController:telaDetalhesProduto animated:YES];
+        
+    }
+    else{
         SaveData *save = [SaveData sharedAppData];
         produtoSelecionado = save.productList[indexPath.row];
         DetalhesProdutoViewController *telaDetalhesProduto = [self.storyboard instantiateViewControllerWithIdentifier:@"detalhesProduto"];
@@ -185,7 +195,7 @@
         
         [self.navigationController pushViewController:telaDetalhesProduto animated:YES];
         
-//    }
+    }
     
  
         // note: should not be necessary but current iOS 8.0 bug (seed 4) requires it
@@ -194,7 +204,6 @@
 
 
 - (void)updateSearchResultsForSearchController:(UISearchController *)searchController {
-    
     
     // update the filtered array based on the search text
     NSString *textoBuscado = searchController.searchBar.text;
@@ -252,9 +261,9 @@
     // hand over the filtered results to our search results table
     ResultadosBuscaTableViewController *resultadosBuscatableController = (ResultadosBuscaTableViewController *)self.produtosSearchController.searchResultsController;
     
-    NSMutableArray *arrayFiltradoOK = [[NSMutableArray alloc] init];
-
-    resultadosBuscatableController.produtosFiltradosMArray = arrayFiltradoOK;
+    resultadosBuscatableController.produtosFiltradosMArray = resultadosBuscaMArray;
+    
+    //[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadData:) name:@"ReloadTableView" object:nil];
     [resultadosBuscatableController.tableView reloadData];
     
 }

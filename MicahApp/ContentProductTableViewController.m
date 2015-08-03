@@ -32,6 +32,15 @@
 }
 
 -(void) viewWillAppear:(BOOL)animated{
+//    for(UITableViewCell *temp in [self.tableView visibleCells]){
+//        [temp removeFromSuperview];
+//        [temp d]
+//    }
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadData:) name:@"ReloadTableView" object:nil];
+    
+}
+
+-(void) reloadData:(NSNotification *)notif{
     [self.tableView reloadData];
 }
 
@@ -53,6 +62,14 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
 
     
+    for (UIView *subview in [cell.contentView subviews]) {
+        [subview removeFromSuperview];
+    }
+    
+    if(cell == nil) {
+        
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+    }
 //    UILabel *labelNome = [[UILabel alloc] initWithFrame:CGRectMake(20, 20, self.tableView.frame.size.width - 50, 20)];
 //    UIFont *font = labelNome.font;
 //    labelNome.font = [font fontWithSize:14];
@@ -69,21 +86,22 @@
 
 
     
+    
+    UILabel *labelNome;
     if (indexPath.row == ([[SaveData sharedAppData].currentOrca.productList count])){
-        
-        UILabel *labelNome = [[UILabel alloc] initWithFrame:CGRectMake(self.tableView.frame.size.width/2, 20, self.tableView.frame.size.width - 50, 20)];
+
+        labelNome = [[UILabel alloc] initWithFrame:CGRectMake(self.tableView.frame.size.width/2, 20, self.tableView.frame.size.width - 50, 20)];
         UIFont *font = labelNome.font;
         labelNome.font = [font fontWithSize:14];
         labelNome.text = @"Total: ";
         
         NSString *stringPreco = [NSString stringWithFormat:@"%.2f", self.totalPedido]; // transforma o NSNumber em string
         labelPreco.text = stringPreco;
-        [cell addSubview:labelNome];
 
     }
     else{
 
-        UILabel *labelNome = [[UILabel alloc] initWithFrame:CGRectMake(45, 20, self.tableView.frame.size.width - 100, 20)];
+        labelNome = [[UILabel alloc] initWithFrame:CGRectMake(45, 20, self.tableView.frame.size.width - 100, 20)];
         UIFont *font = labelNome.font;
         labelNome.font = [font fontWithSize:14];
         
@@ -92,13 +110,14 @@
         labelNome.text = self.pedidoNovo.nomeProduto;
         self.totalPedido = [self.pedidoNovo.precoProduto floatValue] + self.totalPedido;
         NSString *stringPreco = [self.pedidoNovo.precoProduto stringValue]; // transforma o NSNumber em string
+        if(self.pedidoNovo.precoAlterado)
+            stringPreco = [self.pedidoNovo.precoAlterado stringValue];
         labelPreco.text = stringPreco;
         labelQuantidade.text = [self.pedidoNovo.quantidadeProduto stringValue];
-        [cell addSubview:labelNome];
         [cell addSubview:labelQuantidade];
     
     }
-    
+    [cell addSubview:labelNome];
     [cell addSubview:labelPreco];
     
     
@@ -123,6 +142,9 @@
         telaPedidoDeProduto.nomeProduto = produtoSelecionado.nomeProduto;
         telaPedidoDeProduto.descricaoProduto = produtoSelecionado.descricaoProduto;
         telaPedidoDeProduto.precoProduto = produtoSelecionado.precoProduto;
+        if(produtoSelecionado.precoAlterado)
+            telaPedidoDeProduto.precoProduto = produtoSelecionado.precoAlterado;
+        
         telaPedidoDeProduto.quantidadeProduto = produtoSelecionado.quantidadeProduto;
 
         [self.navigationController pushViewController:telaPedidoDeProduto animated:YES];

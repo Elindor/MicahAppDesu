@@ -7,6 +7,10 @@
 //
 
 #import "PedidoDeProdutoViewController.h"
+#import "SaveData.h"
+#import "orcamentos.h"
+#import "Produto.h"
+#import "PedidoDeProduto.h"
 
 @interface PedidoDeProdutoViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *nomeProdutoTextField;
@@ -27,11 +31,11 @@
     
     self.nomeProdutoTextField.text = self.nomeProduto;
     self.descricaoProdutoTextField.text = self.descricaoProduto;
-    NSNumberFormatter *formatter = [[NSNumberFormatter alloc]init];
-    NSString *preco = [formatter stringFromNumber:self.precoProduto];
-    NSString *quantidade = [formatter stringFromNumber:self.quantidadeProduto];
-    self.precoProdutoTextField.text = preco;
-    self.quantidadeProdutoTextField.text = quantidade;
+//    NSNumberFormatter *formatter = [[NSNumberFormatter alloc]init];
+//    NSString *preco = [formatter stringFromNumber:self.precoProduto];
+//    NSString *quantidade = [formatter stringFromNumber:self.quantidadeProduto];
+    self.precoProdutoTextField.text = [self.precoProduto stringValue];
+    self.quantidadeProdutoTextField.text = [self.quantidadeProduto stringValue];
     
     
     
@@ -45,7 +49,56 @@
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     [self.view endEditing:YES];
+
 }
+
+/*
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
+
+- (IBAction)excluirProdButton:(UIButton *)sender {
+    orcamentos *current = [SaveData sharedAppData].currentOrca;
+    PedidoDeProduto *targetToRemove;
+    for(PedidoDeProduto *prod in current.productList){
+        if([prod.nomeProduto isEqualToString:_nomeProdutoTextField.text])
+            targetToRemove = prod;
+    }
+    [current.productList removeObjectIdenticalTo:targetToRemove];
+    [[SaveData sharedAppData] save];
+    
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+
+- (IBAction)buttonDidSave:(id)sender {
+    orcamentos *current = [SaveData sharedAppData].currentOrca;
+    PedidoDeProduto *targetToChange;
+    for(PedidoDeProduto *prod in current.productList){
+        if([prod.nomeProduto isEqualToString:_nomeProdutoTextField.text])
+            targetToChange = prod;
+    }
+
+    PedidoDeProduto *new = [[PedidoDeProduto alloc] init];
+    new.nomeProduto = _nomeProdutoTextField.text;
+    new.descricaoProduto = _descricaoProdutoTextField.text;
+    new.precoAlterado = [NSNumber numberWithFloat:[ _precoProdutoTextField.text floatValue]];
+    new.quantidadeProduto  = [NSNumber numberWithFloat:[ _quantidadeProdutoTextField.text floatValue]];
+    
+    [current.productList removeObjectIdenticalTo:targetToChange];
+    [current.productList addObject:new];
+
+    
+    [[SaveData sharedAppData] save];
+    [self.navigationController popViewControllerAnimated:YES];
+
+}
+
 
 /*
 #pragma mark - Navigation

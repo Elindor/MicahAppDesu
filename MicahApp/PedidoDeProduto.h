@@ -10,10 +10,11 @@
 
 @interface PedidoDeProduto : NSObject
 
-@property (weak, nonatomic) NSString *nomeProduto;
-@property (weak, nonatomic) NSString *descricaoProduto;
-@property (weak, nonatomic) NSNumber *quantidadeProduto;
-@property (weak, nonatomic) NSNumber *precoProduto;
+@property (strong, retain) NSString *nomeProduto;
+@property (strong, retain) NSString *descricaoProduto;
+@property (strong, retain) NSNumber *quantidadeProduto;
+@property (strong, retain) NSNumber *precoProduto;
+@property (strong, retain) NSNumber *precoAlterado;
 
 
 + (PedidoDeProduto *) criaPedido:(NSString *)nome descricao:(NSString *)descricao quantidadeProduto:(NSNumber*) quantidade precoAtual: (NSNumber *) preco;

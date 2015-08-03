@@ -33,6 +33,7 @@
 
 #pragma mark - Table view data source
 
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
     return self.produtosFiltradosMArray.count;

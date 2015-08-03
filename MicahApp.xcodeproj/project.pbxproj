@@ -170,6 +170,8 @@
 				1B7BB0ED1B5D980F000CD60E /* ProdutosOrcamentoTableViewController.m */,
 				1BE748591B6A7B7300F42E50 /* EditarProdutoViewController.h */,
 				1BE7485A1B6A7B7300F42E50 /* EditarProdutoViewController.m */,
+				1BE538131B6ACA5200E312D7 /* PedidoDeProdutoViewController.h */,
+				1BE538141B6ACA5200E312D7 /* PedidoDeProdutoViewController.m */,
 				1B9A16731B59A61F00CA057B /* DetalhesProdutoViewController.h */,
 				1B9A16741B59A61F00CA057B /* DetalhesProdutoViewController.m */,
 				1BEB0B7D1B55A7520039F444 /* ProdutosTableViewController.h */,
@@ -323,8 +325,6 @@
 		C058DD611B6F330E00B2685A /* Outros */ = {
 			isa = PBXGroup;
 			children = (
-				1BE538131B6ACA5200E312D7 /* PedidoDeProdutoViewController.h */,
-				1BE538141B6ACA5200E312D7 /* PedidoDeProdutoViewController.m */,
 				1BE552E71B6D52EF0047CFA8 /* OrcaEmProgressoTableViewController.h */,
 				1BE552E81B6D52EF0047CFA8 /* OrcaEmProgressoTableViewController.m */,
 			);

@@ -54,9 +54,7 @@
     //precisa definir como será feito a categoria
 //    novoProduto.categoriaProduto =
     
-    NSNumberFormatter *formatter = [[NSNumberFormatter alloc]init];
-    NSNumber *preco = [formatter numberFromString:self.precoProdutoField.text];
-    novoProduto.precoPadraoProduto = preco;
+    novoProduto.precoPadraoProduto = [NSNumber numberWithFloat:[self.precoProdutoField.text floatValue]];
     
     SaveData* save = [SaveData sharedAppData];
     [save.productList addObject:novoProduto];
