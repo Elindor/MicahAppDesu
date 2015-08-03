@@ -20,6 +20,7 @@
  *  -Implementar o PDF usando um tipo de dado "orcamentos". Explico o case tosco dps, foi aquele bug do git.
  *  -Implementar a letura de PDF no histórico
  *  -Habilitar o finalizar como ultimo switch case do page view, que deletará (Eu faço) um registro, e criará um OrcamentoFinalizado. As coisas que tem na classe são auto-explicativas.
+ *  -Envio por e-mail!
  *
  *  Sobre TableViews:
  *  -Remodelei tudo pra usar a informação que guardamos, mas para isso mudei o array. Além de reabilitar a procura, verifique se a procura n zoa os indexes internos. (Provavel, mas teste)
