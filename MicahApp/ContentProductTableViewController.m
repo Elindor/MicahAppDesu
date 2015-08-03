@@ -9,6 +9,7 @@
 #import "ContentProductTableViewController.h"
 #import "PedidoDeProdutoViewController.h"
 #import "PedidoDeProduto.h"
+#import "SaveData.h"
 
 @interface ContentProductTableViewController ()
 
@@ -21,19 +22,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.tableView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0); // Altura correta
-
     if(self.pedidoNovo != nil){
         [self.produtosListaNSMArray addObject:self.pedidoNovo];
     }
     
-    self.produtosListaNSMArray = [[NSMutableArray alloc] initWithArray: @[[PedidoDeProduto criaPedido:@"papel" descricao:@"sulfite" quantidadeProduto:@1 precoAtual:@10.50], [PedidoDeProduto criaPedido:@"borracha" descricao:@"faber" quantidadeProduto:@2 precoAtual:@2.5], [PedidoDeProduto criaPedido:@"lapis" descricao:@"pentel" quantidadeProduto:@5 precoAtual:@3.20], [PedidoDeProduto criaPedido:@"macinha" descricao:@"-" quantidadeProduto:@5 precoAtual:@4.5], [PedidoDeProduto criaPedido:@"almaço" descricao:@"50 folhas" quantidadeProduto:@2 precoAtual:@4]]];
-
-
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    [SaveData sharedAppData];
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    [self.tableView reloadData];
+}
+
+-(void) viewWillAppear:(BOOL)animated{
+    [self.tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -44,7 +43,7 @@
 #pragma mark - Table view data source
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.produtosListaNSMArray count] + 1;
+    return [[SaveData sharedAppData].currentOrca.productList count] + 1;
 }
 
 
@@ -53,6 +52,7 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
 
+    
 //    UILabel *labelNome = [[UILabel alloc] initWithFrame:CGRectMake(20, 20, self.tableView.frame.size.width - 50, 20)];
 //    UIFont *font = labelNome.font;
 //    labelNome.font = [font fontWithSize:14];
@@ -69,7 +69,7 @@
 
 
     
-    if (indexPath.row == ([self.produtosListaNSMArray count])){
+    if (indexPath.row == ([[SaveData sharedAppData].currentOrca.productList count])){
         
         UILabel *labelNome = [[UILabel alloc] initWithFrame:CGRectMake(self.tableView.frame.size.width/2, 20, self.tableView.frame.size.width - 50, 20)];
         UIFont *font = labelNome.font;
@@ -87,7 +87,7 @@
         UIFont *font = labelNome.font;
         labelNome.font = [font fontWithSize:14];
         
-        self.pedidoNovo = [self.produtosListaNSMArray objectAtIndex:indexPath.row];
+        self.pedidoNovo = [[SaveData sharedAppData].currentOrca.productList objectAtIndex:indexPath.row];
     
         labelNome.text = self.pedidoNovo.nomeProduto;
         self.totalPedido = [self.pedidoNovo.precoProduto floatValue] + self.totalPedido;
@@ -112,13 +112,13 @@
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     
-    if (indexPath.row == ([self.produtosListaNSMArray count])){
-        
+    if (indexPath.row == ([[SaveData sharedAppData].currentOrca.productList count])){
+        NSLog(@"Nope, wrong button");
     }
     else{
     
         PedidoDeProduto *produtoSelecionado;
-        produtoSelecionado = self.produtosListaNSMArray[indexPath.row];
+        produtoSelecionado = [SaveData sharedAppData].currentOrca.productList[indexPath.row];
         PedidoDeProdutoViewController *telaPedidoDeProduto = [self.storyboard instantiateViewControllerWithIdentifier:@"telaPedidoDeProduto"];
         telaPedidoDeProduto.nomeProduto = produtoSelecionado.nomeProduto;
         telaPedidoDeProduto.descricaoProduto = produtoSelecionado.descricaoProduto;

@@ -8,6 +8,8 @@
 
 #import "ContentObservationTableViewController.h"
 #import "EditarObservacaoViewController.h"
+#import "EditarObsOrcaViewController.h"
+#import "SaveData.h"
 
 @interface ContentObservationTableViewController ()
 
@@ -18,13 +20,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.tableView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0); // Altura correta
-    
-    //teste do array, precisa juntar com o "BD"
-    self.observacoesOrcamentoArray = [[NSMutableArray alloc] initWithArray:@[@"teste1", @"teste2", @"teste3", @"teste4", @"teste5", @"teste6"]] ;
+    [SaveData sharedAppData];
     
     [self.tableView reloadData];
 }
 
+-(void) viewWillAppear:(BOOL)animated{
+    [self.tableView reloadData];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -34,7 +37,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    NSInteger retornaNumeroLinhas =  [self.observacoesOrcamentoArray count] ;
+    NSInteger retornaNumeroLinhas =  [[SaveData sharedAppData].currentOrca.observationList count] ;
     
     return retornaNumeroLinhas;
 }
@@ -46,6 +49,12 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
+    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+    
+    for (UIView *subview in [cell.contentView subviews]) {
+        [subview removeFromSuperview];
+    }
+    
     UILabel *labelNome = [[UILabel alloc] initWithFrame:CGRectMake(20, 20, self.tableView.frame.size.width - 40, 20)];
     
     UIFont *font = labelNome.font;
@@ -53,7 +62,7 @@
     
     
     NSString *observacao = nil;
-    observacao = [self.observacoesOrcamentoArray objectAtIndex:indexPath.row];
+    observacao = [[SaveData sharedAppData].currentOrca.observationList objectAtIndex:indexPath.row];
     labelNome.text = observacao;
     
     [cell addSubview:labelNome];
@@ -70,9 +79,9 @@
     
     NSString *observacaoSelecionado;
     
-    observacaoSelecionado = self.observacoesOrcamentoArray[indexPath.row];
-    EditarObservacaoViewController *telaEditarObservacao = [self.storyboard instantiateViewControllerWithIdentifier:@"editarObservacao"];
-    telaEditarObservacao.observacao = observacaoSelecionado;
+    observacaoSelecionado = [SaveData sharedAppData].currentOrca.observationList[indexPath.row];
+    EditarObsOrcaViewController *telaEditarObservacao = [self.storyboard instantiateViewControllerWithIdentifier:@"editarObsOrca"];
+    telaEditarObservacao.observacaoOrca = observacaoSelecionado;
     
     [self.navigationController pushViewController:telaEditarObservacao animated:YES];
     
@@ -88,7 +97,7 @@
 //- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
 //    if (editingStyle == UITableViewCellEditingStyleDelete) {
 //        // Delete the row from the data source
-//        [self.observacoesOrcamentoArray removeObjectAtIndex: indexPath.row - 1];
+//        [[SaveData sharedAppData].currentOrca.observationList removeObjectAtIndex: indexPath.row - 1];
 //        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
 //        [tableView reloadData];
 //    }

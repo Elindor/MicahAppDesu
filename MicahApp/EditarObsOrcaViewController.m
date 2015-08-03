@@ -7,13 +7,16 @@
 //
 
 #import "EditarObsOrcaViewController.h"
-
+#import "SaveData.h"
+#import "orcamentos.h"
 
 @interface EditarObsOrcaViewController ()
 
 @property (weak, nonatomic) IBOutlet UITextField *observacaoOrcaTextField;
 
-@property (weak, nonatomic) IBOutlet UISwitch *salvarSwitchON;
+
+@property NSString *initialStr;
+
 @end
 
 @implementation EditarObsOrcaViewController
@@ -22,6 +25,7 @@
     [super viewDidLoad];
     self.observacaoOrcaTextField.text = self.observacaoOrca;
     // Do any additional setup after loading the view.
+    self.initialStr = self.observacaoOrcaTextField.text;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -44,7 +48,27 @@
  */
 
 - (IBAction)excluirObsButton:(UIButton *)sender {
+    orcamentos *current = [SaveData sharedAppData].currentOrca;
+    NSString *targetToRemove;
+    for(NSString *str in current.observationList){
+        if([str isEqualToString:_observacaoOrcaTextField.text])
+            targetToRemove = str;
+    }
+    [current.observationList removeObjectIdenticalTo:targetToRemove];
+    [[SaveData sharedAppData] save];
     
-    
+    [self.navigationController popViewControllerAnimated:YES];
 }
+
+
+- (IBAction)textFieldDidExit:(id)sender {
+    orcamentos *current = [SaveData sharedAppData].currentOrca;
+    NSString *targetToChange;
+    for(NSString *str in current.observationList){
+        if([str isEqualToString:_initialStr])
+            targetToChange = str;
+    }
+    targetToChange = _observacaoOrcaTextField.text;
+}
+
 @end

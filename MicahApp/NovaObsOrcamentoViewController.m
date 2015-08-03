@@ -7,6 +7,8 @@
 //
 
 #import "NovaObsOrcamentoViewController.h"
+#import "SaveData.h"
+#import "orcamentos.h"
 
 @interface NovaObsOrcamentoViewController ()
 
@@ -22,10 +24,24 @@
     [super viewDidLoad];
     
     self.observacaoOrca = self.obsOrcaTextField.text;
-    
+    self.salvaSwitchON = false;
     
     // Do any additional setup after loading the view.
 }
+
+-(IBAction)confirm:(id)sender{
+    orcamentos *current = [SaveData sharedAppData].currentOrca;
+    [current.observationList addObject:self.obsOrcaTextField.text];
+    if(_salvaSwitchON){ // Se também salvar...
+        [[SaveData sharedAppData].observationList addObject:self.obsOrcaTextField.text];
+    }
+    [[SaveData sharedAppData] save];
+    
+    [self.navigationController popViewControllerAnimated:YES];
+
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

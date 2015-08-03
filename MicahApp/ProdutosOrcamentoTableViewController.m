@@ -12,6 +12,7 @@
 #import "NovoProdutoViewController.h"
 #import "ContentProductTableViewController.h"
 #import "PedidoDeProduto.h"
+#import "SaveData.h"
 
 @interface ProdutosOrcamentoTableViewController () <UISearchBarDelegate, UISearchControllerDelegate, UISearchResultsUpdating>
 
@@ -31,17 +32,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    //teste do array, precisa juntar com o "BD"
-    self.produtoOrcamentoArray = @[[Produto criaProduto:@"caneta1" descricao:@"bic1" precoPadrao: @12.32],
-                                   [Produto criaProduto:@"borracha" descricao:@"faber" precoPadrao: @5.50],
-                                   [Produto criaProduto:@"caneta3" descricao:@"bic3" precoPadrao: @10.00],
-                                   [Produto criaProduto:@"caneta4" descricao:@"bic4" precoPadrao: @14.78],
-                                   [Produto criaProduto:@"caneta5" descricao:@"bic5" precoPadrao: @7.90],
-                                   [Produto criaProduto:@"caneta6" descricao:@"bic6" precoPadrao: @9.90],
-                                   [Produto criaProduto:@"caneta7" descricao:@"bic7" precoPadrao: @8.89],
-                                   [Produto criaProduto:@"caneta8" descricao:@"bic8" precoPadrao: @7.90],
-                                   [Produto criaProduto:@"caneta9" descricao:@"bic9" precoPadrao: @15.00]
-                                   ];
+    [SaveData sharedAppData];
     
     
     
@@ -115,7 +106,7 @@
 //        retornaNumeroLinhas = [self.resultadosOrcamentoTableViewController.produtosFiltradosArray count];
 //    }
 //    else{
-        retornaNumeroLinhas =  [self.produtoOrcamentoArray count];
+        retornaNumeroLinhas =  [[SaveData sharedAppData].productList count];
 //    }
     
     return retornaNumeroLinhas;
@@ -127,6 +118,10 @@
     static NSString *cellIdentifier = @"prodOrcIdentifier";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    
+    if (cell == nil){
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+    }
     
     UILabel *labelNome = [[UILabel alloc] initWithFrame:CGRectMake(20, 20, self.tableView.frame.size.width - 50, 20)];
     UIFont *font = labelNome.font;
@@ -149,7 +144,7 @@
 //    //utiliza esse formato de cell se não estiver usando a busca
 //    else{
 // 
-        produto = [self.produtoOrcamentoArray objectAtIndex:indexPath.row];
+        produto = [[SaveData sharedAppData].productList objectAtIndex:indexPath.row];
         
 //    }
     
@@ -180,19 +175,26 @@
     }
     else{
         
-        produtoSelecionado = self.produtoOrcamentoArray[indexPath.row];
+        produtoSelecionado = [SaveData sharedAppData].productList[indexPath.row];
 
     }
     
+    SaveData *save = [SaveData sharedAppData];
+
     novoPedido.nomeProduto = produtoSelecionado.nomeProduto;
     novoPedido.descricaoProduto = produtoSelecionado.descricaoProduto;
     novoPedido.precoProduto = produtoSelecionado.precoPadraoProduto;
-    novoPedido.quantidadeProduto =[NSNumber numberWithFloat:1.0];
+    novoPedido.quantidadeProduto = [NSNumber numberWithFloat:1.0];
     
+    orcamentos *current = save.currentOrca;
+    [current.productList addObject:novoPedido];
+    [save save];
     ContentProductTableViewController *telaProdOrcamento = [self.storyboard instantiateViewControllerWithIdentifier:@"ContentProduct"];
     telaProdOrcamento.pedidoNovo = novoPedido;
     
-    [self dismissViewControllerAnimated:NO completion:nil];
+    
+    
+    [self.navigationController popViewControllerAnimated:YES];
 
     
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
@@ -203,7 +205,7 @@
     
     // update the filtered array based on the search text
     NSString *textoBuscado = searchController.searchBar.text;
-    NSMutableArray *resultadosBuscaMArray = [self.produtoOrcamentoArray mutableCopy];
+    NSMutableArray *resultadosBuscaMArray = [[SaveData sharedAppData].productList mutableCopy];
     
     // strip out all the leading and trailing spaces
     NSString *stringFormatada = [textoBuscado stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];

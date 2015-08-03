@@ -9,6 +9,8 @@
 #import "ListaObsOrcaTableViewController.h"
 #import "NovaObsOrcamentoViewController.h"
 #import "ContentObservationTableViewController.h"
+#import "SaveData.h"
+#import "orcamentos.h"
 
 @interface ListaObsOrcaTableViewController ()
 
@@ -19,12 +21,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    //teste do array, precisa juntar com o "BD"
-    self.observacoesOrcaNSMArray = [[NSMutableArray alloc] initWithArray: @[@"obs11", @"obs12", @"obs13", @"obs14", @"obs15", @"obs16", @"obs17", @"obs18", @"obs19", @"obs10" ]];
+    [SaveData sharedAppData];
     
     [self.tableView reloadData];
 }
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -41,9 +41,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    NSInteger retornaNumeroLinhas = 0;
-    
-    retornaNumeroLinhas =  [self.observacoesOrcaNSMArray count];
+    NSInteger retornaNumeroLinhas = [[SaveData sharedAppData].observationList count];
     
     return retornaNumeroLinhas;
 }
@@ -54,19 +52,22 @@
     static NSString *cellIdentifier = @"listaObsIdentifier";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+        
+    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     
-    UILabel *labelNome = [[UILabel alloc] initWithFrame:CGRectMake(20, 20, self.tableView.frame.size.width - 40, 20)];
+    for (UIView *subview in [cell.contentView subviews]) {
+        [subview removeFromSuperview];
+    }
+    
+    UILabel *labelNome = [[UILabel alloc] initWithFrame:CGRectMake(20, 20, self.tableView.frame.size.width - 50, 20)];
     UIFont *font = labelNome.font;
     labelNome.font = [font fontWithSize:14];
+    SaveData* save = [SaveData sharedAppData];
     
-    labelNome.text = [self.observacoesOrcaNSMArray objectAtIndex:indexPath.row];
+    labelNome.text = [save.observationList objectAtIndex:indexPath.row];
     
     [cell addSubview:labelNome];
     
-    
-    if (cell == nil){
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
-    }
     
     return cell;
 }
@@ -75,16 +76,15 @@
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     NSString *observacaoSelecionada = [[NSString alloc] init];
-    observacaoSelecionada = self.observacoesOrcaNSMArray[indexPath.row];
+    SaveData *save = [SaveData sharedAppData];
+    observacaoSelecionada = save.observationList[indexPath.row];
     
+    orcamentos *current = [SaveData sharedAppData].currentOrca;
     
-//    ContentObservationTableViewController *telaObservacaoOrca = [self.storyboard instantiateViewControllerWithIdentifier:@"ContentObservation"];
-    
-//#Pragma nao sei como irá enviar os dados pra lista de observacoes do pedido
-    
-    //telaObservacaoOrca.observacao = observacaoSelecionada;
-//    [self.navigationController pushViewController:telaObservacaoOrca animated:YES];
-    [self dismissViewControllerAnimated:NO completion:nil];
+    [current.observationList addObject:observacaoSelecionada];
+    [save save];
+    //[self dismissViewControllerAnimated:NO completion:nil];
+    [self.navigationController popViewControllerAnimated:YES];
     
     // note: should not be necessary but current iOS 8.0 bug (seed 4) requires it
     [tableView deselectRowAtIndexPath:indexPath animated:NO];

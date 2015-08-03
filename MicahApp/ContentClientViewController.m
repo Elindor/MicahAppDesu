@@ -23,7 +23,7 @@
 -(void)viewWillAppear:(BOOL)animated{
     
     SaveData* save = [SaveData sharedAppData];
-    _clientMailField.text = save.currentOrca.costumerTelephone;
+    _clientMailField.text = save.currentOrca.costumerEmail;
     _clientNameField.text = save.currentOrca.costumerName;
     _clientAddressField.text = save.currentOrca.costumerAdress;
     _clientPhoneField.text = save.currentOrca.costumerTelephone;
