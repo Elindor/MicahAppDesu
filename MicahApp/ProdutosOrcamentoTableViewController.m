@@ -168,16 +168,7 @@
     Produto *produtoSelecionado;
     PedidoDeProduto *novoPedido = [[PedidoDeProduto alloc]init];
     
-    if (self.orcamentoSearchControllerAtivado){
-        produtoSelecionado = self.resultadosOrcamentoTableViewController.produtosFiltradosMArray[indexPath.row];
-        
-        
-    }
-    else{
-        
-        produtoSelecionado = [SaveData sharedAppData].productList[indexPath.row];
-
-    }
+    produtoSelecionado = (tableView == self.tableView) ? [SaveData sharedAppData].productList[indexPath.row] : self.resultadosOrcamentoTableViewController.produtosFiltradosMArray[indexPath.row];
     
     SaveData *save = [SaveData sharedAppData];
 

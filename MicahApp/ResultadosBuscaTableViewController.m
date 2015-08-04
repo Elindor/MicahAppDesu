@@ -11,6 +11,14 @@
 
 #import "ResultadosBuscaTableViewController.h"
 #import "Produto.h"
+#import "PedidoDeProduto.h"
+#import "ProdutosOrcamentoTableViewController.h"
+#import "ProdutosTableViewController.h"
+#import "DetalhesProdutoViewController.h"
+#import "SaveData.h"
+#import "ContentProductTableViewController.h"
+
+
 
 @interface ResultadosBuscaTableViewController ()
 
@@ -86,6 +94,7 @@
     
     return cell;
 }
+
 
 
 /*
