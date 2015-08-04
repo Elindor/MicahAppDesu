@@ -10,7 +10,7 @@
 #import "PerfilViewController.h"
 #import "CustomUnwindSegue.h"
 #import "UIButton+Property.h"
-
+#import "SaveData.h"
 @interface MenuViewController ()
 
 @end
@@ -24,6 +24,15 @@ bool hasOrcamento = false;
 bool showingOrcamentoOptions;
 
 NSArray *allButtons;
+
+
+        /** CÓDIGO DA ANTIGA CLASSE VIEW CONTROLLER **/
+
+-(void)viewWillAppear:(BOOL)animated{
+    [SaveData sharedAppData].currentOrca = nil;
+}
+
+        /** **/
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -197,13 +206,6 @@ NSArray *allButtons;
 //    }
     
 }
-//
-//-(void)viewWillAppear:(BOOL)animated {
-//    [super viewDidAppear:animated];
-//    
-//}
-//
-
 
 - (void)setAllButtonsToHeight:(CGFloat)newHeight {
     self.cnstOrcamentoHeight.constant = newHeight;
