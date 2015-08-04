@@ -54,7 +54,7 @@
     //
     self.definesPresentationContext = YES;  // know where you want UISearchController to be displayed
     
-    //[self.tableView reloadData];
+    [self.tableView reloadData];
 }
 
 
