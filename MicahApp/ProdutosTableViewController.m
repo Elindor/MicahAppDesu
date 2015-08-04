@@ -127,11 +127,11 @@
         [subview removeFromSuperview];
     }
     
-    UILabel *labelNome = [[UILabel alloc] initWithFrame:CGRectMake(20, 20, self.tableView.frame.size.width - 40, 20)];
+    UILabel *labelNome = [[UILabel alloc] initWithFrame:CGRectMake(20, 20, self.tableView.frame.size.width - 140, 20)];
     UIFont *font = labelNome.font;
     labelNome.font = [font fontWithSize:14];
     
-    UILabel *labelPreco = [[UILabel alloc] initWithFrame:CGRectMake(self.tableView.frame.size.width - 60, 20, 40, 20)];
+    UILabel *labelPreco = [[UILabel alloc] initWithFrame:CGRectMake(self.tableView.frame.size.width - 100, 20, 90, 10)];
     
     UIFont *fontPreco = labelPreco.font;
     labelPreco.font = [fontPreco fontWithSize:14];
@@ -165,22 +165,9 @@
 
     Produto *produtoSelecionado;
 
-    if (self.searchControllerAtivado){
+    if (tableView == self.tableView){
         
-        produtoSelecionado = self.resultadosTableViewController.produtosFiltradosMArray[indexPath.row];
-        DetalhesProdutoViewController *telaDetalhesProduto = [self.storyboard instantiateViewControllerWithIdentifier:@"detalhesProduto"];
-        telaDetalhesProduto.nomeProd = produtoSelecionado.nomeProduto;
-        //telaDetalhesProduto.categoriaProd = produtoSelecionado.categoriaProduto;
-        telaDetalhesProduto.descricaoProd = produtoSelecionado.descricaoProduto;
         
-        NSNumberFormatter *formatter = [[NSNumberFormatter alloc]init];
-        NSString *precoStr = [formatter stringFromNumber:produtoSelecionado.precoPadraoProduto];
-        telaDetalhesProduto.precoProd = precoStr;
-        
-        [self.navigationController pushViewController:telaDetalhesProduto animated:YES];
-        
-    }
-    else{
         SaveData *save = [SaveData sharedAppData];
         produtoSelecionado = save.productList[indexPath.row];
         DetalhesProdutoViewController *telaDetalhesProduto = [self.storyboard instantiateViewControllerWithIdentifier:@"detalhesProduto"];
@@ -191,10 +178,24 @@
         NSNumberFormatter *formatter = [[NSNumberFormatter alloc]init];
         NSString *precoStr = [formatter stringFromNumber:produtoSelecionado.precoPadraoProduto];
         telaDetalhesProduto.precoProd = precoStr;
-
+        
         
         [self.navigationController pushViewController:telaDetalhesProduto animated:YES];
         
+        
+    }
+    else{
+        
+        produtoSelecionado = self.resultadosTableViewController.produtosFiltradosMArray[indexPath.row];
+        DetalhesProdutoViewController *telaDetalhesProduto = [self.storyboard instantiateViewControllerWithIdentifier:@"detalhesProduto"];
+        telaDetalhesProduto.nomeProd = produtoSelecionado.nomeProduto;
+        telaDetalhesProduto.descricaoProd = produtoSelecionado.descricaoProduto;
+        
+        NSNumberFormatter *formatter = [[NSNumberFormatter alloc]init];
+        NSString *precoStr = [formatter stringFromNumber:produtoSelecionado.precoPadraoProduto];
+        telaDetalhesProduto.precoProd = precoStr;
+        
+        [self.navigationController pushViewController:telaDetalhesProduto animated:YES];
     }
     
  

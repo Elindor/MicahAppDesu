@@ -74,7 +74,7 @@
 //    UIFont *font = labelNome.font;
 //    labelNome.font = [font fontWithSize:14];
     
-    UILabel *labelPreco = [[UILabel alloc] initWithFrame:CGRectMake(self.tableView.frame.size.width - 60, 20, 40, 20)];
+    UILabel *labelPreco = [[UILabel alloc] initWithFrame:CGRectMake(self.tableView.frame.size.width - 100, 20, 90, 10)];
     
     UIFont *fontPreco = labelPreco.font;
     labelPreco.font = [fontPreco fontWithSize:14];
@@ -102,7 +102,7 @@
     }
     else{
 
-        labelNome = [[UILabel alloc] initWithFrame:CGRectMake(45, 20, self.tableView.frame.size.width - 100, 20)];
+        labelNome = [[UILabel alloc] initWithFrame:CGRectMake(45, 20, self.tableView.frame.size.width - 140, 20)];
         UIFont *font = labelNome.font;
         labelNome.font = [font fontWithSize:14];
         
