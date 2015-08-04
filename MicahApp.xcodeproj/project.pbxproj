@@ -25,6 +25,7 @@
 		1BEB0B821B55BEA00039F444 /* Produto.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BEB0B811B55BEA00039F444 /* Produto.m */; };
 		1BEC4A101B6BB81B000A0443 /* PerfilViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BEC4A0F1B6BB81B000A0443 /* PerfilViewController.m */; };
 		1BF836FF1B5946F900F51048 /* NovoProdutoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BF836FE1B5946F900F51048 /* NovoProdutoViewController.m */; };
+		A5998BAF1B7147E900AC0BFA /* PDFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5998BAE1B7147E900AC0BFA /* PDFViewController.m */; };
 		A5CD8A301B70F7CE00FD0625 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5CD8A291B70F7CE00FD0625 /* MenuViewController.m */; };
 		A5CD8A311B70F7CE00FD0625 /* UIButton+Property.m in Sources */ = {isa = PBXBuildFile; fileRef = A5CD8A2B1B70F7CE00FD0625 /* UIButton+Property.m */; };
 		A5CD8A321B70F7CE00FD0625 /* CustomSegueFromMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = A5CD8A2D1B70F7CE00FD0625 /* CustomSegueFromMenu.m */; };
@@ -95,6 +96,8 @@
 		1BEC4A0F1B6BB81B000A0443 /* PerfilViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PerfilViewController.m; sourceTree = "<group>"; };
 		1BF836FD1B5946F900F51048 /* NovoProdutoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NovoProdutoViewController.h; sourceTree = "<group>"; };
 		1BF836FE1B5946F900F51048 /* NovoProdutoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NovoProdutoViewController.m; sourceTree = "<group>"; };
+		A5998BAD1B7147E900AC0BFA /* PDFViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFViewController.h; sourceTree = "<group>"; };
+		A5998BAE1B7147E900AC0BFA /* PDFViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFViewController.m; sourceTree = "<group>"; };
 		A5CD8A281B70F7CE00FD0625 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
 		A5CD8A291B70F7CE00FD0625 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
 		A5CD8A2A1B70F7CE00FD0625 /* UIButton+Property.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Property.h"; sourceTree = "<group>"; };
@@ -365,6 +368,8 @@
 			children = (
 				1BE552E71B6D52EF0047CFA8 /* OrcaEmProgressoTableViewController.h */,
 				1BE552E81B6D52EF0047CFA8 /* OrcaEmProgressoTableViewController.m */,
+				A5998BAD1B7147E900AC0BFA /* PDFViewController.h */,
+				A5998BAE1B7147E900AC0BFA /* PDFViewController.m */,
 			);
 			name = Outros;
 			sourceTree = "<group>";
@@ -500,6 +505,7 @@
 				C05536EB1B6D88F6000A9CFD /* ContentAdjustmentViewController.m in Sources */,
 				C058DD641B6F334D00B2685A /* OrcamentoFinalizado.m in Sources */,
 				1BE552FC1B6DABEF0047CFA8 /* ListaObsOrcaTableViewController.m in Sources */,
+				A5998BAF1B7147E900AC0BFA /* PDFViewController.m in Sources */,
 				1BE552F01B6D98F30047CFA8 /* NovaObsOrcamentoViewController.m in Sources */,
 				1BE89C931B57E6D70062D241 /* HistoricoTableViewController.m in Sources */,
 				C04E88751B66D4DD00EB26BE /* CreateOrcaViewController.m in Sources */,
