@@ -1445,8 +1445,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" returnKeyType="done"/>
                                 <connections>
-                                    <action selector="acrescExit:" destination="EmC-BY-gbQ" eventType="editingDidEnd" id="Gok-8S-EzN"/>
-                                    <action selector="acrescPercExit:" destination="EmC-BY-gbQ" eventType="editingDidEndOnExit" id="PqX-Y7-evx"/>
+                                    <action selector="acrescExit:" destination="EmC-BY-gbQ" eventType="editingDidEndOnExit" id="6PG-zF-0TE"/>
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0,00" borderStyle="line" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xMo-Rr-UWb">

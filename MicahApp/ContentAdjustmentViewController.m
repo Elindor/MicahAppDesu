@@ -46,11 +46,13 @@
     orcamentos *current = save.currentOrca;
     self.totalTextField.text = [current.finalValue stringValue];
     self.descontoPrecoTextfield.text = [current.finalDiscount stringValue];
-    float disc2 = ([current.finalValue floatValue]/[current.finalDiscount floatValue]);
-    self.descontoPorcentagemTextField.text = [NSString stringWithFormat:@"%@%%",[[NSNumber numberWithFloat:disc2] stringValue]];
+    float disc2 = ([current.finalDiscount floatValue]/[current.finalValue floatValue]) * 100;
+    NSNumber *disc3 = @(ceil(disc2));
+    self.descontoPorcentagemTextField.text = [NSString stringWithFormat:@"%@%%",[disc3 stringValue]];
     self.acrescimoPrecoTextField.text = [current.finalSum stringValue];
-    float acres2 = ([current.finalValue floatValue]/[current.finalSum floatValue]);
-    self.acrescimoPorcentagemTextField.text = [NSString stringWithFormat:@"%@%%",[[NSNumber numberWithFloat:acres2] stringValue]];
+    float acres2 = ([current.finalSum floatValue]/[current.finalValue floatValue]) * 100;
+    NSNumber *acres3 = @(ceil(acres2));
+    self.acrescimoPorcentagemTextField.text = [NSString stringWithFormat:@"%@%%",[acres3 stringValue]];
     self.totalFinalTextField.text = [current.resultValue stringValue];
     
 }
