@@ -3,17 +3,17 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "btOrca.png"
+      "filename" : "IconeMais.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "btorca@2x.png"
+      "filename" : "IconeMais@2x.png"
     },
     {
       "idiom" : "universal",
       "scale" : "3x",
-      "filename" : "btOrca@3x.png"
+      "filename" : "IconeMais@3x.png"
     }
   ],
   "info" : {

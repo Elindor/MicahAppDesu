@@ -17,7 +17,9 @@
 @implementation ObservacoesTableViewController
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+//    self.navigationItem.rightBarButtonItem.image = [UIImage imageNamed:@"IconeMais.png"];
+//    self.navigationItem.rightBarButtonItem.title = @"";
+//    self.navigationItem.rightBarButtonItem.];
     [SaveData sharedAppData];
     [self.tableView reloadData];
 }
