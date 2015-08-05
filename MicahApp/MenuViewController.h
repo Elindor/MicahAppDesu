@@ -43,6 +43,9 @@
 - (IBAction)didTouchHistorico:(id)sender;
 
 - (void)setButtonStageToShow:(int)stage;
+- (void)setCorrectButtonStageToShow;
+-(void)setTouchedButtonHeight:(CGFloat)newHeight;
+-(void)alignAllImagePositions:(NSArray *)buttons;
 
 @end
 

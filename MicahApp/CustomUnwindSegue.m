@@ -18,8 +18,12 @@
     UIView *destinationView = [destinationViewController view];
     
     CGFloat screenWidth = [UIScreen mainScreen].bounds.size.width;
-    CGFloat screenHeight = [UIScreen mainScreen].bounds.size.height + 20;
-    destinationView.frame = CGRectMake(0, 0, screenWidth, screenHeight);
+    CGFloat screenHeight = [UIScreen mainScreen].bounds.size.height;
+    //destinationView.frame = CGRectMake(0, 0, screenWidth, screenHeight);
+    
+    destinationViewController.cnstOrcamentoTop.constant = -screenHeight;
+    [destinationView layoutIfNeeded];
+    
     
     UIImageView *imageView;
     if (destinationViewController.touchedButton == destinationViewController.btnNovo || destinationViewController.touchedButton == destinationViewController.btnEmProgresso) {
@@ -51,7 +55,7 @@
     UIImage *image = imageView.image;
     CGFloat imageNewWidth = 112;
     CGFloat imageNewHeight = image.size.height * (imageNewWidth / image.size.width);
-    CGRect imageNewFrame = CGRectMake(destinationView.center.x - imageNewWidth/2, destinationView.center.y- imageNewHeight/2 - 60, imageNewWidth, imageNewHeight);
+    CGRect imageNewFrame = CGRectMake(destinationView.center.x - imageNewWidth/2, screenHeight/2 - imageNewHeight/2 - 60, imageNewWidth, imageNewHeight);
     
     [imageView setFrame:imageNewFrame];
     
@@ -66,19 +70,42 @@
     destinationViewController.touchedButton.titleLabel.alpha = 1;
     destinationViewController.touchedButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
     
-    [destinationView layoutIfNeeded];
-    
     [UIView animateWithDuration:1.2
                           delay:0.1
          usingSpringWithDamping:1
           initialSpringVelocity:2
                         options:0
                      animations:^{
+                         [destinationViewController setTouchedButtonHeight:screenHeight];
                          destinationViewController.cnstOrcamentoTop.constant = -20;
+                         [destinationView layoutIfNeeded];
+                         CGRect imageNewFrame = CGRectMake(destinationView.center.x - imageNewWidth/2, screenHeight/2 - imageNewHeight/2 - 60, imageNewWidth, imageNewHeight);
+                         
+                         [imageView setFrame:imageNewFrame];
+                         
                          
                          [destinationView layoutIfNeeded];
                      }
                      completion:^(BOOL finished) {
+                         sourceView.alpha = 0;
+                         ((UIViewController *)self.sourceViewController).navigationController.navigationBarHidden = true;
+                         if (oldTouchedButton == destinationViewController.btnNovo || oldTouchedButton == destinationViewController.btnEmProgresso) {
+                             
+                             destinationViewController.btnNovo.titleLabel.text = @"NOVO";
+                             [destinationViewController.btnNovo setTitle:@"NOVO" forState:UIControlStateNormal];
+                             [destinationViewController.btnNovo setTitle:@"NOVO" forState:UIControlStateSelected];
+                             [destinationViewController.btnNovo setTitle:@"NOVO" forState:UIControlStateHighlighted];
+                             
+                             destinationViewController.btnEmProgresso.titleLabel.text = @"EM PROGRESSO";
+                             [destinationViewController.btnEmProgresso setTitle:@"EM PROGRESSO" forState:UIControlStateNormal];
+                             [destinationViewController.btnEmProgresso setTitle:@"EM PROGRESSO" forState:UIControlStateSelected];
+                             [destinationViewController.btnEmProgresso setTitle:@"EM PROGRESSO" forState:UIControlStateHighlighted];
+                             //
+                         }
+                         [destinationView layoutIfNeeded];
+                         
+                         NSArray *buttons = @[destinationViewController.btnOrcamento, destinationViewController.btnHistorico, destinationViewController.btnProdutos, destinationViewController.btnPerfil, destinationViewController.btnNovo, destinationViewController.btnEmProgresso, destinationViewController.btnObservacoes];
+                         
                          [UIView animateWithDuration:1.2
                                                delay:0.1
                               usingSpringWithDamping:1
@@ -86,22 +113,14 @@
                                              options:0
                                           animations:^{
                                               
+                                              [destinationView layoutIfNeeded];
+                                              [destinationViewController setCorrectButtonStageToShow];
+                                              [destinationView layoutIfNeeded];
                                               destinationViewController.cnstOrcamentoTop.constant = 44;
                                               [destinationView layoutIfNeeded];
                                               destinationViewController.cnstNovoEmProgresso.constant = 0;
                                               if (oldTouchedButton == destinationViewController.btnNovo || oldTouchedButton == destinationViewController.btnEmProgresso) {
-                                                  
-                                                  destinationViewController.btnNovo.titleLabel.text = @"NOVO";
-                                                  [destinationViewController.btnNovo setTitle:@"NOVO" forState:UIControlStateNormal];
-                                                  [destinationViewController.btnNovo setTitle:@"NOVO" forState:UIControlStateSelected];
-                                                  [destinationViewController.btnNovo setTitle:@"NOVO" forState:UIControlStateHighlighted];
-                                                  
-                                                  destinationViewController.btnEmProgresso.titleLabel.text = @"EM PROGRESSO";
-                                                  [destinationViewController.btnEmProgresso setTitle:@"EM PROGRESSO" forState:UIControlStateNormal];
-                                                  [destinationViewController.btnEmProgresso setTitle:@"EM PROGRESSO" forState:UIControlStateSelected];
-                                                  [destinationViewController.btnEmProgresso setTitle:@"EM PROGRESSO" forState:UIControlStateHighlighted];
-//                                                  
-                                                  [destinationView layoutIfNeeded];
+                                                
                                                   destinationViewController.btnNovo.backgroundColor = [UIColor colorWithRed:255/255.0f green:88/255.0f blue:90/255.0f alpha:255/255.0f];
                                                   destinationViewController.btnEmProgresso.backgroundColor = [UIColor colorWithRed:255/255.0f green:121/255.0f blue:123/255.0f alpha:255/255.0f];
                                                   
@@ -110,24 +129,15 @@
                                                   
                                                   oldTouchedButton.titleLabel.font = [UIFont fontWithName:@"OpenSans-Bold" size:15];
                                               }
-                                                  [destinationViewController.touchedButton setTitleEdgeInsets:UIEdgeInsetsMake(0, 137, 0, 0)];
-                                                  destinationViewController.touchedButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+                                              [destinationViewController.touchedButton setTitleEdgeInsets:UIEdgeInsetsMake(0, screenWidth/2.29, 0, 0)];
+                                              destinationViewController.touchedButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
                                               
                                               destinationViewController.touchedButton.titleLabel.font = [UIFont fontWithName:@"OpenSans-Bold" size:15];
-                                              //destinationViewController.cnstOrcamentoTop.constant = 44;
-                                              [destinationView layoutIfNeeded];
-                                              
-                                              NSLog(@"%@",destinationViewController);
-                                              destinationViewController.cnstOrcamentoTop.constant = 64;
-                                              [destinationView layoutIfNeeded];
-                                              [destinationViewController setButtonStageToShow:3];
-                                              [destinationView layoutIfNeeded];
-                                              destinationViewController.cnstOrcamentoTop.constant = 44;
+                                              [destinationViewController alignAllImagePositions:buttons];
                                               [destinationView layoutIfNeeded];
                                               
                                           }
                                           completion:^(BOOL finished) {
-                                              
                                               [self.sourceViewController dismissViewControllerAnimated:false completion:nil];
                                           }];
                      }];

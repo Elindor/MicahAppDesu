@@ -23,16 +23,45 @@ bool hasOrcamento = false;
 
 bool showingOrcamentoOptions;
 
+bool isAnimating = false;
+
 NSArray *allButtons;
 
 
-        /** CÓDIGO DA ANTIGA CLASSE VIEW CONTROLLER **/
 
 -(void)viewWillAppear:(BOOL)animated{
+    
+    /** CÓDIGO DA ANTIGA CLASSE VIEW CONTROLLER **/
+    
     [SaveData sharedAppData].currentOrca = nil;
+    
+    /** **/
+    
+    //    [UIView animateWithDuration:1.2
+    //                          delay:0.1
+    //         usingSpringWithDamping:1
+    //          initialSpringVelocity:2
+    //                        options:0
+    //                     animations:^{
+    //                         [self.view layoutIfNeeded];
+    //                         self.cnstOrcamentoTop.constant = 44;
+    //                         [self setCorrectButtonStageToShow];
+    //                         [self.view layoutIfNeeded];
+    //                     }
+    //                     completion: nil];
+    //    [self alignAllImagePositions:allButtons];
+    
+
 }
 
-        /** **/
+-(void)viewWillLayoutSubviews {
+    if (!isAnimating) {
+    [super viewWillLayoutSubviews];
+    [self alignAllImagePositions:allButtons];
+    [self.view layoutIfNeeded];
+    }
+}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -46,10 +75,11 @@ NSArray *allButtons;
     UIImage *image5 = [UIImage imageNamed:@"IconeMenu5.png"];
     
     [self.view layoutIfNeeded];
-    self.cnstOrcamentoTop.constant = 44;
+    //CGFloat screenHeight = [UIScreen mainScreen].bounds.size.height + 20;
+    //self.cnstOrcamentoTop.constant = screenHeight;
+    [self setAllButtonsToHeight:0];
     [self.view layoutIfNeeded];
     
-    [self setButtonStageToShow:3];
     
     [self addCustomImage:image1 toButton:self.btnOrcamento];
     [self addCustomImage:image2 toButton:self.btnHistorico];
@@ -57,6 +87,7 @@ NSArray *allButtons;
     [self addCustomImage:image4 toButton:self.btnObservacoes];
     [self addCustomImage:image5 toButton:self.btnPerfil];
     
+    [self setCorrectButtonStageToShow];
     
     [self.view layoutIfNeeded];
     [self alignAllImagePositions:allButtons];
@@ -82,7 +113,12 @@ NSArray *allButtons;
 
 -(void)alignAllImagePositions:(NSArray *)buttons {
     for (UIButton *button in buttons) {
+        if (button != self.btnNovo && button != self.btnEmProgresso ) {
+        [button setTitleEdgeInsets:UIEdgeInsetsMake(0, button.frame.size.width/2.29, 0, 0)];
+        [self.view layoutIfNeeded];
         [self alignImagePositionOnButton:button];
+        [self.view layoutIfNeeded];
+        }
     }
 }
 
@@ -94,6 +130,37 @@ NSArray *allButtons;
 - (void)setButton:(UIButton *)button AlphaTo:(CGFloat)alpha {
     button.titleLabel.alpha = alpha;
     button.customImageView.alpha = alpha;
+}
+
+
+-(void)setTouchedButtonHeight:(CGFloat)newHeight {
+    [self setAllButtonsToHeight:0];
+    if (self.touchedButton == self.btnOrcamento) {
+        self.cnstOrcamentoHeight.constant = newHeight;
+    } else if (self.touchedButton == self.btnNovo || self.touchedButton == self.btnEmProgresso) {
+        self.cnstNovoEmProgressoHeight.constant = newHeight;
+    } else if (self.touchedButton == self.btnHistorico) {
+        self.cnstHistoricoHeight.constant = newHeight;
+    } else if (self.touchedButton == self.btnProdutos) {
+        self.cnstProdutosHeight.constant = newHeight;
+    } else if (self.touchedButton == self.btnObservacoes) {
+        self.cnstObservacoesHeight.constant = newHeight;
+    } else if (self.touchedButton == self.btnPerfil) {
+        self.cnstPerfilHeight.constant = newHeight;
+    }
+}
+
+- (void)setCorrectButtonStageToShow {
+    SaveData *sd = [SaveData sharedAppData];
+    if (sd.userName == nil || [sd.userName isEqualToString:@""]) {
+        [self setButtonStageToShow:0];
+    } else if (sd.productList.count == 0) {
+        [self setButtonStageToShow:1];
+    } else if (sd.unfinishedList.count == 0 && sd.historicList.count == 0) {
+        [self setButtonStageToShow:2];
+    } else {
+        [self setButtonStageToShow:3];
+    }
 }
 
 - (void)setButtonStageToShow:(int)stage {
@@ -195,15 +262,15 @@ NSArray *allButtons;
     [self alignAllImagePositions:allButtons];
     [self.view layoutIfNeeded];
     
-//    for (UIButton *button in allButtons) {
-//        if (button.frame.size.height < 50) {
-//            button.titleLabel.alpha = 0;
-//            button.customImageView.alpha = 0;
-//        } else {
-//            button.titleLabel.alpha = 1;
-//            button.customImageView.alpha = 1;
-//        }
-//    }
+    //    for (UIButton *button in allButtons) {
+    //        if (button.frame.size.height < 50) {
+    //            button.titleLabel.alpha = 0;
+    //            button.customImageView.alpha = 0;
+    //        } else {
+    //            button.titleLabel.alpha = 1;
+    //            button.customImageView.alpha = 1;
+    //        }
+    //    }
     
 }
 
@@ -218,6 +285,7 @@ NSArray *allButtons;
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    isAnimating = true;
     self.touchedButton = sender;
     
     //    CGFloat viewWidth;
@@ -248,6 +316,8 @@ NSArray *allButtons;
         self.newCnstPerfilHeight = allButtonsHeight;
     } else if (sender == self.btnHistorico) {
         self.newCnstHistoricoHeight = allButtonsHeight;
+    } else {
+        self.newCnstOrcamentoHeight = allButtonsHeight;
     }
 }
 
@@ -320,6 +390,14 @@ NSArray *allButtons;
 //
 - (IBAction)didTouchOrcamento:(id)sender {
     [self.view layoutIfNeeded];
+    
+    SaveData *sd = [SaveData sharedAppData];
+    
+    if (sd.unfinishedList.count == 0) {
+        [self performSegueWithIdentifier:@"CustomSegueNovo" sender:self.btnOrcamento];
+        self.touchedButton = self.btnOrcamento;
+        return;
+    }
     
     if (!showingOrcamentoOptions) {
         [UIView animateWithDuration:0.6
