@@ -26,6 +26,8 @@
         [self.produtosListaNSMArray addObject:self.pedidoNovo];
     }
     
+
+    
     [SaveData sharedAppData];
     
     [self.tableView reloadData];

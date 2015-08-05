@@ -20,6 +20,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    UIImage *buttonImage = [[UIImage imageNamed:@"IconeMais.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    
+    self.navigationItem.rightBarButtonItem.image = buttonImage; //[UIImage imageNamed:@"IconeMais.png"];
+    self.navigationItem.rightBarButtonItem.title = @"";
     
     [SaveData sharedAppData];
     

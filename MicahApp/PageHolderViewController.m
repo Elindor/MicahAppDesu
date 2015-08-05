@@ -206,6 +206,7 @@
             ProdutosOrcamentoTableViewController *pageContentProdutosOrcamento = [self.storyboard instantiateViewControllerWithIdentifier:@"telaProdOrcamento"];
             [self.navigationController pushViewController:pageContentProdutosOrcamento animated:YES];
             
+            
             NSLog(@"1");
             break;
         }
@@ -216,6 +217,8 @@
             ListaObsOrcaTableViewController *pageContentListaObservacaoOrcamento = [self.storyboard instantiateViewControllerWithIdentifier:@"listaObsOrca"];
             [self.navigationController pushViewController:pageContentListaObservacaoOrcamento animated:YES];
         
+         
+            
             NSLog(@"3");
             break;
         }
