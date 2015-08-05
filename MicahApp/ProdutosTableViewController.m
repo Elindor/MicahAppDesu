@@ -34,8 +34,7 @@
     //teste do array, precisa juntar com o "BD", essa parte será deletada
     [SaveData sharedAppData];
     
-    
-    
+    //self.navigationItem.leftBarButtonItem.image = [UIImage imageNamed:@"btOrca"];
     _resultadosTableViewController = [[ResultadosBuscaTableViewController alloc] init];
     _produtosSearchController = [[UISearchController alloc] initWithSearchResultsController:self.resultadosTableViewController];
     self.produtosSearchController.searchResultsUpdater = self;

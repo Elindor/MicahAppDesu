@@ -40,11 +40,19 @@
     _iCloudSwitch.on = save.iCloudIsOn;
     //[save save];
     
-    [self.logotipoOutlet setTitle:@"" forState:UIControlStateNormal];
+    //[self.logotipoOutlet setTitle:@"" forState:UIControlStateNormal];
     [self.logotipoOutlet setBackgroundImage:self.imagePerfil forState:UIControlStateSelected];
     [self.logotipoOutlet setBackgroundImage:self.imagePerfil forState:UIControlStateNormal];
     [self.logotipoOutlet setBackgroundImage:self.imagePerfil forState:UIControlStateHighlighted];
 }
+
+//-(void)textEdit:(UIView *)view size:(CGFloat *) sizeHeight{
+//    CALayer * calayer = [[CALayer alloc]init];
+//    calayer.frame = CGRectMake(0, view.frame.size.height - sizeHeight,view.frame.size.width , sizeHeight);
+//    [view.layer addSublayer:calayer];
+//    
+//
+//}
 
 - (IBAction)logotipoButton:(id)sender {
  
