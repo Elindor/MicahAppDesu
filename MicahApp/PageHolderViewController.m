@@ -270,7 +270,7 @@ static const CGRect A4_SIZE = { { 0.0f, 0.0f }, { 21.0 * 72.0 / 2.54, 29.97 * 72
     
     
     
-    [self drawText:[NSString stringWithFormat:@"%@\n%@\n%@\n%@", sd.userName, sd.userPhone, sd.userMail, sd.userAddress] inRectangle:CGRectMake(86, 88, 219, 132)];
+    [self drawText:[NSString stringWithFormat:@"%@\n%@\n%@\n%@", sd.userName == nil?@"": sd.userName, sd.userPhone == nil?@"": sd.userPhone, sd.userMail == nil?@"": sd.userMail, sd.userAddress == nil?@"": sd.userAddress] inRectangle:CGRectMake(86, 88, 219, 132)];
     
     [self drawText:@"ORÇAMENTO" inRectangle:CGRectMake(86, 227, 453, 25)];
     

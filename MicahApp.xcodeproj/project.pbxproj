@@ -27,6 +27,7 @@
 		1BEC4A101B6BB81B000A0443 /* PerfilViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BEC4A0F1B6BB81B000A0443 /* PerfilViewController.m */; };
 		1BF836FF1B5946F900F51048 /* NovoProdutoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BF836FE1B5946F900F51048 /* NovoProdutoViewController.m */; };
 		A5998BAF1B7147E900AC0BFA /* PDFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5998BAE1B7147E900AC0BFA /* PDFViewController.m */; };
+		A5998BB01B72531100AC0BFA /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A5CD8A361B70F80100FD0625 /* OpenSans-Bold.ttf */; };
 		A5CD8A301B70F7CE00FD0625 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5CD8A291B70F7CE00FD0625 /* MenuViewController.m */; };
 		A5CD8A311B70F7CE00FD0625 /* UIButton+Property.m in Sources */ = {isa = PBXBuildFile; fileRef = A5CD8A2B1B70F7CE00FD0625 /* UIButton+Property.m */; };
 		A5CD8A321B70F7CE00FD0625 /* CustomSegueFromMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = A5CD8A2D1B70F7CE00FD0625 /* CustomSegueFromMenu.m */; };
@@ -457,6 +458,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5998BB01B72531100AC0BFA /* OpenSans-Bold.ttf in Resources */,
 				C04E88591B559E3D00EB26BE /* Main.storyboard in Resources */,
 				C04E885E1B559E3D00EB26BE /* LaunchScreen.xib in Resources */,
 				1BE8F0D81B725917000E9C1D /* OpenSans-Regular.ttf in Resources */,
