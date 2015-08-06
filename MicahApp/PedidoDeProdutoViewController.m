@@ -37,6 +37,18 @@
     self.precoProdutoTextField.text = [self.precoProduto stringValue];
     self.quantidadeProdutoTextField.text = [self.quantidadeProduto stringValue];
     
+    self.nomeProdutoTextField.layer.borderColor = [[UIColor lightGrayColor] CGColor];
+    self.descricaoProdutoTextField.layer.borderColor = [[UIColor lightGrayColor] CGColor];
+    self.precoProdutoTextField.layer.borderColor = [[UIColor lightGrayColor] CGColor];
+    self.quantidadeProdutoTextField.layer.borderColor = [[UIColor lightGrayColor] CGColor];
+
+    self.nomeProdutoTextField.layer.borderWidth = 1.0f;
+    self.descricaoProdutoTextField.layer.borderWidth = 1.0f;
+    self.precoProdutoTextField.layer.borderWidth = 1.0f;
+    self.quantidadeProdutoTextField.layer.borderWidth = 1.0f;
+    
+    //self.nomeProdutoTextField.attributedPlaceholder
+    
     
     
     // Do any additional setup after loading the view.

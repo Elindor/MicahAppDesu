@@ -24,6 +24,8 @@
     [super viewDidLoad];
     self.observacaoTextField.text = self.observacao;
     self.observacaoTextField.layer.borderColor = [[UIColor lightGrayColor] CGColor];
+    self.observacaoTextField.layer.borderWidth = 1.0f;
+
     _initialString = _observacao;
     // Do any additional setup after loading the view.
 }

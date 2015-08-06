@@ -28,6 +28,8 @@
     self.initialStr = self.observacaoOrcaTextField.text;
     
     self.observacaoOrcaTextField.layer.borderColor = [[UIColor lightGrayColor] CGColor];
+    self.observacaoOrcaTextField.layer.borderWidth = 1.0f;
+
 }
 
 - (void)didReceiveMemoryWarning {

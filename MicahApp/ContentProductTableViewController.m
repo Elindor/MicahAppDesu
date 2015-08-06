@@ -21,7 +21,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.tableView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0); // Altura correta
+    //self.tableView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0); // Altura correta
     if(self.pedidoNovo != nil){
         [self.produtosListaNSMArray addObject:self.pedidoNovo];
     }
@@ -76,12 +76,12 @@
 //    UIFont *font = labelNome.font;
 //    labelNome.font = [font fontWithSize:14];
     
-    UILabel *labelPreco = [[UILabel alloc] initWithFrame:CGRectMake(self.tableView.frame.size.width - 100, 20, 90, 10)];
+    UILabel *labelPreco = [[UILabel alloc] initWithFrame:CGRectMake(self.tableView.frame.size.width - 100, 20, 90, 20)];
     
     UIFont *fontPreco = labelPreco.font;
     labelPreco.font = [fontPreco fontWithSize:14];
     
-    UILabel *labelQuantidade = [[UILabel alloc] initWithFrame:CGRectMake(20, 20, 20, 20)];
+    UILabel *labelQuantidade = [[UILabel alloc] initWithFrame:CGRectMake(20, 20, 40, 20)];
     
     UIFont *fontQuantidade = labelQuantidade.font;
     labelQuantidade.font = [fontQuantidade fontWithSize:14];
@@ -102,9 +102,10 @@
         [SaveData sharedAppData].currentOrca.finalValue = [NSNumber numberWithFloat: self.totalPedido];
 
     }
+
     else{
 
-        labelNome = [[UILabel alloc] initWithFrame:CGRectMake(45, 20, self.tableView.frame.size.width - 140, 20)];
+        labelNome = [[UILabel alloc] initWithFrame:CGRectMake(70, 20, self.tableView.frame.size.width - 140, 20)];
         UIFont *font = labelNome.font;
         labelNome.font = [font fontWithSize:14];
         
@@ -137,6 +138,9 @@
     if (indexPath.row == ([[SaveData sharedAppData].currentOrca.productList count])){
         NSLog(@"Nope, wrong button");
     }
+    else if (indexPath.row == 0){
+        NSLog(@"Nope, its not a button");
+    }
     else{
     
         PedidoDeProduto *produtoSelecionado;
@@ -157,6 +161,38 @@
 }
 
 
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.tableView.frame.size.width, 44)];
+    headerView.backgroundColor = [UIColor clearColor];
+    
+    UILabel *labelNome = [[UILabel alloc] initWithFrame:CGRectMake(70, 20, self.tableView.frame.size.width - 140, 20)];
+//    UIFont *font = labelNome.font;
+    //labelNome.font = [font fontWithSize:20];
+    [labelNome setFont:[UIFont fontWithName:@"OpenSans-Bold" size:14]];
+
+    UILabel *labelPreco = [[UILabel alloc] initWithFrame:CGRectMake(self.tableView.frame.size.width - 100, 20, 90, 20)];
+//    UIFont *fontPreco = labelPreco.font;
+//    labelPreco.font = [fontPreco fontWithSize:20];
+    [labelPreco setFont:[UIFont fontWithName:@"OpenSans-Bold" size:14]];
+
+    
+    UILabel *labelQuantidade = [[UILabel alloc] initWithFrame:CGRectMake(20, 20, 40, 20)];
+//    UIFont *fontQuantidade = labelQuantidade.font;
+//    labelQuantidade.font = [fontQuantidade fontWithSize:20];
+    [labelQuantidade setFont:[UIFont fontWithName:@"OpenSans-Bold" size:14]];
+
+    
+    labelNome.text = @"Produtos";
+    labelPreco.text = @"Valor";
+    labelQuantidade.text = @"Qtd.";
+    
+    [headerView addSubview:labelNome];
+    [headerView addSubview:labelPreco];
+    [headerView addSubview:labelQuantidade];
+
+    return headerView;
+}
 
 
 /*

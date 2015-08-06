@@ -40,7 +40,10 @@
     self.descricaoProdutoField.layer.borderColor = [[UIColor lightGrayColor] CGColor];
     self.precoProdutoField.layer.borderColor = [[UIColor lightGrayColor] CGColor];
     
-    
+    self.nomeProdutoField.layer.borderWidth = 1.0f;
+    self.descricaoProdutoField.layer.borderWidth = 1.0f;
+    self.precoProdutoField.layer.borderWidth = 1.0f;
+
     
     // Do any additional setup after loading the view.
 }

@@ -88,6 +88,12 @@
     self.enderecoTextField.layer.borderColor = [[UIColor lightGrayColor] CGColor];
     self.emailTextField.layer.borderColor = [[UIColor lightGrayColor] CGColor];
     
+    self.nomeTextField.layer.borderWidth = 1.0f;
+    self.telefoneTextField.layer.borderWidth = 1.0f;
+    self.enderecoTextField.layer.borderWidth = 1.0f;
+    self.emailTextField.layer.borderWidth = 1.0f;
+
+    
     // Do any additional setup after loading the view.
 }
 

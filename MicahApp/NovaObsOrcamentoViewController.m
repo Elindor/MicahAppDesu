@@ -27,6 +27,8 @@
     self.salvaSwitchON = false;
     
     self.obsOrcaTextField.layer.borderColor = [[UIColor lightGrayColor] CGColor];
+    self.obsOrcaTextField.layer.borderWidth = 1.0f;
+
     
     // Do any additional setup after loading the view.
 }

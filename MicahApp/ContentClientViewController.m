@@ -23,6 +23,12 @@
     self.clientMailField.layer.borderColor = [[UIColor lightGrayColor] CGColor];
     self.clientAddressField.layer.borderColor = [[UIColor lightGrayColor] CGColor];
     
+    self.clientNameField.layer.borderWidth = 1.0f;
+    self.clientPhoneField.layer.borderWidth = 1.0f;
+    self.clientMailField.layer.borderWidth = 1.0f;
+    self.clientAddressField.layer.borderWidth = 1.0f;
+
+    
 }
 
 -(void)viewWillAppear:(BOOL)animated{
