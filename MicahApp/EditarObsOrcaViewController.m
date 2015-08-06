@@ -26,6 +26,8 @@
     self.observacaoOrcaTextField.text = self.observacaoOrca;
     // Do any additional setup after loading the view.
     self.initialStr = self.observacaoOrcaTextField.text;
+    
+    self.observacaoOrcaTextField.layer.borderColor = [[UIColor lightGrayColor] CGColor];
 }
 
 - (void)didReceiveMemoryWarning {

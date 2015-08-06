@@ -28,6 +28,13 @@
     
     [self refreshAppearanceContent];
     
+    self.totalTextField.layer.borderColor = [[UIColor lightGrayColor] CGColor];
+    self.descontoPorcentagemTextField.layer.borderColor = [[UIColor lightGrayColor] CGColor];
+    self.descontoPrecoTextfield.layer.borderColor = [[UIColor lightGrayColor] CGColor];
+    self.acrescimoPorcentagemTextField.layer.borderColor = [[UIColor lightGrayColor] CGColor];
+    self.acrescimoPrecoTextField.layer.borderColor = [[UIColor lightGrayColor] CGColor];
+    self.totalFinalTextField.layer.borderColor = [[UIColor lightGrayColor] CGColor];
+    
     
     //self.totalTextField.text = [self.total stringValue];
     

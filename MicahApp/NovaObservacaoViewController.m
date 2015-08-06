@@ -40,6 +40,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.observacaoTextField.layer.borderColor = [[UIColor lightGrayColor] CGColor];
     //self.observacao = self.observacaoTextField.text;
     // Porque exatamente? O texto é novo e vazio nesta tela.
     

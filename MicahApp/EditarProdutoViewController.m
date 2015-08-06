@@ -20,6 +20,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.nomeTextField.layer.borderColor = [[UIColor lightGrayColor] CGColor];
+    self.descricaoTextField.layer.borderColor = [[UIColor lightGrayColor] CGColor];
+    self.precoTextField.layer.borderColor = [[UIColor lightGrayColor] CGColor];
     
     self.nomeTextField.text = self.nome;
     self.descricaoTextField.text = self.descricao;

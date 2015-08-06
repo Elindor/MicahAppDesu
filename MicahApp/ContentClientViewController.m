@@ -18,6 +18,11 @@
 {
     [super viewDidLoad];
     
+    self.clientNameField.layer.borderColor = [[UIColor lightGrayColor] CGColor];
+    self.clientPhoneField.layer.borderColor = [[UIColor lightGrayColor] CGColor];
+    self.clientMailField.layer.borderColor = [[UIColor lightGrayColor] CGColor];
+    self.clientAddressField.layer.borderColor = [[UIColor lightGrayColor] CGColor];
+    
 }
 
 -(void)viewWillAppear:(BOOL)animated{

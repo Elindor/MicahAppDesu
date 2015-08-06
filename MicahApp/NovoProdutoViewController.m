@@ -36,6 +36,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.nomeProdutoField.layer.borderColor = [[UIColor lightGrayColor] CGColor];
+    self.descricaoProdutoField.layer.borderColor = [[UIColor lightGrayColor] CGColor];
+    self.precoProdutoField.layer.borderColor = [[UIColor lightGrayColor] CGColor];
+    
+    
+    
     // Do any additional setup after loading the view.
 }
 

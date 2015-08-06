@@ -7,12 +7,14 @@
 //
 
 #import "EditarObservacaoViewController.h"
+#import "SaveData.h"
 
 @interface EditarObservacaoViewController ()
 
 
 
 @property (weak, nonatomic) IBOutlet UITextField *observacaoTextField;
+@property (weak, nonatomic) NSString *initialString;
 
 @end
 
@@ -21,6 +23,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.observacaoTextField.text = self.observacao;
+    self.observacaoTextField.layer.borderColor = [[UIColor lightGrayColor] CGColor];
+    _initialString = _observacao;
     // Do any additional setup after loading the view.
 }
 
@@ -42,7 +46,14 @@
     // Pass the selected object to the new view controller.
 }
 */
-
-- (IBAction)excluirButton:(UIButton *)sender {
+- (IBAction)textChaged:(id)sender {
+    SaveData *current = [SaveData sharedAppData];
+    NSString *targetToChange;
+    for(NSString *str in current.observationList){
+        if([str isEqualToString:_initialString])
+            targetToChange = str;
+    }
+    targetToChange = _observacaoTextField.text;
 }
+
 @end

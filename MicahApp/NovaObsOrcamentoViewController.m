@@ -26,6 +26,7 @@
     self.observacaoOrca = self.obsOrcaTextField.text;
     self.salvaSwitchON = false;
     
+    self.obsOrcaTextField.layer.borderColor = [[UIColor lightGrayColor] CGColor];
     
     // Do any additional setup after loading the view.
 }

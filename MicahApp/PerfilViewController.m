@@ -46,13 +46,6 @@
     [self.logotipoOutlet setBackgroundImage:self.imagePerfil forState:UIControlStateHighlighted];
 }
 
-//-(void)textEdit:(UIView *)view size:(CGFloat *) sizeHeight{
-//    CALayer * calayer = [[CALayer alloc]init];
-//    calayer.frame = CGRectMake(0, view.frame.size.height - sizeHeight,view.frame.size.width , sizeHeight);
-//    [view.layer addSublayer:calayer];
-//    
-//
-//}
 
 - (IBAction)logotipoButton:(id)sender {
  
@@ -84,6 +77,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    if (self.imagePerfil != nil){
+        [self.logotipoOutlet setTitle:@"" forState:UIControlStateNormal];
+
+    }
+    
+    
+    self.nomeTextField.layer.borderColor = [[UIColor lightGrayColor] CGColor];
+    self.telefoneTextField.layer.borderColor = [[UIColor lightGrayColor] CGColor];
+    self.enderecoTextField.layer.borderColor = [[UIColor lightGrayColor] CGColor];
+    self.emailTextField.layer.borderColor = [[UIColor lightGrayColor] CGColor];
+    
     // Do any additional setup after loading the view.
 }
 
