@@ -13,6 +13,7 @@
 #import "SaveData.h"
 #import "orcamentos.h"
 #import "PedidoDeProduto.h"
+#import "OrcamentoFinalizado.h"
 
 @interface PageHolderViewController ()
 
@@ -22,6 +23,7 @@
 @implementation PageHolderViewController{
     NSInteger currentPage;
     NSArray *topButtonNames;
+    NSArray *topButtonImageNames;
 }
 
 - (void)viewDidLoad {
@@ -43,12 +45,9 @@
     
    
     
-#pragma "Feijão"
-    
     _pageTitles = @[@"Dados do Cliente", @"Produtos", @"Ajustes", @"Observações", @"Finalização"];
-    topButtonNames = @[@"", @"Adicionar", @"", @"Adicionar", @"Finalizar"];
-#warning Substituir pelo de baixo caso importe no final.
-    // topButtonNames = @[@"Importar", @"Adicionar", @"", @"Adicionar", @"Finalizar"];
+    topButtonNames = @[@"", @"", @"", @"", @"Finalizar"];
+    topButtonImageNames = @[@"", @"IconeMais", @"", @"IconeMais", @""];
     
     // Create page view controller
     self.pageViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"CreateOrca"];
@@ -68,7 +67,7 @@
     [self addChildViewController:_pageViewController];
     [self.view addSubview:_pageViewController.view];
     [self.pageViewController didMoveToParentViewController:self];
-    
+    self.topBarButton.title = @" ";
 
 }
 
@@ -95,6 +94,14 @@
     NSUInteger index = ((ContentClientViewController*) viewController).pageIndex;
     self.TopBar.title = self.pageTitles[index];
     self.topBarButton.title = topButtonNames[index];
+    UIImage* image = [[UIImage imageNamed:topButtonImageNames[index]] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    if(index % 2 == 1)
+        self.topBarButton.image = image;
+    else
+        self.topBarButton.image = nil;
+
+    
+    
     currentPage = index;
 
     
@@ -112,6 +119,12 @@
     NSUInteger index = ((ContentClientViewController*) viewController).pageIndex;
     self.TopBar.title = self.pageTitles[index];
     self.topBarButton.title = topButtonNames[index];
+    UIImage* image = [[UIImage imageNamed:topButtonImageNames[index]] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    if(index % 2 == 1)
+        self.topBarButton.image = image;
+    else
+        self.topBarButton.image = nil;
+    
     currentPage = index;
 
     
@@ -222,18 +235,71 @@
             NSLog(@"3");
             break;
         }
-        case 4:
+        case 4:{
             NSLog(@"4");
             [self generateRandomPDF];
+            SaveData *save = [SaveData sharedAppData];
+            OrcamentoFinalizado* newHistory = [[OrcamentoFinalizado alloc] init];
+            newHistory.nomeDoCliente = save.currentOrca.costumerName;
+            newHistory.dataEncerrada = [NSDate date];
+            newHistory.PDF = [self getPDFFileName];
+            
+            [save.historicList addObject:newHistory];
+            //[save.unfinishedList removeObject:save.currentOrca];
+#warning uncomment above to delete at finish
+            
+
             [self performSegueWithIdentifier:@"FromPageToPDF" sender:self];
+            
             break;
         
-            
+        }
         default:
             break;
     }
     
 }
+
+
+
+/*
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ */
+
+
+
+#pragma mark PDF start
 
 static const CGRect A4_SIZE = { { 0.0f, 0.0f }, { 21.0 * 72.0 / 2.54, 29.97 * 72.0 / 2.54 } };
 
@@ -470,7 +536,7 @@ static const CGRect A4_SIZE = { { 0.0f, 0.0f }, { 21.0 * 72.0 / 2.54, 29.97 * 72
 - (void)drawText:(NSString *)text inRectangle:(CGRect)rectangle {
     rectangle = CGRectMake(rectangle.origin.x, A4_SIZE.size.height - rectangle.origin.y - rectangle.size.height, rectangle.size.width, rectangle.size.height);
     
-    CGContextRef    currentContext = UIGraphicsGetCurrentContext();
+    CGContextRef currentContext = UIGraphicsGetCurrentContext();
     
     CGContextSetTextMatrix(currentContext, CGAffineTransformIdentity);
     
