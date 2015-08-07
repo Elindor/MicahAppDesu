@@ -17,6 +17,7 @@
 		1BE552F01B6D98F30047CFA8 /* NovaObsOrcamentoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BE552EF1B6D98F30047CFA8 /* NovaObsOrcamentoViewController.m */; };
 		1BE552F91B6DA7D70047CFA8 /* EditarObsOrcaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BE552F81B6DA7D70047CFA8 /* EditarObsOrcaViewController.m */; };
 		1BE552FC1B6DABEF0047CFA8 /* ListaObsOrcaTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BE552FB1B6DABEF0047CFA8 /* ListaObsOrcaTableViewController.m */; };
+		1BE5E4731B75550A002D53A4 /* NovoProdutoOrcaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BE5E4721B75550A002D53A4 /* NovoProdutoOrcaViewController.m */; };
 		1BE7485B1B6A7B7300F42E50 /* EditarProdutoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BE7485A1B6A7B7300F42E50 /* EditarProdutoViewController.m */; };
 		1BE7485E1B6A857900F42E50 /* EditarObservacaoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BE7485D1B6A857900F42E50 /* EditarObservacaoViewController.m */; };
 		1BE89C931B57E6D70062D241 /* HistoricoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BE89C921B57E6D70062D241 /* HistoricoTableViewController.m */; };
@@ -82,6 +83,8 @@
 		1BE552F81B6DA7D70047CFA8 /* EditarObsOrcaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditarObsOrcaViewController.m; sourceTree = "<group>"; };
 		1BE552FA1B6DABEF0047CFA8 /* ListaObsOrcaTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListaObsOrcaTableViewController.h; sourceTree = "<group>"; };
 		1BE552FB1B6DABEF0047CFA8 /* ListaObsOrcaTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListaObsOrcaTableViewController.m; sourceTree = "<group>"; };
+		1BE5E4711B75550A002D53A4 /* NovoProdutoOrcaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NovoProdutoOrcaViewController.h; sourceTree = "<group>"; };
+		1BE5E4721B75550A002D53A4 /* NovoProdutoOrcaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NovoProdutoOrcaViewController.m; sourceTree = "<group>"; };
 		1BE748591B6A7B7300F42E50 /* EditarProdutoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditarProdutoViewController.h; sourceTree = "<group>"; };
 		1BE7485A1B6A7B7300F42E50 /* EditarProdutoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditarProdutoViewController.m; sourceTree = "<group>"; };
 		1BE7485C1B6A857900F42E50 /* EditarObservacaoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditarObservacaoViewController.h; sourceTree = "<group>"; };
@@ -195,6 +198,8 @@
 				1B9A16741B59A61F00CA057B /* DetalhesProdutoViewController.m */,
 				1BEB0B7D1B55A7520039F444 /* ProdutosTableViewController.h */,
 				1BEB0B7E1B55A7520039F444 /* ProdutosTableViewController.m */,
+				1BE5E4711B75550A002D53A4 /* NovoProdutoOrcaViewController.h */,
+				1BE5E4721B75550A002D53A4 /* NovoProdutoOrcaViewController.m */,
 				1BF836FD1B5946F900F51048 /* NovoProdutoViewController.h */,
 				1BF836FE1B5946F900F51048 /* NovoProdutoViewController.m */,
 				1BE89C941B57EB790062D241 /* ResultadosBuscaTableViewController.h */,
@@ -497,6 +502,7 @@
 				A5CD8A321B70F7CE00FD0625 /* CustomSegueFromMenu.m in Sources */,
 				1B9A16751B59A61F00CA057B /* DetalhesProdutoViewController.m in Sources */,
 				1BE538151B6ACA5200E312D7 /* PedidoDeProdutoViewController.m in Sources */,
+				1BE5E4731B75550A002D53A4 /* NovoProdutoOrcaViewController.m in Sources */,
 				1BE552ED1B6D961E0047CFA8 /* NovaObservacaoViewController.m in Sources */,
 				1BEB0B7F1B55A7520039F444 /* ProdutosTableViewController.m in Sources */,
 				C04E888D1B69A38200EB26BE /* ContentProductTableViewController.m in Sources */,

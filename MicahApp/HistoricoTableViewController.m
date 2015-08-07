@@ -22,7 +22,11 @@
     
     [SaveData sharedAppData];
     
-
+    UIImage *menuImage = [[UIImage imageNamed:@"Logo.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    
+    self.navigationItem.leftBarButtonItem.image = menuImage; //[UIImage imageNamed:@"IconeMais.png"];
+    self.navigationItem.leftBarButtonItem.title = @"";
+    
     [self.tableView reloadData];
 
 }

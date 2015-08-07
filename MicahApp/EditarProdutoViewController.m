@@ -28,7 +28,20 @@
     self.descricaoTextField.text = self.descricao;
     self.precoTextField.text = self.preco;
     // Do any additional setup after loading the view.
+
+    [self setPlaceHolderPosition:self.nomeTextField];
+    [self setPlaceHolderPosition:self.descricaoTextField];
+    [self setPlaceHolderPosition:self.precoTextField];
+
 }
+
+-(void)setPlaceHolderPosition: (UITextField *) textField{
+    
+    UIView *spacerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, 10)];
+    [textField setLeftViewMode:UITextFieldViewModeAlways];
+    [textField setLeftView:spacerView];
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

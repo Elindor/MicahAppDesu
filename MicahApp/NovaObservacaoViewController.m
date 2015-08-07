@@ -43,11 +43,23 @@
     self.observacaoTextField.layer.borderColor = [[UIColor lightGrayColor] CGColor];
     self.observacaoTextField.layer.borderWidth = 1.0f;
 
-    //self.observacao = self.observacaoTextField.text;
-    // Porque exatamente? O texto é novo e vazio nesta tela.
     
-    // Do any additional setup after loading the view.
+    UIView *spacerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, 10)];
+    [self.observacaoTextField setLeftViewMode:UITextFieldViewModeAlways];
+    [self.observacaoTextField setLeftView:spacerView];
+    [self setNavigationButtonImageRight];
+
 }
+
+-(void)setNavigationButtonImageRight{
+    
+    //botão esquerdo
+    UIImage *menuImage = [[UIImage imageNamed:@"IconeOk.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    
+    self.navigationItem.rightBarButtonItem.image = menuImage; //[UIImage imageNamed:@"IconeMais.png"];
+    self.navigationItem.rightBarButtonItem.title = @"";
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

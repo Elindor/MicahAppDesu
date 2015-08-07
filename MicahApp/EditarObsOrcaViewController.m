@@ -29,7 +29,10 @@
     
     self.observacaoOrcaTextField.layer.borderColor = [[UIColor lightGrayColor] CGColor];
     self.observacaoOrcaTextField.layer.borderWidth = 1.0f;
-
+    
+    UIView *spacerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, 10)];
+    [self.observacaoOrcaTextField setLeftViewMode:UITextFieldViewModeAlways];
+    [self.observacaoOrcaTextField setLeftView:spacerView];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -25,9 +25,16 @@
     self.observacaoTextField.text = self.observacao;
     self.observacaoTextField.layer.borderColor = [[UIColor lightGrayColor] CGColor];
     self.observacaoTextField.layer.borderWidth = 1.0f;
-
+    UIView *spacerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, 10)];
+    [self.observacaoTextField setLeftViewMode:UITextFieldViewModeAlways];
+    [self.observacaoTextField setLeftView:spacerView];
+    
     _initialString = _observacao;
-    // Do any additional setup after loading the view.
+   
+    
+    UIView *spaceView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, 10)];
+    [self.observacaoTextField setLeftViewMode:UITextFieldViewModeAlways];
+    [self.observacaoTextField setLeftView:spaceView];
 }
 
 - (void)didReceiveMemoryWarning {

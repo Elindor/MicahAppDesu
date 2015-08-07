@@ -79,12 +79,13 @@
     UILabel *labelPreco = [[UILabel alloc] initWithFrame:CGRectMake(self.tableView.frame.size.width - 100, 20, 90, 20)];
     
     UIFont *fontPreco = labelPreco.font;
-    labelPreco.font = [fontPreco fontWithSize:14];
+    labelPreco.font = [fontPreco fontWithSize:16];
+    labelPreco.textAlignment = NSTextAlignmentRight;
     
     UILabel *labelQuantidade = [[UILabel alloc] initWithFrame:CGRectMake(20, 20, 40, 20)];
     
     UIFont *fontQuantidade = labelQuantidade.font;
-    labelQuantidade.font = [fontQuantidade fontWithSize:14];
+    labelQuantidade.font = [fontQuantidade fontWithSize:16];
 
 
     
@@ -94,7 +95,7 @@
 
         labelNome = [[UILabel alloc] initWithFrame:CGRectMake(self.tableView.frame.size.width/2, 20, self.tableView.frame.size.width - 50, 20)];
         UIFont *font = labelNome.font;
-        labelNome.font = [font fontWithSize:14];
+        labelNome.font = [font fontWithSize:16];
         labelNome.text = @"Total: ";
         
         NSString *stringPreco = [NSString stringWithFormat:@"%.2f", self.totalPedido]; // transforma o NSNumber em string
@@ -107,7 +108,7 @@
 
         labelNome = [[UILabel alloc] initWithFrame:CGRectMake(70, 20, self.tableView.frame.size.width - 140, 20)];
         UIFont *font = labelNome.font;
-        labelNome.font = [font fontWithSize:14];
+        labelNome.font = [font fontWithSize:16];
         
         self.pedidoNovo = [[SaveData sharedAppData].currentOrca.productList objectAtIndex:indexPath.row];
     
@@ -167,20 +168,15 @@
     headerView.backgroundColor = [UIColor clearColor];
     
     UILabel *labelNome = [[UILabel alloc] initWithFrame:CGRectMake(70, 20, self.tableView.frame.size.width - 140, 20)];
-//    UIFont *font = labelNome.font;
-    //labelNome.font = [font fontWithSize:20];
-    [labelNome setFont:[UIFont fontWithName:@"OpenSans-Bold" size:14]];
 
-    UILabel *labelPreco = [[UILabel alloc] initWithFrame:CGRectMake(self.tableView.frame.size.width - 100, 20, 90, 20)];
-//    UIFont *fontPreco = labelPreco.font;
-//    labelPreco.font = [fontPreco fontWithSize:20];
-    [labelPreco setFont:[UIFont fontWithName:@"OpenSans-Bold" size:14]];
+    [labelNome setFont:[UIFont fontWithName:@"OpenSans-Bold" size:16]];
 
+    UILabel *labelPreco = [[UILabel alloc] initWithFrame:CGRectMake(self.tableView.frame.size.width - 80, 20, 80, 20)];
+
+    [labelPreco setFont:[UIFont fontWithName:@"OpenSans-Bold" size:16]];
     
     UILabel *labelQuantidade = [[UILabel alloc] initWithFrame:CGRectMake(20, 20, 40, 20)];
-//    UIFont *fontQuantidade = labelQuantidade.font;
-//    labelQuantidade.font = [fontQuantidade fontWithSize:20];
-    [labelQuantidade setFont:[UIFont fontWithName:@"OpenSans-Bold" size:14]];
+    [labelQuantidade setFont:[UIFont fontWithName:@"OpenSans-Bold" size:16]];
 
     
     labelNome.text = @"Produtos";

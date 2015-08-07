@@ -36,6 +36,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self setNavigationButtonImageRight];
+    
     self.nomeProdutoField.layer.borderColor = [[UIColor lightGrayColor] CGColor];
     self.descricaoProdutoField.layer.borderColor = [[UIColor lightGrayColor] CGColor];
     self.precoProdutoField.layer.borderColor = [[UIColor lightGrayColor] CGColor];
@@ -44,8 +46,27 @@
     self.descricaoProdutoField.layer.borderWidth = 1.0f;
     self.precoProdutoField.layer.borderWidth = 1.0f;
 
+    [self setPlaceHolderPosition:self.nomeProdutoField];
+    [self setPlaceHolderPosition:self.descricaoProdutoField];
+    [self setPlaceHolderPosition:self.precoProdutoField];
+
     
-    // Do any additional setup after loading the view.
+}
+
+-(void)setNavigationButtonImageRight{
+    
+    //botão esquerdo
+    UIImage *menuImage = [[UIImage imageNamed:@"IconeOk.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    
+    self.navigationItem.rightBarButtonItem.image = menuImage; //[UIImage imageNamed:@"IconeMais.png"];
+    self.navigationItem.rightBarButtonItem.title = @"";
+}
+
+-(void)setPlaceHolderPosition: (UITextField *) textField{
+    
+    UIView *spacerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, 10)];
+    [textField setLeftViewMode:UITextFieldViewModeAlways];
+    [textField setLeftView:spacerView];
 }
 
 - (void)didReceiveMemoryWarning {

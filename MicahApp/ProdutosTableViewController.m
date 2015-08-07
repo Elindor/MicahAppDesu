@@ -34,10 +34,7 @@
     //teste do array, precisa juntar com o "BD", essa parte será deletada
     [SaveData sharedAppData];
     
-    UIImage *buttonImage = [[UIImage imageNamed:@"IconeMais.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    
-    self.navigationItem.rightBarButtonItem.image = buttonImage; //[UIImage imageNamed:@"IconeMais.png"];
-    self.navigationItem.rightBarButtonItem.title = @"";
+    [self setNavigationButtonImage];
     
     _resultadosTableViewController = [[ResultadosBuscaTableViewController alloc] init];
     _produtosSearchController = [[UISearchController alloc] initWithSearchResultsController:self.resultadosTableViewController];
@@ -59,12 +56,28 @@
         
 }
 
--(void) viewWillAppear:(BOOL)animated{
 
+-(void)setNavigationButtonImage{
+    
+    
+    //botão esquerdo
+    UIImage *menuImage = [[UIImage imageNamed:@"Logo.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    
+    self.navigationItem.leftBarButtonItem.image = menuImage; //[UIImage imageNamed:@"IconeMais.png"];
+    self.navigationItem.leftBarButtonItem.title = @"";
+    
+    
+    //botão direito
     UIImage *buttonImage = [[UIImage imageNamed:@"IconeMais.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     
     self.navigationItem.rightBarButtonItem.image = buttonImage; //[UIImage imageNamed:@"IconeMais.png"];
     self.navigationItem.rightBarButtonItem.title = @"";
+    
+    
+}
+
+
+-(void) viewWillAppear:(BOOL)animated{
 
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadData:) name:@"ReloadTableView" object:nil];
@@ -141,6 +154,7 @@
     labelNome.font = [font fontWithSize:14];
     
     UILabel *labelPreco = [[UILabel alloc] initWithFrame:CGRectMake(self.tableView.frame.size.width - 100, 20, 90, 10)];
+    labelPreco.textAlignment = NSTextAlignmentRight;
     
     UIFont *fontPreco = labelPreco.font;
     labelPreco.font = [fontPreco fontWithSize:14];

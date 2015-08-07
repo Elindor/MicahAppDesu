@@ -18,12 +18,25 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    UIImage *buttonImage = [[UIImage imageNamed:@"IconeMais.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-
-    self.navigationItem.rightBarButtonItem.image = buttonImage; //[UIImage imageNamed:@"IconeMais.png"];
-    self.navigationItem.rightBarButtonItem.title = @"";
+    [self setNavigationButtonsImage];
+    
     [SaveData sharedAppData];
     [self.tableView reloadData];
+}
+
+-(void)setNavigationButtonsImage{
+    
+    //botão esquerdo
+    UIImage *menuImage = [[UIImage imageNamed:@"Logo.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    
+    self.navigationItem.leftBarButtonItem.image = menuImage; //[UIImage imageNamed:@"IconeMais.png"];
+    self.navigationItem.leftBarButtonItem.title = @"";
+    
+    //botão direito
+    UIImage *buttonImage = [[UIImage imageNamed:@"IconeMais.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    
+    self.navigationItem.rightBarButtonItem.image = buttonImage; //[UIImage imageNamed:@"IconeMais.png"];
+    self.navigationItem.rightBarButtonItem.title = @"";
 }
 
 

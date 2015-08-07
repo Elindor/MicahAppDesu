@@ -52,8 +52,24 @@
 //    self.acrescimoPrecoTextField.text = [self.acrescimoPreco stringValue];
     //self.totalFinalTextField.text = [self.totalFinal stringValue];
     
-    // Do any additional setup after loading the view.
+    [self setPlaceHolderPosition:self.self.totalTextField];
+    [self setPlaceHolderPosition:self.self.totalFinalTextField];
+    [self setPlaceHolderPosition:self.self.descontoPrecoTextfield];
+    [self setPlaceHolderPosition:self.self.descontoPorcentagemTextField];
+    [self setPlaceHolderPosition:self.self.acrescimoPorcentagemTextField];
+    [self setPlaceHolderPosition:self.self.acrescimoPrecoTextField];
+
+    
+    
+    
 }
+
+-(void)setPlaceHolderPosition: (UITextField *) textField{
+    UIView *spacerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, 10)];
+    [textField setLeftViewMode:UITextFieldViewModeAlways];
+    [textField setLeftView:spacerView];
+}
+
 
 -(void)refreshAppearanceContent{
     [self adaptValuesForward];

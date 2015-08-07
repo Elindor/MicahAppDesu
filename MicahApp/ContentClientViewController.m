@@ -28,7 +28,20 @@
     self.clientMailField.layer.borderWidth = 1.0f;
     self.clientAddressField.layer.borderWidth = 1.0f;
 
+    [self setPlaceHolderPosition:self.self.clientAddressField];
+    [self setPlaceHolderPosition:self.self.clientMailField];
+    [self setPlaceHolderPosition:self.self.clientNameField];
+    [self setPlaceHolderPosition:self.self.clientPhoneField];
+
     
+    
+}
+
+-(void)setPlaceHolderPosition: (UITextField *) textField{
+    
+    UIView *spacerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, 10)];
+    [textField setLeftViewMode:UITextFieldViewModeAlways];
+    [textField setLeftView:spacerView];
 }
 
 -(void)viewWillAppear:(BOOL)animated{

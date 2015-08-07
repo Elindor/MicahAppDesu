@@ -44,6 +44,10 @@
     [self.logotipoOutlet setBackgroundImage:self.imagePerfil forState:UIControlStateSelected];
     [self.logotipoOutlet setBackgroundImage:self.imagePerfil forState:UIControlStateNormal];
     [self.logotipoOutlet setBackgroundImage:self.imagePerfil forState:UIControlStateHighlighted];
+    if (self.imagePerfil != nil){
+        [self.logotipoOutlet setTitle:@" " forState:UIControlStateNormal];
+        
+    }
 }
 
 
@@ -63,8 +67,7 @@
     
     [self.logotipoOutlet setTitle:@"" forState:UIControlStateNormal];
     
-    NSLog(@"logo: %@", self.logotipoOutlet.titleLabel.text);
-    
+    //permite que a imagem mantenha sua cor original nos três estados
     [self.logotipoOutlet setBackgroundImage:self.imagePerfil forState:UIControlStateSelected];
     [self.logotipoOutlet setBackgroundImage:self.imagePerfil forState:UIControlStateNormal];
     [self.logotipoOutlet setBackgroundImage:self.imagePerfil forState:UIControlStateHighlighted];
@@ -77,25 +80,40 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    if (self.imagePerfil != nil){
-        [self.logotipoOutlet setTitle:@"" forState:UIControlStateNormal];
-
-    }
     
+    //permite colocar imagem no navigationItem no lugar do texto
+    UIImage *buttonImage = [[UIImage imageNamed:@"Logo.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    self.navigationItem.leftBarButtonItem.image = buttonImage; //[UIImage imageNamed:@"IconeMais.png"];
+    self.navigationItem.leftBarButtonItem.title = @"";
     
+    //permite mudar a cor da caixa de texto dos textFields
     self.nomeTextField.layer.borderColor = [[UIColor lightGrayColor] CGColor];
     self.telefoneTextField.layer.borderColor = [[UIColor lightGrayColor] CGColor];
     self.enderecoTextField.layer.borderColor = [[UIColor lightGrayColor] CGColor];
     self.emailTextField.layer.borderColor = [[UIColor lightGrayColor] CGColor];
-    
     self.nomeTextField.layer.borderWidth = 1.0f;
     self.telefoneTextField.layer.borderWidth = 1.0f;
     self.enderecoTextField.layer.borderWidth = 1.0f;
     self.emailTextField.layer.borderWidth = 1.0f;
-
+    
+    //permite mudar a identação do placeHolder
+    [self setPlaceHolderPosition:self.nomeTextField];
+    [self setPlaceHolderPosition:self.telefoneTextField];
+    [self setPlaceHolderPosition:self.enderecoTextField];
+    [self setPlaceHolderPosition:self.emailTextField];
     
     // Do any additional setup after loading the view.
 }
+
+
+-(void)setPlaceHolderPosition: (UITextField *) textField{
+    //cria uma view para dar o espaçamento
+    UIView *spacerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, 10)];
+    [textField setLeftViewMode:UITextFieldViewModeAlways];
+    [textField setLeftView:spacerView];
+}
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

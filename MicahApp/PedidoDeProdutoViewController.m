@@ -47,12 +47,24 @@
     self.precoProdutoTextField.layer.borderWidth = 1.0f;
     self.quantidadeProdutoTextField.layer.borderWidth = 1.0f;
     
-    //self.nomeProdutoTextField.attributedPlaceholder
+    [self setPlaceHolderPosition:self.nomeProdutoTextField];
+    [self setPlaceHolderPosition:self.descricaoProdutoTextField];
+    [self setPlaceHolderPosition:self.precoProdutoTextField];
+    [self setPlaceHolderPosition:self.quantidadeProdutoTextField];
+
     
     
     
     // Do any additional setup after loading the view.
 }
+
+-(void)setPlaceHolderPosition: (UITextField *) textField{
+    
+    UIView *spacerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, 10)];
+    [textField setLeftViewMode:UITextFieldViewModeAlways];
+    [textField setLeftView:spacerView];
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

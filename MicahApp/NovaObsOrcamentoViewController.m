@@ -28,8 +28,11 @@
     
     self.obsOrcaTextField.layer.borderColor = [[UIColor lightGrayColor] CGColor];
     self.obsOrcaTextField.layer.borderWidth = 1.0f;
+ 
+    UIView *spacerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, 10)];
+    [self.obsOrcaTextField setLeftViewMode:UITextFieldViewModeAlways];
+    [self.obsOrcaTextField setLeftView:spacerView];
 
-    
     // Do any additional setup after loading the view.
 }
 
