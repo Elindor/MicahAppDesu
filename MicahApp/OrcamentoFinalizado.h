@@ -12,6 +12,6 @@
 
 @property NSString *nomeDoCliente;
 @property NSDate *dataEncerrada;
-@property NSData *PDF;
+@property NSString *PDF;
 
 @end
