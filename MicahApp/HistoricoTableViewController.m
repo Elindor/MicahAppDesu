@@ -52,11 +52,11 @@
     
     UILabel *labelData = [[UILabel alloc] initWithFrame:CGRectMake(20, 20, 60, 20)];
     UIFont *fontData = labelData.font;
-    labelData.font = [fontData fontWithSize:14];
+    labelData.font = [fontData fontWithSize:16];
     
     UILabel *labelCliente = [[UILabel alloc] initWithFrame:CGRectMake(90, 20, tableView.frame.size.width - 100, 20)];
     UIFont *fontCliente = labelCliente.font;
-    labelCliente.font = [fontCliente fontWithSize:14];
+    labelCliente.font = [fontCliente fontWithSize:16];
     
     labelCliente.text = orca.nomeDoCliente;
     

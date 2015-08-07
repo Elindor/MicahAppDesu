@@ -66,7 +66,7 @@
     
     UILabel *labelOrca = [[UILabel alloc] initWithFrame:CGRectMake(20, 20, self.tableView.frame.size.width - 50, 20)];
     UIFont *font = labelOrca.font;
-    labelOrca.font = [font fontWithSize:14];
+    labelOrca.font = [font fontWithSize:16];
     
     SaveData *save = [SaveData sharedAppData];
     

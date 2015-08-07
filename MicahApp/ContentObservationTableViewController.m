@@ -59,7 +59,7 @@
     UILabel *labelNome = [[UILabel alloc] initWithFrame:CGRectMake(20, 20, self.tableView.frame.size.width - 40, 20)];
     
     UIFont *font = labelNome.font;
-    labelNome.font = [font fontWithSize:14];
+    labelNome.font = [font fontWithSize:16];
     
     
     NSString *observacao = nil;

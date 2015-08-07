@@ -130,12 +130,12 @@
     
     UILabel *labelNome = [[UILabel alloc] initWithFrame:CGRectMake(20, 20, self.tableView.frame.size.width - 50, 20)];
     UIFont *font = labelNome.font;
-    labelNome.font = [font fontWithSize:14];
+    labelNome.font = [font fontWithSize:16];
     
     UILabel *labelPreco = [[UILabel alloc] initWithFrame:CGRectMake(self.tableView.frame.size.width - 60, 20, 40, 20)];
     
     UIFont *fontPreco = labelPreco.font;
-    labelPreco.font = [fontPreco fontWithSize:14];
+    labelPreco.font = [fontPreco fontWithSize:16];
 
     
     Produto *produto = nil;
