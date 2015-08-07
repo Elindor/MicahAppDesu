@@ -393,7 +393,7 @@
                                     </constraint>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="16"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="sox-K4-NjV"/>
@@ -546,37 +546,35 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="hfP-0D-Fap" firstAttribute="leading" secondItem="YSp-nZ-qJV" secondAttribute="leadingMargin" constant="20" id="0a5-Y6-tzj"/>
-                            <constraint firstItem="1hp-xc-Leb" firstAttribute="top" secondItem="27v-OR-I1b" secondAttribute="bottom" constant="30" id="1Cp-ZX-bMP"/>
+                            <constraint firstItem="1hp-xc-Leb" firstAttribute="top" secondItem="27v-OR-I1b" secondAttribute="bottom" constant="30" id="1Cp-ZX-bMP">
+                                <variation key="widthClass=compact" constant="15"/>
+                            </constraint>
                             <constraint firstItem="27v-OR-I1b" firstAttribute="leading" secondItem="YSp-nZ-qJV" secondAttribute="leadingMargin" constant="20" id="FnA-37-r9j"/>
                             <constraint firstItem="27v-OR-I1b" firstAttribute="top" secondItem="6Uu-2V-rcw" secondAttribute="bottom" constant="36" id="NLk-Rc-7Sl">
                                 <variation key="widthClass=compact" constant="20"/>
                             </constraint>
-                            <constraint firstItem="27v-OR-I1b" firstAttribute="leading" secondItem="YSp-nZ-qJV" secondAttribute="leadingMargin" constant="21" id="T5r-dh-mPI"/>
                             <constraint firstAttribute="trailingMargin" secondItem="hfP-0D-Fap" secondAttribute="trailing" constant="20" id="Ygu-rT-wJe"/>
                             <constraint firstAttribute="trailingMargin" secondItem="1hp-xc-Leb" secondAttribute="trailing" constant="20" id="azG-mj-Cbp"/>
-                            <constraint firstItem="hfP-0D-Fap" firstAttribute="top" secondItem="1hp-xc-Leb" secondAttribute="bottom" constant="36" id="dPg-OR-clY"/>
+                            <constraint firstItem="hfP-0D-Fap" firstAttribute="top" secondItem="1hp-xc-Leb" secondAttribute="bottom" constant="36" id="dPg-OR-clY">
+                                <variation key="widthClass=compact" constant="15"/>
+                            </constraint>
                             <constraint firstAttribute="trailingMargin" secondItem="27v-OR-I1b" secondAttribute="trailing" constant="20" id="kbu-qg-WFT"/>
                             <constraint firstItem="1hp-xc-Leb" firstAttribute="trailing" secondItem="27v-OR-I1b" secondAttribute="trailing" id="lPJ-Dv-85F"/>
                             <constraint firstItem="1hp-xc-Leb" firstAttribute="centerX" secondItem="YSp-nZ-qJV" secondAttribute="centerX" id="mVS-wJ-RLx"/>
                             <constraint firstItem="1hp-xc-Leb" firstAttribute="trailing" secondItem="hfP-0D-Fap" secondAttribute="trailing" id="nEU-t3-GEQ"/>
-                            <constraint firstItem="1hp-xc-Leb" firstAttribute="leading" secondItem="27v-OR-I1b" secondAttribute="leading" id="o8X-Pq-9z5"/>
                             <constraint firstItem="1hp-xc-Leb" firstAttribute="leading" secondItem="YSp-nZ-qJV" secondAttribute="leadingMargin" constant="20" id="w7i-Eu-eUm"/>
-                            <constraint firstItem="1hp-xc-Leb" firstAttribute="leading" secondItem="hfP-0D-Fap" secondAttribute="leading" id="ypk-va-Qa0"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="FnA-37-r9j"/>
                                 <exclude reference="NLk-Rc-7Sl"/>
-                                <exclude reference="T5r-dh-mPI"/>
                                 <exclude reference="kbu-qg-WFT"/>
                                 <exclude reference="1Cp-ZX-bMP"/>
                                 <exclude reference="azG-mj-Cbp"/>
                                 <exclude reference="lPJ-Dv-85F"/>
                                 <exclude reference="mVS-wJ-RLx"/>
                                 <exclude reference="nEU-t3-GEQ"/>
-                                <exclude reference="o8X-Pq-9z5"/>
                                 <exclude reference="w7i-Eu-eUm"/>
-                                <exclude reference="ypk-va-Qa0"/>
                                 <exclude reference="0a5-Y6-tzj"/>
                                 <exclude reference="Ygu-rT-wJe"/>
                                 <exclude reference="dPg-OR-clY"/>
@@ -586,16 +584,13 @@
                             <mask key="constraints">
                                 <include reference="FnA-37-r9j"/>
                                 <include reference="NLk-Rc-7Sl"/>
-                                <exclude reference="T5r-dh-mPI"/>
                                 <include reference="kbu-qg-WFT"/>
                                 <include reference="1Cp-ZX-bMP"/>
                                 <include reference="azG-mj-Cbp"/>
                                 <include reference="lPJ-Dv-85F"/>
                                 <include reference="mVS-wJ-RLx"/>
                                 <include reference="nEU-t3-GEQ"/>
-                                <exclude reference="o8X-Pq-9z5"/>
                                 <include reference="w7i-Eu-eUm"/>
-                                <exclude reference="ypk-va-Qa0"/>
                                 <include reference="0a5-Y6-tzj"/>
                                 <include reference="Ygu-rT-wJe"/>
                                 <include reference="dPg-OR-clY"/>
@@ -685,10 +680,10 @@
             </objects>
             <point key="canvasLocation" x="5019" y="-448.5"/>
         </scene>
-        <!--Editar Observacao Orçamento-->
+        <!--Editar Observação-->
         <scene sceneID="Dr3-Q6-CFb">
             <objects>
-                <viewController storyboardIdentifier="editarObsOrca" title="Editar Observacao Orçamento" id="488-MP-a4R" customClass="EditarObsOrcaViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="editarObsOrca" title="Editar Observação" id="488-MP-a4R" customClass="EditarObsOrcaViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Xsv-yY-bNs"/>
                         <viewControllerLayoutGuide type="bottom" id="65r-dR-E3h"/>
@@ -780,20 +775,34 @@
                                 <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="16"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="28" y="100" width="335" height="340"/>
-                                </variation>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="U0R-AH-YQ9" firstAttribute="top" secondItem="sX7-yl-pAT" secondAttribute="bottom" constant="15" id="3NG-vd-Q47">
+                                <variation key="widthClass=compact" constant="20"/>
+                            </constraint>
+                            <constraint firstItem="U0R-AH-YQ9" firstAttribute="leading" secondItem="GFy-3M-eZM" secondAttribute="leadingMargin" constant="20" id="m0F-0t-Yn2"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="U0R-AH-YQ9" secondAttribute="trailing" constant="20" id="qx7-4G-tr9"/>
+                        </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="U0R-AH-YQ9"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="3NG-vd-Q47"/>
+                                <exclude reference="m0F-0t-Yn2"/>
+                                <exclude reference="qx7-4G-tr9"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="U0R-AH-YQ9"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="3NG-vd-Q47"/>
+                                <include reference="m0F-0t-Yn2"/>
+                                <include reference="qx7-4G-tr9"/>
                             </mask>
                         </variation>
                     </view>
@@ -804,7 +813,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jyJ-17-mmG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5532" y="229.5"/>
+            <point key="canvasLocation" x="5533.5" y="229"/>
         </scene>
         <!--Content Client View Controller-->
         <scene sceneID="IpR-wM-GI9">
@@ -911,13 +920,19 @@
                             <constraint firstItem="6n5-ho-dpj" firstAttribute="leading" secondItem="d9q-zx-1Y9" secondAttribute="leadingMargin" constant="20" id="5xy-qY-W7w"/>
                             <constraint firstItem="Y8O-2H-Ct7" firstAttribute="top" secondItem="e6h-Dw-AYs" secondAttribute="bottom" constant="20" id="741-y3-Jln"/>
                             <constraint firstItem="Y8O-2H-Ct7" firstAttribute="leading" secondItem="d9q-zx-1Y9" secondAttribute="leadingMargin" constant="20" id="7pV-Aa-FUB"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="OJu-c4-Zjd" secondAttribute="trailing" constant="38" id="EnG-DE-08u"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="OJu-c4-Zjd" secondAttribute="trailing" constant="38" id="EnG-DE-08u">
+                                <variation key="widthClass=compact" constant="20"/>
+                            </constraint>
                             <constraint firstItem="6n5-ho-dpj" firstAttribute="top" secondItem="Y8O-2H-Ct7" secondAttribute="bottom" constant="15" id="FDh-q3-dBq"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="6n5-ho-dpj" secondAttribute="trailing" constant="38" id="KnR-px-WSl"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Y8O-2H-Ct7" secondAttribute="trailing" constant="38" id="LyH-ER-BcW"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="6n5-ho-dpj" secondAttribute="trailing" constant="38" id="KnR-px-WSl">
+                                <variation key="widthClass=compact" constant="20"/>
+                            </constraint>
+                            <constraint firstAttribute="trailingMargin" secondItem="Y8O-2H-Ct7" secondAttribute="trailing" constant="20" id="LyH-ER-BcW"/>
                             <constraint firstItem="BJt-J0-daY" firstAttribute="leading" secondItem="d9q-zx-1Y9" secondAttribute="leadingMargin" constant="20" id="REN-bp-3ih"/>
                             <constraint firstItem="OJu-c4-Zjd" firstAttribute="top" secondItem="BJt-J0-daY" secondAttribute="bottom" constant="15" id="TN7-BG-gP5"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="BJt-J0-daY" secondAttribute="trailing" constant="38" id="ZJL-XY-JaB"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="BJt-J0-daY" secondAttribute="trailing" constant="38" id="ZJL-XY-JaB">
+                                <variation key="widthClass=compact" constant="20"/>
+                            </constraint>
                             <constraint firstItem="BJt-J0-daY" firstAttribute="top" secondItem="6n5-ho-dpj" secondAttribute="bottom" constant="15" id="f8d-3Y-mvZ"/>
                             <constraint firstItem="OJu-c4-Zjd" firstAttribute="leading" secondItem="d9q-zx-1Y9" secondAttribute="leadingMargin" constant="20" id="nC0-vc-vqp"/>
                         </constraints>
@@ -1613,9 +1628,6 @@
                                 <state key="normal" title="Excluir">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="169" y="396" width="63" height="30"/>
-                                </variation>
                                 <connections>
                                     <action selector="excluirProdButton:" destination="ZRD-Fx-kL9" eventType="touchUpInside" id="otA-8D-RdX"/>
                                 </connections>
@@ -1623,7 +1635,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="293-py-0CT" secondAttribute="trailing" constant="20" id="8xq-Pz-43D"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Fvu-v2-qMY" secondAttribute="trailing" constant="20" id="HG5-2f-ugV"/>
+                            <constraint firstItem="293-py-0CT" firstAttribute="top" secondItem="Qrv-gL-l47" secondAttribute="bottom" constant="15" id="Hbe-9D-pTI"/>
                             <constraint firstItem="Fvu-v2-qMY" firstAttribute="top" secondItem="AB2-7u-462" secondAttribute="bottom" constant="15" id="UGG-9L-Lhu"/>
                             <constraint firstItem="AB2-7u-462" firstAttribute="leading" secondItem="Zmj-En-G0t" secondAttribute="leadingMargin" constant="20" id="Ud8-rY-DHO"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Qrv-gL-l47" secondAttribute="trailing" constant="20" id="WQS-UE-Aqc"/>
@@ -1653,6 +1667,8 @@
                                 <exclude reference="WQS-UE-Aqc"/>
                                 <exclude reference="WtC-7d-00c"/>
                                 <exclude reference="dOn-h7-21c"/>
+                                <exclude reference="8xq-Pz-43D"/>
+                                <exclude reference="Hbe-9D-pTI"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -1672,10 +1688,12 @@
                                 <include reference="WQS-UE-Aqc"/>
                                 <include reference="WtC-7d-00c"/>
                                 <include reference="dOn-h7-21c"/>
+                                <include reference="8xq-Pz-43D"/>
+                                <include reference="Hbe-9D-pTI"/>
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="HJR-Tl-Da9">
+                    <navigationItem key="navigationItem" title="Editar Produto" id="HJR-Tl-Da9">
                         <barButtonItem key="rightBarButtonItem" title="Salvar" id="URe-60-a0O">
                             <connections>
                                 <action selector="buttonDidSave:" destination="ZRD-Fx-kL9" id="m3q-Qv-IaV"/>
@@ -2224,7 +2242,7 @@
                         </variation>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Nova Observacao" id="Lye-0O-Ox0">
+                    <navigationItem key="navigationItem" title="Nova Observação" id="Lye-0O-Ox0">
                         <barButtonItem key="rightBarButtonItem" title="Incluir" id="wjD-YF-dDJ">
                             <connections>
                                 <action selector="incluirObsButton:" destination="H0d-Dt-GNy" id="dgk-yq-7EH"/>
@@ -2340,10 +2358,10 @@
             </objects>
             <point key="canvasLocation" x="7044" y="-449"/>
         </scene>
-        <!--Editar Observacao-->
+        <!--Editar Observação-->
         <scene sceneID="49P-tY-OC1">
             <objects>
-                <viewController storyboardIdentifier="editarObservacao" title="Editar Observacao" id="kUh-Oh-r75" customClass="EditarObservacaoViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="editarObservacao" title="Editar Observação" id="kUh-Oh-r75" customClass="EditarObservacaoViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Dg2-RZ-lEZ"/>
                         <viewControllerLayoutGuide type="bottom" id="RgS-1E-a3Q"/>
@@ -2405,7 +2423,7 @@
             </objects>
             <point key="canvasLocation" x="-154.5" y="-2034"/>
         </scene>
-        <!--Lista de Observações-->
+        <!--Adicionar Observação-->
         <scene sceneID="zTg-gq-Ufx">
             <objects>
                 <tableViewController storyboardIdentifier="listaObsOrca" id="f4B-8V-Ojr" customClass="ListaObsOrcaTableViewController" sceneMemberID="viewController">
@@ -2426,7 +2444,7 @@
                             <outlet property="delegate" destination="f4B-8V-Ojr" id="o90-C9-d5g"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Lista de Observações" id="XCc-cR-ZmH">
+                    <navigationItem key="navigationItem" title="Adicionar Observação" id="XCc-cR-ZmH">
                         <barButtonItem key="rightBarButtonItem" title="Novo" id="LFc-2G-4nJ">
                             <connections>
                                 <segue destination="LfY-z5-2AV" kind="show" identifier="ContentObservaçãoToNew" id="ofX-0w-43b"/>

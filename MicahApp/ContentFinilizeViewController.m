@@ -21,7 +21,7 @@
     //[self.textLabel setFrame:CGRectMake(20, 30, [UIScreen mainScreen].bounds.size.height - 60,[UIScreen mainScreen].bounds.size.width - 40)];
     
     //UILabel *textLabel = [[UILabel alloc] initWithFrame:CGRectMake([UIScreen mainScreen].bounds.origin.x + 20, [UIScreen mainScreen].bounds.origin.y + 30, [UIScreen mainScreen].bounds.size.width - 40, [UIScreen mainScreen].bounds.size.height - 60)];
-    [self.textLabel setText: @"Após finalizar, um pdf será gerado e não será possível editá-lo. Caso ainda necessite editar seu orçamento, o mesmo estará disponível em Orçamentos em Progresso para ser finalizado em outro momento. Sugerimos acrescentar a validade do orçamento nas observações e enviar uma cópia do arquivo final para seu email."
+    [self.textLabel setText: @"Após finalizar, um pdf será gerado e não será possível editá-lo. Caso ainda necessite editar seu orçamento, o mesmo estará disponível em Orçamentos em Progresso para ser finalizado em outro momento. Sugerimos acrescentar a validade do orçamento nas observações e enviar uma cópia do arquivo final para seu e-mail."
      ];
     
     self.textLabel.numberOfLines = 0;

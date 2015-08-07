@@ -153,7 +153,7 @@
     UIFont *font = labelNome.font;
     labelNome.font = [font fontWithSize:16];
     
-    UILabel *labelPreco = [[UILabel alloc] initWithFrame:CGRectMake(self.tableView.frame.size.width - 100, 20, 90, 10)];
+    UILabel *labelPreco = [[UILabel alloc] initWithFrame:CGRectMake(self.tableView.frame.size.width - 100, 20, 90, 20)];
     labelPreco.textAlignment = NSTextAlignmentRight;
     
     UIFont *fontPreco = labelPreco.font;
