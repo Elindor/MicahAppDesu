@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		1B7BB0EE1B5D980F000CD60E /* ProdutosOrcamentoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7BB0ED1B5D980F000CD60E /* ProdutosOrcamentoTableViewController.m */; };
-		1B9A16751B59A61F00CA057B /* DetalhesProdutoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B9A16741B59A61F00CA057B /* DetalhesProdutoViewController.m */; };
 		1BE403571B6AA4F000F14A64 /* ObservacoesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BE403561B6AA4F000F14A64 /* ObservacoesTableViewController.m */; };
 		1BE538151B6ACA5200E312D7 /* PedidoDeProdutoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BE538141B6ACA5200E312D7 /* PedidoDeProdutoViewController.m */; };
 		1BE552E31B6D3C030047CFA8 /* PedidoDeProduto.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BE552E21B6D3C030047CFA8 /* PedidoDeProduto.m */; };
@@ -65,8 +64,6 @@
 /* Begin PBXFileReference section */
 		1B7BB0EC1B5D980F000CD60E /* ProdutosOrcamentoTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProdutosOrcamentoTableViewController.h; sourceTree = "<group>"; };
 		1B7BB0ED1B5D980F000CD60E /* ProdutosOrcamentoTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProdutosOrcamentoTableViewController.m; sourceTree = "<group>"; };
-		1B9A16731B59A61F00CA057B /* DetalhesProdutoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetalhesProdutoViewController.h; sourceTree = "<group>"; };
-		1B9A16741B59A61F00CA057B /* DetalhesProdutoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetalhesProdutoViewController.m; sourceTree = "<group>"; };
 		1BE403551B6AA4F000F14A64 /* ObservacoesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObservacoesTableViewController.h; sourceTree = "<group>"; };
 		1BE403561B6AA4F000F14A64 /* ObservacoesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObservacoesTableViewController.m; sourceTree = "<group>"; };
 		1BE538131B6ACA5200E312D7 /* PedidoDeProdutoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PedidoDeProdutoViewController.h; sourceTree = "<group>"; };
@@ -194,8 +191,6 @@
 				1BE7485A1B6A7B7300F42E50 /* EditarProdutoViewController.m */,
 				1BE538131B6ACA5200E312D7 /* PedidoDeProdutoViewController.h */,
 				1BE538141B6ACA5200E312D7 /* PedidoDeProdutoViewController.m */,
-				1B9A16731B59A61F00CA057B /* DetalhesProdutoViewController.h */,
-				1B9A16741B59A61F00CA057B /* DetalhesProdutoViewController.m */,
 				1BEB0B7D1B55A7520039F444 /* ProdutosTableViewController.h */,
 				1BEB0B7E1B55A7520039F444 /* ProdutosTableViewController.m */,
 				1BE5E4711B75550A002D53A4 /* NovoProdutoOrcaViewController.h */,
@@ -500,7 +495,6 @@
 				1BE7485E1B6A857900F42E50 /* EditarObservacaoViewController.m in Sources */,
 				1BF836FF1B5946F900F51048 /* NovoProdutoViewController.m in Sources */,
 				A5CD8A321B70F7CE00FD0625 /* CustomSegueFromMenu.m in Sources */,
-				1B9A16751B59A61F00CA057B /* DetalhesProdutoViewController.m in Sources */,
 				1BE538151B6ACA5200E312D7 /* PedidoDeProdutoViewController.m in Sources */,
 				1BE5E4731B75550A002D53A4 /* NovoProdutoOrcaViewController.m in Sources */,
 				1BE552ED1B6D961E0047CFA8 /* NovaObservacaoViewController.m in Sources */,

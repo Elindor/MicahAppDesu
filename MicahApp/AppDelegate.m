@@ -30,6 +30,10 @@
     
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
     
+    
+    [[UIBarButtonItem appearanceWhenContainedIn:[UISearchBar class], nil] setTitle:@"Cancelar"];
+    [[UIBarButtonItem appearanceWhenContainedIn:[UISearchBar class], nil] setTintColor:[UIColor whiteColor]];
+    
     return YES;
 }
 

@@ -43,6 +43,9 @@
     
     _resultadosOrcamentoTableViewController = [[ResultadosBuscaTableViewController alloc] init];
     _produtosOrcamentoSearchController = [[UISearchController alloc] initWithSearchResultsController:self.resultadosOrcamentoTableViewController];
+    
+    self.produtosOrcamentoSearchController.searchBar.barTintColor = [UIColor   colorWithRed:(51.0/255) green:(139.0/255) blue:(173.0/255) alpha:1];
+    self.produtosOrcamentoSearchController.searchBar.placeholder = @"Pesquisar";
     self.produtosOrcamentoSearchController.searchResultsUpdater = self;
     [self.produtosOrcamentoSearchController.searchBar sizeToFit];
     self.tableView.tableHeaderView = self.produtosOrcamentoSearchController.searchBar;

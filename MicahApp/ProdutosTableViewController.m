@@ -10,8 +10,9 @@
 #import "Produto.h"
 #import "NovoProdutoViewController.h"
 #import "ResultadosBuscaTableViewController.h"
-#import "DetalhesProdutoViewController.h"
+//#import "DetalhesProdutoViewController.h"
 #import "SaveData.h"
+#import "EditarProdutoViewController.h"
 
 @interface ProdutosTableViewController () <UISearchBarDelegate, UISearchControllerDelegate, UISearchResultsUpdating>
 
@@ -35,9 +36,14 @@
     [SaveData sharedAppData];
     
     [self setNavigationButtonImage];
-    
+  
     _resultadosTableViewController = [[ResultadosBuscaTableViewController alloc] init];
     _produtosSearchController = [[UISearchController alloc] initWithSearchResultsController:self.resultadosTableViewController];
+    
+    //Configura o searchbar - cor, placeholder e texto do botão
+    self.produtosSearchController.searchBar.barTintColor = [UIColor   colorWithRed:(51.0/255) green:(139.0/255) blue:(173.0/255) alpha:1];
+    self.produtosSearchController.searchBar.placeholder = @"Pesquisar";
+
     self.produtosSearchController.searchResultsUpdater = self;
     [self.produtosSearchController.searchBar sizeToFit];
     self.tableView.tableHeaderView = self.produtosSearchController.searchBar;
@@ -98,6 +104,7 @@
         self.produtosSearchController.active = self.searchControllerAtivado;
         _searchControllerAtivado = NO;
         
+
         if (self.searchControllerFieldWasFirstResponder) {
             [self.produtosSearchController.searchBar becomeFirstResponder];
             _searchControllerFieldWasFirstResponder = NO;
@@ -112,7 +119,6 @@
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
     [searchBar resignFirstResponder];
 }
-
 
 
 - (void)didReceiveMemoryWarning {
@@ -190,35 +196,32 @@
 
     if (tableView == self.tableView){
         
-        
         SaveData *save = [SaveData sharedAppData];
         produtoSelecionado = save.productList[indexPath.row];
-        DetalhesProdutoViewController *telaDetalhesProduto = [self.storyboard instantiateViewControllerWithIdentifier:@"detalhesProduto"];
-        telaDetalhesProduto.nomeProd = produtoSelecionado.nomeProduto;
-        //telaDetalhesProduto.categoriaProd = produtoSelecionado.categoriaProduto;
-        telaDetalhesProduto.descricaoProd = produtoSelecionado.descricaoProduto;
+        EditarProdutoViewController *telaEditarProduto = [self.storyboard instantiateViewControllerWithIdentifier:@"editarProdutos"];
+        telaEditarProduto.nome = produtoSelecionado.nomeProduto;
+        telaEditarProduto.descricao = produtoSelecionado.descricaoProduto;
         
         NSNumberFormatter *formatter = [[NSNumberFormatter alloc]init];
         NSString *precoStr = [formatter stringFromNumber:produtoSelecionado.precoPadraoProduto];
-        telaDetalhesProduto.precoProd = precoStr;
+         telaEditarProduto.preco = precoStr;
         
-        
-        [self.navigationController pushViewController:telaDetalhesProduto animated:YES];
+        [self.navigationController pushViewController:telaEditarProduto animated:YES];
         
         
     }
     else{
         
         produtoSelecionado = self.resultadosTableViewController.produtosFiltradosMArray[indexPath.row];
-        DetalhesProdutoViewController *telaDetalhesProduto = [self.storyboard instantiateViewControllerWithIdentifier:@"detalhesProduto"];
-        telaDetalhesProduto.nomeProd = produtoSelecionado.nomeProduto;
-        telaDetalhesProduto.descricaoProd = produtoSelecionado.descricaoProduto;
+        EditarProdutoViewController *telaEditarProduto = [self.storyboard instantiateViewControllerWithIdentifier:@"editarProdutos"];
+        telaEditarProduto.nome = produtoSelecionado.nomeProduto;
+        telaEditarProduto.descricao = produtoSelecionado.descricaoProduto;
         
         NSNumberFormatter *formatter = [[NSNumberFormatter alloc]init];
         NSString *precoStr = [formatter stringFromNumber:produtoSelecionado.precoPadraoProduto];
-        telaDetalhesProduto.precoProd = precoStr;
+        telaEditarProduto.preco = precoStr;
         
-        [self.navigationController pushViewController:telaDetalhesProduto animated:YES];
+        [self.navigationController pushViewController:telaEditarProduto animated:YES];
     }
     
  
