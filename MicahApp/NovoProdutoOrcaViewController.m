@@ -8,6 +8,7 @@
 
 #import "NovoProdutoOrcaViewController.h"
 #import "Produto.h"
+#import "PedidoDeProduto.h"
 #import "SaveData.h"
 
 @interface NovoProdutoOrcaViewController ()
@@ -25,12 +26,12 @@
 @end
 
 @implementation NovoProdutoOrcaViewController
+
 - (IBAction)okButton:(id)sender{
-  
     
-#warning Banana : precisa fazer o salvar para o produto do orçamento
     
     [self cadastrarProduto];
+    
     [self performSegueWithIdentifier:@"UnwindFromNewToProductMenu" sender:self];
     
     
@@ -87,19 +88,35 @@
 
 - (void)cadastrarProduto{
     
-    Produto *novoProduto = [[Produto alloc]init];
+    PedidoDeProduto *novoProduto = [[PedidoDeProduto alloc]init];
     
     novoProduto.nomeProduto = [NSString stringWithFormat:@"%@", self.nomeProdOrcaField.text];
     novoProduto.descricaoProduto = [NSString stringWithFormat:@"%@", self.descricaoProdOrcaField.text];
-    
+    novoProduto.precoProduto = [NSNumber numberWithDouble:[self.precoProdOrcaField.text doubleValue]];
+    novoProduto.precoAlterado = novoProduto.precoProduto;
     //precisa definir como será feito a categoria
     //    novoProduto.categoriaProduto =
     
-    novoProduto.precoPadraoProduto = [NSNumber numberWithFloat:[self.precoProdOrcaField.text floatValue]];
-    
     SaveData* save = [SaveData sharedAppData];
-    [save.productList addObject:novoProduto];
+    [save.currentOrca.productList addObject:novoProduto];
     [save save];
+    
+    
+    if(_switchOnOrca.on){
+        Produto *novoProd = [[Produto alloc]init];
+        
+        novoProd.nomeProduto = [NSString stringWithFormat:@"%@", self.nomeProdOrcaField.text];
+        novoProd.descricaoProduto = [NSString stringWithFormat:@"%@", self.descricaoProdOrcaField.text];
+        
+        //precisa definir como será feito a categoria
+        //    novoProduto.categoriaProduto =
+        
+        novoProd.precoPadraoProduto = [NSNumber numberWithFloat:[self.precoProdOrcaField.text floatValue]];
+        
+        SaveData* save = [SaveData sharedAppData];
+        [save.productList addObject:novoProd];
+        [save save];
+    }
 }
 
 

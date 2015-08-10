@@ -91,4 +91,19 @@
     save.currentOrca.costumerAdress = _clientAddressField.text;
     [save save];
 }
+
+
+- (IBAction)exit1:(id)sender {
+}
+
+- (IBAction)exit2:(id)sender {
+}
+
+- (IBAction)exit4:(id)sender {
+}
+
+- (IBAction)exit3:(id)sender {
+}
+
+
 @end
