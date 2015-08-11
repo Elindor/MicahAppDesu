@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="5dJ-Zx-NPU">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="5dJ-Zx-NPU">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -563,6 +563,9 @@
                                 <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="16"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="36" y="84" width="328" height="19"/>
+                                </variation>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -636,7 +639,8 @@
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <action selector="clientNameExit:" destination="nW4-BZ-ReK" eventType="editingDidEndOnExit" id="bL6-3U-W75"/>
+                                    <action selector="clientNameExit:" destination="nW4-BZ-ReK" eventType="editingDidEnd" id="BJN-4o-IZ2"/>
+                                    <action selector="exit1:" destination="nW4-BZ-ReK" eventType="editingDidEndOnExit" id="rxo-DD-gTU"/>
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Endereço do Cliente" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BJt-J0-daY">
@@ -657,7 +661,8 @@
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <action selector="clientAddressExit:" destination="nW4-BZ-ReK" eventType="editingDidEndOnExit" id="g26-iF-P5X"/>
+                                    <action selector="clientAddressExit:" destination="nW4-BZ-ReK" eventType="editingDidEnd" id="bmZ-JX-EqT"/>
+                                    <action selector="exit4:" destination="nW4-BZ-ReK" eventType="editingDidEndOnExit" id="I2J-Hz-evF"/>
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Telefone do Cliente" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6n5-ho-dpj">
@@ -678,7 +683,8 @@
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <action selector="clientPhoneExit:" destination="nW4-BZ-ReK" eventType="editingDidEndOnExit" id="raw-x6-08g"/>
+                                    <action selector="clientPhoneExit:" destination="nW4-BZ-ReK" eventType="editingDidEnd" id="UjU-3b-i5b"/>
+                                    <action selector="exit2:" destination="nW4-BZ-ReK" eventType="editingDidEndOnExit" id="mYN-bH-mHq"/>
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="E-mail do Cliente" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OJu-c4-Zjd">
@@ -699,7 +705,8 @@
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <action selector="clientMailExit:" destination="nW4-BZ-ReK" eventType="editingDidEndOnExit" id="OZL-sQ-ZIf"/>
+                                    <action selector="clientMailExit:" destination="nW4-BZ-ReK" eventType="editingDidEnd" id="D45-QS-5gx"/>
+                                    <action selector="exit3:" destination="nW4-BZ-ReK" eventType="editingDidEndOnExit" id="FKb-5c-ldd"/>
                                 </connections>
                             </textField>
                         </subviews>
@@ -971,7 +978,8 @@
                                         <exclude reference="Gok-Zz-c90"/>
                                     </mask>
                                 </variation>
-                                <variation key="widthClass=compact">
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="36" y="300" width="180" height="19"/>
                                     <mask key="constraints">
                                         <include reference="Gok-Zz-c90"/>
                                     </mask>
@@ -1624,7 +1632,7 @@
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <action selector="discountExit:" destination="EmC-BY-gbQ" eventType="editingDidEndOnExit" id="QFH-YX-rOc"/>
+                                    <action selector="discountExit:" destination="EmC-BY-gbQ" eventType="editingDidEnd" id="96F-GK-0ea"/>
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0%" borderStyle="line" placeholder="0%" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4c5-tr-MGB">
@@ -1645,7 +1653,7 @@
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <action selector="acrescPercExit:" destination="EmC-BY-gbQ" eventType="editingDidEndOnExit" id="biX-OP-Sbr"/>
+                                    <action selector="acrescPercExit:" destination="EmC-BY-gbQ" eventType="editingDidEnd" id="BCI-3e-9Bk"/>
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0,00" borderStyle="line" placeholder="0" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gC1-61-zRC">
@@ -1669,7 +1677,7 @@
                                     <rect key="frame" x="54" y="545" width="292" height="132"/>
                                 </variation>
                                 <connections>
-                                    <action selector="acrescExit:" destination="EmC-BY-gbQ" eventType="editingDidEndOnExit" id="6PG-zF-0TE"/>
+                                    <action selector="acrescExit:" destination="EmC-BY-gbQ" eventType="editingDidEnd" id="6DW-B4-QWA"/>
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0,00" borderStyle="line" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xMo-Rr-UWb">
@@ -1775,7 +1783,7 @@
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <action selector="discountPercExit:" destination="EmC-BY-gbQ" eventType="editingDidEndOnExit" id="6vs-8k-6IF"/>
+                                    <action selector="discountPercExit:" destination="EmC-BY-gbQ" eventType="editingDidEnd" id="DwX-DB-YCx"/>
                                 </connections>
                             </textField>
                         </subviews>
@@ -2084,6 +2092,9 @@
                                 <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="16"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="36" y="164" width="219" height="19"/>
+                                </variation>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2645,6 +2656,9 @@
                                 <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="16"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="36" y="266" width="191" height="19"/>
+                                </variation>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
