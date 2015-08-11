@@ -111,7 +111,7 @@
         self.pedidoNovo = [[SaveData sharedAppData].currentOrca.productList objectAtIndex:indexPath.row];
     
         labelNome.text = self.pedidoNovo.nomeProduto;
-        self.totalPedido = [self.pedidoNovo.precoProduto floatValue] + self.totalPedido;
+        self.totalPedido = ([self.pedidoNovo.precoProduto floatValue] * [self.pedidoNovo.quantidadeProduto floatValue])+ self.totalPedido;
         NSString *stringPreco = [self.pedidoNovo.precoProduto stringValue]; // transforma o NSNumber em string
         if(self.pedidoNovo.precoAlterado)
             stringPreco = [self.pedidoNovo.precoAlterado stringValue];
