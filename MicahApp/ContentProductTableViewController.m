@@ -22,10 +22,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     //self.tableView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0); // Altura correta
+    
+    //esse if permite que adicione na lista de produtos o produto selecionado na busca da lista
     if(self.pedidoNovo != nil){
         [self.produtosListaNSMArray addObject:self.pedidoNovo];
     }
-    
 
     
     [SaveData sharedAppData];
@@ -63,7 +64,7 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
 
-    
+    //esse for permite limpar as cells antes de reutilizá-las
     for (UIView *subview in [cell.contentView subviews]) {
         [subview removeFromSuperview];
     }
@@ -72,9 +73,7 @@
         
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
-//    UILabel *labelNome = [[UILabel alloc] initWithFrame:CGRectMake(20, 20, self.tableView.frame.size.width - 50, 20)];
-//    UIFont *font = labelNome.font;
-//    labelNome.font = [font fontWithSize:14];
+
     
     UILabel *labelPreco = [[UILabel alloc] initWithFrame:CGRectMake(self.tableView.frame.size.width - 100, 20, 90, 20)];
     
@@ -83,14 +82,13 @@
     labelPreco.textAlignment = NSTextAlignmentRight;
     
     UILabel *labelQuantidade = [[UILabel alloc] initWithFrame:CGRectMake(20, 20, 40, 20)];
-    
     UIFont *fontQuantidade = labelQuantidade.font;
     labelQuantidade.font = [fontQuantidade fontWithSize:16];
-
-
     
     
     UILabel *labelNome;
+    
+    //configura as cells caso seja a última coloca como o total
     if (indexPath.row == ([[SaveData sharedAppData].currentOrca.productList count])){
 
         labelNome = [[UILabel alloc] initWithFrame:CGRectMake(self.tableView.frame.size.width/2, 20, self.tableView.frame.size.width - 50, 20)];
@@ -135,13 +133,11 @@
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    
+    //esse if permite que não ocorra nada se selecionar a última cell que é o total
     if (indexPath.row == ([[SaveData sharedAppData].currentOrca.productList count])){
         NSLog(@"Nope, wrong button");
     }
-    else if (indexPath.row == 0){
-        NSLog(@"Nope, its not a button");
-    }
+
     else{
     
         PedidoDeProduto *produtoSelecionado;
@@ -161,21 +157,27 @@
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
 }
 
+//configura a altura do header, já que no CGRect não estava funcionando
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 50.0;
+}
 
+
+//Adiciona o header na tableview
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.tableView.frame.size.width, 44)];
+    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.tableView.frame.size.width, 3)];
     headerView.backgroundColor = [UIColor clearColor];
     
-    UILabel *labelNome = [[UILabel alloc] initWithFrame:CGRectMake(70, 20, self.tableView.frame.size.width - 140, 20)];
+    UILabel *labelNome = [[UILabel alloc] initWithFrame:CGRectMake(70, 15, self.tableView.frame.size.width - 140, 20)];
 
     [labelNome setFont:[UIFont fontWithName:@"OpenSans-Bold" size:16]];
 
-    UILabel *labelPreco = [[UILabel alloc] initWithFrame:CGRectMake(self.tableView.frame.size.width - 80, 20, 80, 20)];
+    UILabel *labelPreco = [[UILabel alloc] initWithFrame:CGRectMake(self.tableView.frame.size.width - 80, 15, 80, 20)];
 
     [labelPreco setFont:[UIFont fontWithName:@"OpenSans-Bold" size:16]];
     
-    UILabel *labelQuantidade = [[UILabel alloc] initWithFrame:CGRectMake(20, 20, 40, 20)];
+    UILabel *labelQuantidade = [[UILabel alloc] initWithFrame:CGRectMake(20, 15, 40, 20)];
     [labelQuantidade setFont:[UIFont fontWithName:@"OpenSans-Bold" size:16]];
 
     
@@ -186,6 +188,14 @@
     [headerView addSubview:labelNome];
     [headerView addSubview:labelPreco];
     [headerView addSubview:labelQuantidade];
+    
+    
+    //adiciona uma linha separando o header da primeira cell
+    UIView * seperatorView;
+    CGRect sepFrame = CGRectMake(15, 49.9, headerView.frame.size.width - 30, 1);
+    seperatorView = [[UIView alloc] initWithFrame:sepFrame];
+    seperatorView.backgroundColor = [UIColor colorWithWhite:224.0/255.0 alpha:1.0];
+    [headerView addSubview:seperatorView];
 
     return headerView;
 }

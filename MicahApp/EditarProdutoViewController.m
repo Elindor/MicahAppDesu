@@ -20,13 +20,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.nomeTextField.layer.borderColor = [[UIColor lightGrayColor] CGColor];
-    self.descricaoTextField.layer.borderColor = [[UIColor lightGrayColor] CGColor];
-    self.precoTextField.layer.borderColor = [[UIColor lightGrayColor] CGColor];
     
-    self.nomeTextField.text = self.nome;
-    self.descricaoTextField.text = self.descricao;
-    self.precoTextField.text = self.preco;
+    [self setTextfield];
+
     // Do any additional setup after loading the view.
 
     [self setPlaceHolderPosition:self.nomeTextField];
@@ -34,6 +30,24 @@
     [self setPlaceHolderPosition:self.precoTextField];
 
 }
+
+-(void)setTextfield{
+    
+    self.nomeTextField.layer.borderColor = [[UIColor lightGrayColor] CGColor];
+    self.descricaoTextField.layer.borderColor = [[UIColor lightGrayColor] CGColor];
+    self.precoTextField.layer.borderColor = [[UIColor lightGrayColor] CGColor];
+    
+    
+    self.nomeTextField.layer.borderWidth = 1.0f;
+    self.descricaoTextField.layer.borderWidth = 1.0f;
+    self.precoTextField.layer.borderWidth = 1.0f;
+    
+    self.nomeTextField.text = self.nome;
+    self.descricaoTextField.text = self.descricao;
+    self.precoTextField.text = self.preco;
+    
+}
+
 
 -(void)setPlaceHolderPosition: (UITextField *) textField{
     
