@@ -51,6 +51,9 @@
     [self setPlaceHolderPosition:self.descricaoProdutoTextField];
     [self setPlaceHolderPosition:self.precoProdutoTextField];
     [self setPlaceHolderPosition:self.quantidadeProdutoTextField];
+    
+    _nomeProdutoTextField.autocapitalizationType = UITextAutocapitalizationTypeWords;
+    _descricaoProdutoTextField.autocapitalizationType = UITextAutocapitalizationTypeSentences;
 
     
     

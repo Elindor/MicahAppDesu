@@ -29,6 +29,9 @@
     [self setPlaceHolderPosition:self.descricaoTextField];
     [self setPlaceHolderPosition:self.precoTextField];
 
+    _nomeTextField.autocapitalizationType = UITextAutocapitalizationTypeWords;
+    _descricaoTextField.autocapitalizationType = UITextAutocapitalizationTypeSentences;
+    
 }
 
 -(void)setTextfield{

@@ -48,6 +48,8 @@
     [self.observacaoTextField setLeftViewMode:UITextFieldViewModeAlways];
     [self.observacaoTextField setLeftView:spacerView];
     [self setNavigationButtonImageRight];
+    
+    _observacaoTextField.autocapitalizationType = UITextAutocapitalizationTypeSentences;
 
 }
 

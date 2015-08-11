@@ -49,6 +49,9 @@
     [self setPlaceHolderPosition:self.nomeProdutoField];
     [self setPlaceHolderPosition:self.descricaoProdutoField];
     [self setPlaceHolderPosition:self.precoProdutoField];
+    
+    _nomeProdutoField.autocapitalizationType = UITextAutocapitalizationTypeWords;
+    _descricaoProdutoField.autocapitalizationType = UITextAutocapitalizationTypeSentences;
 
     
 }

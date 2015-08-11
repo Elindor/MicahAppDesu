@@ -33,6 +33,8 @@
     UIView *spacerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, 10)];
     [self.observacaoOrcaTextField setLeftViewMode:UITextFieldViewModeAlways];
     [self.observacaoOrcaTextField setLeftView:spacerView];
+    
+    _observacaoOrcaTextField.autocapitalizationType = UITextAutocapitalizationTypeSentences;
 }
 
 - (void)didReceiveMemoryWarning {

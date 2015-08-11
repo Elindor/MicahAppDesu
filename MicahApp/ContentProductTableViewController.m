@@ -192,7 +192,7 @@
     
     //adiciona uma linha separando o header da primeira cell
     UIView * seperatorView;
-    CGRect sepFrame = CGRectMake(15, 49.9, headerView.frame.size.width - 30, 1);
+    CGRect sepFrame = CGRectMake(15, 49.9, headerView.frame.size.width - 15, 1);
     seperatorView = [[UIView alloc] initWithFrame:sepFrame];
     seperatorView.backgroundColor = [UIColor colorWithWhite:224.0/255.0 alpha:1.0];
     [headerView addSubview:seperatorView];

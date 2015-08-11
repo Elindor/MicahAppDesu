@@ -32,6 +32,10 @@
     [self setPlaceHolderPosition:self.self.clientMailField];
     [self setPlaceHolderPosition:self.self.clientNameField];
     [self setPlaceHolderPosition:self.self.clientPhoneField];
+    
+    
+    _clientNameField.autocapitalizationType = UITextAutocapitalizationTypeWords;
+    _clientAddressField.autocapitalizationType = UITextAutocapitalizationTypeSentences;
 
     
     

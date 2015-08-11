@@ -56,6 +56,9 @@
     [self setPlaceHolderPosition:self.descricaoProdOrcaField];
     [self setPlaceHolderPosition:self.precoProdOrcaField];
     
+    _nomeProdOrcaField.autocapitalizationType = UITextAutocapitalizationTypeWords;
+    _descricaoProdOrcaField.autocapitalizationType = UITextAutocapitalizationTypeSentences;
+    
     //botão direito
     UIImage *buttonImage = [[UIImage imageNamed:@"IconeOk.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     

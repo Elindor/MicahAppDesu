@@ -32,6 +32,8 @@
     UIView *spacerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, 10)];
     [self.obsOrcaTextField setLeftViewMode:UITextFieldViewModeAlways];
     [self.obsOrcaTextField setLeftView:spacerView];
+    
+    _obsOrcaTextField.autocapitalizationType = UITextAutocapitalizationTypeSentences;
 
     // Do any additional setup after loading the view.
 }

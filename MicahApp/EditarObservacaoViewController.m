@@ -35,6 +35,8 @@
     UIView *spaceView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, 10)];
     [self.observacaoTextField setLeftViewMode:UITextFieldViewModeAlways];
     [self.observacaoTextField setLeftView:spaceView];
+    
+    _observacaoTextField.autocapitalizationType = UITextAutocapitalizationTypeSentences;
 }
 
 - (void)didReceiveMemoryWarning {

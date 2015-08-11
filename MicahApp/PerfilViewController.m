@@ -48,6 +48,8 @@
         [self.logotipoOutlet setTitle:@" " forState:UIControlStateNormal];
         
     }
+    _nameField.autocapitalizationType = UITextAutocapitalizationTypeWords;
+    _addressField.autocapitalizationType = UITextAutocapitalizationTypeSentences;
 }
 
 
