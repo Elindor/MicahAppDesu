@@ -19,6 +19,13 @@
 @property (weak, nonatomic) IBOutlet UITextField *acrescimoPrecoTextField;
 @property (weak, nonatomic) IBOutlet UITextField *totalFinalTextField;
 
+@property (weak, nonatomic) IBOutlet UILabel *TotalLabel;
+@property (weak, nonatomic) IBOutlet UILabel *descontoPorcLabel;
+@property (weak, nonatomic) IBOutlet UILabel *descontoLabel;
+@property (weak, nonatomic) IBOutlet UILabel *acrescimoPorcLabel;
+@property (weak, nonatomic) IBOutlet UILabel *acrescimoLabel;
+@property (weak, nonatomic) IBOutlet UILabel *totalFinalLabel;
+
 @end
 
 @implementation ContentAdjustmentViewController
@@ -28,46 +35,20 @@
     
     [self refreshAppearanceContent];
     
-    self.totalTextField.layer.borderColor = [[UIColor lightGrayColor] CGColor];
-    self.descontoPorcentagemTextField.layer.borderColor = [[UIColor lightGrayColor] CGColor];
-    self.descontoPrecoTextfield.layer.borderColor = [[UIColor lightGrayColor] CGColor];
-    self.acrescimoPorcentagemTextField.layer.borderColor = [[UIColor lightGrayColor] CGColor];
-    self.acrescimoPrecoTextField.layer.borderColor = [[UIColor lightGrayColor] CGColor];
-    self.totalFinalTextField.layer.borderColor = [[UIColor lightGrayColor] CGColor];
     
-    
-    self.totalFinalTextField.layer.borderWidth = 1.0f;
-    self.totalTextField.layer.borderWidth = 1.0f;
-    self.descontoPrecoTextfield.layer.borderWidth = 1.0f;
-    self.descontoPorcentagemTextField.layer.borderWidth = 1.0f;
-    self.acrescimoPrecoTextField.layer.borderWidth = 1.0f;
-    self.acrescimoPorcentagemTextField.layer.borderWidth = 1.0f;
-    
-    
-    //self.totalTextField.text = [self.total stringValue];
-    
-//    self.descontoPorcentagemTextField.text = [self.descontoPorcentagem stringValue];
-//    self.descontoPrecoTextfield.text = [self.descontoPreco stringValue];
-//    self.acrescimoPorcentagemTextField.text = [self.acrescimoPorcentagem stringValue];
-//    self.acrescimoPrecoTextField.text = [self.acrescimoPreco stringValue];
-    //self.totalFinalTextField.text = [self.totalFinal stringValue];
-    
-    [self setPlaceHolderPosition:self.self.totalTextField];
-    [self setPlaceHolderPosition:self.self.totalFinalTextField];
-    [self setPlaceHolderPosition:self.self.descontoPrecoTextfield];
-    [self setPlaceHolderPosition:self.self.descontoPorcentagemTextField];
-    [self setPlaceHolderPosition:self.self.acrescimoPorcentagemTextField];
-    [self setPlaceHolderPosition:self.self.acrescimoPrecoTextField];
-
-    
-    
-    
-}
-
--(void)setPlaceHolderPosition: (UITextField *) textField{
-    UIView *spacerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, 10)];
-    [textField setLeftViewMode:UITextFieldViewModeAlways];
-    [textField setLeftView:spacerView];
+    self.TotalLabel.layer.borderColor = [[UIColor lightGrayColor] CGColor];
+    self.TotalLabel.layer.borderWidth = 1.0;
+    self.descontoPorcLabel.layer.borderColor = [[UIColor lightGrayColor] CGColor];
+    self.descontoPorcLabel.layer.borderWidth = 1.0;
+    self.descontoLabel.layer.borderColor = [[UIColor lightGrayColor] CGColor];
+    self.descontoLabel.layer.borderWidth = 1.0;
+    self.acrescimoPorcLabel.layer.borderColor = [[UIColor lightGrayColor] CGColor];
+    self.acrescimoPorcLabel.layer.borderWidth = 1.0;
+    self.acrescimoLabel.layer.borderColor = [[UIColor lightGrayColor] CGColor];
+    self.acrescimoLabel.layer.borderWidth = 1.0;
+    self.totalFinalLabel.layer.borderColor = [[UIColor lightGrayColor] CGColor];
+    self.totalFinalLabel.layer.borderWidth = 1.0;
+ 
 }
 
 
@@ -97,13 +78,6 @@
     
 }
 
-//- (float)calculaTotal{
-//
-//    
-//    
-//    return <#expression#>
-//    
-//}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
