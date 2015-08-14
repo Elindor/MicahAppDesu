@@ -36,6 +36,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self.navigationController.navigationBar.backItem setTitle:@""];
+
     [self setNavigationButtonImageRight];
     
     self.nomeProdutoField.layer.borderColor = [[UIColor lightGrayColor] CGColor];
@@ -58,12 +60,14 @@
 
 -(void)setNavigationButtonImageRight{
     
-    //botão esquerdo
+    //botão direito
     UIImage *menuImage = [[UIImage imageNamed:@"IconeOk.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     
     self.navigationItem.rightBarButtonItem.image = menuImage; //[UIImage imageNamed:@"IconeMais.png"];
     self.navigationItem.rightBarButtonItem.title = @"";
 }
+
+
 
 -(void)setPlaceHolderPosition: (UITextField *) textField{
     
