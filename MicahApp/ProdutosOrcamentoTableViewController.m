@@ -62,6 +62,11 @@
     //
     self.definesPresentationContext = YES;  // know where you want UISearchController to be displayed
     
+    
+    //permite ficar somente a seta de voltar no navigationButton
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"   "  style:UIBarButtonItemStylePlain target:nil action:nil];
+    self.navigationItem.backBarButtonItem = backButton;
+    
     [self.tableView reloadData];
 }
 

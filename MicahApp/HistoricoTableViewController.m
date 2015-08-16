@@ -50,15 +50,20 @@
     
     OrcamentoFinalizado *orca = [[SaveData sharedAppData].historicList objectAtIndex:indexPath.row];
     
-    UILabel *labelData = [[UILabel alloc] initWithFrame:CGRectMake(20, 20, 60, 20)];
+    UILabel *labelData = [[UILabel alloc] initWithFrame:CGRectMake(10, 20, 100, 20)];
     UIFont *fontData = labelData.font;
     labelData.font = [fontData fontWithSize:16];
     
-    UILabel *labelCliente = [[UILabel alloc] initWithFrame:CGRectMake(90, 20, tableView.frame.size.width - 100, 20)];
+    UILabel *labelCliente = [[UILabel alloc] initWithFrame:CGRectMake(120, 20, tableView.frame.size.width - 130, 20)];
     UIFont *fontCliente = labelCliente.font;
     labelCliente.font = [fontCliente fontWithSize:16];
     
     labelCliente.text = orca.nomeDoCliente;
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
+    dateFormatter.dateFormat = @"dd-MM-yyyy";
+    NSString *dateString = [dateFormatter stringFromDate: orca.dataEncerrada];
+    labelData.text = dateString;
     
     
 //    labelData.text = self.historicoClienteArray[indexPath]; // VER DA ONDE VIRA A DATA

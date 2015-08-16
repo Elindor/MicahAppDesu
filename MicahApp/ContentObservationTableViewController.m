@@ -21,6 +21,11 @@
     [super viewDidLoad];
     //self.tableView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0); // Altura correta
     
+    
+    //permite ficar somente a seta de voltar no navigationButton
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"   "  style:UIBarButtonItemStylePlain target:nil action:nil];
+    self.navigationItem.backBarButtonItem = backButton;
+    
     [SaveData sharedAppData];
     
     [self.tableView reloadData];
