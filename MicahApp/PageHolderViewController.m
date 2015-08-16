@@ -237,19 +237,27 @@
         }
         case 4:{
             NSLog(@"4");
-            [self generateRandomPDF];
-            SaveData *save = [SaveData sharedAppData];
-            OrcamentoFinalizado* newHistory = [[OrcamentoFinalizado alloc] init];
-            newHistory.nomeDoCliente = save.currentOrca.costumerName;
-            newHistory.dataEncerrada = [NSDate date];
-            newHistory.PDF = [self getPDFFileName];
             
-            [save.historicList addObject:newHistory];
-            //[save.unfinishedList removeObject:save.currentOrca];
-#warning uncomment above to delete at finish
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Você tem certeza disso?"
+                                                           message:@"Você não poderá modificá-lo após criar o PDF."
+                                                          delegate:self
+                                                 cancelButtonTitle:@"Não"
+                                                 otherButtonTitles:@"Sim",nil];
+            [alert show];
             
-
-            [self performSegueWithIdentifier:@"FromPageToPDF" sender:self];
+//            [self generateRandomPDF];
+//            SaveData *save = [SaveData sharedAppData];
+//            OrcamentoFinalizado* newHistory = [[OrcamentoFinalizado alloc] init];
+//            newHistory.nomeDoCliente = save.currentOrca.costumerName;
+//            newHistory.dataEncerrada = [NSDate date];
+//            newHistory.PDF = [self getPDFFileName];
+//            
+//            [save.historicList addObject:newHistory];
+//            //[save.unfinishedList removeObject:save.currentOrca];
+//#warning uncomment above to delete at finish
+//            
+//
+//            [self performSegueWithIdentifier:@"FromPageToPDF" sender:self];
             
             break;
         
@@ -258,6 +266,29 @@
             break;
     }
     
+}
+
+//função que decide o que ocorre segundo a resposta do UIAlertview
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == 0) {
+        NSLog(@"Cancel Tapped.");
+    }
+    else if (buttonIndex == 1) {
+        NSLog(@"OK Tapped. Hello World!");
+        [self generateRandomPDF];
+        SaveData *save = [SaveData sharedAppData];
+        OrcamentoFinalizado* newHistory = [[OrcamentoFinalizado alloc] init];
+        newHistory.nomeDoCliente = save.currentOrca.costumerName;
+        newHistory.dataEncerrada = [NSDate date];
+        newHistory.PDF = [self getPDFFileName];
+        
+        [save.historicList addObject:newHistory];
+        //[save.unfinishedList removeObject:save.currentOrca];
+#warning uncomment above to delete at finish
+        
+        
+        [self performSegueWithIdentifier:@"FromPageToPDF" sender:self];
+    }
 }
 
 
