@@ -34,6 +34,9 @@
     [self.observacaoOrcaTextField setLeftViewMode:UITextFieldViewModeAlways];
     [self.observacaoOrcaTextField setLeftView:spacerView];
     
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"   "  style:UIBarButtonItemStylePlain target:nil action:nil];
+    self.navigationItem.backBarButtonItem = backButton;
+    
     _observacaoOrcaTextField.autocapitalizationType = UITextAutocapitalizationTypeSentences;
 }
 

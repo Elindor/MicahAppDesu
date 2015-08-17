@@ -32,6 +32,7 @@
     _nomeTextField.autocapitalizationType = UITextAutocapitalizationTypeWords;
     _descricaoTextField.autocapitalizationType = UITextAutocapitalizationTypeSentences;
     
+    
 }
 
 -(void)setTextfield{
