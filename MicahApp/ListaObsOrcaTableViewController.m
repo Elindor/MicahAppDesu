@@ -25,6 +25,11 @@
     self.navigationItem.rightBarButtonItem.image = buttonImage; //[UIImage imageNamed:@"IconeMais.png"];
     self.navigationItem.rightBarButtonItem.title = @"";
     
+    
+    //permite ficar somente a seta de voltar no navigationButton
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"   "  style:UIBarButtonItemStylePlain target:nil action:nil];
+    self.navigationItem.backBarButtonItem = backButton;
+    
     [SaveData sharedAppData];
     
     [self.tableView reloadData];
