@@ -36,10 +36,14 @@
 
 -(void) viewWillAppear:(BOOL)animated{
 //    for(UITableViewCell *temp in [self.tableView visibleCells]){
-//        [temp removeFromSuperview];
-//        [temp d]
+//        for (UIView *view in [temp.contentView subviews]){
+//            [view removeFromSuperview];
+//        }
 //    }
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadData:) name:@"ReloadTableView" object:nil];
+    NSRange range = NSMakeRange(0, [self numberOfSectionsInTableView:self.tableView]);
+    NSIndexSet *section = [NSIndexSet indexSetWithIndexesInRange:range];
+    [self.tableView reloadSections:section withRowAnimation:UITableViewRowAnimationNone];
     
 }
 
@@ -85,7 +89,6 @@
     UIFont *fontQuantidade = labelQuantidade.font;
     labelQuantidade.font = [fontQuantidade fontWithSize:16];
     
-    
     UILabel *labelNome;
     
     //configura as cells caso seja a última coloca como o total
@@ -99,6 +102,7 @@
         NSString *stringPreco = [NSString stringWithFormat:@"%.2f", self.totalPedido]; // transforma o NSNumber em string
         labelPreco.text = stringPreco;
         [SaveData sharedAppData].currentOrca.finalValue = [NSNumber numberWithFloat: self.totalPedido];
+        self.totalPedido = 0;
 
     }
 
