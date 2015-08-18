@@ -28,7 +28,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"   "  style:UIBarButtonItemStylePlain target:nil action:nil];
+    self.navigationItem.backBarButtonItem = backButton;
+
 
     if(![SaveData sharedAppData].currentOrca){
         SaveData *save = [SaveData sharedAppData];
