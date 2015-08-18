@@ -286,6 +286,7 @@
         
         [save.historicList addObject:newHistory];
         //[save.unfinishedList removeObject:save.currentOrca];
+        [save save];
 #warning uncomment above to delete at finish
         
         
